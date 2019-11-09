@@ -9,5 +9,5 @@
 
 ### Activities:
 * Mockup review with the team. Details [here](https://github.com/h01d/Hermes/tree/master/Meetings/Day%203/Mockups)
-* ER review with the team. Details [here](https://github.com/h01d/Hermes/tree/master/Meetings/Day%203/Database)
+* ER review with the team. Details [here](https://github.com/h01d/Hermes/tree/master/Meetings/Day%203/ER%20diagrams)
 * Discussion and ideas about future steps
