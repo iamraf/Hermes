@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using Hermes.View;
+using System.Windows.Forms;
 
 namespace Hermes
 {
@@ -7,6 +8,13 @@ namespace Hermes
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, System.EventArgs e)
+        {
+            DemoForm form = new DemoForm();
+            form.TopMost = true;
+            form.Show();
         }
     }
 }
