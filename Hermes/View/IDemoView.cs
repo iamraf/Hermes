@@ -9,5 +9,7 @@ namespace Hermes.View
     public interface IDemoView
     {
         string LabelText { set; get; }
+
+        string ErrorDialog { set; }
     }
 }

@@ -17,13 +17,27 @@ namespace Hermes.View
 
         public string LabelText
         {
-            get { return label1.Text; }
-            set { label1.Text = value; }
+            get
+            { 
+                return label1.Text; 
+            }
+            set
+            { 
+                label1.Text = value;
+            }
+        }
+
+        public string ErrorDialog 
+        { 
+            set
+            {
+                MessageBox.Show(value, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Presenter.SetLabelText(textBox1.Text);
+            Presenter.LoadName();
         }
     }
 }
