@@ -52,7 +52,7 @@
             this.panelNavBar.Controls.Add(this.btnSellPage);
             this.panelNavBar.Controls.Add(this.btnBuyPage);
             this.panelNavBar.Controls.Add(this.btnHome);
-            this.panelNavBar.Location = new System.Drawing.Point(1, 1);
+            this.panelNavBar.Location = new System.Drawing.Point(0, 0);
             this.panelNavBar.Margin = new System.Windows.Forms.Padding(1);
             this.panelNavBar.Name = "panelNavBar";
             this.panelNavBar.Size = new System.Drawing.Size(1263, 80);
@@ -134,17 +134,17 @@
             // 
             // txtboxUsername
             // 
-            this.txtboxUsername.Location = new System.Drawing.Point(572, 208);
+            this.txtboxUsername.Location = new System.Drawing.Point(552, 208);
             this.txtboxUsername.Name = "txtboxUsername";
-            this.txtboxUsername.Size = new System.Drawing.Size(120, 20);
+            this.txtboxUsername.Size = new System.Drawing.Size(160, 20);
             this.txtboxUsername.TabIndex = 4;
             this.txtboxUsername.Text = "Username...";
             // 
             // txtboxPassword
             // 
-            this.txtboxPassword.Location = new System.Drawing.Point(572, 243);
+            this.txtboxPassword.Location = new System.Drawing.Point(552, 243);
             this.txtboxPassword.Name = "txtboxPassword";
-            this.txtboxPassword.Size = new System.Drawing.Size(120, 20);
+            this.txtboxPassword.Size = new System.Drawing.Size(160, 20);
             this.txtboxPassword.TabIndex = 5;
             this.txtboxPassword.Text = "Password...";
             // 
