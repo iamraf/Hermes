@@ -14,7 +14,7 @@
 * Technologies that will be used:
   * .NET framework
   * SQL (MySQL or SQLite)
-  * MVP design pattern
+  * MVP architecture pattern
   * Photoshop or Illustrator
 
 ### Activities:
