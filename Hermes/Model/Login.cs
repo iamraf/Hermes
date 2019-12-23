@@ -9,9 +9,7 @@ namespace Hermes.Model
     class Login
     {
         private MySqlConnection _connection;
-        private string _username;
-        private string _password;
-        public Login() 
+        public Login()
         {
             string connectionString = "SERVER=remotemysql.com;DATABASE=4G6ccccjnC;UID=4G6ccccjnC;PASSWORD=l0YkuReQwW;";
             _connection = new MySqlConnection(connectionString);
@@ -46,11 +44,11 @@ namespace Hermes.Model
             }
         }
 
-        public string LoadName()
+        public string UserExist(string _username, string _password)
         {
             if (this.OpenConnection() == true)
             {
-                string query = "SELECT count(*) FROM User_Data WHERE username = '"+_username+"'  and password = '"+ _password+"'" ;
+                string query = "SELECT count(*) AS Exist FROM User_Data WHERE username = '"+_username+"'  and password = '"+ _password+"'" ;
                 string result = null;
 
                 MySqlCommand cmd = new MySqlCommand(query, _connection);
