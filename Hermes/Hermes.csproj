@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Login.cs" />
     <Compile Include="Model\Repository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -65,7 +66,25 @@
     <Compile Include="View\DemoView.Designer.cs">
       <DependentUpon>DemoView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Homepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Homepage.Designer.cs">
+      <DependentUpon>Homepage.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\IDemoView.cs" />
+    <Compile Include="View\Loginpage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Loginpage.Designer.cs">
+      <DependentUpon>Loginpage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegisterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RegisterPage.Designer.cs">
+      <DependentUpon>RegisterPage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +99,15 @@
     </Compile>
     <EmbeddedResource Include="View\DemoView.resx">
       <DependentUpon>DemoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Homepage.resx">
+      <DependentUpon>Homepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Loginpage.resx">
+      <DependentUpon>Loginpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RegisterPage.resx">
+      <DependentUpon>RegisterPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
