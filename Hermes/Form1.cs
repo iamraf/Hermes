@@ -12,8 +12,9 @@ namespace Hermes
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            DemoForm form = new DemoForm();
-            form.TopMost = true;
+            //DemoForm form = new DemoForm();
+            Loginpage form = new Loginpage();
+            //form.TopMost = true;
             form.Show();
         }
     }
