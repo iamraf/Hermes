@@ -57,6 +57,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presenter\LoginPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Presenter\DemoPresenter.cs" />
@@ -73,6 +74,7 @@
       <DependentUpon>Homepage.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IDemoView.cs" />
+    <Compile Include="View\ILoginpage.cs" />
     <Compile Include="View\Loginpage.cs">
       <SubType>Form</SubType>
     </Compile>
