@@ -1,0 +1,16 @@
+C:\Users\Bilkon\source\repos\WPF\Hermes\bin\Debug\Hermes.exe.config
+C:\Users\Bilkon\source\repos\WPF\Hermes\bin\Debug\Hermes.exe
+C:\Users\Bilkon\source\repos\WPF\Hermes\bin\Debug\Hermes.pdb
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\Hermes.csprojAssemblyReference.cache
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\View\ListingsWindow.g.cs
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\View\TopPage.g.cs
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\App.g.cs
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\Hermes_MarkupCompile.cache
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\Hermes_MarkupCompile.lref
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\View\ListingsWindow.baml
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\View\TopPage.baml
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\Hermes.g.resources
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\Hermes.Properties.Resources.resources
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\Hermes.csproj.GenerateResource.cache
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\Hermes.exe
+C:\Users\Bilkon\source\repos\WPF\Hermes\obj\Debug\Hermes.pdb
