@@ -43,7 +43,8 @@ namespace Hermes.View
 
         private void btnRegisterPage_Click(object sender, EventArgs e)
         {
-
+            RegisterPage form = new RegisterPage();
+            form.Show();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
