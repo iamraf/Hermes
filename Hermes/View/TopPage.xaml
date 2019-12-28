@@ -13,13 +13,13 @@
             <GradientStop Color="#FF3AA27C" Offset="1"/>
         </RadialGradientBrush>
     </Page.Background>
-    <Canvas Margin="0" Background="#FF05668D">
-        <Button Content="Logo (HomeWindow)" Width="195" Height="70" Canvas.Left="5" Canvas.Top="5" Background="White"/>
-        <Button Content="Buy (ListingsWindow)" Canvas.Left="200" Canvas.Top="10" Width="120" Height="60" Background="White" Margin="10,0"/>
-        <Button Content="Sell (UploadWindow)" Canvas.Left="340" Canvas.Top="10" Width="120" Height="60" Background="White" Margin="0,0,30,0"/>
-        <TextBox Height="30" TextWrapping="Wrap" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="460" Canvas.Top="25" Margin="25,0,0,0"/>
-        <Button Content="Log in" Canvas.Left="1189" Canvas.Top="25" Width="75" Height="30" Background="White"/>
-        <Button Content="Settings" Canvas.Left="1129" Width="60" Height="30" Canvas.Top="25" Margin="-10,0,10,0" Background="White"/>
-        <Button Content="Search" Canvas.Left="820" Canvas.Top="25" Width="50" Height="30" Margin="25,0,0,0" Background="White"/>
+    <Canvas Margin="0" Background="#FF05558D">
+        <Button Content="Logo (HomePage)" Width="195" Height="70" Canvas.Left="5" Canvas.Top="5" Background="White"/>
+        <Button Content="Buy (ListingsPage)" Canvas.Left="200" Canvas.Top="10" Width="120" Height="60" Background="White" Margin="10,0" BorderThickness="2,2,3,3" BorderBrush="#FFAEABAB"/>
+        <Button Content="Sell (UploadPage)" Canvas.Left="340" Canvas.Top="10" Width="120" Height="60" Background="White" Margin="0,0,30,0" BorderThickness="2,2,3,3" BorderBrush="#FFAEABAB"/>
+        <TextBox Height="30" TextWrapping="Wrap" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="460" Canvas.Top="25" Margin="20,0,0,0"/>
+        <Button Content="Log in" Canvas.Left="1181" Canvas.Top="25" Width="75" Height="30" Background="White" BorderThickness="1,1,2,2" BorderBrush="#FFAEABAB"/>
+        <Button Content="Settings" Canvas.Left="1111" Width="60" Height="30" Canvas.Top="25" Background="White" BorderThickness="1,1,2,2" BorderBrush="#FFAEABAB"/>
+        <Button Content="Search" Canvas.Left="820" Canvas.Top="25" Width="50" Height="30" Margin="20,0,0,0" Background="White" BorderBrush="#FFAEABAB" BorderThickness="1,1,2,2"/>
     </Canvas>
 </Page>

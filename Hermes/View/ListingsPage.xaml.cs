@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Hermes.View
 {
     /// <summary>
-    /// Interaction logic for TopPage.xaml
+    /// Interaction logic for ListingsPage.xaml
     /// </summary>
-    public partial class TopPage : Page
+    public partial class ListingsPage : Page
     {
-        public TopPage()
+        public ListingsPage()
         {
             InitializeComponent();
         }
