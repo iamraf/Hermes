@@ -1,10 +1,4 @@
-﻿using Hermes.Model.Models;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
 
 namespace Hermes.Model
 {
@@ -14,7 +8,7 @@ namespace Hermes.Model
 
         public Repository()
         {
-            string connectionString = "SERVER=remotemysql.com;DATABASE=4G6ccccjnC;UID=4G6ccccjnC;PASSWORD=l0YkuReQwW;";
+            string connectionString = "SERVER=remotemysql.com;DATABASE=VaswDXa8SR;UID=VaswDXa8SR;PASSWORD=sTnFsjGaOs;";
 
             _connection = new MySqlConnection(connectionString);
         }
@@ -27,7 +21,7 @@ namespace Hermes.Model
 
                 return true;
             }
-            catch (MySqlException)
+            catch(MySqlException)
             {
                 return false;
             }
@@ -41,33 +35,32 @@ namespace Hermes.Model
 
                 return true;
             }
-            catch (MySqlException)
+            catch(MySqlException)
             {
                 return false;
             }
         }
 
-        public List<User> GetUsers()
+        public string LoadName()
         {
-            if (this.OpenConnection() == true)
+            if(this.OpenConnection() == true)
             {
-                string query = "SELECT * FROM User_Data";
+                string query = "SELECT * FROM Test WHERE id = 1";
+                string result = null;
 
                 MySqlCommand cmd = new MySqlCommand(query, _connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                List<User> users = new List<User>();
-
                 while(dataReader.Read())
                 {
-                    users.Add(new User(dataReader.GetInt32("userID"), dataReader.GetString("username"), dataReader.GetString("password"), dataReader.GetString("name"), dataReader.GetString("surname"), dataReader.GetString("address"), dataReader.GetString("email"), dataReader.GetInt32("telephone")));
+                    result = dataReader["name"] + "";
                 }
 
                 dataReader.Close();
 
                 this.CloseConnection();
 
-                return users;
+                return result;
             }
             else
             {
