@@ -32,8 +32,8 @@
         <Image x:Name="imgHomeRecommended5" Height="100" Margin="204,190,205,0" Width="100" Grid.Column="2" VerticalAlignment="Top"/>
         <Image x:Name="imgHomeRecommended6" Height="100" Margin="324,190,85,0" Width="100" Grid.Column="2" VerticalAlignment="Top"/>
         <Label x:Name="lblHomePage3" Content="Recently Seen" Margin="47,22,47,192" Width="160" HorizontalContentAlignment="Center" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <Button x:Name="btnAllCategories" Content="All Categories" Margin="194,305,195,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" Background="White" BorderBrush="#FF00A896" BorderThickness="1,1,3,3"/>
-        <Button x:Name="btnAllCategories_Copy" Content="View All" Margin="195,305,194,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" Grid.Column="2" BorderBrush="#FF00A896" BorderThickness="1,1,3,3" Background="White"/>
+        <Button x:Name="btnAllCategories" Content="All Categories" Margin="194,305,195,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" Background="White" BorderBrush="#FF47A7EA" BorderThickness="1,1,3,3"/>
+        <Button x:Name="btnAllCategories_Copy" Content="View All" Margin="195,305,194,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" Grid.Column="2" BorderBrush="#FF47A7EA" BorderThickness="1,1,3,3" Background="White"/>
         <Image x:Name="imgHomeRecent3" Grid.Column="1" Height="100" Margin="16,70,138,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
         <Image x:Name="imgHomeRecent4" Grid.Column="1" Height="100" Margin="137,70,17,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
         <Image Grid.Column="2" Height="100" Margin="8,70,401,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
