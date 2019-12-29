@@ -13,13 +13,20 @@
             <GradientStop Color="#FF3AA27C" Offset="1"/>
         </RadialGradientBrush>
     </Page.Background>
-    <Canvas Margin="0" Background="#FF05558D">
-        <Button Content="Logo (HomePage)" Width="195" Height="70" Canvas.Left="5" Canvas.Top="5" Background="White"/>
-        <Button Content="Buy (ListingsPage)" Canvas.Left="200" Canvas.Top="10" Width="120" Height="60" Background="White" Margin="10,0" BorderThickness="2,2,3,3" BorderBrush="#FFAEABAB"/>
-        <Button Content="Sell (UploadPage)" Canvas.Left="340" Canvas.Top="10" Width="120" Height="60" Background="White" Margin="0,0,30,0" BorderThickness="2,2,3,3" BorderBrush="#FFAEABAB"/>
-        <TextBox Height="30" TextWrapping="Wrap" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="460" Canvas.Top="25" Margin="20,0,0,0"/>
-        <Button Content="Log in" Canvas.Left="1181" Canvas.Top="25" Width="75" Height="30" Background="White" BorderThickness="1,1,2,2" BorderBrush="#FFAEABAB"/>
-        <Button Content="Settings" Canvas.Left="1111" Width="60" Height="30" Canvas.Top="25" Background="White" BorderThickness="1,1,2,2" BorderBrush="#FFAEABAB"/>
-        <Button Content="Search" Canvas.Left="820" Canvas.Top="25" Width="50" Height="30" Margin="20,0,0,0" Background="White" BorderBrush="#FFAEABAB" BorderThickness="1,1,2,2"/>
+    <Canvas Margin="0" Background="#FF06558D">
+        <Button Content="Logo" Width="195" Height="70" Canvas.Left="5" Canvas.Top="5" Background="#FF47A7EA" BorderBrush="{x:Null}" BorderThickness="2" Foreground="#FF99D5FF"/>
+        <Button Content="Buy" Canvas.Left="200" Canvas.Top="10" Width="120" Height="60" Background="{x:Null}" Margin="10,0" BorderThickness="0,0,0,5" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" FontSize="24" FontFamily="Segoe UI Light"/>
+        <Button Content="Upload" Canvas.Left="340" Canvas.Top="10" Width="120" Height="60" Background="{x:Null}" Margin="0,0,30,0" BorderThickness="0,0,0,5" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" FontFamily="Segoe UI Light" FontSize="24"/>
+        <TextBox Height="30" TextWrapping="Wrap" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="460" Canvas.Top="25" Margin="20,0,0,0" Foreground="#FFECECEC" BorderBrush="{x:Null}" VerticalContentAlignment="Bottom" FontSize="14" Text="&#xD;&#xA;">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF47A7EA" Offset="1"/>
+                    <GradientStop Color="#0C13639C" Offset="0.178"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <Button Content="Log in" Canvas.Left="1181" Canvas.Top="25" Width="75" Height="30" Background="{x:Null}" BorderThickness="0,0,0,3" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA"/>
+        <Button Content="Settings" Canvas.Left="1111" Width="60" Height="30" Canvas.Top="25" Background="{x:Null}" BorderThickness="0,0,0,3" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA"/>
+        <Button Content="Search" Canvas.Left="820" Canvas.Top="25" Width="50" Height="30" Margin="20,0,0,0" Background="{x:Null}" BorderBrush="#FF47A7EA" BorderThickness="0,0,0,3" Foreground="#FF47A7EA"/>
     </Canvas>
 </Page>
