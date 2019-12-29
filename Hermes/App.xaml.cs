@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-
+using Hermes.View;
 namespace Hermes
 {
     /// <summary>
@@ -17,6 +17,7 @@ namespace Hermes
     {
         public App()
         {
+
             List<User> list = new Repository().GetUsers();
 
             foreach(User user in list)
