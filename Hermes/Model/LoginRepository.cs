@@ -10,7 +10,7 @@ namespace Hermes.Model
 {
     class LoginRepository
     {
-        private MySqlConnection _connection;
+        private readonly MySqlConnection _connection;
         public LoginRepository()
         {
             string connectionString = "SERVER=remotemysql.com;DATABASE=4G6ccccjnC;UID=4G6ccccjnC;PASSWORD=l0YkuReQwW;";
@@ -46,61 +46,60 @@ namespace Hermes.Model
             }
         }
 
-        public string UserExist(string _username, string _password)
+        public bool UserExist(string username)
         {
-            if (this.OpenConnection() == true)
+            if(this.OpenConnection() == true)
             {
-                string query = "SELECT count(*) AS Exist FROM User_Data WHERE username = '"+_username+"'  and password = '"+ _password+"'" ;
-                string result = null;
+                string query = "SELECT * FROM User_Data WHERE username = '" + username + "'" ;
+
+                bool exists = false;
 
                 MySqlCommand cmd = new MySqlCommand(query, _connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                while (dataReader.Read())
+                if(dataReader.HasRows)
                 {
-                    result = dataReader["Exist"] + "";
+                    exists = true;
                 }
 
                 dataReader.Close();
 
                 this.CloseConnection();
 
-                return result;
+                return exists;
             }
             else
             {
-                return null;
+                return false;
             }
         }
 
-        public User GetUserData(string _username)
+        public User LoginUser(string username, string password)
         {
-            User LoggedInUser=null;
-
             if (this.OpenConnection() == true)
             {
-                string query = "SELECT * FROM User_Data WHERE username = '" + _username +"'";
+                User user = null;
+
+                string query = "SELECT * FROM User_Data WHERE username = '" + username + "' and password = '" + password + "'";
 
                 MySqlCommand cmd = new MySqlCommand(query, _connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                while (dataReader.Read())
+                while(dataReader.Read())
                 {
-                    LoggedInUser = new User(dataReader.GetInt32("userID"), dataReader.GetString("username"), dataReader.GetString("password"), dataReader.GetString("name"), dataReader.GetString("surname"), dataReader.GetString("address"), dataReader.GetString("email"), dataReader.GetInt32("telephone"));
+                    user = new User(dataReader.GetInt32("userID"), dataReader.GetString("username"), dataReader.GetString("password"), dataReader.GetString("name"), dataReader.GetString("surname"), dataReader.GetString("address"), dataReader.GetString("email"), dataReader.GetInt32("telephone"));
                 }
 
                 dataReader.Close();
 
                 this.CloseConnection();
 
-                return LoggedInUser;
+                return user;
             }
             else
             {
                 return null;
             }
-
         }
-
     }
 }
