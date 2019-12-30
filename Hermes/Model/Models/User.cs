@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hermes.Model.Models
 {
-    class User
+    public class User
     {
         public int Id { get; }
         public string Username { get; }
