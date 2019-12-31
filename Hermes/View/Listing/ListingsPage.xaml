@@ -43,10 +43,12 @@
                 <ColumnDefinition MinWidth="400" Width="5*"/>
                 <ColumnDefinition MinWidth="400" Width="4*"/>
             </Grid.ColumnDefinitions>
-            <ListView x:Name="listviewListings" Margin="0">
+            <ListView x:Name="listviewListings" Margin="0" SelectionChanged="listviewListings_SelectionChanged_1">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn/>
+                        <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Id}" />
+                        <GridViewColumn Header="Namge" Width="50" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Description" Width="150" DisplayMemberBinding="{Binding Description}" />
                     </GridView>
                 </ListView.View>
             </ListView>

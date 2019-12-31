@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hermes.Model;
+using Hermes.Model.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +23,12 @@ namespace Hermes.View
         {
             InitializeComponent();
 
-            listviewListings.ItemsSource = new Model.Repository().GetListings();
+            listviewListings.ItemsSource = new Repository().GetListings();
         }
 
-        private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listviewListings_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            Model.Models.Listing listing = (Model.Models.Listing)listviewListings.SelectedItem;
+            Listing listing = (Listing)listviewListings.SelectedItem;
 
             lblListingSelectedTitle.Content = listing.Name;
             tbListingSelectedDescription.Text = listing.Description;
