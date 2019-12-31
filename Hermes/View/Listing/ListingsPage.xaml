@@ -39,12 +39,11 @@
         </Canvas>
         <Grid x:Name="gridListings" Width="1074" Background="#FFEEEEEE" Height="603" Canvas.Left="152" Canvas.Top="-34">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MinWidth="400" Width="179*"/>
-                <ColumnDefinition MinWidth="400" Width="36*"/>
-                <ColumnDefinition Width="143*"/>
+                <ColumnDefinition MinWidth="400" Width="5*"/>
+                <ColumnDefinition Width="4*" MinWidth="200"/>
             </Grid.ColumnDefinitions>
 
-            <ListView x:Name="listviewListings" Margin="0,0,108,0" ItemsSource="{Binding Listing}" SelectionChanged="listviewListings_SelectionChanged" Grid.ColumnSpan="2">
+            <ListView x:Name="listviewListings" ItemsSource="{Binding Listing}" SelectionChanged="listviewListings_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Id" Width="120" DisplayMemberBinding="{Binding Id}" />
@@ -53,15 +52,15 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Image x:Name="imgListingsSelected" Grid.Column="1" HorizontalAlignment="Left" Height="120" Margin="30.2,30,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
+            <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="1" Margin="145,30,20,534" FontSize="20" FontWeight="Bold" Height="39" Width="312"/>
+            <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="1" Margin="145,74,172,500"/>
+            <Label x:Name="lblListingSelectedContactInfo" Content="Listing Contact Info here&#xA;more contact info " Grid.Column="1" Margin="145,103,20,458" Width="312"/>
+            <Image x:Name="imgListingsSelected" Grid.Column="1" HorizontalAlignment="Left" Height="120" Margin="20,30,0,0" VerticalAlignment="Top" Width="120">
                 <Image.Effect>
                     <DropShadowEffect/>
                 </Image.Effect>
             </Image>
-            <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="2" HorizontalAlignment="Left" Margin="56,30,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="39" Width="343"/>
-            <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="2" HorizontalAlignment="Left" Margin="56,74,0,0" VerticalAlignment="Top" Width="186"/>
-            <Label x:Name="lblListingSelectedContactInfo" Content="Listing Contact Info here&#xA;more contact info " Grid.Column="2" HorizontalAlignment="Left" Margin="56,105,0,0" VerticalAlignment="Top" Width="186"/>
-            <Label x:Name="lblListingSelectedDescription" Content="Listing description.&#xA;" Grid.Column="1" HorizontalAlignment="Left" Margin="30.2,180,0,0" VerticalAlignment="Top" Height="393" Width="477" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="1" Margin="20,180,20,229" TextWrapping="Wrap" Height="224" Width="437"><Run Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec adipiscing"/><LineBreak/><Run Text="nulla quis libero egestas lobortis. Duis blandit imperdiet ornare. Nulla"/><LineBreak/><Run Text="ac arcu ut purus placerat congue. Integer pretium fermentum gravida."/></TextBlock>
         </Grid>
         <Frame Content="Frame" Height="603" VerticalAlignment="Top" Width="0" Canvas.Left="1226" Canvas.Top="-34"/>
     </Canvas>

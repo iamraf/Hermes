@@ -31,7 +31,7 @@ namespace Hermes.View
             Listing listing = (Listing)listviewListings.SelectedItem;
 
             lblListingSelectedTitle.Content = listing.Name;
-            lblListingSelectedDescription.Content = listing.Description;
+            tbListingSelectedDescription.Text = listing.Description;
         }
     }
 }
