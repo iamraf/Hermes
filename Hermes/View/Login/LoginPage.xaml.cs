@@ -53,9 +53,6 @@ namespace Hermes.View
             set
             {
                 this.NavigationService.Navigate(new ListingsPage());
-
-
-                Console.WriteLine(value.Name);
             }
         }
 

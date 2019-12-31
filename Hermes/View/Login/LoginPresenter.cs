@@ -38,6 +38,3 @@ namespace Hermes.View
         }
     }
  }
-
-    
-
