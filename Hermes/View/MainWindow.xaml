@@ -12,6 +12,6 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Frame x:Name="frameMainTop" Content="Frame" Height="80" Margin="0" Grid.RowSpan="2" VerticalAlignment="Top" Source="/Hermes;component/View/TopPage.xaml"/>
-        <Frame x:Name="frameMainBot" Content="Frame" Margin="0" Grid.Row="1" Source="/Hermes;component/View/HomePage.xaml"/>
+        <Frame x:Name="frameMainBot" Content="Frame" Margin="0" Grid.Row="1" Source="/Hermes;component/View/ProfilePage.xaml"/>
     </Grid>
 </Window>

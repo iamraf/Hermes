@@ -15,21 +15,24 @@ using System.Windows.Shapes;
 
 namespace Hermes.View
 {
-    public partial class ListingsPage : Page
+    /// <summary>
+    /// Interaction logic for UploadPage.xaml
+    /// </summary>
+    public partial class UploadPage : Page
     {
-        public ListingsPage()
+        public UploadPage()
         {
             InitializeComponent();
-
-            listviewListings.ItemsSource = new Repository().GetListings();
         }
 
-        private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            Listing listing = (Listing)listviewListings.SelectedItem;
+            //
+        }
 
-            lblListingSelectedTitle.Content = listing.Name;
-            tbListingSelectedDescription.Text = listing.Description;
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //
         }
     }
 }

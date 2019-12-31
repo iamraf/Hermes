@@ -9,21 +9,20 @@
       Title="RegisterPage" Width="1272" Height="609">
 
     <Grid>
-        <Canvas Margin="0" Background="#FFF3F3F3" Width="1272" Height="609">
-            <Label x:Name="lblRegisterPage1" Content="Log in Credentials" Canvas.Left="233" Canvas.Top="82" Width="780" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="-20,0,0,0"/>
-            <TextBox x:Name="txtboxRegisterUsername2" Height="24" Canvas.Left="543" TextWrapping="Wrap" Text="Username..." Canvas.Top="112" Width="160" Margin="-20,0,0,0"/>
-            <TextBox x:Name="txtboxRegisterPassword5" Height="22" Canvas.Left="543" TextWrapping="Wrap" Text="Password..." Canvas.Top="148" Width="160" Margin="-20,0,0,0"/>
-            <TextBox x:Name="txtboxRegisterPassword6" Height="22" Canvas.Left="543" TextWrapping="Wrap" Text="Re-enter password..." Canvas.Top="176" Width="160" Margin="-20,0,0,0"/>
-            <Label x:Name="lblRegisterPage2" Content="Personal Information" Canvas.Left="233" Canvas.Top="216" Width="780" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="-20,0,0,0"/>
-            <TextBox x:Name="txtboxRegisterEmail" Height="24" Canvas.Left="545" TextWrapping="Wrap" Text="Email..." Canvas.Top="244" Width="160" Margin="-20,0,0,0"/>
-            <TextBox x:Name="txtboxRegisterName" Height="24" Canvas.Left="545" TextWrapping="Wrap" Text="Name..." Canvas.Top="272" Width="160" Margin="-20,0,0,0"/>
-            <TextBox x:Name="txtboxRegisterSurname" Height="24" Canvas.Left="545" TextWrapping="Wrap" Text="Surname..." Canvas.Top="300" Width="160" Margin="-20,0,0,0"/>
-            <TextBox x:Name="txtboxRegisterPhone" Height="24" Canvas.Left="545" TextWrapping="Wrap" Text="Phone number..." Canvas.Top="328" Width="160" Margin="-20,0,0,0"/>
-            <TextBox x:Name="txtboxRegisterLocation" Height="24" Canvas.Left="545" TextWrapping="Wrap" Text="Location..." Canvas.Top="356" Width="160" Margin="-20,0,0,0"/>
-            <TextBox x:Name="txtboxRegisterAddress" Height="24" Canvas.Left="545" TextWrapping="Wrap" Text="Address..." Canvas.Top="384" Width="160" Margin="-20,0,0,0"/>
-            <Button x:Name="btnRegister" Content="Register" Canvas.Left="565" Canvas.Top="420" Width="120" Height="30" Margin="-20,0,0,0" Background="White" BorderBrush="#FF1CBFA2" BorderThickness="1,1,3,3"/>
-            <Label Content="Create an account" Canvas.Left="523" Canvas.Top="56" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,-10,0,0"/>
-        </Canvas>
+        <Grid Margin="0" Background="#FFF3F3F3" Width="1272" Height="609">
+            <Label x:Name="lblRegisterPage1" Content="Log in Credentials" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="513,82,512,501"/>
+            <TextBox x:Name="txtboxRegisterUsername2" TextWrapping="Wrap" Text="Username..." Margin="556,112,556,473"/>
+            <TextBox x:Name="txtboxRegisterPassword5" TextWrapping="Wrap" Text="Password..." Margin="554,148,558,439"/>
+            <TextBox x:Name="txtboxRegisterPassword6" TextWrapping="Wrap" Text="Re-enter password..." Margin="554,176,558,411"/>
+            <Label x:Name="lblRegisterPage2" Content="Personal Information" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="513,216,512,367"/>
+            <TextBox x:Name="txtboxRegisterEmail" TextWrapping="Wrap" Text="Email..." Margin="556,244,556,341"/>
+            <TextBox x:Name="txtboxRegisterName" TextWrapping="Wrap" Text="Name..." Margin="556,272,556,313"/>
+            <TextBox x:Name="txtboxRegisterSurname" TextWrapping="Wrap" Text="Surname..." Margin="556,300,556,285"/>
+            <TextBox x:Name="txtboxRegisterPhone" TextWrapping="Wrap" Text="Phone number..." Margin="556,328,556,257"/>
+            <TextBox x:Name="txtboxRegisterAddress" TextWrapping="Wrap" Text="Address..." Margin="556,357,556,228"/>
+            <Button x:Name="btnRegister" Content="Register" Background="White" BorderBrush="#FF1CBFA2" BorderThickness="1,1,3,3" Margin="576,401,576,178"/>
+            <Label Content="Create an account" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="556,46,556,537"/>
+        </Grid>
 
     </Grid>
 </Page>
