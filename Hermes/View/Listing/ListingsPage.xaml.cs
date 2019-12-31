@@ -15,14 +15,21 @@ using System.Windows.Shapes;
 
 namespace Hermes.View
 {
-    /// <summary>
-    /// Interaction logic for ListingsPage.xaml
-    /// </summary>
     public partial class ListingsPage : Page
     {
         public ListingsPage()
         {
             InitializeComponent();
+
+            listviewListings.ItemsSource = new Model.Repository().GetListings();
+        }
+
+        private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Model.Models.Listing listing = (Model.Models.Listing)listviewListings.SelectedItem;
+
+            lblListingSelectedTitle.Content = listing.Name;
+            tbListingSelectedDescription.Text = listing.Description;
         }
     }
 }

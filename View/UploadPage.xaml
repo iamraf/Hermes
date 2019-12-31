@@ -1,0 +1,27 @@
+﻿<Page x:Class="Hermes.View.UploadPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hermes.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UploadPage" Width="1272" Height="609" Background="#FFF3F3F3">
+    <Grid Margin="0">
+        <TextBox x:Name="txtboxUploadTitle" Height="30" Margin="456,90,456,489" TextWrapping="Wrap" Text="Title..." VerticalContentAlignment="Center" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="txtboxUploadPrice" Height="30" Margin="456,140,716,439" TextWrapping="Wrap" Text="Price..." VerticalContentAlignment="Center"/>
+        <Label x:Name="lblUpload1" Content="What do you want to upload?" Margin="456,30,456,549" Width="360" HorizontalContentAlignment="Center" Height="30"/>
+        <TextBox x:Name="txtboxUploadLocation" Height="30" Margin="456,190,536,389" TextWrapping="Wrap" Text="What is your location?" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtboxUploadDescription" HorizontalAlignment="Left" Height="160" Margin="456,240,0,0" TextWrapping="Wrap" Text="Describe your listing... (Optional)" VerticalAlignment="Top" Width="360"/>
+        <Label x:Name="lblUpload2" Content="Select a category" Margin="456,400,646,179" Width="170" HorizontalContentAlignment="Center" Height="30" VerticalContentAlignment="Bottom"/>
+        <Label x:Name="lblUpload3" Content="Select a subcategory" Margin="646,400,456,179" Width="170" HorizontalContentAlignment="Center" Height="30" VerticalContentAlignment="Bottom"/>
+        <ComboBox x:Name="comboxUploadCategory" HorizontalAlignment="Left" Margin="456,430,0,0" VerticalAlignment="Top" Width="170" Height="30"/>
+        <ComboBox x:Name="comboxUploadSubcategory" HorizontalAlignment="Left" Margin="646,430,0,0" VerticalAlignment="Top" Width="170" Height="30"/>
+        <Button x:Name="btnUploadImage" Content="Add an image to your listing" Margin="636,140,456,439"/>
+        <RadioButton x:Name="radbtnUploadSell" Content="I want to sell something" Margin="456,60,656,529" Height="20" Width="160"/>
+        <RadioButton x:Name="radbtnUploadLook" Content="I am looking for something" Margin="646,60,456,529" Height="20" Checked="RadioButton_Checked"/>
+        <Button x:Name="btnUploadUpload" Content="Upload" Margin="551,480,551,79"/>
+        <CheckBox Content="Free" Margin="561,140,666,439" Height="30" VerticalContentAlignment="Center" Width="45"/>
+        <CheckBox Content="My Home" Margin="741,190,456,389" Height="30" VerticalContentAlignment="Center"/>
+    </Grid>
+</Page>

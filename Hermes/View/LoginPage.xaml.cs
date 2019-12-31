@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Hermes.Model.Models;
 
 namespace Hermes.View
 {
@@ -21,13 +20,13 @@ namespace Hermes.View
     /// </summary>
     public partial class LoginPage : Page, ILoginpage
     {
-        private readonly LoginPresenter _presenter;
-
         public LoginPage()
         {
             InitializeComponent();
             _presenter = new LoginPresenter(this);
         }
+
+        private readonly LoginPresenter _presenter;
 
         public string LabelUsername
         {
@@ -48,20 +47,9 @@ namespace Hermes.View
             }
         }
 
-        public User LoggedUser
-        { 
-            set
-            {
-                this.NavigationService.Navigate(new ListingsPage());
-
-
-                Console.WriteLine(value.Name);
-            }
-        }
-
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            _presenter.UserLogin();
+            _presenter.UserExist();
         }
     }
 }

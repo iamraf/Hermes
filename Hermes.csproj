@@ -96,7 +96,7 @@
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Listing\ListingsPage.xaml.cs">
+    <Compile Include="View\ListingsPage.xaml.cs">
       <DependentUpon>ListingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Login\LoginPage.xaml.cs">
@@ -127,7 +127,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Listing\ListingsPage.xaml">
+    <Page Include="View\ListingsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
