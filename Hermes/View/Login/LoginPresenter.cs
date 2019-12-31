@@ -11,39 +11,32 @@ namespace Hermes.View
 {
     class LoginPresenter
     {
-        private ILoginpage _view;
-        private LoginRepository _login;
+        private readonly ILoginpage _view;
+        private readonly LoginRepository _repository;
 
         public LoginPresenter(ILoginpage view)
         {
             _view = view;
-            _login = new LoginRepository();
+            _repository = new LoginRepository();
         }
 
-        public void UserExist()
+        public void UserLogin()
         {
-            //TODO: change this to private 
-            string _username=_view.LabelUsername;
-            string _password=_view.LabelPassword;
+            string username = _view.LabelUsername;
+            string password = _view.LabelPassword;
 
-            
-            string result = _login.UserExist(_username,_password);
-            //Convert strint to int
-            int ResultInt = Int32.Parse(result);
-         
-            if (ResultInt == 1)
+            User user = _repository.LoginUser(username, password);
+
+            if(user == null)
             {
-                User Loggedin = _login.GetUserData(_username);
-                //TODO : PASS IT TO THE NEXT PRESENTER
+                _view.ErrorDialog = "Login failed";
             }
             else
             {
-                _view.ErrorDialog = "Username and password does not match";
+                _view.LoggedUser = user;
             }
         }
     }
-            
-
  }
 
     
