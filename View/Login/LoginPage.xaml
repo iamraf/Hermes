@@ -1,0 +1,18 @@
+﻿<Page x:Class="Hermes.View.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hermes.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LoginPage" Width="1272" Height="609">
+    <Grid Background="#FFF3F3F3" Margin="0" >
+        <Label x:Name="lblLoginPage1" Content="Log in to your Hermes account" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5" Margin="510,117,511,466"/>
+        <TextBox x:Name="txtboxUsername" TextWrapping="Wrap" Text="Username..." Margin="556,153,556,433"/>
+        <TextBox x:Name="txtboxPassword" TextWrapping="Wrap" Text="Password..." Margin="556,186,556,400"/>
+        <Button x:Name="btnLogin" Content="Log in" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="White" Foreground="Black" BorderBrush="#FF1CBFA2" BorderThickness="1,1,3,3" Click="btnLogin_Click" Margin="586,219,586,360"/>
+        <Label x:Name="lblLoginPage2" Content="Don't have an account? Create one" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5" Margin="510,329,511,254"/>
+        <Button x:Name="btnRegisterPage" Content="Register" Margin="586,365,586,222" Background="White" BorderThickness="1,1,3,3" BorderBrush="#FF1CBFA2"/>
+    </Grid>
+</Page>
