@@ -21,12 +21,12 @@ namespace Hermes.View
         {
             InitializeComponent();
 
-            listviewListings.ItemsSource = new Repository().GetListings();
+            listviewListings.ItemsSource = new Model.Repository().GetListings();
         }
 
         private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Listing listing = (Listing)listviewListings.SelectedItem;
+            Model.Models.Listing listing = (Model.Models.Listing)listviewListings.SelectedItem;
 
             lblListingSelectedTitle.Content = listing.Name;
             tbListingSelectedDescription.Text = listing.Description;
