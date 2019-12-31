@@ -7,12 +7,12 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LoginPage" Width="1272" Height="609">
-    <Canvas Margin="0" Background="#FFF3F3F3">
-        <Label x:Name="lblLoginPage1" Content="Log in to your Hermes account" Canvas.Left="10" Canvas.Top="117" Width="1252" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5"/>
-        <TextBox x:Name="txtboxUsername" Height="23" Canvas.Left="556" TextWrapping="Wrap" Text="Username..." Canvas.Top="153" Width="160"/>
-        <TextBox x:Name="txtboxPassword" Height="23" Canvas.Left="556" TextWrapping="Wrap" Text="Password..." Canvas.Top="186" Width="160"/>
-        <Button x:Name="btnLogin" Content="Log in" Canvas.Left="586" Canvas.Top="219" Width="100" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Background="White" Foreground="Black" BorderBrush="#FF1CBFA2" BorderThickness="1,1,3,3" Click="btnLogin_Click"/>
-        <Label x:Name="lblLoginPage2" Content="Don't have an account? Create one" Canvas.Left="10" Canvas.Top="329" Width="1252" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5"/>
-        <Button x:Name="btnRegisterPage" Content="Register" Canvas.Left="586" Canvas.Top="355" Width="100" Margin="0,10,0,0" Background="White" BorderThickness="1,1,3,3" BorderBrush="#FF1CBFA2"/>
-    </Canvas>
+    <Grid Background="#FFF3F3F3" Margin="0" >
+        <Label x:Name="lblLoginPage1" Content="Log in to your Hermes account" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5" Margin="510,117,511,466"/>
+        <TextBox x:Name="txtboxUsername" TextWrapping="Wrap" Text="Username..." Margin="556,153,556,433"/>
+        <TextBox x:Name="txtboxPassword" TextWrapping="Wrap" Text="Password..." Margin="556,186,556,400"/>
+        <Button x:Name="btnLogin" Content="Log in" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="White" Foreground="Black" BorderBrush="#FF1CBFA2" BorderThickness="1,1,3,3" Click="btnLogin_Click" Margin="586,219,586,360"/>
+        <Label x:Name="lblLoginPage2" Content="Don't have an account? Create one" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5" Margin="510,329,511,254"/>
+        <Button x:Name="btnRegisterPage" Content="Register" Margin="586,365,586,222" Background="White" BorderThickness="1,1,3,3" BorderBrush="#FF1CBFA2"/>
+    </Grid>
 </Page>
