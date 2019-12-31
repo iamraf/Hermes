@@ -1,6 +1,4 @@
-﻿using Hermes.Model;
-using Hermes.Model.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,21 +15,14 @@ using System.Windows.Shapes;
 
 namespace Hermes.View
 {
+    /// <summary>
+    /// Interaction logic for ListingsPage.xaml
+    /// </summary>
     public partial class ListingsPage : Page
     {
         public ListingsPage()
         {
             InitializeComponent();
-
-            listviewListings.ItemsSource = new Repository().GetListings();
-        }
-
-        private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Listing listing = (Listing)listviewListings.SelectedItem;
-
-            lblListingSelectedTitle.Content = listing.Name;
-            tbListingSelectedDescription.Text = listing.Description;
         }
     }
 }
