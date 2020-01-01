@@ -33,5 +33,10 @@ namespace Hermes.View
             lblListingSelectedTitle.Content = listing.Name;
             tbListingSelectedDescription.Text = listing.Description;
         }
+
+        private void comboxListingsSortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //
+        }
     }
 }
