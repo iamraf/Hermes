@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace Hermes.View
 {
     /// <summary>
-    /// Interaction logic for ListingsPage.xaml
+    /// Interaction logic for ProfilePage.xaml
     /// </summary>
-    public partial class ListingsPage : Page
+    public partial class ProfilePage : Page
     {
-        public ListingsPage()
+        public ProfilePage()
         {
             InitializeComponent();
+        }
+
+        private void btnProfileProfile_Click(object sender, RoutedEventArgs e)
+        {
+            //
         }
     }
 }

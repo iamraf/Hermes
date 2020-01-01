@@ -16,13 +16,23 @@ using System.Windows.Shapes;
 namespace Hermes.View
 {
     /// <summary>
-    /// Interaction logic for RegisterPage.xaml
+    /// Interaction logic for UploadPage.xaml
     /// </summary>
-    public partial class RegisterPage : Page
+    public partial class UploadPage : Page
     {
-        public RegisterPage()
+        public UploadPage()
         {
             InitializeComponent();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            //
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //
         }
     }
 }
