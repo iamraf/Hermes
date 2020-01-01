@@ -20,6 +20,7 @@ namespace Hermes.View
     public partial class ListingsPage : Page
     {
         private ListingRepository _repository;
+        private List<Listing> _listings;
 
         public ListingsPage()
         {
@@ -27,7 +28,9 @@ namespace Hermes.View
 
             _repository = new ListingRepository();
 
-            listviewListings.ItemsSource = _repository.GetListings();
+            _listings = _repository.GetListings();
+
+            listviewListings.ItemsSource = _listings;
         }
 
         private void listviewListings_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -43,12 +46,34 @@ namespace Hermes.View
             {
                 lblListingSelectedUploader.Content = uploader.Name + " " + uploader.Surname;
                 lblListingSelectedContactInfoEmail1.Content = "Telephone: " + uploader.Telephone;
+                lblListingSelectedContactInfoEmail.Content = "Email: " + uploader.Email;
             }
         }
 
         private void comboxListingsSortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //
+            int option = comboxListingsSortBy.SelectedIndex;
+
+            if (_listings != null)
+            {
+                switch (option)
+                {
+                    case 1:
+                        _listings.Sort((a, b) => a.Id.CompareTo(b.Id));
+                        listviewListings.ItemsSource = null;
+                        listviewListings.ItemsSource = _listings;
+                        break;
+                    case 2:
+                        _listings.Sort((a, b) => a.Name.CompareTo(b.Name));
+                        listviewListings.ItemsSource = null;
+                        listviewListings.ItemsSource = _listings;
+                        break;
+                    default:
+                        _listings.Sort((a, b) => a.Name.CompareTo(b.Name));
+                        listviewListings.ItemsSource = _listings;
+                        break;
+                }
+            }
         }
     }
 }

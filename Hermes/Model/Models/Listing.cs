@@ -28,6 +28,5 @@ namespace Hermes.Model.Models
             Category = category;
             Premium = premium;
         }
-
     }
 }
