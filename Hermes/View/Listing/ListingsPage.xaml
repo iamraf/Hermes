@@ -43,7 +43,7 @@
                 <ColumnDefinition MinWidth="400" Width="5*"/>
                 <ColumnDefinition MinWidth="400" Width="4*"/>
             </Grid.ColumnDefinitions>
-            <ListView x:Name="listviewListings" Margin="0" SelectionChanged="listviewListings_SelectionChanged_1">
+            <ListView x:Name="listviewListings" Margin="0,30,0,0" SelectionChanged="listviewListings_SelectionChanged_1">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Id}" />
@@ -59,8 +59,13 @@
             </Image>
             <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="1" Margin="164,30,30,534" FontSize="20" FontWeight="Bold" Height="40" Width="283"/>
             <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="1" Margin="164,75,30,503" Height="25"/>
-            <Label x:Name="lblListingSelectedContactInfo" Content="Listing Contact Info here&#xA;more contact info " Grid.Column="1" Margin="164,105,30,453" Width="283"/>
-            <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="1" HorizontalAlignment="Left" Margin="30,180,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="188" Width="417"/>
+            <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="1" Margin="164,108,30,476" Width="283" Height="25"/>
+            <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="1" HorizontalAlignment="Left" Margin="30,180,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="188" Width="417"/>
+            <Label Content="Sort By" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="comboxListingsSortBy" Margin="58,2,379,582" Height="25" SelectionChanged="comboxListingsSortBy_SelectionChanged"/>
+            <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="1" HorizontalAlignment="Left" Margin="30,373,0,0" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="1" HorizontalAlignment="Left" Margin="164,373,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="1" Margin="164,133,30,451" Width="283" Height="25"/>
         </Grid>
         <Frame Content="Frame" Height="603" VerticalAlignment="Top" Width="0" Canvas.Left="1226" Canvas.Top="-34"/>
     </Canvas>
