@@ -19,19 +19,31 @@ namespace Hermes.View
 {
     public partial class ListingsPage : Page
     {
+        private ListingRepository _repository;
+
         public ListingsPage()
         {
             InitializeComponent();
 
-            listviewListings.ItemsSource = new Repository().GetListings();
+            _repository = new ListingRepository();
+
+            listviewListings.ItemsSource = _repository.GetListings();
         }
 
         private void listviewListings_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            Listing listing = (Listing)listviewListings.SelectedItem;
+            Listing listing = (Listing) listviewListings.SelectedItem;
+
+            User uploader = _repository.GetUploader(listing.Id);
 
             lblListingSelectedTitle.Content = listing.Name;
             tbListingSelectedDescription.Text = listing.Description;
+
+            if(uploader != null)
+            {
+                lblListingSelectedUploader.Content = uploader.Name + " " + uploader.Surname;
+                lblListingSelectedContactInfoEmail1.Content = "Telephone: " + uploader.Telephone;
+            }
         }
 
         private void comboxListingsSortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
