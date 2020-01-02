@@ -10,12 +10,13 @@ namespace Hermes.Model
     class RecommendationEngine
     {
         private User user;
+
         public RecommendationEngine(User user)
         {
             this.user = user;
         }
 
-        public List<Category> getRecommendCat()
+        public List<Listing> getRecommendCat()
         {
             List<HistoryList> history = _viewHistory();
             int ViewedCat = history.Count;
@@ -38,8 +39,9 @@ namespace Hermes.Model
             }
 
             List<Listing> returnedCat = new List<Listing>();
-            
-            return null;
+            returnedCat = _getListingsByCategories(count);
+            //TODO na teleiwsw afto to kommati
+            return returnedCat;
         }
 
         private List<HistoryList> _viewHistory()
@@ -80,32 +82,34 @@ namespace Hermes.Model
 
         private List<Listing> _getListingsByCategories( int[] cat) 
         {
-            //TODO: connect to db and send List<Listing> to presenter
-            //first we take 3 listings where tag is premium and subCategory equals to the first subC
-            /* SQL
-                "select  *"+
-                "from Listings"+
-                "where Listings.subCategoryListing="+cat[0]+" and Listings.premiumListing=1 and activeListing=1"+
-                "order by creationDate DESC"+
-                "LIMIT 3;"
-             */
-            //then we take 2 listings where 
-            /* SQL
-                "select  *"+
-                "from Listings"+
-                "where Listings.subCategoryListing="+cat[1]+" and Listings.premiumListing=1 and activeListing=1"+
-                "order by creationDate DESC"+
-                "LIMIT 2;"
-             */
-            //then we take 1 listings where 
-            /* SQL
-                "select  *"+
-                "from Listings"+
-                "where Listings.subCategoryListing="+cat[2]+" and Listings.premiumListing=1 and activeListing=1"+
-                "order by creationDate DESC"+
-                "LIMIT 1;"
-             */
-            return null;
+            List<Listing> _listings = new List<Listing>();
+            for (int i = 0; i < 3; i++) { _listings = addListings(_listings, cat[i]); }
+            return _listings;
+        }
+        private List<Listing> addListings(List<Listing> _listings, int index) {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "select  *" +
+                                "from Listings" +
+                                "where Listings.subCategoryListing=" + index + " and Listings.premiumListing=1 and activeListing=1" +
+                                "order by creationDate DESC" +
+                                "LIMIT "+(3-index)+";";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    _listings.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+                return _listings;
+
+            }
+            else { return null; }
         }
     }
 }
