@@ -16,8 +16,11 @@ namespace Hermes.Model.Models
         public int Views { get; }
         public int Category { get; }
         public bool Premium { get; }
+        public DateTime Creation { get; }
+        public float Price { get; }
 
-        public Listing(int id, string name, string description, bool active, int region, int views, int category, bool premium)
+
+        public Listing(int id, string name, string description, bool active, int region, int views, int category, bool premium, DateTime creation, float price)
         {
             Id = id;
             Name = name;
@@ -27,6 +30,8 @@ namespace Hermes.Model.Models
             Views = views;
             Category = category;
             Premium = premium;
+            Creation = creation;
+            Price = price;
         }
     }
 }

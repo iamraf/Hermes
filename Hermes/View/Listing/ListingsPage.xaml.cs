@@ -59,17 +59,18 @@ namespace Hermes.View
                 switch (option)
                 {
                     case 1:
-                        _listings.Sort((a, b) => a.Id.CompareTo(b.Id));
+                        _listings.Sort((a, b) => a.Price.CompareTo(b.Price));
                         listviewListings.ItemsSource = null;
                         listviewListings.ItemsSource = _listings;
                         break;
                     case 2:
-                        _listings.Sort((a, b) => a.Name.CompareTo(b.Name));
+                        _listings.Sort((a, b) => a.Views.CompareTo(b.Views));
                         listviewListings.ItemsSource = null;
                         listviewListings.ItemsSource = _listings;
                         break;
                     default:
-                        _listings.Sort((a, b) => a.Name.CompareTo(b.Name));
+                        _listings.Sort((a, b) => a.Creation.CompareTo(b.Creation));
+                        listviewListings.ItemsSource = null;
                         listviewListings.ItemsSource = _listings;
                         break;
                 }
