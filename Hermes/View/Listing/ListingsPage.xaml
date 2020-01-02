@@ -62,7 +62,11 @@
             <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="1" Margin="164,108,30,476" Width="283" Height="25"/>
             <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="1" HorizontalAlignment="Left" Margin="30,180,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="188" Width="417"/>
             <Label Content="Sort By" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="comboxListingsSortBy" Margin="58,2,379,582" Height="25" SelectionChanged="comboxListingsSortBy_SelectionChanged"/>
+            <ComboBox x:Name="comboxListingsSortBy" Margin="58,2,379,582" Height="25" SelectionChanged="comboxListingsSortBy_SelectionChanged">
+                <ComboBoxItem IsSelected="True">Date</ComboBoxItem>
+                <ComboBoxItem>Price</ComboBoxItem>
+                <ComboBoxItem>Popularity</ComboBoxItem>
+            </ComboBox>
             <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="1" HorizontalAlignment="Left" Margin="30,373,0,0" VerticalAlignment="Top" Width="120"/>
             <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="1" HorizontalAlignment="Left" Margin="164,373,0,0" VerticalAlignment="Top" Width="120"/>
             <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="1" Margin="164,133,30,451" Width="283" Height="25"/>
