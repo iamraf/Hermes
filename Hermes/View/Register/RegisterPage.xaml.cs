@@ -79,8 +79,7 @@ namespace Hermes.View
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            if(_presenter.RegisterUser())
-                this.NavigationService.Navigate(new LoginPage());
+            _presenter.RegisterUser();
         }
     }
 }

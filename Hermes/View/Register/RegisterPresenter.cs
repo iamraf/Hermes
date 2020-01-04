@@ -35,31 +35,42 @@ namespace Hermes.View.Register
                 return new RegisterRepository(username, password, name, surname, address, email, phonenumber);
         }
 
-        public bool RegisterUser()
+        public void RegisterUser()
         {
-            if (_view.TextBoxPassword1.Equals(_view.TextBoxPassword2)) //checks if passwords match
+            if (_view.TextBoxPassword1.Equals(_view.TextBoxPassword2))
             {
                 _register = FillFromFields();
-                if (_register != null) //checks if a field is null/empty
+                if (_register != null)
                 {
-                    int result = _register.RegisterQuery();
 
-                    if (result == -2) //username already exists
-                        _view.ErrorDialog = "A user with that username already exists.\nTry a new username.";
-                    else if (result == -1) //unkown connection error
-                        _view.ErrorDialog = "Error ocured on registration";
-                    else
-                    {
-                        _view.ErrorDialog = "Registration complete";
-                        return true;
+                    try { 
+                        bool result = _register.RegisterQuery();
+
+                        if (result == true)
+                        {
+                            // user is registered
+                            _view.ErrorDialog = "DONE";
+                        }
+                        else
+                        {
+                            _view.ErrorDialog = "Could not register this user";
+                        }
                     }
+                    catch (Exception e)
+                    {
+                        _view.ErrorDialog = e.Message; //user already exists (username)
+                    }                    
                 }
                 else
+                {
                     _view.ErrorDialog = "Something's missing. Try filling all fields.";
+                }
             }
             else
+            {
                 _view.ErrorDialog = "Passwords do not match";
-            return false;
+            }
+
         }
 
     }
