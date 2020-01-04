@@ -67,7 +67,7 @@
                 <ComboBoxItem>Price</ComboBoxItem>
                 <ComboBoxItem>Popularity</ComboBoxItem>
             </ComboBox>
-            <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="1" HorizontalAlignment="Left" Margin="30,373,0,0" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="1" HorizontalAlignment="Left" Margin="30,373,0,0" VerticalAlignment="Top" Width="120" Click="BtnListingSelectedFavorite_Click"/>
             <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="1" HorizontalAlignment="Left" Margin="164,373,0,0" VerticalAlignment="Top" Width="120"/>
             <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="1" Margin="164,133,30,451" Width="283" Height="25"/>
         </Grid>

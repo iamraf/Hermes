@@ -351,3 +351,33 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Hermes/obj/Debug/App.g.cs
+Hermes/obj/Debug/App.g.i.cs
+Hermes/obj/Debug/Hermes.csproj.FileListAbsolute.txt
+Hermes/obj/Debug/Hermes.csprojAssemblyReference.cache
+Hermes/obj/Debug/Hermes_MarkupCompile.cache
+Hermes/obj/Debug/Hermes_MarkupCompile.lref
+Hermes/obj/Debug/View/CategoriesPage.baml
+Hermes/obj/Debug/View/CategoriesPage.g.cs
+Hermes/obj/Debug/View/CategoriesPage.g.i.cs
+Hermes/obj/Debug/View/HomePage.baml
+Hermes/obj/Debug/View/HomePage.g.cs
+Hermes/obj/Debug/View/HomePage.g.i.cs
+Hermes/obj/Debug/View/Listing/ListingsPage.baml
+Hermes/obj/Debug/View/Listing/ListingsPage.g.cs
+Hermes/obj/Debug/View/Listing/ListingsPage.g.i.cs
+Hermes/obj/Debug/View/Login/LoginPage.baml
+Hermes/obj/Debug/View/Login/LoginPage.g.cs
+Hermes/obj/Debug/View/Login/LoginPage.g.i.cs
+Hermes/obj/Debug/View/MainWindow.baml
+Hermes/obj/Debug/View/MainWindow.g.cs
+Hermes/obj/Debug/View/MainWindow.g.i.cs
+Hermes/obj/Debug/View/ProfilePage.baml
+Hermes/obj/Debug/View/ProfilePage.g.cs
+Hermes/obj/Debug/View/ProfilePage.g.i.cs
+Hermes/obj/Debug/View/TopPage.baml
+Hermes/obj/Debug/View/TopPage.g.cs
+Hermes/obj/Debug/View/TopPage.g.i.cs
+Hermes/obj/Debug/View/UploadPage.baml
+Hermes/obj/Debug/View/UploadPage.g.cs
+Hermes/obj/Debug/View/UploadPage.g.i.cs

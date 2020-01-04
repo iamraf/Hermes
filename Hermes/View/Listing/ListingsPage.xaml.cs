@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.Caching;
 
 namespace Hermes.View
 {
@@ -75,6 +76,14 @@ namespace Hermes.View
                         break;
                 }
             }
+        }
+
+        private void BtnListingSelectedFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO DELETE
+            ObjectCache Cache = MemoryCache.Default;
+            User user1 = (User)Cache["User"];
+            Console.WriteLine(user1.Name);
         }
     }
 }
