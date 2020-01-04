@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Hermes.Model;
 using Hermes.Model.Models;
 using Hermes.View;
+using System.Runtime;
+using System.Security.AccessControl;
+using System.Runtime.Caching;
 
 namespace Hermes.View
 {
@@ -27,12 +30,21 @@ namespace Hermes.View
 
             User user = _repository.LoginUser(username, password);
 
-            if(user == null)
+            ObjectCache Cache = MemoryCache.Default;
+            
+
+            if (user == null)
             {
                 _view.ErrorDialog = "Login failed";
             }
             else
             {
+                //cache obj
+                Cache.Add("User", user, DateTime.Now.AddDays(30));
+
+                //Testing
+                //User user1 = (User)Cache["User"];
+                //Console.WriteLine(user1.Name);
                 _view.LoggedUser = user;
             }
         }

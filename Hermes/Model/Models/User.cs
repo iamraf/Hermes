@@ -15,9 +15,9 @@ namespace Hermes.Model.Models
         public string Surname { get; }
         public string Address { get; }
         public string Email { get; }
-        public int Telephone { get; }
+        public string Telephone { get; }
 
-        public User(int id, string username, string password, string name, string surname, string address, string email, int telephone)
+        public User(int id, string username, string password, string name, string surname, string address, string email, string telephone)
         {
             Id = id;
             Username = username;
