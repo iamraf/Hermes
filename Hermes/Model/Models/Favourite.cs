@@ -9,7 +9,7 @@ namespace Hermes.Model.Models
 {
     class Favourite
     {
-        private MySqlConnection _connection;
+
         public int ListingId { get; }
         public int UserId { get; }
 
@@ -18,15 +18,17 @@ namespace Hermes.Model.Models
             ListingId = listingId;
             UserId = userId;
 
-            string connectionString = "SERVER=remotemysql.com;DATABASE=4G6ccccjnC;UID=4G6ccccjnC;PASSWORD=l0YkuReQwW;";
-            _connection = new MySqlConnection(connectionString);
-
-            if (AddItemOnFavourites() == true)
-                //show done
-                Console.WriteLine("Item added on fav");
+            if (ItemAlreadyOnFavourites(userId, listingId)==false)
+            {
+                if (AddItemOnFavourites() == true)
+                    Console.WriteLine("Item added on fav");
+                else
+                    Console.WriteLine("Item could not be added on fav");
+            }
             else
-                //not done
-                Console.WriteLine("Item could not be added on fav");
+                Console.WriteLine("Item already on favourites");
+
+
         }
 
         private bool AddItemOnFavourites()
@@ -35,7 +37,7 @@ namespace Hermes.Model.Models
             {
                 string query = "INSERT INTO User_Favorites (listingID, userID) VALUE ("+ListingId+", "+UserId+")";
                
-                MySqlCommand cmd = new MySqlCommand(query, _connection);
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 dataReader.Close();
@@ -43,6 +45,31 @@ namespace Hermes.Model.Models
                 Singleton.GetInstance().CloseConnection();
 
                 return true;
+            }
+            else
+                return false;
+        }
+
+        private bool ItemAlreadyOnFavourites(int uid, int listingid)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                bool result = false;
+                string query = "SELECT EXISTS (SELECT 1 FROM 4G6ccccjnC.User_Favorites WHERE userID="+uid+" AND listingID="+listingid+")";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    result = dataReader.GetBoolean(0);
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return result;
             }
             else
                 return false;
