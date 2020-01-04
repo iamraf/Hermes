@@ -5,7 +5,6 @@ C:\Users\Raf\Desktop\Hermes\Hermes\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Raf\Desktop\Hermes\Hermes\bin\Debug\Google.Protobuf.dll
 C:\Users\Raf\Desktop\Hermes\Hermes\bin\Debug\MySql.Data.dll
 C:\Users\Raf\Desktop\Hermes\Hermes\bin\Debug\Renci.SshNet.dll
-C:\Users\Raf\Desktop\Hermes\Hermes\bin\Debug\MySql.Data.xml
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\Hermes.csprojAssemblyReference.cache
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\CategoriesPage.g.cs
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\HomePage.g.cs
@@ -13,7 +12,6 @@ C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\Listing\ListingsPage.g.cs
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\Login\LoginPage.g.cs
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\MainWindow.g.cs
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\ProfilePage.g.cs
-C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\RegisterPage.g.cs
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\TopPage.g.cs
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\UploadPage.g.cs
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\App.g.cs
@@ -25,7 +23,6 @@ C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\Listing\ListingsPage.baml
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\Login\LoginPage.baml
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\MainWindow.baml
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\ProfilePage.baml
-C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\RegisterPage.baml
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\TopPage.baml
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\UploadPage.baml
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\Hermes.g.resources
@@ -34,3 +31,5 @@ C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\Hermes.csproj.GenerateResource.cach
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\Hermes.csproj.CopyComplete
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\Hermes.exe
 C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\Hermes.pdb
+C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\Register\RegisterPage.g.cs
+C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\View\Register\RegisterPage.baml
