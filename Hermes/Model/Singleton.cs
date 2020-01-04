@@ -13,7 +13,7 @@ namespace Hermes.Model
         private readonly MySqlConnection _connection;
         private Singleton()
         {
-            string connectionString = "SERVER=remotemysql.com;DATABASE=4G6ccccjnC;UID=4G6ccccjnC;PASSWORD=l0YkuReQwW;";
+            string connectionString = "SERVER=remotemysql.com;DATABASE=4G6ccccjnC;UID=4G6ccccjnC;PASSWORD=l0YkuReQwW;Convert Zero Datetime=True";
             _connection = new MySqlConnection(connectionString);
         }
 
