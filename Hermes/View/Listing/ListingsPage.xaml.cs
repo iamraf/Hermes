@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.Caching;
+using System.Diagnostics;
 
 namespace Hermes.View
 {
@@ -23,11 +24,12 @@ namespace Hermes.View
         private ListingRepository _repository;
 
         private List<Listing> _listings;
-        private Favourite _favourite;
 
         public ListingsPage()
         {
             InitializeComponent();
+
+            ButtonEnable(false);
 
             _repository = new ListingRepository();
 
@@ -38,6 +40,8 @@ namespace Hermes.View
 
         private void listviewListings_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            ButtonEnable(true);
+
             Listing listing = (Listing) listviewListings.SelectedItem;
 
             User uploader = _repository.GetUploader(listing.Id);
@@ -82,22 +86,40 @@ namespace Hermes.View
 
         private void BtnListingSelectedFavorite_Click(object sender, RoutedEventArgs e)
         {
-            //TODO DELETE
+            Listing listing = (Listing)listviewListings.SelectedItem;
+
             ObjectCache Cache = MemoryCache.Default;
-            User user1 = (User)Cache["User"];
-            Console.WriteLine(user1.Name);
+            User user = (User)Cache["User"];
+            if (user != null)
+            {
+                Favourite fav = new Favourite(listing.Id, user.Id);
+            }
+            else
+            {
+                this.NavigationService.Navigate(new LoginPage());
+                Console.WriteLine("Must login first to add on favourites\n*PROMTING USER TO LOGIN*");
+            }
+
         }
 
-        private void btnListingSelectedFavorite_Click(object sender, RoutedEventArgs e)
+        private void btnListingSelectedContact_Click_1(object sender, RoutedEventArgs e)
         {
-            //Listing listing = (Listing)listviewListings.SelectedItem;
+            Listing listing = (Listing)listviewListings.SelectedItem;
+            User uploader = _repository.GetUploader(listing.Id);
 
-            //_favourite = new Favourite(listing.Id,);
+            if (uploader != null)
+            {
+                var url = "mailto:" + (string)uploader.Email+"?Subject=Intrested on this item: "+listing.Name;
+                Process.Start(url);
+            }
+            else
+                Console.WriteLine("No uploader found!");
         }
 
-        private void btnListingSelectedContact_Click(object sender, RoutedEventArgs e)
+        private void ButtonEnable(bool action)
         {
-            //
+            btnListingSelectedFavorite.IsEnabled = action;
+            btnListingSelectedContact.IsEnabled = action;
         }
     }
 }
