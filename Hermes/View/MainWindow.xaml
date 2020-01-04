@@ -6,12 +6,73 @@
         xmlns:local="clr-namespace:Hermes.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" ResizeMode="CanMinimize">
-    <Grid x:Name="gridMain" Margin="0">
+    <Grid x:Name="gridMain" Margin="0" Background="#FF06558D">
         <Grid.RowDefinitions>
             <RowDefinition Height="80*" MaxHeight="80" MinHeight="80"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Frame x:Name="frameMainTop" Content="Frame" Height="80" Margin="0" Grid.RowSpan="2" VerticalAlignment="Top" Source="/Hermes;component/View/TopPage.xaml"/>
-        <Frame x:Name="frameMainBot" Content="Frame" Margin="0" Grid.Row="1" Source="/Hermes;component/View/ProfilePage.xaml"/>
+        <Frame x:Name="frameMain" Content="Frame" Margin="0" Grid.Row="1" Source="/Hermes;component/View/HomePage.xaml" NavigationUIVisibility="Hidden" Navigated="frameMain_Navigated"/>
+        <Button x:Name="btnTopHome" Content="Logo" Background="{x:Null}" BorderBrush="#FF47A7EA" BorderThickness="1" Foreground="#FF99D5FF" Margin="10,10,1074,10" Click="btnTopHome_Click"/>
+        <Button x:Name="btnTopListings" Content="Buy" Margin="210,10,944,10" BorderThickness="0,0,0,5" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" FontSize="24" FontFamily="Segoe UI Light" Click="btnTopListings_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#3F47A7EA" Offset="1"/>
+                    <GradientStop Color="#001C435E" Offset="0.613"/>
+                    <GradientStop Color="#00245679"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnTopUpload" Content="Upload" Margin="340,10,814,10" BorderThickness="0,0,0,5" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" FontFamily="Segoe UI Light" FontSize="24" Click="btnTopUpload_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#3F47A7EA" Offset="1"/>
+                    <GradientStop Color="#001C435E" Offset="0.613"/>
+                    <GradientStop Color="#00245679"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="txtboxTopSearch" Height="30" TextWrapping="Wrap" Width="350" Foreground="#FFECECEC" BorderBrush="{x:Null}" VerticalContentAlignment="Bottom" FontSize="14" Text="&#xA;" Margin="477,29,446,21">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#7F47A7EA" Offset="0.996"/>
+                    <GradientStop Color="#002D6E9C" Offset="0.465"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <Button x:Name="btnTopLogin" Content="Log in" BorderThickness="0,0,0,3" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" Margin="1070,20,84,10" FontFamily="Segoe UI Light" Click="btnTopLogin_Click" FontSize="18" Width="120">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#3347A7EA" Offset="1"/>
+                    <GradientStop Color="#003574A0"/>
+                    <GradientStop Color="#003980B2" Offset="0.617"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnTopHelp" Content="Help" BorderThickness="0,0,0,3" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" Margin="1200,20,10,10" FontFamily="Segoe UI Light" FontSize="18" VerticalContentAlignment="Center" Width="64" Height="50" HorizontalContentAlignment="Center">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#3347A7EA" Offset="1"/>
+                    <GradientStop Color="#003574A0"/>
+                    <GradientStop Color="#003980B2" Offset="0.617"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnTopSearch" Content="Search" Margin="840,29,374,21" BorderBrush="#FF47A7EA" BorderThickness="0,0,0,3" Foreground="#FF47A7EA" FontFamily="Segoe UI Light" FontSize="14">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#3347A7EA" Offset="1"/>
+                    <GradientStop Color="#00214F6E" Offset="0.609"/>
+                    <GradientStop Color="#0025597C"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Expander x:Name="expMyAccountDropdown" Header="My Account" Height="252" Margin="1070,33,84,406" Grid.RowSpan="2" Width="120" Foreground="#FF47A7EA" Background="{x:Null}" BorderBrush="{x:Null}" Visibility="Visible" FontFamily="Segoe UI Light" FontSize="16">
+            <Grid x:Name="gridMyAccountDropdown" Height="201" Background="#FF47A7EA" Margin="-1,0" Width="120">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="21*"/>
+                    <RowDefinition Height="29*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+        </Expander>
     </Grid>
 </Window>

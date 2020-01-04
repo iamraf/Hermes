@@ -42,14 +42,14 @@ namespace Hermes.View
         {
             ButtonEnable(true);
 
-            Listing listing = (Listing) listviewListings.SelectedItem;
+            Listing listing = (Listing)listviewListings.SelectedItem;
 
             User uploader = _repository.GetUploader(listing.Id);
 
             lblListingSelectedTitle.Content = listing.Name;
             tbListingSelectedDescription.Text = listing.Description;
 
-            if(uploader != null)
+            if (uploader != null)
             {
                 lblListingSelectedUploader.Content = uploader.Name + " " + uploader.Surname;
                 lblListingSelectedContactInfoEmail1.Content = "Telephone: " + uploader.Telephone;
@@ -109,7 +109,7 @@ namespace Hermes.View
 
             if (uploader != null)
             {
-                var url = "mailto:" + (string)uploader.Email+"?Subject=Intrested on this item: "+listing.Name;
+                var url = "mailto:" + (string)uploader.Email + "?Subject=Intrested on this item: " + listing.Name;
                 Process.Start(url);
             }
             else

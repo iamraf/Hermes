@@ -51,7 +51,7 @@ namespace Hermes.View
 
         public string TextBoxName
         {
-            get { return txtboxRegisterName.Text;  }
+            get { return txtboxRegisterName.Text; }
         }
 
         public string TextBoxSurname
@@ -79,7 +79,7 @@ namespace Hermes.View
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            if(_presenter.RegisterUser())
+            if (_presenter.RegisterUser())
                 this.NavigationService.Navigate(new LoginPage());
         }
     }

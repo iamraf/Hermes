@@ -1,0 +1,39 @@
+﻿<Page x:Class="Hermes.View.MyListingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hermes.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MyListingsPage" Width="1072" Height="609" Background="#FFF3F3F3">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <ListView HorizontalAlignment="Left" Height="609" VerticalAlignment="Top" Width="596">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="txtboxUploadTitle" Height="30" Margin="55,76,61,503" TextWrapping="Wrap" Text="Title..." VerticalContentAlignment="Center" Grid.Column="1"/>
+        <TextBox x:Name="txtboxUploadPrice" Height="30" Margin="55,126,296,453" TextWrapping="Wrap" Text="Price..." VerticalContentAlignment="Center" Grid.Column="1"/>
+        <TextBox x:Name="txtboxUploadLocation" Height="30" Margin="115,216,61,363" TextWrapping="Wrap" Text="What is your location?" VerticalContentAlignment="Center" Grid.Column="1"/>
+        <TextBox x:Name="txtboxUploadDescription" HorizontalAlignment="Left" Height="160" Margin="55,266,0,0" TextWrapping="Wrap" Text="Describe your listing... (Optional)" VerticalAlignment="Top" Width="360" Grid.Column="1"/>
+        <Label x:Name="lblUpload2" Content="Select a category" Margin="55,426,251,153" Width="170" HorizontalContentAlignment="Center" Height="30" VerticalContentAlignment="Bottom" Grid.Column="1"/>
+        <Label x:Name="lblUpload3" Content="Select a subcategory" Margin="245,426,61,153" Width="170" HorizontalContentAlignment="Center" Height="30" VerticalContentAlignment="Bottom" Grid.Column="1"/>
+        <ComboBox x:Name="comboxUploadCategory" HorizontalAlignment="Left" Margin="55,456,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.Column="1"/>
+        <ComboBox x:Name="comboxUploadSubcategory" HorizontalAlignment="Left" Margin="245,456,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.Column="1"/>
+        <Button x:Name="btnUploadImage" Content="Add an image to your listing" Margin="215,126,61,453" Grid.Column="1"/>
+        <Button x:Name="btnUploadUpload" Content="Save Changes" Margin="150,506,156,53" Grid.Column="1" Height="30"/>
+        <ComboBox x:Name="comboxUploadLocation" HorizontalAlignment="Left" Margin="115,176,0,0" VerticalAlignment="Top" Width="300" Height="30" Grid.Column="1"/>
+        <RadioButton x:Name="radbtnUploadLocationSelect" Content="Select" GroupName="Location" HorizontalAlignment="Left" Margin="55,186,0,0" VerticalAlignment="Top" Width="55" Grid.Column="1"/>
+        <RadioButton x:Name="radbtnUploadLocationType" Content="Type" GroupName="Location" HorizontalAlignment="Left" Margin="55,224,0,0" VerticalAlignment="Top" Width="55" Grid.Column="1"/>
+        <Label Content="Edit your Listing" Grid.Column="1" Margin="186,23,187,561" Width="103" Height="25"/>
+
+    </Grid>
+</Page>
