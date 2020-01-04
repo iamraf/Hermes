@@ -29,49 +29,18 @@ namespace Hermes.Model.Models
                 Console.WriteLine("Item could not be added on fav");
         }
 
-        private bool OpenConnection()
-        {
-            try
-            {
-                _connection.Open();
-
-                return true;
-            }
-            catch (MySqlException)
-            {
-                return false;
-            }
-        }
-
-
-        private bool CloseConnection()
-        {
-            try
-            {
-                _connection.Close();
-
-                return true;
-            }
-            catch (MySqlException)
-            {
-                return false;
-            }
-        }
-
         private bool AddItemOnFavourites()
         {
-            if(this.OpenConnection() == true)
+            if(Singleton.GetInstance().OpenConnection()==true)
             {
                 string query = "INSERT INTO User_Favorites (listingID, userID) VALUE ("+ListingId+", "+UserId+")";
                
                 MySqlCommand cmd = new MySqlCommand(query, _connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                while (dataReader.Read()) { }
-
                 dataReader.Close();
 
-                this.CloseConnection();
+                Singleton.GetInstance().CloseConnection();
 
                 return true;
             }

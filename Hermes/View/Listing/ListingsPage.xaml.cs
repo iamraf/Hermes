@@ -20,6 +20,7 @@ namespace Hermes.View
     public partial class ListingsPage : Page
     {
         private ListingRepository _repository;
+        private Favourite _favourite;
 
         public ListingsPage()
         {
@@ -47,6 +48,18 @@ namespace Hermes.View
         }
 
         private void comboxListingsSortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //
+        }
+
+        private void btnListingSelectedFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            //Listing listing = (Listing)listviewListings.SelectedItem;
+
+            //_favourite = new Favourite(listing.Id,);
+        }
+
+        private void btnListingSelectedContact_Click(object sender, RoutedEventArgs e)
         {
             //
         }
