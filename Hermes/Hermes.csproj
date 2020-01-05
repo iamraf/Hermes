@@ -128,9 +128,6 @@
     <Compile Include="View\MyListingsPage.xaml.cs">
       <DependentUpon>MyListingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MyProfilePage.xaml.cs">
-      <DependentUpon>MyProfilePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -179,10 +176,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\MyListingsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\MyProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
