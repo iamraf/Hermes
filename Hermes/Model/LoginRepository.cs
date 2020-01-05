@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hermes.Model.Models;
+﻿using Hermes.Model.Models;
 using MySql.Data.MySqlClient;
 
 namespace Hermes.Model
@@ -17,44 +12,17 @@ namespace Hermes.Model
             _connection = new MySqlConnection(connectionString);
         }
 
-        private bool OpenConnection()
-        {
-            try
-            {
-                _connection.Open();
-
-                return true;
-            }
-            catch (MySqlException)
-            {
-                return false;
-            }
-        }
-
-
-        private bool CloseConnection()
-        {
-            try
-            {
-                _connection.Close();
-
-                return true;
-            }
-            catch (MySqlException)
-            {
-                return false;
-            }
-        }
+  
 
         public bool UserExist(string username)
         {
-            if(this.OpenConnection() == true)
+            if(Singleton.GetInstance().OpenConnection() == true)
             {
                 string query = "SELECT * FROM User_Data WHERE username = '" + username + "'" ;
 
                 bool exists = false;
 
-                MySqlCommand cmd = new MySqlCommand(query, _connection);
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 if(dataReader.HasRows)
@@ -64,7 +32,7 @@ namespace Hermes.Model
 
                 dataReader.Close();
 
-                this.CloseConnection();
+                Singleton.GetInstance().CloseConnection();
 
                 return exists;
             }
@@ -76,13 +44,13 @@ namespace Hermes.Model
 
         public User LoginUser(string username, string password)
         {
-            if (this.OpenConnection() == true)
+            if (Singleton.GetInstance().OpenConnection() == true)
             {
                 User user = null;
 
                 string query = "SELECT * FROM User_Data WHERE username = '" + username + "' and password = '" + password + "'";
 
-                MySqlCommand cmd = new MySqlCommand(query, _connection);
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 while(dataReader.Read())
@@ -92,7 +60,7 @@ namespace Hermes.Model
 
                 dataReader.Close();
 
-                this.CloseConnection();
+                Singleton.GetInstance().CloseConnection();
 
                 return user;
             }
