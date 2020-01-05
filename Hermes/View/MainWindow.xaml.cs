@@ -33,7 +33,7 @@ namespace Hermes.View
 
         private void btnTopListings_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/Listing/ListingsPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/listings/ListingsView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnTopUpload_Click(object sender, RoutedEventArgs e)

@@ -16,9 +16,6 @@ using Hermes.Model.Models;
 
 namespace Hermes.View
 {
-    /// <summary>
-    /// Interaction logic for LoginPage.xaml
-    /// </summary>
     public partial class LoginPage : Page, ILoginpage
     {
         private readonly LoginPresenter _presenter;
@@ -52,10 +49,7 @@ namespace Hermes.View
         { 
             set
             {
-                this.NavigationService.Navigate(new ListingsPage());
-
-
-                Console.WriteLine(value.Name);
+                this.NavigationService.Navigate(new ListingsView());
             }
         }
 
