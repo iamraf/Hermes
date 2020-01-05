@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Hermes.View
 {
     /// <summary>
-    /// Interaction logic for MyProfilePage.xaml
+    /// Interaction logic for HelpWindow.xaml
     /// </summary>
-    public partial class MyProfilePage : Page
+    public partial class HelpWindow : Window
     {
-        public MyProfilePage()
+        public HelpWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnHelpClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
