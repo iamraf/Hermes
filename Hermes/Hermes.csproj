@@ -80,6 +80,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\ListingRepository.cs" />
+    <Compile Include="Model\Models\HistoryList.cs" />
+    <Compile Include="Model\RecommendationEngine.cs" />
     <Compile Include="Model\Singleton.cs" />
     <Compile Include="Model\RegisterRepository.cs" />
     <Compile Include="Model\LoginRepository.cs" />
