@@ -77,5 +77,20 @@ namespace Hermes.View
             HelpWindow helpwindow = new HelpWindow();
             helpwindow.Show();
         }
+
+        private void btnDropdownHistory_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Navigate(new Uri("View/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void btnDropdownFavorites_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Navigate(new Uri("View/FavoritesPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void btnDropdownMyListings_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Navigate(new Uri("View/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }

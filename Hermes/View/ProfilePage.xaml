@@ -108,7 +108,18 @@
                     </Button.Background>
                 </Button>
             </Grid>
-            <Frame x:Name="frameProfile" Content="Frame"  Source="/Hermes;component/View/MyProfilePage.xaml" Margin="200,0,0,0" NavigationUIVisibility="Hidden"/>
         </Grid>
+        <Label x:Name="lblRegisterPage1" Content="Log in Credentials" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="570,110,454,473"/>
+        <TextBox x:Name="txtboxRegisterUsername2" TextWrapping="Wrap" Text="Username..." Margin="614,140,498,445"/>
+        <TextBox x:Name="txtboxRegisterPassword5" TextWrapping="Wrap" Text="Password..." Margin="614,176,498,411"/>
+        <TextBox x:Name="txtboxRegisterPassword6" TextWrapping="Wrap" Text="Re-enter password..." Margin="614,204,498,383"/>
+        <Label x:Name="lblRegisterPage2" Content="Personal Information" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="570,244,454,339"/>
+        <TextBox x:Name="txtboxRegisterEmail" TextWrapping="Wrap" Text="Email..." Margin="614,272,498,313"/>
+        <TextBox x:Name="txtboxRegisterName" TextWrapping="Wrap" Text="Name..." Margin="614,300,498,285"/>
+        <TextBox x:Name="txtboxRegisterSurname" TextWrapping="Wrap" Text="Surname..." Margin="614,328,498,257"/>
+        <TextBox x:Name="txtboxRegisterPhone" TextWrapping="Wrap" Text="Phone number..." Margin="614,356,498,229" Width="160"/>
+        <ComboBox x:Name="comboxRegisterAddress" HorizontalAlignment="Left" Margin="614,384,0,0" VerticalAlignment="Top" Width="158" Height="24"/>
+        <Label Content="Edit your information" HorizontalAlignment="Left" Margin="632,60,0,0" VerticalAlignment="Top"/>
+        <Button Content="Save Changes" Margin="652,430,536,155" Height="25"/>
     </Grid>
 </Page>

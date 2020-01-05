@@ -72,7 +72,7 @@
                     <RowDefinition Height="21*"/>
                     <RowDefinition Height="29*"/>
                 </Grid.RowDefinitions>
-                <Button Content="History" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="120" Height="30" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18">
+                <Button x:Name="btnDropdownHistory" Content="History" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="120" Height="30" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18" Click="btnDropdownHistory_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -88,7 +88,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Favorites" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Width="120" Height="30" Grid.RowSpan="2" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18">
+                <Button x:Name="btnDropdownFavorites" Content="Favorites" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Width="120" Height="30" Grid.RowSpan="2" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18" Click="btnDropdownFavorites_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -104,7 +104,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="My Listings" HorizontalAlignment="Left" Margin="0,18,0,0" VerticalAlignment="Top" Width="120" Height="30" Grid.Row="1" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18">
+                <Button x:Name="btnDropdownMyListings" Content="My Listings" HorizontalAlignment="Left" Margin="0,18,0,0" VerticalAlignment="Top" Width="120" Height="30" Grid.Row="1" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18" Click="btnDropdownMyListings_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -120,7 +120,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Sign Out" HorizontalAlignment="Left" Margin="0,54,0,-2" VerticalAlignment="Top" Width="120" Height="30" Grid.Row="1" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18">
+                <Button x:Name="btnDropdownSignOut" Content="Sign Out" HorizontalAlignment="Left" Margin="0,54,0,-2" VerticalAlignment="Top" Width="120" Height="30" Grid.Row="1" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
