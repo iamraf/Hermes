@@ -17,7 +17,7 @@
                         <GradientStop Color="#FF065C93" Offset="0.491"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <Button x:Name="btnProfileProfile" Content="My Profile" Margin="10,30,10,549" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" Click="btnProfileProfile_Click" FontFamily="Segoe UI Light" FontSize="20">
+                <Button x:Name="btnProfileMyProfile" Content="My Profile" Margin="10,30,10,549" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -36,7 +36,7 @@
                     </Button.Background>
                 </Button>
                 <Button Content="Button" Margin="10,90,10,519"/>
-                <Button x:Name="btnProfileHistory" Content="History" Margin="10,90,10,489" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light">
+                <Button x:Name="btnProfileHistory" Content="History" Margin="10,90,10,489" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -54,7 +54,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnProfileFavorites" Content="Favorites" Margin="10,150,10,429" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20">
+                <Button x:Name="btnProfileFavorites" Content="Favorites" Margin="10,150,10,429" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -72,7 +72,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnProfileListings" Content="My Listings" Margin="10,210,10,369" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20">
+                <Button x:Name="btnProfileListings" Content="My Listings" Margin="10,210,10,369" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -108,7 +108,7 @@
                     </Button.Background>
                 </Button>
             </Grid>
-            <Grid Margin="200,0,0,0"/>
+            <Frame x:Name="frameProfile" Content="Frame"  Source="/Hermes;component/View/MyProfilePage.xaml" Margin="200,0,0,0" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Page>

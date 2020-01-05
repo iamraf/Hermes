@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Hermes.Model.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +24,52 @@ namespace Hermes.View
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnTopHome_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Navigate(new Uri("View/HomePage.xaml", UriKind.RelativeOrAbsolute)); 
+        }
+
+        private void btnTopListings_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Navigate(new Uri("View/listings/ListingsView.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void btnTopUpload_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Navigate(new Uri("View/UploadPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void btnTopLogin_Click(object sender, RoutedEventArgs e)
+        {
+            ObjectCache Cache = MemoryCache.Default;
+            User user = (User)Cache["User"];
+            if (user != null)
+            {
+                frameMain.Navigate(new Uri("View/ProfilePage.xaml", UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                frameMain.Navigate(new Uri("View/Login/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+            }
+            
+        }
+
+        private void frameMain_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            ObjectCache Cache = MemoryCache.Default;
+            User user = (User)Cache["User"];
+            if (user != null)
+            {
+                btnTopLogin.Content = " ";
+                expMyAccountDropdown.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnTopLogin.Content = "Log in";
+                expMyAccountDropdown.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }
