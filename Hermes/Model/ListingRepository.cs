@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,16 +11,39 @@ namespace Hermes.Model
 {
     class ListingRepository
     {
-        public ListingRepository()
-        {
-
-        }
-
         public List<Listing> GetListings()
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
                 string query = "SELECT * FROM Listings";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                List<Listing> listing = new List<Listing>();
+
+                while (dataReader.Read())
+                {
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return listing;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<Listing> GetSortedListings(string field)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "SELECT * FROM Listings ORDER BY " + field;
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -72,7 +96,7 @@ namespace Hermes.Model
 
                 dataReader.Read();
 
-                if(dataReader.HasRows)
+                if (dataReader.HasRows)
                 {
                     user = new User(dataReader.GetInt32("userID"), dataReader.GetString("username"), dataReader.GetString("password"), dataReader.GetString("name"), dataReader.GetString("surname"), dataReader.GetString("address"), dataReader.GetString("email"), dataReader.GetString("telephone"));
                 }
@@ -84,6 +108,36 @@ namespace Hermes.Model
             else
             {
                 return null;
+            }
+        }
+
+        public void AddToFavourite(Favourite favourite)
+        {
+            if(Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "INSERT INTO User_Favorites (listingID, userID) VALUE ('" + favourite.ListingId + "', '" + favourite.UserId + "')";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+            }
+        }
+
+        public void IncreaseView(int listingId)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "UPDATE Listings SET listViews = listViews + 1 WHERE listingID = '" + listingId + "'";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
             }
         }
     }
