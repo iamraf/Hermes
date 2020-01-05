@@ -80,6 +80,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\ListingRepository.cs" />
+    <Compile Include="Model\Models\HistoryList.cs" />
+    <Compile Include="Model\RecommendationEngine.cs" />
     <Compile Include="Model\Singleton.cs" />
     <Compile Include="Model\RegisterRepository.cs" />
     <Compile Include="Model\LoginRepository.cs" />
@@ -107,8 +109,10 @@
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Listing\ListingsPage.xaml.cs">
-      <DependentUpon>ListingsPage.xaml</DependentUpon>
+    <Compile Include="View\listings\IListingsView.cs" />
+    <Compile Include="View\listings\ListingsPresenter.cs" />
+    <Compile Include="View\listings\ListingsView.xaml.cs">
+      <DependentUpon>ListingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Login\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -151,7 +155,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Listing\ListingsPage.xaml">
+    <Page Include="View\listings\ListingsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
