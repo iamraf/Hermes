@@ -71,5 +71,11 @@ namespace Hermes.View
                 expMyAccountDropdown.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void btnTopHelp_Click(object sender, RoutedEventArgs e)
+        {
+            HelpWindow helpwindow = new HelpWindow();
+            helpwindow.Show();
+        }
     }
 }

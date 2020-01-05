@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hermes.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" ResizeMode="CanMinimize">
+        Title="MainWindow" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" ResizeMode="CanMinimize" BorderThickness="0" WindowStartupLocation="CenterScreen">
     <Grid x:Name="gridMain" Margin="0" Background="#FF06558D">
         <Grid.RowDefinitions>
             <RowDefinition Height="80*" MaxHeight="80" MinHeight="80"/>
@@ -39,7 +39,7 @@
                 </LinearGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <Button x:Name="btnTopLogin" Content="Log in" BorderThickness="0,0,0,3" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" Margin="1070,20,84,10" FontFamily="Segoe UI Light" Click="btnTopLogin_Click" FontSize="18" Width="120">
+        <Button x:Name="btnTopLogin" Content="Log in" BorderThickness="0,0,0,5" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" Margin="1070,20,84,10" FontFamily="Segoe UI Light" Click="btnTopLogin_Click" FontSize="18" Width="120">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#3347A7EA" Offset="1"/>
@@ -48,7 +48,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnTopHelp" Content="Help" BorderThickness="0,0,0,3" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" Margin="1200,20,10,10" FontFamily="Segoe UI Light" FontSize="18" VerticalContentAlignment="Center" Width="64" Height="50" HorizontalContentAlignment="Center">
+        <Button x:Name="btnTopHelp" Content="Help" BorderThickness="0,0,0,5" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" Margin="1200,20,10,10" FontFamily="Segoe UI Light" FontSize="18" VerticalContentAlignment="Center" Width="64" Height="50" HorizontalContentAlignment="Center" Click="btnTopHelp_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#3347A7EA" Offset="1"/>
@@ -57,7 +57,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnTopSearch" Content="Search" Margin="840,29,374,21" BorderBrush="#FF47A7EA" BorderThickness="0,0,0,3" Foreground="#FF47A7EA" FontFamily="Segoe UI Light" FontSize="14">
+        <Button x:Name="btnTopSearch" Content="Search" Margin="840,29,374,21" BorderBrush="#FF47A7EA" BorderThickness="0,0,0,3" Foreground="#FF47A7EA" FontFamily="Segoe UI Light" FontSize="16">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#3347A7EA" Offset="1"/>
@@ -66,12 +66,76 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Expander x:Name="expMyAccountDropdown" Header="My Account" Height="252" Margin="1070,33,84,406" Grid.RowSpan="2" Width="120" Foreground="#FF47A7EA" Background="{x:Null}" BorderBrush="{x:Null}" Visibility="Visible" FontFamily="Segoe UI Light" FontSize="16">
-            <Grid x:Name="gridMyAccountDropdown" Height="201" Background="#FF47A7EA" Margin="-1,0" Width="120">
+        <Expander x:Name="expMyAccountDropdown" Header="My Account" Margin="1073,31,81,469" Grid.RowSpan="2" Width="120" Foreground="#FF47A7EA" Background="{x:Null}" BorderBrush="{x:Null}" Visibility="Visible" FontFamily="Segoe UI Light" FontSize="16">
+            <Grid x:Name="gridMyAccountDropdown" Height="142" Margin="-1,0" Width="120" Background="#FF06558D" VerticalAlignment="Bottom">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="21*"/>
                     <RowDefinition Height="29*"/>
                 </Grid.RowDefinitions>
+                <Button Content="History" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="120" Height="30" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="#0047A7EA" Offset="0.622"/>
+                            <GradientStop Color="#3347A7EA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="Favorites" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Width="120" Height="30" Grid.RowSpan="2" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="#0047A7EA" Offset="0.622"/>
+                            <GradientStop Color="#3347A7EA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="My Listings" HorizontalAlignment="Left" Margin="0,18,0,0" VerticalAlignment="Top" Width="120" Height="30" Grid.Row="1" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="#0047A7EA" Offset="0.622"/>
+                            <GradientStop Color="#3347A7EA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="Sign Out" HorizontalAlignment="Left" Margin="0,54,0,-2" VerticalAlignment="Top" Width="120" Height="30" Grid.Row="1" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <LinearGradientBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </LinearGradientBrush.RelativeTransform>
+                            <GradientStop Color="#0047A7EA" Offset="0.622"/>
+                            <GradientStop Color="#3347A7EA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </Grid>
         </Expander>
     </Grid>
