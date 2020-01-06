@@ -18,6 +18,19 @@ namespace Hermes.View
             ButtonEnable(false);
 
             _presenter = new ListingsPresenter(this);
+
+            _presenter.GetListings();
+        }
+
+        public ListingsView(string search)
+        {
+            InitializeComponent();
+
+            ButtonEnable(false);
+
+            _presenter = new ListingsPresenter(this);
+
+            _presenter.GetSearchResults(search);
         }
 
         public List<Listing> Listings
@@ -94,5 +107,6 @@ namespace Hermes.View
             btnListingSelectedFavorite.IsEnabled = action;
             btnListingSelectedContact.IsEnabled = action;
         }
+
     }
 }

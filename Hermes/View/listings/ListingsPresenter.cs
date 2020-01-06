@@ -15,10 +15,10 @@ namespace Hermes.View.listings
             _view = view;
             _repository = new ListingRepository();
 
-            GetListings();
+            
         }
 
-        private void GetListings()
+        public void GetListings()
         {
             List<Listing> list = _repository.GetListings();
 
@@ -77,6 +77,15 @@ namespace Hermes.View.listings
             else
             {
                 _view.Navigate = true;
+            }
+        }
+
+        public void GetSearchResults(string query)
+        {
+            List<Listing> list = _repository.GetSearchResult(query);
+            if (list != null && list.Count > 0)
+            {
+                _view.Listings = list;
             }
         }
 

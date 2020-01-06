@@ -27,22 +27,22 @@ namespace Hermes.View
 
         private void btnProfileHistory_Click(object sender, RoutedEventArgs e)
         {
-            frameProfile.Navigate(new Uri("View/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
+            this.NavigationService.Navigate(new Uri("View/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnProfileMyProfile_Click(object sender, RoutedEventArgs e)
         {
-            frameProfile.Navigate(new Uri("View/MyProfilePage.xaml", UriKind.RelativeOrAbsolute));
+            this.NavigationService.Navigate(new Uri("View/ProfilePage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnProfileFavorites_Click(object sender, RoutedEventArgs e)
         {
-            frameProfile.Navigate(new Uri("View/FavoritesPage.xaml", UriKind.RelativeOrAbsolute));
+            this.NavigationService.Navigate(new Uri("View/FavoritesPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnProfileListings_Click(object sender, RoutedEventArgs e)
         {
-            frameProfile.Navigate(new Uri("View/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
+            this.NavigationService.Navigate(new Uri("View/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

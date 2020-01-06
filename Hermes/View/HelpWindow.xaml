@@ -1,0 +1,75 @@
+﻿<Window x:Class="Hermes.View.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hermes.View"
+        mc:Ignorable="d"
+        Title="HelpWindow" Height="400" Width="600" Background="#FF06558D" WindowStyle="None" BorderThickness="2" BorderBrush="#FF06558D" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF06558D">
+        <TabControl x:Name="tabcontrolHelp" Background="#FFF3F3F3">
+            <TabItem x:Name="tabitemHome" Header="Home Page" BorderThickness="0" BorderBrush="#FF47A7EA">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#0047A7EA" Offset="0"/>
+                        <GradientStop Color="#3347A7EA" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFF3F3F3">
+                    <TextBlock Margin="20" TextWrapping="Wrap" Text="Home page help to be added here."/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabitemBrowse" Header="Browse Listings" BorderBrush="#FF47A7EA" BorderThickness="0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#0047A7EA" Offset="0"/>
+                        <GradientStop Color="#3347A7EA" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFF3F3F3">
+                    <TextBlock Margin="20" TextWrapping="Wrap" Text="Browsing help to be added here."/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabitemUpload" Header="Upload Listings" BorderBrush="#FF47A7EA" BorderThickness="0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#0047A7EA" Offset="0"/>
+                        <GradientStop Color="#3347A7EA" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Margin="0">
+                    <TextBlock Margin="20" TextWrapping="Wrap"><Run Text="Uploading "/><Run Text="help to be added here."/></TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabitemAccount" Header="Account" BorderBrush="#FF47A7EA" BorderThickness="0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#0047A7EA" Offset="0"/>
+                        <GradientStop Color="#3347A7EA" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TextBlock Margin="20" TextWrapping="Wrap"><Run Text="Account creation + connection "/><Run Text="help to be added here."/></TextBlock>
+            </TabItem>
+            <TabItem x:Name="tabitemProfile" Header="My Profile" BorderBrush="#FF47A7EA" BorderThickness="0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#0047A7EA" Offset="0"/>
+                        <GradientStop Color="#3347A7EA" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TextBlock Margin="20" TextWrapping="Wrap"><Run Text="Profile + history + favorites "/><Run Text="help to be added here."/></TextBlock>
+            </TabItem>
+            <TabItem x:Name="tabitemAbout" Header="About" BorderBrush="#FF47A7EA" BorderThickness="0">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#0047A7EA" Offset="0"/>
+                        <GradientStop Color="#3347A7EA" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <TextBlock Margin="20" TextWrapping="Wrap"><Run Text="Info about Hermes"/><Run Text=" to be added here."/></TextBlock>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="btnHelpClose" Content="Close" HorizontalAlignment="Left" Margin="521,0,0,0" VerticalAlignment="Top" Width="75" Foreground="#FF47A7EA" Background="{x:Null}" BorderBrush="#FF47A7EA" Click="btnHelpClose_Click" Height="22"/>
+
+    </Grid>
+</Window>

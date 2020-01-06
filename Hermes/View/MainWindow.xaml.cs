@@ -71,5 +71,32 @@ namespace Hermes.View
                 expMyAccountDropdown.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void btnTopHelp_Click(object sender, RoutedEventArgs e)
+        {
+            HelpWindow helpwindow = new HelpWindow();
+            helpwindow.Show();
+        }
+
+        private void btnDropdownHistory_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Navigate(new Uri("View/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void btnDropdownFavorites_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Navigate(new Uri("View/FavoritesPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void btnDropdownMyListings_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.Navigate(new Uri("View/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void btnTopSearch_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.NavigationService.Navigate(new ListingsView(txtboxTopSearch.Text));
+
+        }
     }
 }

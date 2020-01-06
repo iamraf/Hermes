@@ -140,5 +140,35 @@ namespace Hermes.Model
                 Singleton.GetInstance().CloseConnection();
             }
         }
+
+        public List<Listing> GetSearchResult(string search)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                //string joinedQuery = String.Join<char>("%", search);
+                string joinedQuery = search;
+                string query = "SELECT * FROM Listings WHERE listingName like '%"+ joinedQuery + "%' or listingDescription like '%" + joinedQuery + "%'";
+                
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                List<Listing> listing = new List<Listing>();
+
+                while (dataReader.Read())
+                {
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return listing;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
