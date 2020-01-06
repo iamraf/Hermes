@@ -92,5 +92,11 @@ namespace Hermes.View
         {
             frameMain.Navigate(new Uri("View/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        private void btnTopSearch_Click(object sender, RoutedEventArgs e)
+        {
+            frameMain.NavigationService.Navigate(new ListingsView(txtboxTopSearch.Text));
+
+        }
     }
 }

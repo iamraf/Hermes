@@ -57,7 +57,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnTopSearch" Content="Search" Margin="840,29,374,21" BorderBrush="#FF47A7EA" BorderThickness="0,0,0,3" Foreground="#FF47A7EA" FontFamily="Segoe UI Light" FontSize="16">
+        <Button x:Name="btnTopSearch" Content="Search" Margin="840,29,374,21" BorderBrush="#FF47A7EA" BorderThickness="0,0,0,3" Foreground="#FF47A7EA" FontFamily="Segoe UI Light" FontSize="16" Click="btnTopSearch_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#3347A7EA" Offset="1"/>
