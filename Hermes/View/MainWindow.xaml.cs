@@ -90,7 +90,7 @@ namespace Hermes.View
 
         private void btnDropdownMyListings_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/MyListings/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnTopSearch_Click(object sender, RoutedEventArgs e)
