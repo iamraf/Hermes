@@ -35,7 +35,7 @@
         <ComboBox x:Name="comboxUploadCategory" HorizontalAlignment="Left" Margin="55,456,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.Column="2"/>
         <ComboBox x:Name="comboxUploadSubcategory" HorizontalAlignment="Left" Margin="245,456,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.Column="2"/>
         <Button x:Name="btnUploadImage" Content="Add an image to your listing" Margin="215,126,61,453" Grid.Column="2"/>
-        <Button x:Name="btnUploadUpload" Content="Save Changes" Margin="150,516,156,63" Grid.Column="2" Click="btnUploadUpload_Click"/>
+        <Button x:Name="btnUploadUpload" Content="Save Changes" Margin="150,516,156,63" Grid.Column="2" Click="btnUploadUpload_Click" IsEnabled="False"/>
         <ComboBox x:Name="comboxUploadLocation" HorizontalAlignment="Left" Margin="115,176,0,0" VerticalAlignment="Top" Width="300" Height="30" Grid.Column="2"/>
         <RadioButton x:Name="radbtnUploadLocationSelect" Content="Select" GroupName="Location" HorizontalAlignment="Left" Margin="55,186,0,0" VerticalAlignment="Top" Width="55" Grid.Column="2" Height="15"/>
         <RadioButton x:Name="radbtnUploadLocationType" Content="Type" GroupName="Location" HorizontalAlignment="Left" Margin="55,224,0,0" VerticalAlignment="Top" Width="55" Grid.Column="2" Height="15"/>
@@ -139,8 +139,10 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Button x:Name="btnDeleteListing" Content="Deactivate Listing" Margin="150,569,156,10" Grid.Column="2" Click="btnDeleteListing_Click"/>
-        <CheckBox Content="Show only active Listings" HorizontalAlignment="Left" Margin="24,254,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBoxChanged" IsChecked="False"/>
+        <Button x:Name="btnDeleteListing" Content="Deactivate Listing" Margin="150,569,156,10" Grid.Column="2" Click="btnDeleteListing_Click" IsEnabled="False"/>
+        <RadioButton x:Name="radioboxAllListings" Content="Show all Listings" HorizontalAlignment="Left" Margin="30,277,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxAllListings_Checked" />
+        <RadioButton x:Name="radioboxActiveListings" Content="Show only active Listings" HorizontalAlignment="Left" Margin="30,306,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxActiveListings_Checked" />
+        <RadioButton x:Name="radioboxInactiveListings" Content="Show only inactive Listings" HorizontalAlignment="Left" Margin="30,336,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxInactiveListings_Checked" />
 
     </Grid>
 </Page>

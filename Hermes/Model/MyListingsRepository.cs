@@ -17,7 +17,11 @@ namespace Hermes.Model
             {
                 string query = "select  * "+
                                "from Listings join Owners_Listings OL on Listings.listingID = OL.listingID "+
-                               "where OL.ownerID = "+UserID+" and Listings.activeListing = "+activeListing;
+                               "where OL.ownerID = "+UserID;
+                if(activeListing!=-1)
+                {
+                    query += " and Listings.activeListing = " + activeListing;
+                }
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -41,6 +45,24 @@ namespace Hermes.Model
             }
         }
 
+        public Boolean UpdateListing(int listingID, string title, float price, string description)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "UPDATE Listings SET listingName='" +title+"' ,listingDescription='"+description+"', price="+price+
+                               " WHERE listingID = " + listingID;
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                Singleton.GetInstance().CloseConnection();
+                return true;                
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void deleteListing(int listingID) 
         {
             if (Singleton.GetInstance().OpenConnection() == true)
