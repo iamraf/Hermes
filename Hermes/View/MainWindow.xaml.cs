@@ -80,7 +80,7 @@ namespace Hermes.View
 
         private void btnDropdownHistory_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/MyHistory/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnDropdownFavorites_Click(object sender, RoutedEventArgs e)

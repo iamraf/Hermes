@@ -27,7 +27,7 @@ namespace Hermes.View
 
         private void btnProfileHistory_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("View/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
+            this.NavigationService.Navigate(new Uri("View/MyHistory/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnProfileMyProfile_Click(object sender, RoutedEventArgs e)
