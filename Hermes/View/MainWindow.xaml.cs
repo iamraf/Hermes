@@ -38,7 +38,7 @@ namespace Hermes.View
 
         private void btnTopUpload_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/UploadPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/Upload/UploadPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnTopLogin_Click(object sender, RoutedEventArgs e)
