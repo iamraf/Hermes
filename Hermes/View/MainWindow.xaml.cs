@@ -38,7 +38,17 @@ namespace Hermes.View
 
         private void btnTopUpload_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/Upload/UploadPage.xaml", UriKind.RelativeOrAbsolute));
+            
+            ObjectCache Cache = MemoryCache.Default;
+            User user = (User)Cache["User"];
+            if(user != null)
+            {
+                frameMain.Navigate(new Uri("View/Upload/UploadPage.xaml", UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                frameMain.Navigate(new Uri("View/Login/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+            }
         }
 
         private void btnTopLogin_Click(object sender, RoutedEventArgs e)

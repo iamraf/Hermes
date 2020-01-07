@@ -132,12 +132,41 @@ namespace Hermes.Model
             }
         }
 
-        public bool UploadListing(string listingName, string listingDescription, int listingRegion, int subCategoryListing, bool premiumListing, float price)
+        public int UploadListing(string listingName, string listingDescription, int listingRegion, int subCategoryListing, bool premiumListing, float price)
         {
 
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "INSERT INTO Listings(listingName, listingDescription, activeListing, listingRegion, listViews, subCategoryListing, premiumListing, creationDate, price) VALUE ('"+ listingName + "', '"+ listingDescription + "', 1, '"+ listingRegion + "', 0, '"+ subCategoryListing + "', "+premiumListing+", now(), "+price+")";
+                string query = "INSERT INTO Listings(listingName, listingDescription, activeListing, listingRegion, listViews, subCategoryListing, premiumListing, creationDate, price) VALUE ('"+ listingName + "', '"+ listingDescription + "', 1, '"+ listingRegion + "', 0, '"+ subCategoryListing + "', "+premiumListing+", now(), "+price+");" +
+                    "SELECT last_insert_id();";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                int listingID = 0;
+                while (dataReader.Read())
+                {
+                    listingID = dataReader.GetInt32(0);
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return listingID;
+
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public bool UpdateOwners(int listingID, int ownerID)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "INSERT INTO Owners_Listings(listingID, ownerID) VALUE ("+listingID+", "+ownerID+")";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -147,13 +176,13 @@ namespace Hermes.Model
                 Singleton.GetInstance().CloseConnection();
 
                 return true;
-
             }
             else
             {
                 return false;
             }
         }
+
 
     }
 

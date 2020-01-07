@@ -3,6 +3,7 @@ using Hermes.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,19 +11,22 @@ namespace Hermes.View.Upload
 {
     class UploadPresenter
     {
-        private UploadListingRepository _repository;
-        private IUploadPage _view;
+        private readonly UploadListingRepository _repository;
+        private readonly IUploadPage _view;
         private List<Category> _categories;
         private List<SubCategory> _subCategories;
         private List<Location> _locations;
+        private readonly ObjectCache Cache;
 
         public UploadPresenter(IUploadPage view)
         {
             _view = view;
             _repository = new UploadListingRepository();
-
+            Cache = MemoryCache.Default;
+            User user = (User)Cache["User"];
             GetCategories();
-            GetLocations();
+            GetLocations();           
+
         }
 
         public void GetCategories()
@@ -113,7 +117,10 @@ namespace Hermes.View.Upload
 
         public void UploadListing(string name, float price, int location, string description, int subcategory)
         {
-            _repository.UploadListing(name, description, location, subcategory, false, price);
+            int listingId = _repository.UploadListing(name, description, location, subcategory, false, price);
+
+            User user = (User)Cache["User"];
+            _repository.UpdateOwners(listingId, user.Id);
         }
 
     }
