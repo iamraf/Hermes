@@ -119,7 +119,15 @@ namespace Hermes.View
 
         private void btnUploadUpload_Click(object sender, RoutedEventArgs e)
         {
-            _presenter.UploadListing(name, price, location.Id, description, subcategory.Id);
+            _presenter.UploadListing(GetTaggedListingName(), price, location.Id, description, subcategory.Id);
+        }
+
+        private string GetTaggedListingName()
+        {
+            if (radbtnUploadSell.IsChecked==true)
+                return "#Selling " + name;
+            else
+                return "#Buying " + name;
         }
 
     }

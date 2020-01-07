@@ -9,14 +9,10 @@ namespace Hermes.View.Upload
 {
     interface IUploadPage
     {
-
         string name { get; }
         float price { get; }
         Location location { get; }
         string description { get; }
         SubCategory subcategory { get; }
-
-
-
     }
 }
