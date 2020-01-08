@@ -6,54 +6,55 @@
       xmlns:local="clr-namespace:Hermes.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ListingsPage" Width="1272" Height="609">
+      Title="ListingsPage" Width="1272" Height="630">
     <Canvas Margin="48,34,0,0">
-        <Canvas x:Name="canvasListingsFilters" Width="200" HorizontalAlignment="Center" Height="609" Canvas.Top="-34" Canvas.Left="-48">
-            <Canvas.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF06558D"/>
-                    <GradientStop Color="#FF07A6D4" Offset="1"/>
-                    <GradientStop Color="#FF065C93" Offset="0.491"/>
-                </LinearGradientBrush>
-            </Canvas.Background>
-            <Label Content="Price Range&#xA;" Canvas.Left="10" Canvas.Top="148" Height="30" Width="180" HorizontalContentAlignment="Center" Margin="0,-8,0,0" Foreground="#FF89C3EC"/>
-            <Label x:Name="labelCancelPriceRanges" Content="Cancel" Canvas.Left="4" Canvas.Top="140" Height="30" Width="55" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelPriceRanges_PreviewDragOver" Visibility="Hidden"/>
-            <Label x:Name="labelCancelDateRanges" Content="Cancel" Canvas.Top="226" Height="30" Width="55" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelDateRanges_MouseLeftButtonDown" Canvas.Left="4" Visibility="Hidden"/>
-            <RadioButton x:Name="radbtnListingsPricePick" Content="" Canvas.Left="10" Canvas.Top="183" Margin="0,-8,0,0" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" GroupName="priceRangeGroup" Checked="radbtnListingsPricePick_Checked" Unchecked="radbtnListingsPricePick_Unchecked"/>
-            <RadioButton x:Name="radbtnListingsPriceCustom" Content="" Canvas.Left="10" Canvas.Top="209" RenderTransformOrigin="0.421,0.467" Margin="0,-8,0,0" BorderBrush="#FF89C3EC" Background="{x:Null}" BorderThickness="2" GroupName="priceRangeGroup" Checked="radbtnListingsPriceCustom_Checked" Unchecked="radbtnListingsPriceCustom_Unchecked"/>
-            <ComboBox x:Name="comboxListingsPricePick" Canvas.Left="34" Canvas.Top="178" Width="140" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,-8,0,0" SelectionChanged="comboxListingsPricePick_SelectionChanged" IsEnabled="False">
+        <Grid x:Name="canvasListingsFilters" HorizontalAlignment="Center" Canvas.Top="-34" Canvas.Left="-48" Background="White" Height="630" Width="200">
+            <Label Content="Price Range&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="50,291,50,308" FontSize="14"/>
+            <Label x:Name="labelCancelPriceRanges" Content="Cancel" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelPriceRanges_PreviewDragOver" Visibility="Hidden" Margin="4,140,141,460"/>
+            <Label x:Name="labelCancelDateRanges" Content="Cancel" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelDateRanges_MouseLeftButtonDown" Visibility="Hidden" Margin="4,226,141,374"/>
+            <RadioButton x:Name="radbtnListingsPricePick" Content="" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" GroupName="priceRangeGroup" Checked="radbtnListingsPricePick_Checked" Unchecked="radbtnListingsPricePick_Unchecked" Margin="10,327,172,285" RenderTransformOrigin="0.614,-0.056"/>
+            <RadioButton x:Name="radbtnListingsPriceCustom" Content="" RenderTransformOrigin="0.421,0.467" BorderBrush="#FF89C3EC" Background="{x:Null}" BorderThickness="2" GroupName="priceRangeGroup" Checked="radbtnListingsPriceCustom_Checked" Unchecked="radbtnListingsPriceCustom_Unchecked" Margin="10,361,168,251"/>
+            <ComboBox x:Name="comboxListingsPricePick" Width="156" HorizontalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="comboxListingsPricePick_SelectionChanged" IsEnabled="False" Margin="34,322,10,278" Height="30">
                 <ComboBoxItem Content="FREE" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Under 100 EUR" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Over 100 EUR" HorizontalAlignment="Left" Width="138"/>
             </ComboBox>
-            <CheckBox x:Uid="1" x:Name="chboxListingsCategory0" Content="Category0" Height="18" Canvas.Left="10" Canvas.Top="31" Width="94" Foreground="#FF89C3EC" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory"/>
-            <CheckBox x:Uid="2" x:Name="chboxListingsCategory1" Content="Category1" Height="18" Canvas.Left="106" Canvas.Top="39" Width="94" Margin="0,-8,0,0" Foreground="#FF89C3EC" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory"/>
-            <CheckBox x:Uid="3" x:Name="chboxListingsCategory2" Content="Category2" Height="18" Canvas.Left="10" Canvas.Top="51" Width="94" Foreground="#FF89C3EC" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory"/>
-            <CheckBox x:Uid="4" x:Name="chboxListingsCategory3" Content="Category3" Height="18" Canvas.Left="106" Canvas.Top="51" Width="94" Foreground="#FF89C3EC" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory"/>
-            <CheckBox x:Uid="5" x:Name="chboxListingsCategory4" Content="Category4" Height="18" Canvas.Left="10" Canvas.Top="71" Width="94" Foreground="#FF89C3EC" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory"/>
-            <CheckBox x:Uid="6" x:Name="chboxListingsCategory5" Content="Category5" Height="18" Canvas.Left="106" Canvas.Top="71" Width="94" Foreground="#FF89C3EC" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory"/>
-            <CheckBox x:Uid="7" x:Name="chboxListingsCategory6" Content="Category6" Height="18" Canvas.Left="10" Canvas.Top="91" Width="94" Foreground="#FF89C3EC" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory"/>
-            <CheckBox x:Uid="8" x:Name="chboxListingsCategory7" Content="Category7" Height="18" Canvas.Left="106" Canvas.Top="91" Width="94" Foreground="#FF89C3EC" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory"/>
-            <CheckBox x:Uid="9" x:Name="chboxListingsCategory8" Content="Category8" Height="18" Canvas.Left="10" Canvas.Top="111" Width="94" Foreground="#FF89C3EC" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory"/>
-            <CheckBox x:Uid="10" x:Name="chboxListingsCategory9" Content="Category9" Height="18" Canvas.Left="106" Canvas.Top="111" Width="94" Foreground="#FF89C3EC" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory"/>
-            <Label Content="Categories&#xA;" Canvas.Left="10" Canvas.Top="10" Height="29" Width="180" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,-8,0,0" Foreground="#FF89C3EC"/>
-            <Slider x:Name="slidListingsPriceCustom" Canvas.Left="34" Canvas.Top="205" Width="140" HorizontalAlignment="Center" VerticalAlignment="Center" AutoToolTipPlacement="BottomRight" Maximum="500" SmallChange="1" LargeChange="10" TickPlacement="BottomRight" TickFrequency="50" Value="-1" Cursor="Arrow" Margin="0,-8,0,0" Background="{x:Null}" IsEnabled="False" />
-            <Label Content="Date Uploaded&#xA;" Canvas.Left="59" Canvas.Top="226" Height="30" Width="89" HorizontalContentAlignment="Center" Foreground="#FF89C3EC"/>
-            <RadioButton x:Name="radbtnListingsDatePick" Content="" Canvas.Left="10" Canvas.Top="269" Margin="0,-8,0,0" BorderBrush="#FF89C3EC" BorderThickness="2" Background="{x:Null}" Checked="radbtnListingsDatePick_Checked" Unchecked="radbtnListingsDatePick_Unchecked"/>
-            <ComboBox x:Name="comboxListingsDatePick" Canvas.Left="34" Canvas.Top="264" Width="140" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,-8,0,0" Background="#FF89C3EC" BorderBrush="#FFACACAC" SelectionChanged="comboxListingsDatePick_SelectionChanged" IsEnabled="False">
+            <CheckBox x:Uid="1" x:Name="chboxListingsCategory0" Content="Category0" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,162,96,450"/>
+            <CheckBox x:Uid="2" x:Name="chboxListingsCategory1" Content="Category1" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="106,162,0,450"/>
+            <CheckBox x:Uid="3" x:Name="chboxListingsCategory2" Content="Category2" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,184,96,428"/>
+            <CheckBox x:Uid="4" x:Name="chboxListingsCategory3" Content="Category3" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="106,184,0,428"/>
+            <CheckBox x:Uid="5" x:Name="chboxListingsCategory4" Content="Category4" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,206,96,406"/>
+            <CheckBox x:Uid="6" x:Name="chboxListingsCategory5" Content="Category5" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="106,206,0,406"/>
+            <CheckBox x:Uid="7" x:Name="chboxListingsCategory6" Content="Category6" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,228,96,384"/>
+            <CheckBox x:Uid="8" x:Name="chboxListingsCategory7" Content="Category7" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="106,228,0,384"/>
+            <CheckBox x:Uid="9" x:Name="chboxListingsCategory8" Content="Category8" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,250,96,362"/>
+            <CheckBox x:Uid="10" x:Name="chboxListingsCategory9" Content="Category9" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="106,250,0,362"/>
+            <Label Content="Categories&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="60,133,59,468" FontSize="14"/>
+            <Slider x:Name="slidListingsPriceCustom" Width="156" HorizontalAlignment="Center" VerticalAlignment="Center" AutoToolTipPlacement="BottomRight" Maximum="500" SmallChange="1" LargeChange="10" TickPlacement="BottomRight" TickFrequency="50" Value="-1" Cursor="Arrow" Background="{x:Null}" IsEnabled="False" Margin="34,361,10,239" Height="30" />
+            <Label Content="Date Uploaded&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="50,411,50,194" FontSize="14"/>
+            <RadioButton x:Name="radbtnListingsDatePick" Content="" BorderBrush="#FF89C3EC" BorderThickness="2" Background="{x:Null}" Checked="radbtnListingsDatePick_Checked" Unchecked="radbtnListingsDatePick_Unchecked" Margin="10,445,168,167"/>
+            <ComboBox x:Name="comboxListingsDatePick" Width="156" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="#FFACACAC" SelectionChanged="comboxListingsDatePick_SelectionChanged" IsEnabled="False" Margin="34,439,10,162" Height="29">
                 <ComboBoxItem Content="Last week" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last month" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last year" HorizontalAlignment="Left" Width="138"/>
             </ComboBox>
-            <RadioButton x:Name="radbtnListingsDatePick2" Content="" Canvas.Left="10" Canvas.Top="295" Margin="0,-8,0,0" BorderBrush="#FF89C3EC" BorderThickness="2" Background="{x:Null}" Checked="radbtnListingsDatePick2_Checked" Unchecked="radbtnListingsDatePick2_Unchecked"/>
-            <DatePicker x:Name="datePicker" Canvas.Left="34" Canvas.Top="291" Width="140" Margin="0,-8,0,0" IsEnabled="False"/>
-        </Canvas>
-        <Grid x:Name="gridListings" Width="1074" Background="#FFEEEEEE" Height="609" Canvas.Left="152" Canvas.Top="-34">
+            <RadioButton x:Name="radbtnListingsDatePick2" Content="" BorderBrush="#FF89C3EC" BorderThickness="2" Background="{x:Null}" Checked="radbtnListingsDatePick2_Checked" Unchecked="radbtnListingsDatePick2_Unchecked" Margin="10,483,168,129"/>
+            <DatePicker x:Name="datePicker" IsEnabled="False" Margin="34,479,10,126"/>
+            <Label Content="Sort by" Margin="50,1,50,594" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35"/>
+            <ComboBox x:Name="comboxListingsSortBy" Margin="10,36,10,569" Height="25" SelectionChanged="comboxListingsSortBy_SelectionChanged" VerticalAlignment="Stretch">
+                <ComboBoxItem IsSelected="True" Content="Date"/>
+                <ComboBoxItem Content="Price"/>
+                <ComboBoxItem Content="Popularity"/>
+            </ComboBox>
+            <Label Content="Filters" Margin="50,91,50,504" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35"/>
+            <Rectangle Height="1" Margin="0,85,0,544" Stroke="#FFAAAAAA"/>
+        </Grid>
+        <Grid x:Name="gridListings" Width="1074" Background="#FFEEEEEE" Height="630" Canvas.Left="152" Canvas.Top="-34">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MinWidth="400" Width="5*"/>
                 <ColumnDefinition MinWidth="400" Width="4*"/>
             </Grid.ColumnDefinitions>
-            <ListView x:Name="listviewListings" Margin="0,30,0,0" SelectionChanged="listviewListings_SelectionChanged_1">
+            <ListView x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged_1">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Id}" />
@@ -67,19 +68,13 @@
                     <DropShadowEffect/>
                 </Image.Effect>
             </Image>
-            <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="1" Margin="164,30,30,534" FontSize="20" FontWeight="Bold" Height="40" Width="283"/>
-            <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="1" Margin="164,75,30,503" Height="25"/>
-            <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="1" Margin="164,108,30,476" Width="283" Height="25"/>
+            <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="1" Margin="164,30,30,560" FontSize="20" FontWeight="Bold" Height="40" Width="283"/>
+            <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="1" Margin="164,75,30,530" Height="25"/>
+            <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="1" Margin="164,100,30,505" Width="283" Height="25"/>
             <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="1" HorizontalAlignment="Left" Margin="30,180,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="188" Width="417"/>
-            <Label Content="Sort By" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="comboxListingsSortBy" Margin="58,2,379,582" Height="25" SelectionChanged="comboxListingsSortBy_SelectionChanged">
-                <ComboBoxItem IsSelected="True">Date</ComboBoxItem>
-                <ComboBoxItem>Price</ComboBoxItem>
-                <ComboBoxItem>Popularity</ComboBoxItem>
-            </ComboBox>
-            <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="1" HorizontalAlignment="Left" Margin="30,373,0,0" VerticalAlignment="Top" Width="120" Click="BtnListingSelectedFavorite_Click"/>
-            <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="1" HorizontalAlignment="Left" Margin="164,373,0,0" VerticalAlignment="Top" Width="120" Click="btnListingSelectedContact_Click"/>
-            <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="1" Margin="164,133,30,451" Width="283" Height="25"/>
+            <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="1" HorizontalAlignment="Left" Margin="30,373,0,0" VerticalAlignment="Top" Width="150" Click="BtnListingSelectedFavorite_Click"/>
+            <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="1" HorizontalAlignment="Left" Margin="297,373,0,0" VerticalAlignment="Top" Width="150" Click="btnListingSelectedContact_Click"/>
+            <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="1" Margin="164,125,30,480" Width="283" Height="25"/>
         </Grid>
         <Frame Content="Frame" Height="603" VerticalAlignment="Top" Width="0" Canvas.Left="1226" Canvas.Top="-34"/>
     </Canvas>

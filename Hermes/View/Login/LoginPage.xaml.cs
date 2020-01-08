@@ -33,8 +33,8 @@ namespace Hermes.View
         }
         public string LabelPassword
         {
-            get { return txtboxPassword.Text; }
-            set { txtboxPassword.Text = value; }
+            get { return txtboxPassword.Password; }
+            set { txtboxPassword.Password = value; }
         }
 
         public string ErrorDialog

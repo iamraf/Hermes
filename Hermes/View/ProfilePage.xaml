@@ -6,10 +6,10 @@
       xmlns:local="clr-namespace:Hermes.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProfilePage" Width="1272" Height="609" Background="#FFF3F3F3">
+      Title="ProfilePage" Width="1272" Height="630" Background="#FFF3F3F3">
     <Grid Margin="0">
-        <Grid Margin="0">
-            <Grid x:Name="canvasListingsFilters" Width="200" Margin="0,0,1072,0" Height="609">
+        <Grid Margin="0" VerticalAlignment="Top">
+            <Grid x:Name="canvasListingsFilters" Width="200" Margin="0,0,1072,0" Height="630">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF06558D"/>
@@ -35,7 +35,6 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Button" Margin="10,90,10,519"/>
                 <Button x:Name="btnProfileHistory" Content="History" Margin="10,90,10,489" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -110,15 +109,15 @@
             </Grid>
         </Grid>
         <Label x:Name="lblRegisterPage1" Content="Log in Credentials" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="570,110,454,473"/>
-        <TextBox x:Name="txtboxRegisterUsername2" TextWrapping="Wrap" Text="Username..." Margin="614,140,498,445"/>
-        <TextBox x:Name="txtboxRegisterPassword5" TextWrapping="Wrap" Text="Password..." Margin="614,176,498,411"/>
-        <TextBox x:Name="txtboxRegisterPassword6" TextWrapping="Wrap" Text="Re-enter password..." Margin="614,204,498,383"/>
+        <TextBox x:Name="txtboxRegisterUsername2" TextWrapping="Wrap" Text="Username..." Margin="614,140,498,445" Height="25"/>
+        <TextBox x:Name="txtboxRegisterPassword5" TextWrapping="Wrap" Text="Password..." Margin="614,176,498,411" Height="25"/>
+        <TextBox x:Name="txtboxRegisterPassword6" TextWrapping="Wrap" Text="Re-enter password..." Margin="614,204,498,383" Height="25"/>
         <Label x:Name="lblRegisterPage2" Content="Personal Information" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="570,244,454,339"/>
-        <TextBox x:Name="txtboxRegisterEmail" TextWrapping="Wrap" Text="Email..." Margin="614,272,498,313"/>
-        <TextBox x:Name="txtboxRegisterName" TextWrapping="Wrap" Text="Name..." Margin="614,300,498,285"/>
-        <TextBox x:Name="txtboxRegisterSurname" TextWrapping="Wrap" Text="Surname..." Margin="614,328,498,257"/>
-        <TextBox x:Name="txtboxRegisterPhone" TextWrapping="Wrap" Text="Phone number..." Margin="614,356,498,229" Width="160"/>
-        <ComboBox x:Name="comboxRegisterAddress" HorizontalAlignment="Left" Margin="614,384,0,0" VerticalAlignment="Top" Width="158" Height="24"/>
+        <TextBox x:Name="txtboxRegisterEmail" TextWrapping="Wrap" Text="Email..." Margin="614,272,498,313" Height="25"/>
+        <TextBox x:Name="txtboxRegisterName" TextWrapping="Wrap" Text="Name..." Margin="614,300,498,285" Height="25"/>
+        <TextBox x:Name="txtboxRegisterSurname" TextWrapping="Wrap" Text="Surname..." Margin="614,328,498,257" Height="25"/>
+        <TextBox x:Name="txtboxRegisterPhone" TextWrapping="Wrap" Text="Phone number..." Margin="614,356,498,229" Width="160" Height="24"/>
+        <ComboBox x:Name="comboxRegisterAddress" HorizontalAlignment="Left" Margin="614,396,0,0" VerticalAlignment="Top" Width="158" Height="24"/>
         <Label Content="Edit your information" HorizontalAlignment="Left" Margin="632,60,0,0" VerticalAlignment="Top"/>
         <Button Content="Save Changes" Margin="652,430,536,155" Height="25"/>
     </Grid>

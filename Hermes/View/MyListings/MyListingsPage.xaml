@@ -3,10 +3,11 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Hermes.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MyListingsPage" Width="1272" Height="609" Background="#FFF3F3F3">
+      Title="MyListingsPage" Width="1272" Height="630" Background="#FFF3F3F3">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,8 +16,7 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <ListView Grid.Column="1">
-
-            <ListView x:Name="listviewListings"  SelectionChanged="listviewListings_SelectionChanged" Width="586" Height="586">
+            <ListView x:Name="listviewListings"  SelectionChanged="listviewListings_SelectionChanged" Width="586" Height="620">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Id}" />
@@ -26,21 +26,21 @@
                 </ListView.View>
             </ListView>
         </ListView>
-        <TextBox x:Name="txtboxUploadTitle" Margin="55,76,61,503" TextWrapping="Wrap" Text="Title..." VerticalContentAlignment="Center" Grid.Column="2"/>
-        <TextBox x:Name="txtboxUploadPrice" Margin="55,126,296,453" TextWrapping="Wrap" Text="Price..." VerticalContentAlignment="Center" Grid.Column="2"/>
-        <TextBox x:Name="txtboxUploadLocation" Margin="115,216,61,363" TextWrapping="Wrap" Text="What is your location?" VerticalContentAlignment="Center" Grid.Column="2"/>
-        <TextBox x:Name="txtboxUploadDescription" HorizontalAlignment="Left" Height="160" Margin="55,266,0,0" TextWrapping="Wrap" Text="Describe your listing... (Optional)" VerticalAlignment="Top" Width="360" Grid.Column="2"/>
-        <Label x:Name="lblUpload2" Content="Select a category" Margin="99,426,296,153" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Grid.Column="2"/>
-        <Label x:Name="lblUpload3" Content="Select a subcategory" Margin="289,426,106,153" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Grid.Column="2"/>
-        <ComboBox x:Name="comboxUploadCategory" HorizontalAlignment="Left" Margin="55,456,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.Column="2"/>
-        <ComboBox x:Name="comboxUploadSubcategory" HorizontalAlignment="Left" Margin="245,456,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.Column="2"/>
-        <Button x:Name="btnUploadImage" Content="Add an image to your listing" Margin="215,126,61,453" Grid.Column="2"/>
-        <Button x:Name="btnUploadUpload" Content="Save Changes" Margin="150,516,156,63" Grid.Column="2" Click="btnUploadUpload_Click" IsEnabled="False"/>
-        <ComboBox x:Name="comboxUploadLocation" HorizontalAlignment="Left" Margin="115,176,0,0" VerticalAlignment="Top" Width="300" Height="30" Grid.Column="2"/>
-        <RadioButton x:Name="radbtnUploadLocationSelect" Content="Select" GroupName="Location" HorizontalAlignment="Left" Margin="55,186,0,0" VerticalAlignment="Top" Width="55" Grid.Column="2" Height="15"/>
-        <RadioButton x:Name="radbtnUploadLocationType" Content="Type" GroupName="Location" HorizontalAlignment="Left" Margin="55,224,0,0" VerticalAlignment="Top" Width="55" Grid.Column="2" Height="15"/>
-        <Label Content="Edit your Listing" Grid.Column="2" Margin="189,23,189,561"/>
-        <Grid x:Name="canvasListingsFilters" Width="200" Height="609">
+        <TextBox x:Name="txtboxUploadTitle" Margin="55,50,61,550" TextWrapping="Wrap" Text="Title..." VerticalContentAlignment="Center" Grid.Column="2" Height="30"/>
+        <TextBox x:Name="txtboxUploadPrice" Margin="55,90,296,510" TextWrapping="Wrap" Text="Price..." VerticalContentAlignment="Center" Grid.Column="2" Height="30"/>
+        <TextBox x:Name="txtboxUploadLocation" Margin="115,180,61,420" TextWrapping="Wrap" Text="What is your location?" VerticalContentAlignment="Center" Grid.Column="2" Height="30"/>
+        <TextBox x:Name="txtboxUploadDescription" HorizontalAlignment="Left" Height="160" Margin="55,230,0,0" TextWrapping="Wrap" Text="Describe your listing... (Optional)" VerticalAlignment="Top" Width="360" Grid.Column="2"/>
+        <Label x:Name="lblUpload2" Content="Select a category" Margin="55,390,251,189" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Grid.Column="2"/>
+        <Label x:Name="lblUpload3" Content="Select a subcategory" Margin="245,390,61,189" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Grid.Column="2"/>
+        <ComboBox x:Name="comboxUploadCategory" HorizontalAlignment="Left" Margin="55,441,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.Column="2"/>
+        <ComboBox x:Name="comboxUploadSubcategory" HorizontalAlignment="Left" Margin="245,441,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.Column="2"/>
+        <Button x:Name="btnUploadImage" Content="Add an image" Margin="215,88,61,510" Grid.Column="2" BorderBrush="#FF1976D2" Background="White" BorderThickness="1,1,1,3"/>
+        <Button x:Name="btnUploadUpload" Content="Save Changes" Margin="150,506,156,92" Grid.Column="2" Click="btnUploadUpload_Click" IsEnabled="False" BorderBrush="#FF1976D2" BorderThickness="1,1,1,3" Background="White"/>
+        <ComboBox x:Name="comboxUploadLocation" HorizontalAlignment="Left" Margin="115,140,0,0" VerticalAlignment="Top" Width="300" Height="31" Grid.Column="2"/>
+        <RadioButton x:Name="radbtnUploadLocationSelect" Content="Select" GroupName="Location" HorizontalAlignment="Left" Margin="55,151,0,0" VerticalAlignment="Top" Width="55" Grid.Column="2" Height="20"/>
+        <RadioButton x:Name="radbtnUploadLocationType" Content="Type" GroupName="Location" HorizontalAlignment="Left" Margin="55,189,0,0" VerticalAlignment="Top" Width="55" Grid.Column="2" Height="20"/>
+        <Label Content="Edit your Listing" Grid.Column="2" Margin="172,10,173,585" FontSize="14"/>
+        <Grid x:Name="canvasListingsFilters" Width="200">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF06558D"/>
@@ -48,7 +48,7 @@
                     <GradientStop Color="#FF065C93" Offset="0.491"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Button x:Name="btnProfileMyProfile" Content="My Profile" Margin="10,30,10,549" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20">
+            <Button x:Name="btnProfileMyProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" Margin="10,30,10,560" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20" Height="Auto">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -66,8 +66,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="Button" Margin="10,90,10,519"/>
-            <Button x:Name="btnProfileHistory" Content="History" Margin="10,90,10,489" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click">
+            <Button x:Name="btnProfileHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" Margin="10,90,10,500" Height="Auto" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -85,7 +84,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnProfileFavorites" Content="Favorites" Margin="10,150,10,429" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click">
+            <Button x:Name="btnProfileFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" Margin="10,150,10,440" Height="Auto" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -103,7 +102,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnProfileListings" Content="My Listings" Margin="10,210,10,369" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click">
+            <Button x:Name="btnProfileListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" Margin="10,210,10,380" Height="Auto" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -121,7 +120,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnProfileSignout" Content="Sign Out" Margin="10,549,10,30" Height="30" BorderThickness="5,0,0,0" BorderBrush="#FF06558D" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF89C3EC" VerticalContentAlignment="Top">
+            <Button x:Name="btnProfileSignout" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" Margin="10,562,10,28" Height="Auto" BorderThickness="5,0,0,0" BorderBrush="#FF06558D" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF06558D" VerticalContentAlignment="Top">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -139,10 +138,10 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Button x:Name="btnDeleteListing" Content="Deactivate Listing" Margin="150,569,156,10" Grid.Column="2" Click="btnDeleteListing_Click" IsEnabled="False"/>
-        <RadioButton x:Name="radioboxAllListings" Content="Show all Listings" HorizontalAlignment="Left" Margin="30,277,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxAllListings_Checked" />
-        <RadioButton x:Name="radioboxActiveListings" Content="Show only active Listings" HorizontalAlignment="Left" Margin="30,306,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxActiveListings_Checked" />
-        <RadioButton x:Name="radioboxInactiveListings" Content="Show only inactive Listings" HorizontalAlignment="Left" Margin="30,336,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxInactiveListings_Checked" />
+        <Button x:Name="btnDeleteListing" Content="Deactivate Listing" Margin="150,558,156,40" Grid.Column="2" Click="btnDeleteListing_Click" IsEnabled="False" BorderBrush="#FF7B1FA2" BorderThickness="1,1,1,3" Background="White"/>
+        <RadioButton x:Name="radioboxAllListings" Content="Show all Listings" HorizontalAlignment="Left" Margin="10,308,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxAllListings_Checked" />
+        <RadioButton x:Name="radioboxActiveListings" Content="Show only active Listings" HorizontalAlignment="Left" Margin="10,337,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxActiveListings_Checked" />
+        <RadioButton x:Name="radioboxInactiveListings" Content="Show only inactive Listings" HorizontalAlignment="Left" Margin="10,367,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxInactiveListings_Checked" />
 
     </Grid>
 </Page>
