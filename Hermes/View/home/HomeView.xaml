@@ -3,43 +3,43 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Hermes.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePage" Width="1272" Height="630" Background="#FFF3F3F3">
     <Grid Margin="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblHomePage1" Content="Popular Categories" Margin="175,22,174,307" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
-        <Label x:Name="lblHomePage2" Content="Recommended for you" Margin="175,22,174,307" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" Height="36" FontSize="14"/>
-        <Image x:Name="imgHomePopular1" Height="100" Margin="84,70,325,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomePopular2" Height="100" Margin="204,70,205,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomePopular3" Height="100" Margin="324,70,85,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomePopular4" Height="100" Margin="84,190,325,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomePopular5" Height="100" Margin="204,190,205,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomePopular6" Height="100" Margin="324,190,85,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomeRecommended1" Height="100" Margin="84,70,325,0" Width="100" Grid.Column="2" VerticalAlignment="Top"/>
-        <Image x:Name="imgHomeRecommended2" Height="100" Margin="204,70,205,0" Width="100" Grid.Column="2" VerticalAlignment="Top"/>
-        <Image x:Name="imgHomeRecommended3" Height="100" Margin="324,70,85,0" Width="100" Grid.Column="2" VerticalAlignment="Top"/>
-        <Image x:Name="imgHomeRecommended4" Height="100" Margin="84,190,325,0" Width="100" Grid.Column="2" VerticalAlignment="Top"/>
-        <Image x:Name="imgHomeRecommended5" Height="100" Margin="204,190,205,0" Width="100" Grid.Column="2" VerticalAlignment="Top"/>
-        <Image x:Name="imgHomeRecommended6" Height="100" Margin="324,190,85,0" Width="100" Grid.Column="2" VerticalAlignment="Top"/>
-        <Label x:Name="lblHomePage3" Content="Recently Seen" Margin="47,22,47,192" Width="160" HorizontalContentAlignment="Center" Grid.Column="1" VerticalContentAlignment="Center" Grid.Row="1" FontSize="14"/>
-        <Button x:Name="btnAllCategories" Content="All Categories" Margin="194,305,195,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" Background="White" BorderBrush="#FF1976D2" BorderThickness="1,1,1,3" Click="btnAllCategories_Click"/>
-        <Button x:Name="btnAllCategories_Copy" Content="View All" Margin="195,305,194,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" Grid.Column="2" BorderBrush="#FF1976D2" BorderThickness="1,1,1,3" Background="White"/>
-        <Image x:Name="imgHomeRecent3" Grid.Column="1" Height="100" Margin="16,70,138,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomeRecent4" Grid.Column="1" Height="100" Margin="137,70,17,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <Image Grid.Column="2" Height="100" Margin="8,70,401,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomeRecent5" Grid.Column="2" Height="100" Margin="3,70,406,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomeRecent2" Height="100" Margin="406,70,3,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomeRecent1" Height="100" Margin="286,70,123,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomeRecent6" Grid.Column="2" Height="100" Margin="123,70,286,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <Image HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/View/Images/Background3.png"/>
+        <Label x:Name="lblHomePage1" Content="Popular Categories" Margin="226,28,886,566" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Segoe UI Light" Background="#19000000"/>
+        <Label x:Name="lblHomePage2" Content="Popular Items" Margin="882,28,230,566" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="36" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Segoe UI Light" Background="#19000000"/>
+        <Image x:Name="imgHomePopular1" Height="100" Margin="85,70,1087,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="imgHomePopular2" Height="100" Margin="255,70,917,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="imgHomePopular3" Height="100" Margin="440,70,732,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="imgHomePopular4" Height="100" Margin="85,190,1087,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="imgHomePopular5" Height="100" Margin="255,190,917,340" Width="100"/>
+        <Image x:Name="imgHomePopular6" Height="100" Margin="440,190,732,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lblHomePage3" Content="Recommended for you" Margin="539,362,539,230" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Segoe UI Light" Background="#19000000"/>
+        <Button x:Name="btnAllCategories" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="All Categories" Margin="246,305,906,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" Background="White" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" Click="btnAllCategories_Click" Foreground="#FF06558D" FontFamily="Segoe UI Semilight" VerticalContentAlignment="Top"/>
+        <Button x:Name="btnAllItems" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="View All" Margin="907,305,245,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" Background="White" Foreground="#FF06558D" FontFamily="Segoe UI Semilight" VerticalContentAlignment="Top"/>
+        <ListView Margin="730,70,84,340" Background="White">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Margin="245,410,245,40">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

@@ -40,108 +40,19 @@
         <RadioButton x:Name="radbtnUploadLocationSelect" Content="Select" GroupName="Location" HorizontalAlignment="Left" Margin="55,151,0,0" VerticalAlignment="Top" Width="55" Grid.Column="2" Height="20"/>
         <RadioButton x:Name="radbtnUploadLocationType" Content="Type" GroupName="Location" HorizontalAlignment="Left" Margin="55,189,0,0" VerticalAlignment="Top" Width="55" Grid.Column="2" Height="20"/>
         <Label Content="Edit your Listing" Grid.Column="2" Margin="172,10,173,585" FontSize="14"/>
-        <Grid x:Name="canvasListingsFilters" Width="200">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF06558D"/>
-                    <GradientStop Color="#FF07A6D4" Offset="1"/>
-                    <GradientStop Color="#FF065C93" Offset="0.491"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Button x:Name="btnProfileMyProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" Margin="10,30,10,560" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20" Height="Auto">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#0089C3EC" Offset="0.252"/>
-                        <GradientStop Color="#3389C3EC" Offset="1"/>
-                        <GradientStop Color="#0289C2EB" Offset="0.613"/>
-                        <GradientStop Color="#0C6DB2E4"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btnProfileHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" Margin="10,90,10,500" Height="Auto" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#0089C3EC" Offset="0.252"/>
-                        <GradientStop Color="#3389C3EC" Offset="1"/>
-                        <GradientStop Color="#0289C2EB" Offset="0.613"/>
-                        <GradientStop Color="#0C6DB2E4"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btnProfileFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" Margin="10,150,10,440" Height="Auto" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#0089C3EC" Offset="0.252"/>
-                        <GradientStop Color="#3389C3EC" Offset="1"/>
-                        <GradientStop Color="#0289C2EB" Offset="0.613"/>
-                        <GradientStop Color="#0C6DB2E4"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btnProfileListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" Margin="10,210,10,380" Height="Auto" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#0089C3EC" Offset="0.252"/>
-                        <GradientStop Color="#3389C3EC" Offset="1"/>
-                        <GradientStop Color="#0289C2EB" Offset="0.613"/>
-                        <GradientStop Color="#0C6DB2E4"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btnProfileSignout" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" Margin="10,562,10,28" Height="Auto" BorderThickness="5,0,0,0" BorderBrush="#FF06558D" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF06558D" VerticalContentAlignment="Top">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform Angle="-90" CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#7F06558D" Offset="0"/>
-                        <GradientStop Color="#331874B6" Offset="1"/>
-                        <GradientStop Color="#351772B4" Offset="0.8"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
+        <Grid x:Name="canvasListingsFilters" Width="200" Background="White">
+            <Button x:Name="btnProfileMyProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" Margin="10,30,10,560" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20" Height="Auto" Background="#332196F3"/>
+            <Button x:Name="btnProfileHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" Margin="10,90,10,500" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click" Background="#332196F3"/>
+            <Button x:Name="btnProfileFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" Margin="10,150,10,440" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click" Background="#332196F3"/>
+            <Button x:Name="btnProfileListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" Margin="10,210,10,380" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#662196F3"/>
+            <Button x:Name="btnProfileSignout" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" Margin="10,562,10,28" Height="Auto" BorderThickness="5,0,0,0" BorderBrush="#FF7B1FA2" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF7B1FA2" VerticalContentAlignment="Top" Background="#337B1FA2"/>
+            <Rectangle Fill="#FFF4F4F5" Height="1" Margin="10,330,10,273" Stroke="#FF06558D"/>
+            <Rectangle Fill="#FFF4F4F5" Height="1" Margin="10,449,10,180" Stroke="#FF06558D"/>
         </Grid>
         <Button x:Name="btnDeleteListing" Content="Deactivate Listing" Margin="150,558,156,40" Grid.Column="2" Click="btnDeleteListing_Click" IsEnabled="False" BorderBrush="#FF7B1FA2" BorderThickness="1,1,1,3" Background="White"/>
-        <RadioButton x:Name="radioboxAllListings" Content="Show all Listings" HorizontalAlignment="Left" Margin="10,308,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxAllListings_Checked" />
-        <RadioButton x:Name="radioboxActiveListings" Content="Show only active Listings" HorizontalAlignment="Left" Margin="10,337,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxActiveListings_Checked" />
-        <RadioButton x:Name="radioboxInactiveListings" Content="Show only inactive Listings" HorizontalAlignment="Left" Margin="10,367,0,0" Foreground="#FF89C3EC" VerticalAlignment="Top" Checked="radioboxInactiveListings_Checked" />
+        <RadioButton x:Name="radioboxAllListings" Content="Show all Listings" HorizontalAlignment="Left" Margin="10,356,0,0" Foreground="#FF06558D" VerticalAlignment="Top" Checked="radioboxAllListings_Checked" FontSize="14" />
+        <RadioButton x:Name="radioboxActiveListings" Content="Show only active Listings" HorizontalAlignment="Left" Margin="10,385,0,0" Foreground="#FF06558D" VerticalAlignment="Top" Checked="radioboxActiveListings_Checked" FontSize="14" />
+        <RadioButton x:Name="radioboxInactiveListings" Content="Show only inactive Listings" HorizontalAlignment="Left" Margin="10,415,0,0" Foreground="#FF06558D" VerticalAlignment="Top" Checked="radioboxInactiveListings_Checked" FontSize="14" />
 
     </Grid>
 </Page>
