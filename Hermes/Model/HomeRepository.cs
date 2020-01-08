@@ -13,13 +13,16 @@ namespace Hermes.Model
             int ViewedCat = history.Count;
             int[] count;
 
-            if (ViewedCat <= 3)
+            if (ViewedCat <= 2)
             {
-                count = new int[ViewedCat];
-
-                for (int i = 0; i < ViewedCat; i++)
+                count = new int[3];
+                for (int i = 0; i < 2; i++)
                 {
                     count[i] = history[i].Category;
+                }
+                for (int i = ViewedCat; i < 3; i++)
+                {
+                    count[i] = count[1];
                 }
             }
             else
@@ -67,13 +70,13 @@ namespace Hermes.Model
         {
             if(Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "select count(View_history.listingID)as view ,Listings.subCategoryListing as category" +
-                                " from View_history" +
-                                    " join Listings on View_history.listingID = Listings.listingID" +
-                                    " join SubListing_Categories on SubListing_Categories.subcategoryID = Listings.subCategoryListing" +
+                string query = "select count(View_history.listingID)as view ,Listings.subCategoryListing as category " +
+                                " from View_history " +
+                                    " join Listings on View_history.listingID = Listings.listingID " +
+                                    " join SubListing_Categories on SubListing_Categories.subcategoryID = Listings.subCategoryListing " +
                                 " where userID = " + user.Id +
-                                " group by Listings.subCategoryListing;" +
-                                " order by count(View_history.listingID) DESC;";
+                                " group by Listings.subCategoryListing " +
+                                " order by count(View_history.listingID) DESC ";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -113,10 +116,10 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "select  *" +
-                                "from Listings" +
-                                "where Listings.subCategoryListing=" + index + " and Listings.premiumListing=1 and activeListing=1" +
-                                "order by creationDate DESC" +
+                string query = "select  * " +
+                                "from Listings " +
+                                "where Listings.subCategoryListing=" + index + " and Listings.premiumListing=1 and activeListing=1 " +
+                                "order by creationDate DESC " +
                                 "LIMIT "+(3-index)+";";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
