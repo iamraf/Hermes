@@ -93,7 +93,7 @@
     <Compile Include="Model\ListingRepository.cs" />
     <Compile Include="Model\Models\HistoryList.cs" />
     <Compile Include="Model\MyListingsRepository.cs" />
-    <Compile Include="Model\RecommendationEngine.cs" />
+    <Compile Include="Model\HomeRepository.cs" />
     <Compile Include="Model\Singleton.cs" />
     <Compile Include="Model\RegisterRepository.cs" />
     <Compile Include="Model\LoginRepository.cs" />
@@ -113,6 +113,8 @@
     <Compile Include="View\CategoriesPage.xaml.cs">
       <DependentUpon>CategoriesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\home\HomePresenter.cs" />
+    <Compile Include="View\home\IHomeView.cs" />
     <Compile Include="View\MyHistory\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
@@ -125,8 +127,8 @@
     <Compile Include="View\HelpWindow.xaml.cs">
       <DependentUpon>HelpWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <Compile Include="View\home\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\listings\IListingsView.cs" />
     <Compile Include="View\listings\ListingsPresenter.cs" />
@@ -170,7 +172,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\HomePage.xaml">
+    <Page Include="View\home\HomeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

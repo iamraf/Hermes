@@ -14,7 +14,7 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="640"/>
         </Grid.RowDefinitions>
-        <Frame x:Name="frameMain" Content="Frame" Margin="0,0,0,10" Grid.Row="1" Source="/Hermes;component/View/HomePage.xaml" NavigationUIVisibility="Hidden" Navigated="frameMain_Navigated"/>
+        <Frame x:Name="frameMain" Content="Frame" Margin="0,0,0,10" Grid.Row="1" Source="/Hermes;component/View/home/HomeView.xaml" NavigationUIVisibility="Hidden" Navigated="frameMain_Navigated"/>
         <Button x:Name="btnTopHome" Content="Logo" Background="{x:Null}" BorderBrush="#FF81D4FA" BorderThickness="1" Foreground="#FF81D4FA" Margin="10,10,1075,10" Click="btnTopHome_Click" Height="Auto"/>
         <Button x:Name="btnTopListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Buy" Margin="215,10,945,10" BorderThickness="0,0,0,3" BorderBrush="#FF81D4FA" Foreground="#FF81D4FA" FontSize="24" FontFamily="Segoe UI Light" Click="btnTopListings_Click" Height="Auto" Background="{x:Null}"/>
         <Button x:Name="btnTopUpload" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Upload" Margin="345,10,815,10" BorderThickness="0,0,0,3" BorderBrush="#FF81D4FA" Foreground="#FF81D4FA" FontFamily="Segoe UI Light" FontSize="24" Click="btnTopUpload_Click" Height="Auto" Background="{x:Null}"/>

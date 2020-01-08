@@ -79,6 +79,7 @@ namespace Hermes.View
                 }
 
                 _presenter.IncreaseView(listing.Id);
+                _presenter.AddToHistory(listing.Id);
             }
         }
 
