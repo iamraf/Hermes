@@ -119,6 +119,6 @@
         <TextBox x:Name="txtboxRegisterPhone" TextWrapping="Wrap" Text="Phone number..." Margin="614,356,498,229" Width="160" Height="24"/>
         <ComboBox x:Name="comboxRegisterAddress" HorizontalAlignment="Left" Margin="614,396,0,0" VerticalAlignment="Top" Width="158" Height="24"/>
         <Label Content="Edit your information" HorizontalAlignment="Left" Margin="632,60,0,0" VerticalAlignment="Top"/>
-        <Button Content="Save Changes" Margin="632,440,520,165" Height="25"/>
+        <Button Content="Save Changes" Margin="652,430,536,155" Height="25"/>
     </Grid>
 </Page>
