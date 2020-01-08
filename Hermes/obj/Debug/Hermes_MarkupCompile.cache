@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Raf\Desktop\Hermes\Hermes\obj\Debug\
+C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\
 Hermes
 none
 false
 DEBUG;TRACE
-C:\Users\Raf\Desktop\Hermes\Hermes\App.xaml
-9-1172655408
+C:\Users\PC\Desktop\Hermes\Hermes\App.xaml
+122025296141
 
-33448627146
-25-1963434673
-View\CategoriesPage.xaml;View\HomePage.xaml;View\Listing\ListingsPage.xaml;View\Login\LoginPage.xaml;View\MainWindow.xaml;View\ProfilePage.xaml;View\Register\RegisterPage.xaml;View\TopPage.xaml;View\UploadPage.xaml;
+43877814923
+261584539061
+View\CategoriesPage.xaml;View\FavoritesPage.xaml;View\HelpWindow.xaml;View\HistoryPage.xaml;View\HomePage.xaml;View\listings\ListingsView.xaml;View\Login\LoginPage.xaml;View\MainWindow.xaml;View\MyListings\MyListingsPage.xaml;View\ProfilePage.xaml;View\Register\RegisterPage.xaml;View\UploadPage.xaml;
 
 False
 

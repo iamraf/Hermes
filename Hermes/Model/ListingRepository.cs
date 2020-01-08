@@ -140,5 +140,171 @@ namespace Hermes.Model
                 Singleton.GetInstance().CloseConnection();
             }
         }
+
+        public List<Listing> GetSearchResult(string search)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                //string joinedQuery = String.Join<char>("%", search);
+                string joinedQuery = search;
+                string query = "SELECT * FROM Listings WHERE listingName like '%"+ joinedQuery + "%' or listingDescription like '%" + joinedQuery + "%'";
+                
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                List<Listing> listing = new List<Listing>();
+
+                while (dataReader.Read())
+                {
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return listing;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<Listing> FilteredListings(List<string> catIds)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "SELECT * FROM Listings ";
+                if (catIds.Any<string>())
+                {
+                    string joinedCatIds = String.Join(",", catIds);
+                    query += "WHERE subCategoryListing in (" + joinedCatIds + ")";
+                }
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                List<Listing> listing = new List<Listing>();
+
+                while (dataReader.Read())
+                {
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return listing;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<Listing> PriceFilteredListings(List<string> catIds, string comparisonOperator, float price)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "SELECT * FROM Listings WHERE price "+comparisonOperator+" "+price+" ";
+                if (catIds.Any<string>())
+                {
+                    string joinedCatIds = String.Join(",", catIds);
+                    query += "and subCategoryListing in (" + joinedCatIds + ")";
+                }
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                List<Listing> listing = new List<Listing>();
+
+                while (dataReader.Read())
+                {
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return listing;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<Listing> GetDateFilteredListings(List<string> catIds, string dateOption)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "SELECT * FROM Listings WHERE (creationDate between date_sub(now(),INTERVAL 1 " + dateOption + ") and now()) ";
+
+                if (catIds.Any<string>())
+                {
+                    string joinedCatIds = String.Join(",", catIds);
+                    query += "and subCategoryListing in (" + joinedCatIds + ") ";
+                }
+                query += "order by creationDate desc";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                List<Listing> listing = new List<Listing>();
+
+                while (dataReader.Read())
+                {
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return listing;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<Listing> GetDateAndPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, string dateOption)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "SELECT * FROM Listings WHERE " +
+                                "price " + comparisonOperator + " " + price + " " +
+                                "and (creationDate between date_sub(now(),INTERVAL 1 " + dateOption + ") and now()) ";
+                if (catIds.Any<string>())
+                {
+                    string joinedCatIds = String.Join(",", catIds);
+                    query += "and subCategoryListing in (" + joinedCatIds + ") ";
+                }
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                List<Listing> listing = new List<Listing>();
+
+                while (dataReader.Read())
+                {
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return listing;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
