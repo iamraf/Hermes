@@ -82,12 +82,6 @@ namespace Hermes.View
             }
         }
 
-        private void btnTopHelp_Click(object sender, RoutedEventArgs e)
-        {
-            HelpWindow helpwindow = new HelpWindow();
-            helpwindow.Show();
-        }
-
         private void btnDropdownHistory_Click(object sender, RoutedEventArgs e)
         {
             frameMain.Navigate(new Uri("View/MyHistory/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
@@ -106,7 +100,17 @@ namespace Hermes.View
         private void btnTopSearch_Click(object sender, RoutedEventArgs e)
         {
             frameMain.NavigationService.Navigate(new ListingsView(txtboxTopSearch.Text));
+        }
 
+        private void btnTopHelp_Click(object sender, RoutedEventArgs e)
+        {
+            HelpWindow helpwindow = new HelpWindow();
+            helpwindow.Show();
+        }
+
+        private void btnTopClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

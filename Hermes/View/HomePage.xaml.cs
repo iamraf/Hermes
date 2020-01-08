@@ -24,5 +24,10 @@ namespace Hermes.View
         {
             InitializeComponent();
         }
+
+        private void btnAllCategories_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("View/CategoriesPage.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }

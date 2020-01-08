@@ -36,12 +36,12 @@ namespace Hermes.View
 
         public string TextBoxPassword1
         {
-            get { return txtboxRegisterPassword5.Text; }
+            get { return txtboxRegisterPassword5.Password; }
         }
 
         public string TextBoxPassword2
         {
-            get { return txtboxRegisterPassword6.Text; }
+            get { return txtboxRegisterPassword6.Password; }
         }
 
         public string TextBoxEmail

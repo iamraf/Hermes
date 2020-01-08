@@ -69,7 +69,7 @@
                 <TextBlock Margin="20" TextWrapping="Wrap"><Run Text="Info about Hermes"/><Run Text=" to be added here."/></TextBlock>
             </TabItem>
         </TabControl>
-        <Button x:Name="btnHelpClose" Content="Close" HorizontalAlignment="Left" Margin="521,0,0,0" VerticalAlignment="Top" Width="75" Foreground="#FF47A7EA" Background="{x:Null}" BorderBrush="#FF47A7EA" Click="btnHelpClose_Click" Height="22"/>
+        <Button x:Name="btnHelpClose" Content="Close" HorizontalAlignment="Left" Margin="521,0,0,0" VerticalAlignment="Top" Width="75" Foreground="#FF47A7EA" Background="{x:Null}" BorderBrush="#FF47A7EA" Click="btnHelpClose_Click" Height="23" VerticalContentAlignment="Top"/>
 
     </Grid>
 </Window>
