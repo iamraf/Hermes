@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace Hermes.View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -28,7 +25,7 @@ namespace Hermes.View
 
         private void btnTopHome_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/HomePage.xaml", UriKind.RelativeOrAbsolute)); 
+            frameMain.Navigate(new Uri("View/home/HomeView.xaml", UriKind.RelativeOrAbsolute)); 
         }
 
         private void btnTopListings_Click(object sender, RoutedEventArgs e)
@@ -38,7 +35,17 @@ namespace Hermes.View
 
         private void btnTopUpload_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/UploadPage.xaml", UriKind.RelativeOrAbsolute));
+            
+            ObjectCache Cache = MemoryCache.Default;
+            User user = (User)Cache["User"];
+            if(user != null)
+            {
+                frameMain.Navigate(new Uri("View/Upload/UploadPage.xaml", UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                frameMain.Navigate(new Uri("View/Login/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+            }
         }
 
         private void btnTopLogin_Click(object sender, RoutedEventArgs e)
@@ -72,15 +79,9 @@ namespace Hermes.View
             }
         }
 
-        private void btnTopHelp_Click(object sender, RoutedEventArgs e)
-        {
-            HelpWindow helpwindow = new HelpWindow();
-            helpwindow.Show();
-        }
-
         private void btnDropdownHistory_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/MyHistory/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnDropdownFavorites_Click(object sender, RoutedEventArgs e)
@@ -96,7 +97,17 @@ namespace Hermes.View
         private void btnTopSearch_Click(object sender, RoutedEventArgs e)
         {
             frameMain.NavigationService.Navigate(new ListingsView(txtboxTopSearch.Text));
+        }
 
+        private void btnTopHelp_Click(object sender, RoutedEventArgs e)
+        {
+            HelpWindow helpwindow = new HelpWindow();
+            helpwindow.Show();
+        }
+
+        private void btnTopClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

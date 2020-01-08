@@ -2,7 +2,7 @@
 using Hermes.Model.Models;
 using System.Collections.Generic;
 using System.Runtime.Caching;
-
+using System.Windows;
 
 namespace Hermes.View
 {
@@ -21,7 +21,6 @@ namespace Hermes.View
 
         public void GetListings(int activeListing)
         {
-            
             User user = (User)Cache["User"];
             List<Listing> list = _repository.GetListings(user.Id, activeListing);
 
@@ -31,11 +30,23 @@ namespace Hermes.View
             }
         }
 
-        public void DeactivateListing(int listingID) {
-             _repository.deleteListing(listingID);
-            
+        public void UpdateListing(int id, string title, float price, string description)
+        {
+            bool update = _repository.UpdateListing(id, title, price, description);
+            if (update)
+            {
+                MessageBox.Show("Listing updated!", "Success", MessageBoxButton.OK);
+            }
+            else
+            {
+                MessageBox.Show("ERROR!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            GetListings(1);
+        }
 
-
+        public void DeactivateListing(int listingID) 
+        {
+             _repository.deleteListing(listingID);            
         }
 
     }

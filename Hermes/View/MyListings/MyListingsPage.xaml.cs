@@ -31,15 +31,16 @@ namespace Hermes.View
             InitializeComponent();
             _presenter = new MyListingsPresenter(this);
             //TODO change this with radio button
-            _RefreshListings(1);
-            
+            _RefreshListings(-1);
+
+            radioboxAllListings.IsChecked = true;
         }
 
-        
         private void _RefreshListings(int type) 
         {
             _presenter.GetListings(type);
         }
+
         public List<Listing> Listings {
             set 
             {
@@ -60,20 +61,19 @@ namespace Hermes.View
                 txtboxUploadTitle.Text = listing.Name;
                 txtboxUploadPrice.Text = listing.Price.ToString();
                 txtboxUploadDescription.Text = listing.Description;
+
+                if (listing.Active)
+                {
+                    btnDeleteListing.IsEnabled = true;
+                    btnUploadUpload.IsEnabled = true;
+                }
+                else
+                {
+                    btnDeleteListing.IsEnabled = false;
+                    btnUploadUpload.IsEnabled = false;
+                }
             }
-            
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
         //Button methods
@@ -98,7 +98,7 @@ namespace Hermes.View
         }
 
         
-
+        
         private void btnDeleteListing_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Are you sure you want to deactivate this listing? \n this action can not be reverted!", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Information);
@@ -124,24 +124,43 @@ namespace Hermes.View
                 return;
             }
             else 
-            { 
-                //TODO: Update stin vasi me ta nea stoixeia
+            {
+                Listing listing = (Listing)listviewListings.SelectedItem;
+                
+                _presenter.UpdateListing(listing.Id ,txtboxUploadTitle.Text, float.Parse(txtboxUploadPrice.Text), txtboxUploadDescription.Text);
             }
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        private void radioboxActiveListings_Checked(object sender, RoutedEventArgs e)
         {
-            btnDeleteListing.IsEnabled = true;
-            btnUploadUpload.IsEnabled = true;
             _RefreshListings(1);
-            
+            btnDeleteListing.IsEnabled = false;
+            btnUploadUpload.IsEnabled = false;
+            resetListingInfo();
         }
         
-            private void CheckBoxChanged(object sender, RoutedEventArgs e)
+        private void radioboxInactiveListings_Checked(object sender, RoutedEventArgs e)
         {
             _RefreshListings(0);
             btnDeleteListing.IsEnabled = false;
             btnUploadUpload.IsEnabled = false;
+            resetListingInfo();
+        }
+
+        private void radioboxAllListings_Checked(object sender, RoutedEventArgs e)
+        {
+            _RefreshListings(-1);
+            btnDeleteListing.IsEnabled = false;
+            btnUploadUpload.IsEnabled = false;
+            resetListingInfo();
+        }
+
+        private void resetListingInfo()
+        {
+            txtboxUploadTitle.Text = "";
+            txtboxUploadPrice.Text = "";
+            txtboxUploadDescription.Text = "";
+            //add more..
         }
     }
 }

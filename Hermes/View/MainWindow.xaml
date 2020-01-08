@@ -3,76 +3,60 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         xmlns:local="clr-namespace:Hermes.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" ResizeMode="CanMinimize" BorderThickness="0" WindowStartupLocation="CenterScreen">
-    <Grid x:Name="gridMain" Margin="0" Background="#FF06558D">
+        Title="MainWindow" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" ResizeMode="CanMinimize" BorderThickness="0" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid x:Name="gridMain" Margin="0" Background="#FF0D47A1">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80*" MaxHeight="80" MinHeight="80"/>
-            <RowDefinition/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="640"/>
         </Grid.RowDefinitions>
-        <Frame x:Name="frameMain" Content="Frame" Margin="0" Grid.Row="1" Source="/Hermes;component/View/HomePage.xaml" NavigationUIVisibility="Hidden" Navigated="frameMain_Navigated"/>
-        <Button x:Name="btnTopHome" Content="Logo" Background="{x:Null}" BorderBrush="#FF47A7EA" BorderThickness="1" Foreground="#FF99D5FF" Margin="10,10,1074,10" Click="btnTopHome_Click"/>
-        <Button x:Name="btnTopListings" Content="Buy" Margin="210,10,944,10" BorderThickness="0,0,0,5" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" FontSize="24" FontFamily="Segoe UI Light" Click="btnTopListings_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#3F47A7EA" Offset="1"/>
-                    <GradientStop Color="#001C435E" Offset="0.613"/>
-                    <GradientStop Color="#00245679"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="btnTopUpload" Content="Upload" Margin="340,10,814,10" BorderThickness="0,0,0,5" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" FontFamily="Segoe UI Light" FontSize="24" Click="btnTopUpload_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#3F47A7EA" Offset="1"/>
-                    <GradientStop Color="#001C435E" Offset="0.613"/>
-                    <GradientStop Color="#00245679"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <TextBox x:Name="txtboxTopSearch" Height="30" TextWrapping="Wrap" Width="350" Foreground="#FFECECEC" BorderBrush="{x:Null}" VerticalContentAlignment="Bottom" FontSize="14" Text="&#xA;" Margin="477,29,446,21">
+        <Frame x:Name="frameMain" Content="Frame" Margin="0,0,0,10" Grid.Row="1" Source="/Hermes;component/View/home/HomeView.xaml" NavigationUIVisibility="Hidden" Navigated="frameMain_Navigated"/>
+        <Button x:Name="btnTopHome" Content="Logo" Background="{x:Null}" BorderBrush="#FF81D4FA" BorderThickness="1" Foreground="#FF81D4FA" Margin="10,10,1075,10" Click="btnTopHome_Click" Height="Auto"/>
+        <Button x:Name="btnTopListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Buy" Margin="215,10,945,10" BorderThickness="0,0,0,3" BorderBrush="#FF81D4FA" Foreground="#FF81D4FA" FontSize="24" FontFamily="Segoe UI Light" Click="btnTopListings_Click" Height="Auto" Background="{x:Null}"/>
+        <Button x:Name="btnTopUpload" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Upload" Margin="345,10,815,10" BorderThickness="0,0,0,3" BorderBrush="#FF81D4FA" Foreground="#FF81D4FA" FontFamily="Segoe UI Light" FontSize="24" Click="btnTopUpload_Click" Height="Auto" Background="{x:Null}"/>
+        <TextBox x:Name="txtboxTopSearch" TextWrapping="Wrap" Foreground="#FFECECEC" BorderBrush="#FF81D4FA" VerticalContentAlignment="Bottom" FontSize="14" Text="&#xA;" Margin="494,35,436,20" BorderThickness="0,0,0,2" Height="25">
             <TextBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#7F47A7EA" Offset="0.996"/>
+                    <GradientStop Color="#3347A7EA" Offset="1"/>
                     <GradientStop Color="#002D6E9C" Offset="0.465"/>
                 </LinearGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <Button x:Name="btnTopLogin" Content="Log in" BorderThickness="0,0,0,5" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" Margin="1070,20,84,10" FontFamily="Segoe UI Light" Click="btnTopLogin_Click" FontSize="18" Width="120">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#3347A7EA" Offset="1"/>
-                    <GradientStop Color="#003574A0"/>
-                    <GradientStop Color="#003980B2" Offset="0.617"/>
-                </LinearGradientBrush>
-            </Button.Background>
+        <Button x:Name="btnTopLogin" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Log in" BorderThickness="0,0,0,3" BorderBrush="#FF81D4FA" Foreground="#FF81D4FA" Margin="1073,10,77,10" FontFamily="Segoe UI Light" Click="btnTopLogin_Click" FontSize="18" Height="Auto" Background="{x:Null}"/>
+        <Button x:Name="btnTopHelp"
+              Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+              ToolTip="Help" Margin="1230,25,5,10" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF81D4FA" Height="Auto" Width="Auto" Click="btnTopHelp_Click">
+            <materialDesign:PackIcon
+                Kind="HelpCircleOutline"
+                Height="24"
+                Width="24" />
         </Button>
-        <Button x:Name="btnTopHelp" Content="Help" BorderThickness="0,0,0,5" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" Margin="1200,20,10,10" FontFamily="Segoe UI Light" FontSize="18" VerticalContentAlignment="Center" Width="64" Height="50" HorizontalContentAlignment="Center" Click="btnTopHelp_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#3347A7EA" Offset="1"/>
-                    <GradientStop Color="#003574A0"/>
-                    <GradientStop Color="#003980B2" Offset="0.617"/>
-                </LinearGradientBrush>
-            </Button.Background>
+        <Button x:Name="btnTopClose"
+              Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+              ToolTip="Exit" Margin="1255,0,0,55" Height="Auto" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnTopClose_Click">
+              <materialDesign:PackIcon
+                Kind="Close"
+                Height="24"
+                Width="24" />
         </Button>
-        <Button x:Name="btnTopSearch" Content="Search" Margin="840,29,374,21" BorderBrush="#FF47A7EA" BorderThickness="0,0,0,3" Foreground="#FF47A7EA" FontFamily="Segoe UI Light" FontSize="16" Click="btnTopSearch_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#3347A7EA" Offset="1"/>
-                    <GradientStop Color="#00214F6E" Offset="0.609"/>
-                    <GradientStop Color="#0025597C"/>
-                </LinearGradientBrush>
-            </Button.Background>
+        <Button x:Name="btnTopSearch"
+              Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+              ToolTip="Search" Margin="844,35,411,20" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF81D4FA" Click="btnTopSearch_Click">
+            <materialDesign:PackIcon
+                Kind="Search"
+                Height="24"
+                Width="24" />
         </Button>
-        <Expander x:Name="expMyAccountDropdown" Header="My Account" Margin="1073,31,81,469" Grid.RowSpan="2" Width="120" Foreground="#FF47A7EA" Background="{x:Null}" BorderBrush="{x:Null}" Visibility="Visible" FontFamily="Segoe UI Light" FontSize="16">
-            <Grid x:Name="gridMyAccountDropdown" Height="142" Margin="-1,0" Width="120" Background="#FF06558D" VerticalAlignment="Bottom">
+        <Expander x:Name="expMyAccountDropdown" Header="My Account" Margin="1064,17,50,457" Grid.RowSpan="2" Foreground="#FF81D4FA" Background="{x:Null}" BorderBrush="{x:Null}" Visibility="Visible" FontFamily="Segoe UI Light" FontSize="18">
+            <Grid x:Name="gridMyAccountDropdown" Height="161" Background="#FF0D47A1" VerticalAlignment="Bottom" Margin="10,5,28,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="21*"/>
-                    <RowDefinition Height="29*"/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button x:Name="btnDropdownHistory" Content="History" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Top" Width="120" Height="30" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18" Click="btnDropdownHistory_Click">
+                <Button x:Name="btnDropdownHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF81D4FA" Foreground="#FF81D4FA" BorderThickness="5,0,0,0" FontSize="18" Click="btnDropdownHistory_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -85,10 +69,12 @@
                             </LinearGradientBrush.RelativeTransform>
                             <GradientStop Color="#0047A7EA" Offset="0.622"/>
                             <GradientStop Color="#3347A7EA" Offset="1"/>
+                            <GradientStop Color="#1947A7EA"/>
+                            <GradientStop Color="#0047A7EA" Offset="0.27"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnDropdownFavorites" Content="Favorites" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Width="120" Height="30" Grid.RowSpan="2" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18" Click="btnDropdownFavorites_Click">
+                <Button x:Name="btnDropdownFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF81D4FA" Foreground="#FF81D4FA" BorderThickness="5,0,0,0" FontSize="18" Click="btnDropdownFavorites_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -101,10 +87,12 @@
                             </LinearGradientBrush.RelativeTransform>
                             <GradientStop Color="#0047A7EA" Offset="0.622"/>
                             <GradientStop Color="#3347A7EA" Offset="1"/>
+                            <GradientStop Color="#1947A7EA"/>
+                            <GradientStop Color="#0047A7EA" Offset="0.27"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnDropdownMyListings" Content="My Listings" HorizontalAlignment="Left" Margin="0,18,0,0" VerticalAlignment="Top" Width="120" Height="30" Grid.Row="1" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18" Click="btnDropdownMyListings_Click">
+                <Button x:Name="btnDropdownMyListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" HorizontalAlignment="Left" Margin="0,85,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF81D4FA" Foreground="#FF81D4FA" BorderThickness="5,0,0,0" FontSize="18" Click="btnDropdownMyListings_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -117,10 +105,12 @@
                             </LinearGradientBrush.RelativeTransform>
                             <GradientStop Color="#0047A7EA" Offset="0.622"/>
                             <GradientStop Color="#3347A7EA" Offset="1"/>
+                            <GradientStop Color="#1947A7EA"/>
+                            <GradientStop Color="#0047A7EA" Offset="0.27"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnDropdownSignOut" Content="Sign Out" HorizontalAlignment="Left" Margin="0,54,0,-2" VerticalAlignment="Top" Width="120" Height="30" Grid.Row="1" BorderBrush="#FF47A7EA" Foreground="#FF47A7EA" BorderThickness="5,0,0,0" FontSize="18">
+                <Button x:Name="btnDropdownSignOut" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" HorizontalAlignment="Left" Margin="0,125,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF7B1FA2" Foreground="#FFE1BEE7" BorderThickness="5,0,0,0" FontSize="18">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>
@@ -131,8 +121,10 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </LinearGradientBrush.RelativeTransform>
-                            <GradientStop Color="#0047A7EA" Offset="0.622"/>
-                            <GradientStop Color="#3347A7EA" Offset="1"/>
+                            <GradientStop Color="#0061126E" Offset="0.622"/>
+                            <GradientStop Color="#997B1FA2" Offset="1"/>
+                            <GradientStop Color="#337B1FA2"/>
+                            <GradientStop Color="#00781D9D" Offset="0.226"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>

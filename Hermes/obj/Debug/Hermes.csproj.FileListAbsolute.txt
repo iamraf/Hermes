@@ -50,7 +50,6 @@ C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\HomePage.g.cs
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\listings\ListingsView.g.cs
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\Login\LoginPage.g.cs
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MainWindow.g.cs
-C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MyListingsPage.g.cs
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\ProfilePage.g.cs
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\Register\RegisterPage.g.cs
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\UploadPage.g.cs
@@ -65,7 +64,6 @@ C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\HomePage.baml
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\listings\ListingsView.baml
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\Login\LoginPage.baml
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MainWindow.baml
-C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MyListingsPage.baml
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\ProfilePage.baml
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\Register\RegisterPage.baml
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\UploadPage.baml
@@ -75,3 +73,5 @@ C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes.csproj.GenerateResource.cache
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes.csproj.CopyComplete
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes.exe
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes.pdb
+C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MyListings\MyListingsPage.g.cs
+C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MyListings\MyListingsPage.baml

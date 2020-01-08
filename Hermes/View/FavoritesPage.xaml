@@ -5,9 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Hermes.View"
       mc:Ignorable="d"
-      Title="FavoritesPage" Height="609" Width="1272" Background="#FFF3F3F3">
+      Title="FavoritesPage" Height="630" Width="1272" Background="#FFF3F3F3">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="5*"/>
@@ -33,7 +36,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Grid x:Name="canvasListingsFilters" Width="200" Height="609">
+        <Grid x:Name="canvasListingsFilters" Width="200">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF06558D"/>
@@ -59,7 +62,6 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="Button" Margin="10,90,10,519"/>
             <Button x:Name="btnProfileHistory" Content="History" Margin="10,90,10,489" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

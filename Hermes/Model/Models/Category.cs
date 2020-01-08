@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hermes.Model.Models
 {
-    class Category
+    public class Category
     {
         public int Id { get; }
         public string Name { get; }
