@@ -7,23 +7,23 @@
       xmlns:local="clr-namespace:Hermes.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="RegisterPage" Width="1272" Height="629.7">
+      Title="RegisterPage" Width="1272" Height="629.7" Loaded="Page_Loaded">
 
     <Grid>
         <Grid Margin="0" Background="#FFF3F3F3" Width="1272" Height="630">
-            <Label x:Name="lblRegisterPage1" Content="Log in Credentials" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="513,85,512,501" Height="25"/>
-            <TextBox x:Name="txtboxRegisterUsername2" materialDesign:HintAssist.Hint="Username" TextWrapping="Wrap" Margin="556,120,556,464" Height="25"/>
-            <Label x:Name="lblRegisterPage2" Content="Personal Information" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="513,235,512,349"/>
-            <TextBox x:Name="txtboxRegisterEmail" materialDesign:HintAssist.Hint="Email" TextWrapping="Wrap" Margin="556,270,556,314" Height="25"/>
-            <TextBox x:Name="txtboxRegisterName" materialDesign:HintAssist.Hint="Name" TextWrapping="Wrap" Margin="556,305,556,279" Height="25"/>
-            <TextBox x:Name="txtboxRegisterSurname" materialDesign:HintAssist.Hint="Surname" TextWrapping="Wrap" Margin="556,340,556,244" Height="25"/>
-            <TextBox x:Name="txtboxRegisterPhone" materialDesign:HintAssist.Hint="Phone Number" TextWrapping="Wrap" Margin="556,385,556,220"/>
-            <Button x:Name="btnRegister" materialDesign:ButtonAssist.CornerRadius="10" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Register" Background="White" BorderBrush="#FF1976D2" BorderThickness="1,1,1,3" Margin="576,500,576,79" Click="btnRegister_Click" Height="30"/>
-            <Label Content="Create an account" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="556,40,556,543" FontSize="14" Height="25"/>
-            <ComboBox x:Name="comboxRegisterAddress" materialDesign:HintAssist.Hint="Location" Margin="556,420,556,185" VerticalAlignment="Stretch" Width="160" Height="25"/>
-            <TextBox x:Name="txtboxRegisterAddress" materialDesign:HintAssist.Hint="Address" Height="25" Margin="556,455,556,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-            <PasswordBox x:Name="txtboxRegisterPassword5" materialDesign:HintAssist.Hint="Password" Margin="556,155,556,429" Height="25" Width="160"/>
-            <PasswordBox x:Name="txtboxRegisterPassword6" materialDesign:HintAssist.Hint="Confirm Password" Margin="556,185,556,399" Height="25" Width="160"/>
+            <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/View/Images/Background3.png"/>
+            <Label x:Name="lblRegisterPage1" Content="Log in Credentials" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="513,94,512,504" FontSize="14" Foreground="#DDFFFFFF"/>
+            <TextBox x:Name="txtboxRegisterUsername2" materialDesign:HintAssist.Hint="Username" TextWrapping="Wrap" Margin="556,120,556,464" Height="25" Foreground="White"/>
+            <Label x:Name="lblRegisterPage2" Content="Personal Information" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="513,235,512,349" FontSize="14" Foreground="White"/>
+            <TextBox x:Name="txtboxRegisterEmail" materialDesign:HintAssist.Hint="Email" TextWrapping="Wrap" Margin="556,270,556,314" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtboxRegisterName" materialDesign:HintAssist.Hint="Name" TextWrapping="Wrap" Margin="556,305,556,279" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtboxRegisterSurname" materialDesign:HintAssist.Hint="Surname" TextWrapping="Wrap" Margin="556,340,556,244" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtboxRegisterPhone" materialDesign:HintAssist.Hint="Phone Number" TextWrapping="Wrap" Margin="556,385,556,220" Foreground="White"/>
+            <Button x:Name="btnRegister" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Register" Background="White" BorderBrush="#FF65068D" BorderThickness="0,0,0,3" Margin="576,500,576,79" Click="btnRegister_Click" Height="30" FontWeight="Normal" Foreground="Black" VerticalContentAlignment="Top" FontSize="16" FontFamily="Segoe UI Semilight"/>
+            <ComboBox x:Name="comboxRegisterAddress" materialDesign:HintAssist.Hint="Location" Margin="556,420,556,185" VerticalAlignment="Stretch" Width="160" Height="25" Foreground="White"/>
+            <TextBox x:Name="txtboxRegisterAddress" materialDesign:HintAssist.Hint="Address" Height="25" Margin="556,455,556,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="White"/>
+            <PasswordBox x:Name="txtboxRegisterPassword5" materialDesign:HintAssist.Hint="Password" Margin="556,155,556,429" Height="25" Width="160" Foreground="White"/>
+            <PasswordBox x:Name="txtboxRegisterPassword6" materialDesign:HintAssist.Hint="Confirm Password" Margin="556,185,556,399" Height="25" Width="160" Foreground="White"/>
         </Grid>
 
     </Grid>

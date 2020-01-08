@@ -9,12 +9,13 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LoginPage" Width="1272" Height="630">
     <Grid Background="#FFF3F3F3" Margin="0" >
-        <Label x:Name="lblLoginPage1" Content="Log in to your Hermes account" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5" Margin="510,90,511,510" FontSize="14" Height="30"/>
-        <TextBox x:Name="txtboxUsername" materialDesign:HintAssist.Hint="Username" TextWrapping="Wrap" Margin="556,140,556,465" Height="25" Width="160"/>
-        <PasswordBox x:Name="txtboxPassword" materialDesign:HintAssist.Hint="Password" Margin="556,175,556,430" Width="160" Height="25"/>
-        <Button x:Name="btnLogin" materialDesign:ButtonAssist.CornerRadius="10" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Log in" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Background="White" Foreground="#FF191919" BorderBrush="#FF1976D2" BorderThickness="1,1,1,3" Click="btnLogin_Click" Margin="586,220,586,380" Height="Auto"/>
-        <Label x:Name="lblLoginPage2" Content="Don't have an account? Create one" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5" Margin="510,375,511,225" FontSize="14" Height="30"/>
-        <Button x:Name="btnRegisterPage" materialDesign:ButtonAssist.CornerRadius="10" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Register" Margin="586,420,586,180" Background="White" BorderThickness="1,1,1,3" BorderBrush="#FF65068D" Click="btnRegisterPage_Click" Height="Auto" Foreground="Black" VerticalContentAlignment="Top"/>
-        <Rectangle Fill="#FFB4B4B4" Height="1" Margin="386,320,386,309" Stroke="#FFAAAAAA" Width="500"/>
+        <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/View/Images/Background3.png"/>
+        <Label x:Name="lblLoginPage1" Content="Log in to your Hermes account" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5" Margin="510,90,511,510" FontSize="14" Height="30" Foreground="#DDFFFFFF"/>
+        <TextBox x:Name="txtboxUsername" materialDesign:HintAssist.Hint="Username" TextWrapping="Wrap" Margin="556,140,556,465" Height="25" Width="160" Foreground="White"/>
+        <PasswordBox x:Name="txtboxPassword" materialDesign:HintAssist.Hint="Password" Margin="556,175,556,430" Width="160" Height="25" Foreground="White"/>
+        <Button x:Name="btnLogin" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Log in" Width="120" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Background="White" Foreground="#FF191919" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" Click="btnLogin_Click" Margin="576,220,576,380" Height="Auto" FontSize="16" FontFamily="Segoe UI Semilight"/>
+        <Label x:Name="lblLoginPage2" Content="Don't have an account? Create one" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5" Margin="510,375,511,225" FontSize="14" Height="30" Foreground="White"/>
+        <Button x:Name="btnRegisterPage" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Register" Margin="576,420,576,180" Background="White" BorderThickness="0,0,0,3" BorderBrush="#FF65068D" Click="btnRegisterPage_Click" Height="Auto" Foreground="Black" VerticalContentAlignment="Top" FontSize="16" FontFamily="Segoe UI Semilight"/>
+        <Rectangle Fill="#FFB4B4B4" Height="1" Margin="386,320,386,309" Stroke="#FF2B2B2B" Width="500"/>
     </Grid>
 </Page>
