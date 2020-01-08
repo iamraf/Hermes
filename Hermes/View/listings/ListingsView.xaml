@@ -8,6 +8,37 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListingsPage" Width="1272" Height="630">
     <Canvas Margin="48,34,0,0">
+        <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/View/Images/Background3.png" Canvas.Left="-46" Canvas.Top="-34"/>
+        <Grid x:Name="gridListings" Width="1074" Height="630" Canvas.Left="152" Canvas.Top="-34">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="400" Width="5*"/>
+                <ColumnDefinition MinWidth="400" Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged_1">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Description" Width="270" DisplayMemberBinding="{Binding Description}" />
+                        <GridViewColumn Header="Active" Width="70" DisplayMemberBinding="{Binding Active}" />
+                        <GridViewColumn Header="Price" Width="70" DisplayMemberBinding="{Binding Price}" />
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Image x:Name="imgListingsSelected" Grid.Column="1" HorizontalAlignment="Left" Height="120" Margin="30,30,0,0" VerticalAlignment="Top" Width="120">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+            <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="1" Margin="164,30,30,560" FontSize="20" FontWeight="Bold" Height="40" Width="283"/>
+            <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="1" Margin="164,75,30,530" Height="25"/>
+            <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="1" Margin="164,100,30,505" Width="283" Height="25"/>
+            <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="1" HorizontalAlignment="Left" Margin="30,180,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="188" Width="417"/>
+            <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="1" HorizontalAlignment="Left" Margin="30,373,0,0" VerticalAlignment="Top" Width="150" Click="BtnListingSelectedFavorite_Click"/>
+            <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="1" HorizontalAlignment="Left" Margin="297,373,0,0" VerticalAlignment="Top" Width="150" Click="btnListingSelectedContact_Click"/>
+            <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="1" Margin="164,125,30,480" Width="283" Height="25"/>
+        </Grid>
+        <Frame Content="Frame" Height="603" VerticalAlignment="Top" Width="0" Canvas.Left="1226" Canvas.Top="-34"/>
         <Grid x:Name="canvasListingsFilters" HorizontalAlignment="Center" Canvas.Top="-34" Canvas.Left="-48" Background="White" Height="630" Width="200">
             <Label Content="Price Range&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="50,291,50,308" FontSize="14"/>
             <Label x:Name="labelCancelPriceRanges" Content="Cancel" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelPriceRanges_PreviewDragOver" Visibility="Hidden" Margin="4,140,141,460"/>
@@ -49,35 +80,5 @@
             <Label Content="Filters" Margin="50,91,50,504" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35"/>
             <Rectangle Height="1" Margin="0,85,0,544" Stroke="#FFAAAAAA"/>
         </Grid>
-        <Grid x:Name="gridListings" Width="1074" Background="#FFEEEEEE" Height="630" Canvas.Left="152" Canvas.Top="-34">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition MinWidth="400" Width="5*"/>
-                <ColumnDefinition MinWidth="400" Width="4*"/>
-            </Grid.ColumnDefinitions>
-            <ListView x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged_1">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Description" Width="270" DisplayMemberBinding="{Binding Description}" />
-                        <GridViewColumn Header="Active" Width="70" DisplayMemberBinding="{Binding Active}" />
-                        <GridViewColumn Header="Price" Width="70" DisplayMemberBinding="{Binding Price}" />
-                    
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <Image x:Name="imgListingsSelected" Grid.Column="1" HorizontalAlignment="Left" Height="120" Margin="30,30,0,0" VerticalAlignment="Top" Width="120">
-                <Image.Effect>
-                    <DropShadowEffect/>
-                </Image.Effect>
-            </Image>
-            <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="1" Margin="164,30,30,560" FontSize="20" FontWeight="Bold" Height="40" Width="283"/>
-            <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="1" Margin="164,75,30,530" Height="25"/>
-            <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="1" Margin="164,100,30,505" Width="283" Height="25"/>
-            <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="1" HorizontalAlignment="Left" Margin="30,180,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="188" Width="417"/>
-            <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="1" HorizontalAlignment="Left" Margin="30,373,0,0" VerticalAlignment="Top" Width="150" Click="BtnListingSelectedFavorite_Click"/>
-            <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="1" HorizontalAlignment="Left" Margin="297,373,0,0" VerticalAlignment="Top" Width="150" Click="btnListingSelectedContact_Click"/>
-            <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="1" Margin="164,125,30,480" Width="283" Height="25"/>
-        </Grid>
-        <Frame Content="Frame" Height="603" VerticalAlignment="Top" Width="0" Canvas.Left="1226" Canvas.Top="-34"/>
     </Canvas>
 </Page>
