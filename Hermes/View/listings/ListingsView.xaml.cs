@@ -77,6 +77,13 @@ namespace Hermes.View
                     lblListingSelectedContactInfoEmail1.Content = "Telephone: " + uploader.Telephone;
                     lblListingSelectedContactInfoEmail.Content = "Email: " + uploader.Email;
                 }
+                else
+                {
+                    lblListingSelectedUploader.Content = "-";
+                    lblListingSelectedContactInfoEmail1.Content = "Telephone: - ";
+                    lblListingSelectedContactInfoEmail.Content = "Email: - ";
+                    btnListingSelectedContact.IsEnabled = false;
+                }
 
                 _presenter.IncreaseView(listing.Id);
                 _presenter.AddToHistory(listing.Id);
@@ -103,7 +110,7 @@ namespace Hermes.View
 
             if (listing != null && uploader != null)
             {
-                var url = "mailto:" + (string) uploader.Email + "?Subject=Intrested on this item: " + listing.Name;
+                var url = "mailto:" + (string) uploader.Email + "?Subject=Interested on this item: " + listing.Name;
                 Process.Start(url);
             }
         }

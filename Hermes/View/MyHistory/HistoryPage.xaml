@@ -15,13 +15,6 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <Frame Content="Frame" Height="603" VerticalAlignment="Top" Margin="365,0,200,0" Grid.Column="2"/>
-        <ListView HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="596" Grid.Column="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
         <Image x:Name="imgListingsSelected" Grid.Column="2" HorizontalAlignment="Left" Height="120" Margin="31,30,0,0" VerticalAlignment="Top" Width="120">
             <Image.Effect>
                 <DropShadowEffect/>
@@ -32,7 +25,7 @@
         <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="2" Margin="165,96,28,508"/>
         <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="2" HorizontalAlignment="Left" Margin="31,180,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="188" Width="417"/>
         <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="2" HorizontalAlignment="Left" Margin="31,373,0,0" VerticalAlignment="Top" Width="150" Click="BtnListingSelectedFavorite_Click" Height="30"/>
-        <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="2" HorizontalAlignment="Left" Margin="298,373,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="#FF1976D2"/>
+        <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="2" HorizontalAlignment="Left" Margin="298,373,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="#FF1976D2" Click="btnListingSelectedContact_Click"/>
         <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="2" Margin="165,122,28,483"/>
         <Grid x:Name="canvasListingsFilters" Width="200">
             <Grid.Background>
@@ -131,5 +124,14 @@
                 </Button.Background>
             </Button>
         </Grid>
+        <ListView x:Name="listviewListings"  SelectionChanged="listviewListings_SelectionChanged" Margin="5,2,5,8" Grid.Column="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Description" Width="300" DisplayMemberBinding="{Binding Description}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>
