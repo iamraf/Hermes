@@ -57,9 +57,11 @@
             <ListView x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged_1">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Id}" />
-                        <GridViewColumn Header="Namge" Width="50" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Description" Width="150" DisplayMemberBinding="{Binding Description}" />
+                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Description" Width="270" DisplayMemberBinding="{Binding Description}" />
+                        <GridViewColumn Header="Active" Width="70" DisplayMemberBinding="{Binding Active}" />
+                        <GridViewColumn Header="Price" Width="70" DisplayMemberBinding="{Binding Price}" />
+                    
                     </GridView>
                 </ListView.View>
             </ListView>

@@ -15,8 +15,6 @@ namespace Hermes.View.listings
         {
             _view = view;
             _repository = new ListingRepository();
-
-            
         }
 
         public void GetListings()
@@ -84,6 +82,7 @@ namespace Hermes.View.listings
         public void GetSearchResults(string query)
         {
             List<Listing> list = _repository.GetSearchResult(query);
+
             if (list != null)
             {
                 _view.Listings = list;
@@ -93,6 +92,7 @@ namespace Hermes.View.listings
         public void GetFilteredListings(List<string> catIds)
         {
             List<Listing> list = _repository.FilteredListings(catIds);
+
             if (list != null)
             {
                 _view.Listings = list;
@@ -104,7 +104,7 @@ namespace Hermes.View.listings
             switch (priceOption)
             {
                 case 1:
-                    GetPriceFilteredListings(catIds,"<=",100);
+                    GetPriceFilteredListings(catIds, "<=", 100);
                     break;
                 case 2:
                     GetPriceFilteredListings(catIds, ">", 100);
@@ -123,6 +123,7 @@ namespace Hermes.View.listings
         private void GetPriceFilteredListings(List<string> catIds, string comparisonOperator, float price)
         {
             List<Listing> list = _repository.PriceFilteredListings(catIds, comparisonOperator, price);
+
             if (list != null)
             {
                 _view.Listings = list;
@@ -148,6 +149,7 @@ namespace Hermes.View.listings
         public void DateAndPriceFilteredListings(List<string> catIds, int priceOption, int dateOption)
         {
             string date = "";
+
             switch (dateOption)
             {
                 case 1:
@@ -178,6 +180,7 @@ namespace Hermes.View.listings
         private void GetDateAndPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, string dateOption)
         {
             List<Listing> list = _repository.GetDateAndPriceFilteredListings(catIds, comparisonOperator, price, dateOption);
+            
             if (list != null)
             {
                 _view.Listings = list;
@@ -187,6 +190,7 @@ namespace Hermes.View.listings
         private void GetDateFilteredListings(List<string> catIds, string dateOption)
         {
             List<Listing> list = _repository.GetDateFilteredListings(catIds, dateOption);
+
             if (list != null)
             {
                 _view.Listings = list;
@@ -196,6 +200,16 @@ namespace Hermes.View.listings
         public void IncreaseView(int id)
         {
             _repository.IncreaseView(id);
+        }
+
+        public void AddToHistory(int listingId)
+        {
+            User user = GetCurrentUser();
+
+            if(user != null)
+            {
+                _repository.AddToHistory(listingId, user.Id);
+            }
         }
     }
 }

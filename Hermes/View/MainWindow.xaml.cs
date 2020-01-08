@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace Hermes.View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -28,7 +25,7 @@ namespace Hermes.View
 
         private void btnTopHome_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/HomePage.xaml", UriKind.RelativeOrAbsolute)); 
+            frameMain.Navigate(new Uri("View/home/HomeView.xaml", UriKind.RelativeOrAbsolute)); 
         }
 
         private void btnTopListings_Click(object sender, RoutedEventArgs e)

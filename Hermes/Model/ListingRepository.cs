@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Caching;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hermes.Model
 {
@@ -304,6 +302,21 @@ namespace Hermes.Model
             else
             {
                 return null;
+            }
+        }
+
+        public void AddToHistory(int listingId, int userId)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "INSERT INTO View_history (listingID, userID) VALUE ('" + listingId + "', '" + userId + "')";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
             }
         }
     }
