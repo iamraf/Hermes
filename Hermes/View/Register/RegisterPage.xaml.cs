@@ -82,5 +82,12 @@ namespace Hermes.View
             if (_presenter.RegisterUser())
                 this.NavigationService.Navigate(new LoginPage());
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Image imageBackground = new Image();
+            var UriSource = new Uri(@"/Hermes;component/View/Images/Background1.jpg", UriKind.RelativeOrAbsolute);
+            imageBackground.Source = new BitmapImage(UriSource);
+        }
     }
 }

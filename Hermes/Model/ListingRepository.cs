@@ -9,11 +9,17 @@ namespace Hermes.Model
 {
     class ListingRepository
     {
-        public List<Listing> GetListings()
+        public List<Listing> GetListings(int category)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT * FROM Listings";
+                string query = "SELECT * FROM Listings l";
+                
+                if (category != 0)
+                {
+                    query += " join SubListing_Categories sc on l.subCategoryListing=sc.subcategoryID " +
+                        "WHERE sc.categoryID=" + category + "";
+                }
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -169,15 +175,31 @@ namespace Hermes.Model
             }
         }
 
-        public List<Listing> FilteredListings(List<string> catIds)
+        public List<Listing> FilteredListings(List<string> catIds, int category)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT * FROM Listings ";
+                string query = "SELECT l.* FROM Listings l";
+
+
+                if (category != 0)
+                {
+                    query += " join SubListing_Categories sc on l.subCategoryListing=sc.subcategoryID " +
+                        "WHERE sc.categoryID=" + category + "";
+                    if(catIds.Any<string>())
+                    {
+                        query += " and ";
+                    }
+                }
+
                 if (catIds.Any<string>())
                 {
+                    if(category==0)
+                    {
+                        query += " WHERE ";
+                    }
                     string joinedCatIds = String.Join(",", catIds);
-                    query += "WHERE subCategoryListing in (" + joinedCatIds + ")";
+                    query += "l.subCategoryListing in (" + joinedCatIds + ")";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
@@ -202,15 +224,28 @@ namespace Hermes.Model
             }
         }
 
-        public List<Listing> PriceFilteredListings(List<string> catIds, string comparisonOperator, float price)
+        public List<Listing> PriceFilteredListings(List<string> catIds, string comparisonOperator, float price, int category)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT * FROM Listings WHERE price "+comparisonOperator+" "+price+" ";
+                string query = "SELECT l.* FROM Listings l";
+
+                if (category != 0)
+                {
+                    query += " join SubListing_Categories sc on l.subCategoryListing=sc.subcategoryID " +
+                        "WHERE sc.categoryID=" + category + " and ";
+                }
+                else
+                {
+                    query += " WHERE ";
+                }
+
+                query += "l.price " + comparisonOperator + " " + price + " ";
+
                 if (catIds.Any<string>())
                 {
                     string joinedCatIds = String.Join(",", catIds);
-                    query += "and subCategoryListing in (" + joinedCatIds + ")";
+                    query += "and l.subCategoryListing in (" + joinedCatIds + ")";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
@@ -235,18 +270,30 @@ namespace Hermes.Model
             }
         }
 
-        public List<Listing> GetDateFilteredListings(List<string> catIds, string dateOption)
+        public List<Listing> GetDateFilteredListings(List<string> catIds, string dateOption, int category)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT * FROM Listings WHERE (creationDate between date_sub(now(),INTERVAL 1 " + dateOption + ") and now()) ";
+                string query = "SELECT l.* FROM Listings l"; 
+
+                if (category != 0)
+                {
+                    query += " join SubListing_Categories sc on l.subCategoryListing=sc.subcategoryID " +
+                        "WHERE sc.categoryID=" + category + " and ";
+                }
+                else
+                {
+                    query += " WHERE ";
+                }
+
+                query += "(l.creationDate between date_sub(now(),INTERVAL 1 " + dateOption + ") and now()) ";
 
                 if (catIds.Any<string>())
                 {
                     string joinedCatIds = String.Join(",", catIds);
-                    query += "and subCategoryListing in (" + joinedCatIds + ") ";
+                    query += "and l.subCategoryListing in (" + joinedCatIds + ") ";
                 }
-                query += "order by creationDate desc";
+                query += "order by l.creationDate desc";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -270,17 +317,27 @@ namespace Hermes.Model
             }
         }
 
-        public List<Listing> GetDateAndPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, string dateOption)
+        public List<Listing> GetDateAndPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, string dateOption, int category)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT * FROM Listings WHERE " +
-                                "price " + comparisonOperator + " " + price + " " +
-                                "and (creationDate between date_sub(now(),INTERVAL 1 " + dateOption + ") and now()) ";
+                string query = "SELECT l.* FROM Listings l";
+                
+                if(category!=0)
+                {
+                    query += " join SubListing_Categories sc on l.subCategoryListing=sc.subcategoryID " +
+                        "WHERE sc.categoryID="+category+" and ";
+                }
+                else
+                {
+                    query += " WHERE ";
+                }
+                query+= "l.price " + comparisonOperator + " " + price + " " +
+                                "and (l.creationDate between date_sub(now(),INTERVAL 1 " + dateOption + ") and now()) ";
                 if (catIds.Any<string>())
                 {
                     string joinedCatIds = String.Join(",", catIds);
-                    query += "and subCategoryListing in (" + joinedCatIds + ") ";
+                    query += "and l.subCategoryListing in (" + joinedCatIds + ") ";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
