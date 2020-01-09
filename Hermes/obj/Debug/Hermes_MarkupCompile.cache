@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\PC\Desktop\Hermes\Hermes\App.xaml
-122025296141
+121716534186
 
-43877814923
-261584539061
-View\CategoriesPage.xaml;View\FavoritesPage.xaml;View\HelpWindow.xaml;View\HistoryPage.xaml;View\HomePage.xaml;View\listings\ListingsView.xaml;View\Login\LoginPage.xaml;View\MainWindow.xaml;View\MyListings\MyListingsPage.xaml;View\ProfilePage.xaml;View\Register\RegisterPage.xaml;View\UploadPage.xaml;
+501796888161
+291115845175
+View\CategoriesPage.xaml;View\FavoritesPage.xaml;View\HelpWindow.xaml;View\home\HomeView.xaml;View\listings\ListingsView.xaml;View\Login\LoginPage.xaml;View\MainWindow.xaml;View\MyHistory\HistoryPage.xaml;View\MyListings\MyListingsPage.xaml;View\ProfilePage.xaml;View\Register\RegisterPage.xaml;View\Upload\UploadPage.xaml;
 
 False
 
