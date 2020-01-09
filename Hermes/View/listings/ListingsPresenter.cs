@@ -221,5 +221,16 @@ namespace Hermes.View.listings
                 _view.Listings = list;
             }
         }
+
+        public List<SubCategory> GetSubcategoriesFromSpecificCategory(int category)
+        {
+            if (category != 0)
+            {
+                List<SubCategory> subCategories = _repository.GetSubcategoriesFromSpecificCategory(category);
+
+                return subCategories;
+            }
+            return null;
+        }
     }
 }
