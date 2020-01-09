@@ -16,28 +16,23 @@ using System.Windows.Shapes;
 namespace Hermes.View
 {
     /// <summary>
-    /// Interaction logic for HistoryPage.xaml
+    /// Interaction logic for ProfilePage.xaml
     /// </summary>
-    public partial class HistoryPage : Page
+    public partial class ProfilePage : Page
     {
-        public HistoryPage()
+        public ProfilePage()
         {
             InitializeComponent();
-        }
-
-        private void BtnListingSelectedFavorite_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnProfileMyProfile_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("View/ProfilePage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnProfileHistory_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("View/MyHistory/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void btnProfileMyProfile_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("View/ProfilePage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnProfileFavorites_Click(object sender, RoutedEventArgs e)

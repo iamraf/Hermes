@@ -16,16 +16,16 @@ using System.Windows.Shapes;
 namespace Hermes.View
 {
     /// <summary>
-    /// Interaction logic for HistoryPage.xaml
+    /// Interaction logic for FavoritesPage.xaml
     /// </summary>
-    public partial class HistoryPage : Page
+    public partial class FavoritesPage : Page
     {
-        public HistoryPage()
+        public FavoritesPage()
         {
             InitializeComponent();
         }
 
-        private void BtnListingSelectedFavorite_Click(object sender, RoutedEventArgs e)
+        private void btnListingSelectedFavorite_Click(object sender, RoutedEventArgs e)
         {
 
         }

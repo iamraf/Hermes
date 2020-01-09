@@ -54,7 +54,7 @@ namespace Hermes.View
             User user = (User)Cache["User"];
             if (user != null)
             {
-                frameMain.Navigate(new Uri("View/MyProfile/ProfilePage.xaml", UriKind.RelativeOrAbsolute));
+                frameMain.Navigate(new Uri("View/ProfilePage.xaml", UriKind.RelativeOrAbsolute));
             }
             else
             {
@@ -86,7 +86,7 @@ namespace Hermes.View
 
         private void btnDropdownFavorites_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/MyFavorites/FavoritesPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/FavoritesPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnDropdownMyListings_Click(object sender, RoutedEventArgs e)
