@@ -40,6 +40,20 @@ namespace Hermes.View
             _presenter.GetSearchResults(search);
         }
 
+        public ListingsView(int subCategory,int category)
+        {
+            InitializeComponent();
+
+            ButtonEnable(false);
+
+            _presenter = new ListingsPresenter(this);
+            _checkedBoxes = new List<string>();
+
+            comboxCategories.SelectedIndex=category;
+            _changeComboBox(subCategory);
+
+        }
+
         public List<Listing> Listings
         {
             set 
@@ -312,6 +326,24 @@ namespace Hermes.View
         private int getCatId()
         {
             return Int32.Parse(((ComboBoxItem)comboxCategories.SelectedItem).Uid);
+        }
+
+        private void _changeComboBox(int subCategory) {
+            switch (subCategory)
+            {
+                case 1:
+                    chboxListingsCategory0.IsChecked=true;
+                    break;
+                case 2:
+                    chboxListingsCategory1.IsChecked = true;
+                    break;
+                case 3:
+                    chboxListingsCategory2.IsChecked = true;
+                    break;
+                default:
+                    break;
+            }
+                
         }
     }
 }
