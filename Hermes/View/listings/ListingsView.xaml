@@ -69,6 +69,19 @@
                 <ComboBoxItem Content="Last month" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last year" HorizontalAlignment="Left" Width="138"/>
             </ComboBox>
+            <ComboBox x:Name="comboxCategories" Width="156" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="#FFACACAC" Margin="34,544,10,57" Height="29" SelectionChanged="comboxCategories_SelectionChanged">
+                <ComboBoxItem x:Uid="0" Content="ALL" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem x:Uid="1" Content="Technology" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem x:Uid="2" Content="Clothing" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem x:Uid="3" Content="Jobs" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem x:Uid="4" Content="Appliances" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem x:Uid="5" Content="Home" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem x:Uid="6" Content="Sports" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem x:Uid="7" Content="Hobby" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem x:Uid="8" Content="Outdoors" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem x:Uid="9" Content="Vehicles" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem x:Uid="10" Content="Beauty" HorizontalAlignment="Left" Width="138"/>
+            </ComboBox>
             <RadioButton x:Name="radbtnListingsDatePick2" Content="" BorderBrush="#FF89C3EC" BorderThickness="2" Background="{x:Null}" Checked="radbtnListingsDatePick2_Checked" Unchecked="radbtnListingsDatePick2_Unchecked" Margin="10,483,168,129"/>
             <DatePicker x:Name="datePicker" IsEnabled="False" Margin="34,479,10,126"/>
             <Label Content="Sort by" Margin="50,1,50,594" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35"/>
