@@ -376,5 +376,35 @@ namespace Hermes.Model
                 Singleton.GetInstance().CloseConnection();
             }
         }
+
+        public List<SubCategory> GetSubcategoriesFromSpecificCategory(int category)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "select sc.subcategoryID, sc.subcategoryID, sc.subcategoryName  " +
+                    "from Listing_Categories lc join SubListing_Categories sc on lc.categoryID=sc.categoryID " +
+                    "where lc.categoryID = "+category;
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                List<SubCategory> subCategories = new List<SubCategory>();
+
+                while (dataReader.Read())
+                {
+                    subCategories.Add(new SubCategory(dataReader.GetInt32("subcategoryID"), dataReader.GetInt32("subcategoryID"), dataReader.GetString("subcategoryName")));
+                }
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return subCategories;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

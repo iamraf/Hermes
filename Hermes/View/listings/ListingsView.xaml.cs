@@ -310,16 +310,10 @@ namespace Hermes.View
         // Change Category
         private void comboxCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            chboxListingsCategory0.IsChecked = false;
-            chboxListingsCategory1.IsChecked = false;
-            chboxListingsCategory2.IsChecked = false;
-            chboxListingsCategory3.IsChecked = false;
-            chboxListingsCategory4.IsChecked = false;
-            chboxListingsCategory5.IsChecked = false;
-            chboxListingsCategory6.IsChecked = false;
             resetDateRanges();
             resetDateRanges();
             _presenter.ChangeCategory(getCatId());
+            resetCategoriesCheckboxes();
         }
 
         // Get Category ID from combobox
@@ -344,6 +338,29 @@ namespace Hermes.View
                     break;
             }
                 
+        }
+
+        private void resetCategoriesCheckboxes()
+        {
+            if(getCatId() != 0)
+            {
+                List<SubCategory> subCategories = _presenter.GetSubcategoriesFromSpecificCategory(getCatId());
+                int i = 0;
+                
+                foreach (object child in LogicalTreeHelper.GetChildren(canvasListingsFilters))
+                {
+                    if(i<subCategories.Count)
+                    {
+                        if (child is CheckBox)
+                        {
+                            ((CheckBox)child).IsChecked = false;
+                            ((CheckBox)child).Content = subCategories[i].Name;
+                            ((CheckBox)child).Uid = "" + subCategories[i].Id;
+                            i++;
+                        }
+                    }
+                }
+            }
         }
     }
 }
