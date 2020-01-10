@@ -86,7 +86,7 @@ namespace Hermes.View
 
         private void btnDropdownFavorites_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/FavoritesPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/MyFavorites/FavoritesPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnDropdownMyListings_Click(object sender, RoutedEventArgs e)
@@ -108,6 +108,19 @@ namespace Hermes.View
         private void btnTopClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDropdownSignOut_Click(object sender, RoutedEventArgs e)
+        {
+            Logout();
+            frameMain.Navigate(new Uri("View/Login/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Logout()
+        {
+            ObjectCache Cache = MemoryCache.Default;
+            if (Cache["User"] != null)
+                Cache.Remove("User");
         }
     }
 }

@@ -132,12 +132,12 @@ namespace Hermes.Model
             }
         }
 
-        public int UploadListing(string listingName, string listingDescription, int listingRegion, int subCategoryListing, bool premiumListing, float price)
+        public int UploadListing(string listingName, string listingDescription, int listingRegion, int subCategoryListing, bool premiumListing, float price, bool type)
         {
 
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "INSERT INTO Listings(listingName, listingDescription, activeListing, listingRegion, listViews, subCategoryListing, premiumListing, creationDate, price) VALUE ('"+ listingName + "', '"+ listingDescription + "', 1, '"+ listingRegion + "', 0, '"+ subCategoryListing + "', "+premiumListing+", now(), "+price+");" +
+                string query = "INSERT INTO Listings(listingName, listingDescription, activeListing, listingRegion, listViews, subCategoryListing, premiumListing, creationDate, price, types) VALUE ('"+ listingName + "', '"+ listingDescription + "', 1, '"+ listingRegion + "', 0, '"+ subCategoryListing + "', "+premiumListing+", now(), "+price+", "+type+");" +
                     "SELECT last_insert_id();";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());

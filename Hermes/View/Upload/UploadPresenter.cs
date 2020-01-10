@@ -115,12 +115,34 @@ namespace Hermes.View.Upload
             return null;
         }
 
-        public void UploadListing(string name, float price, int location, string description, int subcategory)
+        public bool UploadListing(string name, float price, int location, string description, int subcategory, bool type)
         {
-            int listingId = _repository.UploadListing(name, description, location, subcategory, false, price);
+            int listingId = _repository.UploadListing(name, description, location, subcategory, false, price, type);
 
+            if (listingId != -1)
+            {
+                User user = (User)Cache["User"];
+                _repository.UpdateOwners(listingId, user.Id);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
+        public Location GetMyHomeLocation()
+        {
             User user = (User)Cache["User"];
-            _repository.UpdateOwners(listingId, user.Id);
+            foreach(Location loc in _locations)
+            {
+                if (loc.Tk == int.Parse(user.Address))
+                {
+                    return loc;
+                }
+            }
+            return null;
         }
 
     }
