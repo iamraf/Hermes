@@ -149,11 +149,13 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                //string joinedQuery = String.Join<char>("%", search);
-                string joinedQuery = search;
-                string query = "SELECT * FROM Listings WHERE listingName like '%"+ joinedQuery + "%' or listingDescription like '%" + joinedQuery + "%'";
+               
+                string query = "SELECT * FROM Listings WHERE listingName like @search or listingDescription like @search ";
                 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@search", "%"+search+"%" );
+                //cmd.Parameters.AddWithValue("@search2", "%" + search + "%");
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 List<Listing> listing = new List<Listing>();
