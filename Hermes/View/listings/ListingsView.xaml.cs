@@ -74,31 +74,6 @@ namespace Hermes.View
             }
         }
 
-        private void listviewListings_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-            ButtonEnable(true);
-
-            Listing listing = (Listing) listviewListings.SelectedItem;
-
-            if(listing != null)
-            {
-                User uploader = _presenter.GetUploader(listing.Id);
-
-                lblListingSelectedTitle.Content = listing.Name;
-                tbListingSelectedDescription.Text = listing.Description;
-
-                if(uploader != null)
-                {
-                    lblListingSelectedUploader.Content = uploader.Name + " " + uploader.Surname;
-                    lblListingSelectedContactInfoEmail1.Content = "Telephone: " + uploader.Telephone;
-                    lblListingSelectedContactInfoEmail.Content = "Email: " + uploader.Email;
-                }
-
-                _presenter.IncreaseView(listing.Id);
-                _presenter.AddToHistory(listing.Id);
-            }
-        }
-
         private void comboxListingsSortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(_presenter != null)
@@ -360,6 +335,31 @@ namespace Hermes.View
                         }
                     }
                 }
+            }
+        }
+
+        private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ButtonEnable(true);
+
+            Listing listing = (Listing)listviewListings.SelectedItem;
+
+            if (listing != null)
+            {
+                User uploader = _presenter.GetUploader(listing.Id);
+
+                lblListingSelectedTitle.Content = listing.Name;
+                tbListingSelectedDescription.Text = listing.Description;
+
+                if (uploader != null)
+                {
+                    lblListingSelectedUploader.Content = uploader.Name + " " + uploader.Surname;
+                    lblListingSelectedContactInfoEmail1.Content = "Telephone: " + uploader.Telephone;
+                    lblListingSelectedContactInfoEmail.Content = "Email: " + uploader.Email;
+                }
+
+                _presenter.IncreaseView(listing.Id);
+                _presenter.AddToHistory(listing.Id);
             }
         }
     }

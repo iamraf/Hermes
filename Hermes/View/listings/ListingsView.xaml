@@ -14,17 +14,27 @@
                 <ColumnDefinition MinWidth="400" Width="5*"/>
                 <ColumnDefinition MinWidth="400" Width="4*"/>
             </Grid.ColumnDefinitions>
-            <ListView x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged_1">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Description" Width="270" DisplayMemberBinding="{Binding Description}" />
-                        <GridViewColumn Header="Active" Width="70" DisplayMemberBinding="{Binding Active}" />
-                        <GridViewColumn Header="Price" Width="70" DisplayMemberBinding="{Binding Price}" />
-
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ListBox x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/View/Images/Background3.png" Width="150" Height="150"/>
+                            <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Name}" FontSize="15" Foreground="White" Margin="0,0,0,5" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Description}" Foreground="White"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Active: " Foreground="White"/>
+                                    <TextBlock Text="{Binding Active}" Foreground="White"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="€" Foreground="White"/>
+                                    <TextBlock Text="{Binding Price}" Foreground="White"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <Image x:Name="imgListingsSelected" Grid.Column="1" HorizontalAlignment="Left" Height="120" Margin="30,30,0,0" VerticalAlignment="Top" Width="120">
                 <Image.Effect>
                     <DropShadowEffect/>
