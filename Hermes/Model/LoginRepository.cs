@@ -49,6 +49,8 @@ namespace Hermes.Model
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 cmd.Prepare();
                 cmd.Parameters.AddWithValue("@username", username);
+                //password hashing 
+                password=PasswordHashing.hashPassword(password);
                 cmd.Parameters.AddWithValue("@password", password);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
