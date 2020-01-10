@@ -16,13 +16,6 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/View/Images/Background3.png" Grid.ColumnSpan="3"/>
         <Frame Content="Frame" Height="603" VerticalAlignment="Top" Margin="365,0,200,0" Grid.Column="2"/>
-        <ListView HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="596" Grid.Column="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
         <Image x:Name="imgListingsSelected" Grid.Column="2" HorizontalAlignment="Left" Height="120" Margin="31,30,0,0" VerticalAlignment="Top" Width="120">
             <Image.Effect>
                 <DropShadowEffect/>
@@ -33,7 +26,7 @@
         <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="2" Margin="165,96,28,508"/>
         <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="2" HorizontalAlignment="Left" Margin="31,180,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="188" Width="417"/>
         <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="2" HorizontalAlignment="Left" Margin="31,373,0,0" VerticalAlignment="Top" Width="150" Click="BtnListingSelectedFavorite_Click" Height="30"/>
-        <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="2" HorizontalAlignment="Left" Margin="298,373,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="#FF1976D2"/>
+        <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="2" HorizontalAlignment="Left" Margin="298,373,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="#FF1976D2" Click="btnListingSelectedContact_Click"/>
         <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="2" Margin="165,122,28,483"/>
         <Grid x:Name="canvasListingsFilters" Width="200">
             <Grid.Background>
@@ -48,5 +41,14 @@
             <Button x:Name="btnProfileListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" Margin="10,210,10,380" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#332196F3"/>
             <Button x:Name="btnProfileSignout" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" Margin="10,560,10,30" Height="Auto" BorderThickness="5,0,0,0" BorderBrush="#FF7B1FA2" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF7B1FA2" VerticalContentAlignment="Top" Background="#337B1FA2"/>
         </Grid>
+        <ListView x:Name="listviewListings"  SelectionChanged="listviewListings_SelectionChanged" Margin="5,2,5,8" Grid.Column="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Description" Width="300" DisplayMemberBinding="{Binding Description}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

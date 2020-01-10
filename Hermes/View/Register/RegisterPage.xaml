@@ -20,10 +20,11 @@
             <TextBox x:Name="txtboxRegisterSurname" materialDesign:HintAssist.Hint="Surname" TextWrapping="Wrap" Margin="556,340,556,244" Height="25" Foreground="White"/>
             <TextBox x:Name="txtboxRegisterPhone" materialDesign:HintAssist.Hint="Phone Number" TextWrapping="Wrap" Margin="556,385,556,220" Foreground="White"/>
             <Button x:Name="btnRegister" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Register" Background="White" BorderBrush="#FF65068D" BorderThickness="0,0,0,3" Margin="576,500,576,79" Click="btnRegister_Click" Height="30" FontWeight="Normal" Foreground="Black" VerticalContentAlignment="Top" FontSize="16" FontFamily="Segoe UI Semilight"/>
-            <ComboBox x:Name="comboxRegisterAddress" materialDesign:HintAssist.Hint="Location" Margin="556,420,556,185" VerticalAlignment="Stretch" Width="160" Height="25" Foreground="White"/>
-            <TextBox x:Name="txtboxRegisterAddress" materialDesign:HintAssist.Hint="Address" Height="25" Margin="556,455,556,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Foreground="White"/>
+            <ComboBox x:Name="comboxRegisterLocation" materialDesign:HintAssist.Hint="Location" Margin="556,420,556,185" VerticalAlignment="Stretch" Width="160" Height="25" Foreground="White" SelectionChanged="comboxRegisterLocation_SelectionChanged"/>
+            <ComboBox x:Name="comboxRegisterLocationTK" materialDesign:HintAssist.Hint="Location" Margin="624,450,556,155" VerticalAlignment="Stretch" Height="25" Foreground="White"/>
             <PasswordBox x:Name="txtboxRegisterPassword5" materialDesign:HintAssist.Hint="Password" Margin="556,155,556,429" Height="25" Width="160" Foreground="White"/>
             <PasswordBox x:Name="txtboxRegisterPassword6" materialDesign:HintAssist.Hint="Confirm Password" Margin="556,185,556,399" Height="25" Width="160" Foreground="White"/>
+            
         </Grid>
 
     </Grid>

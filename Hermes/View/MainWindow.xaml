@@ -110,7 +110,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnDropdownSignOut" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" HorizontalAlignment="Left" Margin="0,125,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF7B1FA2" Foreground="#FFE1BEE7" BorderThickness="5,0,0,0" FontSize="18">
+                <Button x:Name="btnDropdownSignOut" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" HorizontalAlignment="Left" Margin="0,125,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF7B1FA2" Foreground="#FFE1BEE7" BorderThickness="5,0,0,0" FontSize="18" Click="btnDropdownSignOut_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>

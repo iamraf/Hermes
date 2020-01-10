@@ -92,8 +92,11 @@
     </ApplicationDefinition>
     <Compile Include="Model\ListingRepository.cs" />
     <Compile Include="Model\Models\HistoryList.cs" />
+    <Compile Include="Model\MyFavoritesRepository.cs" />
+    <Compile Include="Model\MyHistoryRepository.cs" />
     <Compile Include="Model\MyListingsRepository.cs" />
     <Compile Include="Model\HomeRepository.cs" />
+    <Compile Include="Model\MyProfileRepository.cs" />
     <Compile Include="Model\PasswordHashing.cs" />
     <Compile Include="Model\Singleton.cs" />
     <Compile Include="Model\RegisterRepository.cs" />
@@ -116,15 +119,17 @@
     </Compile>
     <Compile Include="View\home\HomePresenter.cs" />
     <Compile Include="View\home\IHomeView.cs" />
+    <Compile Include="View\MyFavorites\FavoritesPage.xaml.cs">
+      <DependentUpon>FavoritesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MyFavorites\FavoritesPresenter.cs" />
+    <Compile Include="View\MyFavorites\IFavoritesPage.cs" />
     <Compile Include="View\MyHistory\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MyHistory\HistoryPresenter.cs" />
     <Compile Include="View\MyHistory\IHistoryPage.cs" />
     <Compile Include="View\MyListings\MyListingsPresenter.cs" />
-    <Compile Include="View\FavoritesPage.xaml.cs">
-      <DependentUpon>FavoritesPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\HelpWindow.xaml.cs">
       <DependentUpon>HelpWindow.xaml</DependentUpon>
     </Compile>
@@ -148,9 +153,11 @@
     <Compile Include="View\MyListings\MyListingsPage.xaml.cs">
       <DependentUpon>MyListingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ProfilePage.xaml.cs">
+    <Compile Include="View\MyProfile\IProfilePage.cs" />
+    <Compile Include="View\MyProfile\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MyProfile\ProfilePresenter.cs" />
     <Compile Include="View\Register\IRegisterPage.cs" />
     <Compile Include="View\Register\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
@@ -162,10 +169,6 @@
     </Compile>
     <Compile Include="View\Upload\UploadPresenter.cs" />
     <Page Include="View\CategoriesPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\FavoritesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,6 +196,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\MyFavorites\FavoritesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\MyHistory\HistoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -201,9 +208,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ProfilePage.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\MyProfile\ProfilePage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Register\RegisterPage.xaml">
       <Generator>MSBuild:Compile</Generator>

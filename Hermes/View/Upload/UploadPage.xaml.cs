@@ -17,6 +17,10 @@ using System.Windows.Shapes;
 using System.Runtime.Caching;
 using System.Globalization;
 using Hermes.View.Upload;
+using System.IO;
+using Microsoft.Win32;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace Hermes.View
 {
@@ -26,6 +30,7 @@ namespace Hermes.View
     public partial class UploadPage : Page, IUploadPage
     {
         private UploadPresenter _presenter;
+        private string ImagePathSrc = null;
 
         public UploadPage()
         {
@@ -44,6 +49,10 @@ namespace Hermes.View
 
             comboxUploadLocation.ItemsSource = _presenter.GetLocationNames();
             comboxUploadLocation.SelectedIndex = 0;
+
+            //---------------------------------------
+
+            radbtnUploadSell.IsChecked = true;
         }
 
         public string name
@@ -86,6 +95,14 @@ namespace Hermes.View
             }
         }
 
+        public string GetImagePath
+        {
+            get
+            {
+                return ImagePathSrc;
+            }
+        }
+
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             txtboxUploadPrice.IsEnabled = !(bool)(checkBoxFreePrice.IsChecked);
@@ -94,12 +111,9 @@ namespace Hermes.View
 
         private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
         {
-            //TODO: CHANGE THE ADDRESS FIELD ON USERA_DATA TABLE TO ENABLE THIS FEATURE
-            /*User user = (User)MemoryCache.Default["User"];
-            if (user!=null){
-                comboxUploadLocation.SelectedItem = user.Location;
-                comboxUploadLocationTK.SelectedItem = user.LocationTK;
-            }*/
+            Location myLocation = _presenter.GetMyHomeLocation();
+            comboxUploadLocation.SelectedItem = myLocation.Name;
+            comboxUploadLocationTK.SelectedItem = myLocation.Tk.ToString();
             comboxUploadLocation.IsEnabled = !(bool)(checkBoxMyHome.IsChecked);
             comboxUploadLocationTK.IsEnabled = comboxUploadLocation.IsEnabled;
         }
@@ -119,16 +133,63 @@ namespace Hermes.View
 
         private void btnUploadUpload_Click(object sender, RoutedEventArgs e)
         {
-            _presenter.UploadListing(GetTaggedListingName(), price, location.Id, description, subcategory.Id);
+            bool result = _presenter.UploadListing(GetTaggedListingName(), price, location.Id, description, subcategory.Id, GetListingType());
+            if (result)
+            {
+                System.Windows.MessageBox.Show("Listing uploaded succesfully", "Upload Complete", MessageBoxButton.OK);
+                this.NavigationService.Navigate(new Uri("View/MyListings/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Could not upload listing.\nSQL Error.","Error",MessageBoxButton.OK);
+            }
         }
 
         private string GetTaggedListingName()
         {
-            if (radbtnUploadSell.IsChecked==true)
-                return "#Selling " + name;
+            if (radbtnUploadSell.IsChecked == true)
+            {
+                return "[Selling] " + name;
+            }
             else
-                return "#Buying " + name;
+            {
+                return "[Looking for] " + name;
+            }
         }
+
+        private bool GetListingType()
+        {
+            if (radbtnUploadSell.IsChecked == true)
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+
+        private void btnUploadImage_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                SetImagePath();
+                UploadImage.Source = new BitmapImage(new Uri(GetImagePath));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void SetImagePath()
+        {
+            Microsoft.Win32.OpenFileDialog openFileDialog1 = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog1.Filter = "Image files | *.jpg";
+            if (openFileDialog1.ShowDialog() == true)
+                ImagePathSrc = openFileDialog1.FileName;
+            else
+                ImagePathSrc = null;
+        }
+
 
     }
 }

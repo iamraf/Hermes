@@ -14,17 +14,27 @@
                 <ColumnDefinition MinWidth="400" Width="5*"/>
                 <ColumnDefinition MinWidth="400" Width="4*"/>
             </Grid.ColumnDefinitions>
-            <ListView x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged_1">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Description" Width="270" DisplayMemberBinding="{Binding Description}" />
-                        <GridViewColumn Header="Active" Width="70" DisplayMemberBinding="{Binding Active}" />
-                        <GridViewColumn Header="Price" Width="70" DisplayMemberBinding="{Binding Price}" />
-
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ListBox x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/View/Images/Background3.png" Width="150" Height="150"/>
+                            <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Name}" FontSize="15" Foreground="White" Margin="0,0,0,5" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Description}" Foreground="White"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Active: " Foreground="White"/>
+                                    <TextBlock Text="{Binding Active}" Foreground="White"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="€" Foreground="White"/>
+                                    <TextBlock Text="{Binding Price}" Foreground="White"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <Image x:Name="imgListingsSelected" Grid.Column="1" HorizontalAlignment="Left" Height="120" Margin="30,30,0,0" VerticalAlignment="Top" Width="120">
                 <Image.Effect>
                     <DropShadowEffect/>
@@ -41,8 +51,8 @@
         <Frame Content="Frame" Height="603" VerticalAlignment="Top" Width="0" Canvas.Left="1226" Canvas.Top="-34"/>
         <Grid x:Name="canvasListingsFilters" HorizontalAlignment="Center" Canvas.Top="-34" Canvas.Left="-48" Background="White" Height="630" Width="200">
             <Label Content="Price Range&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="50,291,50,308" FontSize="14"/>
+            <Label x:Name="labelCancelAllFilters" Content="Cancel all &#xD;&#xA;filters" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="Label_MouseLeftButtonDown" Margin="5,97,126,489"/>
             <Label x:Name="labelCancelPriceRanges" Content="Cancel" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelPriceRanges_PreviewDragOver" Margin="0,293,145,307" Visibility="Hidden"/>
-            <Label x:Name="labelCancelDateRanges" Content="Cancel" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelDateRanges_MouseLeftButtonDown" Margin="0,413,145,187" Visibility="Hidden"/>
             <RadioButton x:Name="radbtnListingsPricePick" Content="" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" GroupName="priceRangeGroup" Checked="radbtnListingsPricePick_Checked" Unchecked="radbtnListingsPricePick_Unchecked" Margin="10,327,172,285" RenderTransformOrigin="0.614,-0.056"/>
             <RadioButton x:Name="radbtnListingsPriceCustom" Content="" RenderTransformOrigin="0.421,0.467" BorderBrush="#FF89C3EC" Background="{x:Null}" BorderThickness="2" GroupName="priceRangeGroup" Checked="radbtnListingsPriceCustom_Checked" Unchecked="radbtnListingsPriceCustom_Unchecked" Margin="10,361,168,251"/>
             <ComboBox x:Name="comboxListingsPricePick" Width="156" HorizontalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="comboxListingsPricePick_SelectionChanged" IsEnabled="False" Margin="34,322,10,278" Height="30">
@@ -64,7 +74,10 @@
             <Slider x:Name="slidListingsPriceCustom" Width="156" HorizontalAlignment="Center" VerticalAlignment="Center" AutoToolTipPlacement="BottomRight" Maximum="500" SmallChange="1" LargeChange="10" TickPlacement="BottomRight" TickFrequency="50" Value="-1" Cursor="Arrow" Background="{x:Null}" IsEnabled="False" Margin="34,361,10,239" Height="30" />
             <Label Content="Date Uploaded&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="50,411,50,194" FontSize="14"/>
             <RadioButton x:Name="radbtnListingsDatePick" Content="" BorderBrush="#FF89C3EC" BorderThickness="2" Background="{x:Null}" Checked="radbtnListingsDatePick_Checked" Unchecked="radbtnListingsDatePick_Unchecked" Margin="10,445,168,167"/>
+            <Label x:Name="labelCancelDateRanges" Content="Cancel" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelDateRanges_MouseLeftButtonDown" Margin="0,413,145,187" Visibility="Hidden"/>
             <ComboBox x:Name="comboxListingsDatePick" Width="156" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="#FFACACAC" SelectionChanged="comboxListingsDatePick_SelectionChanged" IsEnabled="False" Margin="34,439,10,162" Height="29">
+                <ComboBoxItem Content="Last hour" HorizontalAlignment="Left" Width="138"/>
+                <ComboBoxItem Content="Last day" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last week" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last month" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last year" HorizontalAlignment="Left" Width="138"/>
@@ -90,7 +103,7 @@
                 <ComboBoxItem Content="Price"/>
                 <ComboBoxItem Content="Popularity"/>
             </ComboBox>
-            <Label Content="Filters" Margin="50,91,50,504" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35"/>
+            <Label Content="Filters" Margin="50,91,50,504" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35" MouseLeftButtonDown="Label_MouseLeftButtonDown"/>
             <Rectangle Height="1" Margin="0,85,0,544" Stroke="#FFAAAAAA"/>
         </Grid>
     </Canvas>

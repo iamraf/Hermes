@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace Hermes.View.Upload
 {
@@ -14,5 +15,6 @@ namespace Hermes.View.Upload
         Location location { get; }
         string description { get; }
         SubCategory subcategory { get; }
+        public string GetImagePath { get; }
     }
 }
