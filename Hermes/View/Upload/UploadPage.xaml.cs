@@ -44,6 +44,10 @@ namespace Hermes.View
 
             comboxUploadLocation.ItemsSource = _presenter.GetLocationNames();
             comboxUploadLocation.SelectedIndex = 0;
+
+            //---------------------------------------
+
+            radbtnUploadSell.IsChecked = true;
         }
 
         public string name
@@ -94,12 +98,9 @@ namespace Hermes.View
 
         private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
         {
-            //TODO: CHANGE THE ADDRESS FIELD ON USERA_DATA TABLE TO ENABLE THIS FEATURE
-            /*User user = (User)MemoryCache.Default["User"];
-            if (user!=null){
-                comboxUploadLocation.SelectedItem = user.Location;
-                comboxUploadLocationTK.SelectedItem = user.LocationTK;
-            }*/
+            Location myLocation = _presenter.GetMyHomeLocation();
+            comboxUploadLocation.SelectedItem = myLocation.Name;
+            comboxUploadLocationTK.SelectedItem = myLocation.Tk.ToString();
             comboxUploadLocation.IsEnabled = !(bool)(checkBoxMyHome.IsChecked);
             comboxUploadLocationTK.IsEnabled = comboxUploadLocation.IsEnabled;
         }
@@ -119,15 +120,38 @@ namespace Hermes.View
 
         private void btnUploadUpload_Click(object sender, RoutedEventArgs e)
         {
-            _presenter.UploadListing(GetTaggedListingName(), price, location.Id, description, subcategory.Id);
+            bool result = _presenter.UploadListing(GetTaggedListingName(), price, location.Id, description, subcategory.Id, GetListingType());
+            if (result)
+            {
+                MessageBox.Show("Listing uploaded succesfully", "Upload Complete", MessageBoxButton.OK);
+                this.NavigationService.Navigate(new Uri("View/MyListings/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                MessageBox.Show("Could not upload listing.\nSQL Error.","Error",MessageBoxButton.OK);
+            }
         }
 
         private string GetTaggedListingName()
         {
-            if (radbtnUploadSell.IsChecked==true)
-                return "#Selling " + name;
+            if (radbtnUploadSell.IsChecked == true)
+            {
+                return "[Selling] " + name;
+            }
             else
-                return "#Buying " + name;
+            {
+                return "[Looking for] " + name;
+            }
+        }
+
+        private bool GetListingType()
+        {
+            if (radbtnUploadSell.IsChecked == true)
+            {
+                return false;
+            }
+            else
+                return true;
         }
 
     }

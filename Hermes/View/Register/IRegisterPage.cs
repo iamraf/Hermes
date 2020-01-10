@@ -15,7 +15,10 @@ namespace Hermes.View.Register
         string TextBoxName { get; }
         string TextBoxSurname { get; }
         string TextBoxPhoneNumber { get; }
-        string TextBoxAddress { get; }
         string ErrorDialog { set; }
+        List<string> Locations { set; }
+        string SelectedLocation { get; } //might remove
+        List<string> LocationsTK { set; }
+        string SelectedLocationTK { get; }
     }
 }

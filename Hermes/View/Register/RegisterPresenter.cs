@@ -1,4 +1,5 @@
 ﻿using Hermes.Model;
+using Hermes.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,14 @@ namespace Hermes.View.Register
 
         private IRegisterPage _view;
         private RegisterRepository _register;
+        private readonly MyProfileRepository _repository;
+        private List<Location> _locations;
 
         public RegisterPresenter(IRegisterPage view)
         {
             _view = view;
-            _register = null;
+            _register = FillFromFields();
+            _repository = new MyProfileRepository();
         }
 
         public RegisterRepository FillFromFields()
@@ -27,7 +31,7 @@ namespace Hermes.View.Register
             string name = _view.TextBoxName;
             string surname = _view.TextBoxSurname;
             string phonenumber = _view.TextBoxPhoneNumber;
-            string address = _view.TextBoxAddress;
+            string address = _view.SelectedLocationTK;
 
             if (username == "" || password == "" || email == "" || name == "" || surname == "" || phonenumber == "" || address == "")
                 return null;
@@ -50,7 +54,6 @@ namespace Hermes.View.Register
                         _view.ErrorDialog = "Error ocured on registration";
                     else
                     {
-                        _view.ErrorDialog = "Registration complete";
                         return true;
                     }
                 }
@@ -60,6 +63,52 @@ namespace Hermes.View.Register
             else
                 _view.ErrorDialog = "Passwords do not match";
             return false;
+        }
+
+        public void GetLocations()
+        {
+            _locations = _repository.GetLocations();
+
+            List<string> locationNames = GetOnlyLocationNames();
+
+            if (locationNames != null && locationNames.Count > 0)
+            {
+                _view.Locations = locationNames;
+            }
+        }
+
+        private List<string> GetOnlyLocationNames()
+        {
+            List<string> locNames = new List<string>();
+            foreach (Location loc in _locations)
+            {
+                if (!locNames.Contains(loc.Name))
+                {
+                    locNames.Add(loc.Name);
+                }
+
+            }
+
+            return locNames;
+        }
+
+        public void GetOnlyLocationTK(string selectedLocationName)
+        {
+            List<string> locTK = new List<string>();
+            foreach (Location loc in _locations)
+            {
+                if (loc.Name.Equals(selectedLocationName))
+                {
+                    if (!locTK.Contains(loc.Tk.ToString()))
+                    {
+                        locTK.Add(loc.Tk.ToString());
+                    }
+
+                }
+
+            }
+
+            _view.LocationsTK = locTK;
         }
 
     }

@@ -27,6 +27,10 @@ namespace Hermes.View
         {
             InitializeComponent();
             _presenter = new RegisterPresenter(this);
+            _presenter.GetLocations();
+
+            comboxRegisterLocation.SelectedIndex = 0;
+            comboxRegisterLocationTK.IsEditable = false;
         }
 
         public string TextBoxUsername
@@ -64,10 +68,6 @@ namespace Hermes.View
             get { return txtboxRegisterPhone.Text; }
         }
 
-        public string TextBoxAddress
-        {
-            get { return txtboxRegisterAddress.Text; }
-        }
 
         public string ErrorDialog
         {
@@ -77,10 +77,62 @@ namespace Hermes.View
             }
         }
 
+        public List<string> Locations
+        {
+            set
+            {
+                comboxRegisterLocation.ItemsSource = null;
+                comboxRegisterLocation.ItemsSource = value;
+            }
+        }
+
+        public string SelectedLocation
+        {
+            get
+            {
+                if (comboxRegisterLocation.SelectedItem != null)
+                {
+                    return comboxRegisterLocation.SelectedItem.ToString();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public List<string> LocationsTK
+        {
+            set
+            {
+                comboxRegisterLocationTK.ItemsSource = null;
+                comboxRegisterLocationTK.ItemsSource = value;
+            }
+        }
+
+        public string SelectedLocationTK
+        {
+            get
+            {
+                if (comboxRegisterLocationTK.SelectedItem != null)
+                {
+                    return comboxRegisterLocationTK.SelectedItem.ToString();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             if (_presenter.RegisterUser())
+            {
+                MessageBox.Show("Registration complete","Done",MessageBoxButton.OK);
                 this.NavigationService.Navigate(new LoginPage());
+            }
+                
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -88,6 +140,13 @@ namespace Hermes.View
             Image imageBackground = new Image();
             var UriSource = new Uri(@"/Hermes;component/View/Images/Background1.jpg", UriKind.RelativeOrAbsolute);
             imageBackground.Source = new BitmapImage(UriSource);
+        }
+
+        private void comboxRegisterLocation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            comboxRegisterLocationTK.IsEnabled = true;
+            _presenter.GetOnlyLocationTK((string)comboxRegisterLocation.SelectedItem);
+            comboxRegisterLocationTK.SelectedIndex = 0;
         }
     }
 }
