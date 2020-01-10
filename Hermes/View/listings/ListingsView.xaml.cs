@@ -197,9 +197,7 @@ namespace Hermes.View
         // Price Range Cancel
         private void labelCancelPriceRanges_PreviewDragOver(object sender, MouseButtonEventArgs e)
         {
-            labelCancelPriceRanges.Visibility = Visibility.Hidden;
-            radbtnListingsPricePick.IsChecked = false;
-            radbtnListingsPriceCustom.IsChecked = false;
+
             resetPriceRanges();
             if (labelCancelDateRanges.IsVisible)
             {
@@ -214,6 +212,9 @@ namespace Hermes.View
         // Reset Price Range Combobox & Slider
         private void resetPriceRanges()
         {
+            labelCancelPriceRanges.Visibility = Visibility.Hidden;
+            radbtnListingsPricePick.IsChecked = false;
+            radbtnListingsPriceCustom.IsChecked = false;
             comboxListingsPricePick.IsEnabled = false;
             comboxListingsPricePick.SelectedIndex = -1;
             slidListingsPriceCustom.IsEnabled = false;
@@ -223,6 +224,9 @@ namespace Hermes.View
         // Reset Date Combobox
         private void resetDateRanges()
         {
+            labelCancelDateRanges.Visibility = Visibility.Hidden;
+            radbtnListingsDatePick.IsChecked = false;
+            radbtnListingsDatePick2.IsChecked = false;
             comboxListingsDatePick.IsEnabled = false;
             comboxListingsDatePick.SelectedIndex = -1;
         }
@@ -243,9 +247,7 @@ namespace Hermes.View
         // Date Cancel
         private void labelCancelDateRanges_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            labelCancelDateRanges.Visibility = Visibility.Hidden;
-            radbtnListingsDatePick.IsChecked = false;
-            radbtnListingsDatePick2.IsChecked = false;
+
             resetDateRanges();
             if(labelCancelPriceRanges.IsVisible)
             {
@@ -285,7 +287,7 @@ namespace Hermes.View
         // Change Category
         private void comboxCategories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            resetDateRanges();
+            resetPriceRanges();
             resetDateRanges();
             _presenter.ChangeCategory(getCatId());
             resetCategoriesCheckboxes();
