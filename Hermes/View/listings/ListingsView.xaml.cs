@@ -405,7 +405,14 @@ namespace Hermes.View
 
         private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            comboxCategories.SelectedIndex = 0;
+            if (comboxCategories.SelectedIndex == 0)
+            {
+                comboxCategories_SelectionChanged(null, null);
+            }
+            else
+            {
+                comboxCategories.SelectedIndex = 0;
+            }
         }
     }
 }
