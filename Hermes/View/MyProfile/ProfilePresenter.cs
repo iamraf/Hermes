@@ -2,6 +2,7 @@
 using Hermes.Model.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Caching;
 using System.Text;
@@ -95,6 +96,8 @@ namespace Hermes.View.MyProfile
         {
             return (User)MemoryCache.Default["User"];
         }
+
+        
 
     }
 }
