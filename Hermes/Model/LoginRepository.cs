@@ -5,24 +5,20 @@ namespace Hermes.Model
 {
     class LoginRepository
     {
-        private readonly MySqlConnection _connection;
-        public LoginRepository()
-        {
-            string connectionString = "SERVER=remotemysql.com;DATABASE=4G6ccccjnC;UID=4G6ccccjnC;PASSWORD=l0YkuReQwW;";
-            _connection = new MySqlConnection(connectionString);
-        }
-
-  
-
+            
         public bool UserExist(string username)
         {
             if(Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT * FROM User_Data WHERE username = '" + username + "'" ;
+                string query = "SELECT * FROM User_Data WHERE username = @username" ;
 
                 bool exists = false;
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@username", username);
+                //cmd.Prepare();
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 if(dataReader.HasRows)
@@ -48,9 +44,12 @@ namespace Hermes.Model
             {
                 User user = null;
 
-                string query = "SELECT * FROM User_Data WHERE username = '" + username + "' and password = '" + password + "'";
+                string query = "SELECT * FROM User_Data WHERE username = @username and password = @password ";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 while(dataReader.Read())
