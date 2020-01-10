@@ -9,7 +9,7 @@ namespace Hermes.Model
 {
     class ListingRepository
     {
-        public List<Listing> GetListings(int category)
+        public List<Listing> GetListings(int category, string order)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
@@ -20,35 +20,7 @@ namespace Hermes.Model
                     query += " join SubListing_Categories sc on l.subCategoryListing=sc.subcategoryID " +
                         "WHERE sc.categoryID=" + category + "";
                 }
-
-                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                List<Listing> listing = new List<Listing>();
-
-                while (dataReader.Read())
-                {
-                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
-                }
-
-                dataReader.Close();
-
-                Singleton.GetInstance().CloseConnection();
-
-                return listing;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public List<Listing> GetSortedListings(string field)
-        {
-            if (Singleton.GetInstance().OpenConnection() == true)
-            {
-                string query = "SELECT * FROM Listings ORDER BY " + field;
-
+                query += " order by " + order + "";
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -175,7 +147,7 @@ namespace Hermes.Model
             }
         }
 
-        public List<Listing> FilteredListings(List<string> catIds, int category)
+        public List<Listing> FilteredListings(List<string> catIds, int category, string order)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
@@ -201,6 +173,7 @@ namespace Hermes.Model
                     string joinedCatIds = String.Join(",", catIds);
                     query += "l.subCategoryListing in (" + joinedCatIds + ")";
                 }
+                query += " order by " + order + "";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -224,7 +197,7 @@ namespace Hermes.Model
             }
         }
 
-        public List<Listing> PriceFilteredListings(List<string> catIds, string comparisonOperator, float price, int category)
+        public List<Listing> PriceFilteredListings(List<string> catIds, string comparisonOperator, float price, int category, string order)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
@@ -247,7 +220,7 @@ namespace Hermes.Model
                     string joinedCatIds = String.Join(",", catIds);
                     query += "and l.subCategoryListing in (" + joinedCatIds + ")";
                 }
-
+                query += " order by " + order + "";
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -270,7 +243,7 @@ namespace Hermes.Model
             }
         }
 
-        public List<Listing> GetDateFilteredListings(List<string> catIds, string dateOption, int category)
+        public List<Listing> GetDateFilteredListings(List<string> catIds, string dateOption, int category, string order)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
@@ -293,8 +266,7 @@ namespace Hermes.Model
                     string joinedCatIds = String.Join(",", catIds);
                     query += "and l.subCategoryListing in (" + joinedCatIds + ") ";
                 }
-                query += "order by l.creationDate desc";
-
+                query += " order by " + order + "";
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -317,7 +289,7 @@ namespace Hermes.Model
             }
         }
 
-        public List<Listing> GetDateAndPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, string dateOption, int category)
+        public List<Listing> GetDateAndPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, string dateOption, int category, string order)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
@@ -339,7 +311,7 @@ namespace Hermes.Model
                     string joinedCatIds = String.Join(",", catIds);
                     query += "and l.subCategoryListing in (" + joinedCatIds + ") ";
                 }
-
+                query += " order by " + order + "";
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
