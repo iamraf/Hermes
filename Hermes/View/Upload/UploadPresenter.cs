@@ -2,10 +2,13 @@
 using Hermes.Model.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Media.Imaging;
 
 namespace Hermes.View.Upload
 {
@@ -123,6 +126,7 @@ namespace Hermes.View.Upload
             {
                 User user = (User)Cache["User"];
                 _repository.UpdateOwners(listingId, user.Id);
+                UploadImage(listingId, _view.GetImagePath);
                 return true;
             }
             else
@@ -143,6 +147,32 @@ namespace Hermes.View.Upload
                 }
             }
             return null;
+        }
+
+        public void UploadImage(int listingId, string imagePath)
+        {
+            if (imagePath != null)
+            {
+                FileStream fs;
+                BinaryReader br;
+
+                string FileName = imagePath;
+                byte[] ImageData;
+                fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
+                br = new BinaryReader(fs);
+                ImageData = br.ReadBytes((int)fs.Length);
+                br.Close();
+                fs.Close();
+                if(_repository.UploadImage(listingId, ImageData)==false)
+                {
+                    MessageBox.Show("Could not upload image!", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Could not load image!", "Error");
+            }
+            
         }
 
     }

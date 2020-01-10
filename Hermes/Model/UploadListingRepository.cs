@@ -183,6 +183,39 @@ namespace Hermes.Model
             }
         }
 
+        public bool UploadImage(int listingID, byte[] imageData)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "INSERT INTO Listings_Icons(listingID, listingPicture) VALUE (@listingID, @listingPicture)";
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+
+                cmd.Parameters.Add("@listingID", MySqlDbType.Int32);
+                cmd.Parameters.Add("@listingPicture", MySqlDbType.MediumBlob);
+
+                Console.WriteLine(imageData.Length);
+
+                cmd.Parameters["@listingID"].Value = listingID;
+                cmd.Parameters["@listingPicture"].Value = imageData;
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                Singleton.GetInstance().CloseConnection();
+                
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 
