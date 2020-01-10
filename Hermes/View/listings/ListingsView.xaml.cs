@@ -304,7 +304,7 @@ namespace Hermes.View
             resetPriceRanges();
             resetDateRanges();
             _presenter.ChangeCategory(getCatId(), comboxListingsSortBy.SelectedIndex);
-            resetCategoriesCheckboxes();
+            updateCategoriesCheckboxes();
         }
 
         // Get Category ID from combobox
@@ -331,25 +331,49 @@ namespace Hermes.View
                 
         }
 
-        private void resetCategoriesCheckboxes()
+        private void updateCategoriesCheckboxes()
         {
-            if(getCatId() != 0)
+            resetCategoriesCheckboxes();
+
+            if (getCatId() != 0)
             {
                 List<SubCategory> subCategories = _presenter.GetSubcategoriesFromSpecificCategory(getCatId());
+
                 int i = 0;
                 
                 foreach (object child in LogicalTreeHelper.GetChildren(canvasListingsFilters))
                 {
-                    if(i<subCategories.Count)
+                    if (i < subCategories.Count)
                     {
                         if (child is CheckBox)
                         {
-                            ((CheckBox)child).IsChecked = false;
+                            ((CheckBox)child).IsEnabled = true;
                             ((CheckBox)child).Content = subCategories[i].Name;
                             ((CheckBox)child).Uid = "" + subCategories[i].Id;
                             i++;
                         }
+                    } 
+                    else
+                    {
+                        if (child is CheckBox)
+                        {
+                            ((CheckBox)child).Visibility = Visibility.Hidden;
+                        }
                     }
+                }
+            }
+        }
+
+        private void resetCategoriesCheckboxes()
+        {
+            foreach (object child in LogicalTreeHelper.GetChildren(canvasListingsFilters))
+            {
+                if (child is CheckBox)
+                {
+                    ((CheckBox)child).Visibility = Visibility.Visible;
+                    ((CheckBox)child).Content = "";
+                    ((CheckBox)child).IsChecked = false;
+                    ((CheckBox)child).IsEnabled = false;
                 }
             }
         }
@@ -377,6 +401,11 @@ namespace Hermes.View
                 _presenter.IncreaseView(listing.Id);
                 _presenter.AddToHistory(listing.Id);
             }
+        }
+
+        private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            comboxCategories.SelectedIndex = 0;
         }
     }
 }

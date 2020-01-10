@@ -27,16 +27,6 @@ namespace Hermes.View.listings
             }
         }
 
-        private void GetSortListing(string field)
-        {
-            List<Listing> list = _repository.GetSortedListings(field);
-
-            if(list != null && list.Count > 0)
-            {
-                _view.Listings = list;
-            }
-        }
-
         public User GetUploader(int id)
         {
             return _repository.GetUploader(id);
@@ -47,7 +37,7 @@ namespace Hermes.View.listings
             return (User) MemoryCache.Default["User"];
         }
 
-        public String SortListing(int option)
+        private String SortListing(int option)
         {
             switch(option)
             {
@@ -132,37 +122,12 @@ namespace Hermes.View.listings
 
         public void DateFilteredListings(List<string> catIds, int dateOption, int category, int order)
         {
-            switch (dateOption)
-            {
-                case 1:
-                    GetDateFilteredListings(catIds, "MONTH", category, SortListing(order));
-                    break;
-                case 2:
-                    GetDateFilteredListings(catIds, "YEAR", category, SortListing(order));
-                    break;
-                default:
-                    GetDateFilteredListings(catIds, "WEEK", category, SortListing(order));
-                    break;
-            }
+            GetDateFilteredListings(catIds, GetDateChoice(dateOption), category, SortListing(order));
         }
 
         public void DateAndPriceFilteredListings(List<string> catIds, int priceOption, int dateOption, int category, int order)
         {
-            string date = "";
-
-            switch (dateOption)
-            {
-                case 1:
-                    date = "MONTH";
-                    break;
-                case 2:
-                    date = "YEAR";
-                    break;
-                default:
-                    date = "WEEK";
-                    break;
-            }
-             
+            string date = GetDateChoice(dateOption);
             switch (priceOption)
             {
                 case 1:
@@ -177,6 +142,31 @@ namespace Hermes.View.listings
             }
         }
 
+        private string GetDateChoice(int dateOption)
+        {
+            string date = "";
+
+            switch (dateOption)
+            {
+                case 1:
+                    date = "DAY";
+                    break;
+                case 2:
+                    date = "WEEK";
+                    break;
+                case 3:
+                    date = "MONTH";
+                    break;
+                case 4:
+                    date = "YEAR";
+                    break;
+                default:
+                    date = "HOUR";
+                    break;
+            }
+
+            return date;
+        }
         private void GetDateAndPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, string dateOption, int category, string order)
         {
             List<Listing> list = _repository.GetDateAndPriceFilteredListings(catIds, comparisonOperator, price, dateOption, category, order);
