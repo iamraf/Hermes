@@ -94,6 +94,7 @@
     <Compile Include="Model\Models\HistoryList.cs" />
     <Compile Include="Model\MyListingsRepository.cs" />
     <Compile Include="Model\HomeRepository.cs" />
+    <Compile Include="Model\PasswordHashing.cs" />
     <Compile Include="Model\Singleton.cs" />
     <Compile Include="Model\RegisterRepository.cs" />
     <Compile Include="Model\LoginRepository.cs" />
