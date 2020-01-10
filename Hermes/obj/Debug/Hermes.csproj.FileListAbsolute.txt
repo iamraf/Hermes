@@ -82,3 +82,6 @@ C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MyFavorites\FavoritesPage.g.cs
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MyProfile\ProfilePage.g.cs
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MyFavorites\FavoritesPage.baml
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MyProfile\ProfilePage.baml
+C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes_Content.g.cs
+C:\Users\PC\Desktop\Hermes\Hermes\bin\Debug\Google.Protobuf.xml
+C:\Users\PC\Desktop\Hermes\Hermes\bin\Debug\Renci.SshNet.xml
