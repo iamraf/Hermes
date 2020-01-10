@@ -283,11 +283,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Images\Background3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll" />
     <Content Include="packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll" />
+    <Resource Include="View\Images\Background3.png" />
+    <Resource Include="View\Images\logo.png" />
     <Resource Include="packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.xml" />
     <Content Include="packages\Google.Protobuf.3.6.1\lib\netstandard1.0\Google.Protobuf.dll" />
     <Resource Include="packages\Google.Protobuf.3.6.1\lib\netstandard1.0\Google.Protobuf.xml" />
