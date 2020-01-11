@@ -77,8 +77,6 @@ namespace Hermes.View
                 btnTopLogin.Content = "Log in";
                 expMyAccountDropdown.Visibility = Visibility.Collapsed;
             }
-
-            expMyAccountDropdown.IsExpanded = false;
         }
 
         private void btnDropdownHistory_Click(object sender, RoutedEventArgs e)
@@ -124,38 +122,5 @@ namespace Hermes.View
             if (Cache["User"] != null)
                 Cache.Remove("User");
         }
-
-        private void btnTopLogo_Click(object sender, RoutedEventArgs e)
-        {
-            frameMain.Navigate(new Uri("View/home/HomeView.xaml", UriKind.RelativeOrAbsolute));
-        }
-
-        private void txtboxTopSearch_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                frameMain.NavigationService.Navigate(new ListingsView(txtboxTopSearch.Text));
-            }
-        }
-
-        private void rectangleDrag_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                this.DragMove();
-            }
-        }
-
-        private void btnDropdownPremium_Click(object sender, RoutedEventArgs e)
-        {
-            //premium page doesn't exist yet
-            //frameMain.Navigate(new Uri("View/Premium/premiumpage.xaml", UriKind.RelativeOrAbsolute));
-        }
-
-        private void btnDropdownProfile_Click(object sender, RoutedEventArgs e)
-        {
-            frameMain.Navigate(new Uri("View/MyProfile/profilepage.xaml", UriKind.RelativeOrAbsolute));
-        }
-
     }
 }

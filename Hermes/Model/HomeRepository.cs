@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Windows.Media.Imaging;
 using Hermes.Model.Models;
 using MySql.Data.MySqlClient;
 namespace Hermes.Model
@@ -44,7 +42,7 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT * FROM Listings left outer join Listings_Icons on Listings_Icons.listingID=Listings.listingID ORDER BY listViews DESC LIMIT 5";
+                string query = "SELECT * FROM Listings";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -53,30 +51,10 @@ namespace Hermes.Model
 
                 while (dataReader.Read())
                 {
-                    Listing tmp = new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price"));
-
-                    if (!dataReader.IsDBNull(12))
-                    {
-                        byte[] b = (byte[])dataReader.GetValue(12);
-
-                        var bitmapImage = new BitmapImage();
-                        bitmapImage.BeginInit();
-                        bitmapImage.StreamSource = new MemoryStream(b);
-                        bitmapImage.EndInit();
-
-                        tmp.Image = bitmapImage;
-                    }
-                    else
-                    {
-                        tmp.Image = new BitmapImage(new Uri("pack://application:,,,/error.jpg"));
-                    }
-
-                    listing.Add(tmp);
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
                 }
 
                 dataReader.Close();
-                dataReader.Dispose();
-                cmd.Dispose();
 
                 Singleton.GetInstance().CloseConnection();
 
@@ -111,8 +89,6 @@ namespace Hermes.Model
                 }
 
                 dataReader.Close();
-                dataReader.Dispose();
-                cmd.Dispose();
 
                 Singleton.GetInstance().CloseConnection();
 
@@ -130,53 +106,31 @@ namespace Hermes.Model
 
             for(int i = 0; i < 3; i++)
             {
-                listings = AddListings(listings, cat[i], i);
+                listings = AddListings(listings, cat[i]);
             }
 
             return listings;
         }
 
-        private List<Listing> AddListings(List<Listing> listings, int index, int i)
+        private List<Listing> AddListings(List<Listing> listings, int index)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
                 string query = "select  * " +
-                                "from Listings left outer join Listings_Icons on Listings_Icons.listingID=Listings.listingID " +
+                                "from Listings " +
                                 "where Listings.subCategoryListing=" + index + " and Listings.premiumListing=1 and activeListing=1 " +
                                 "order by creationDate DESC " +
-                                "LIMIT " + (3 - i) + ";";
+                                "LIMIT "+(3-index)+";";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                List<Listing> listing = new List<Listing>();
-
                 while (dataReader.Read())
                 {
-                    Listing tmp = new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price"));
-
-                    if (!dataReader.IsDBNull(12))
-                    {
-                        byte[] b = (byte[])dataReader.GetValue(12);
-
-                        var bitmapImage = new BitmapImage();
-                        bitmapImage.BeginInit();
-                        bitmapImage.StreamSource = new MemoryStream(b);
-                        bitmapImage.EndInit();
-
-                        tmp.Image = bitmapImage;
-                    }
-                    else
-                    {
-                        tmp.Image = new BitmapImage(new Uri("pack://application:,,,/error.jpg"));
-                    }
-
-                    listing.Add(tmp);
+                    listings.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
                 }
 
                 dataReader.Close();
-                dataReader.Dispose();
-                cmd.Dispose();
 
                 Singleton.GetInstance().CloseConnection();
 
