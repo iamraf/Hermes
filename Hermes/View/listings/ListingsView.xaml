@@ -126,6 +126,7 @@
             </ComboBox>
             <Label Content="Filters" Margin="50,91,50,504" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35" MouseLeftButtonDown="Label_MouseLeftButtonDown"/>
             <Rectangle Height="1" Margin="0,85,0,544" Stroke="#FFAAAAAA"/>
+            <Button x:Name="btnGoSlider" Content="Go" HorizontalAlignment="Left" VerticalAlignment="Top" Width="47" Margin="143,396,0,0" Height="20" FontSize="8" FontWeight="Bold" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" IsEnabled="False" Click="btnGoSlider_Click"/>
         </Grid>
     </Canvas>
 </Page>
