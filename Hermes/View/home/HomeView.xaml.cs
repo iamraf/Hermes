@@ -21,7 +21,7 @@ namespace Hermes.View.home
         {
             set
             {
-                //listviewPopularListings.ItemsSource = value;
+                listviewPopular.ItemsSource = value;
             }
         }
 
@@ -29,7 +29,7 @@ namespace Hermes.View.home
         {
             set
             {
-                //listviewReccomendListings.ItemsSource = value;
+               listviewRecommended.ItemsSource = value;
             }
         }
 
