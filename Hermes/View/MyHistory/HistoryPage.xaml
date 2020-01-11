@@ -21,34 +21,41 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="2" Margin="165,32,28,563" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="2" Margin="165,67,28,534"/>
-        <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="2" Margin="165,96,28,508"/>
-        <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="2" HorizontalAlignment="Left" Margin="31,180,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="188" Width="417"/>
-        <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="2" HorizontalAlignment="Left" Margin="31,373,0,0" VerticalAlignment="Top" Width="150" Click="BtnListingSelectedFavorite_Click" Height="30"/>
-        <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="2" HorizontalAlignment="Left" Margin="298,373,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="#FF1976D2" Click="btnListingSelectedContact_Click"/>
-        <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="2" Margin="165,122,28,483"/>
-        <Grid x:Name="canvasListingsFilters" Width="200">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="#FF06558D" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Button x:Name="btnProfileMyProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" Margin="10,30,10,560" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20" Height="Auto" Background="#332196F3"/>
-            <Button x:Name="btnProfileHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" Margin="10,90,10,500" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click" Background="#662196F3"/>
-            <Button x:Name="btnProfileFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" Margin="10,150,10,440" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click" Background="#332196F3"/>
-            <Button x:Name="btnProfileListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" Margin="10,210,10,380" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#332196F3"/>
+        <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="2" Margin="165,32,28,563" FontSize="20" FontWeight="Bold" Background="#19000000" Foreground="#DDFFFFFF"/>
+        <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="2" Margin="200,67,28,534" Foreground="#DDFFFFFF"/>
+        <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="2" Margin="200,96,28,508" Foreground="#DDFFFFFF"/>
+        <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="2" Margin="30,220,29,30" TextWrapping="Wrap" Text="Description" Width="417" Foreground="#DDFFFFFF" Background="#19000000"/>
+        <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="2" HorizontalAlignment="Left" Margin="31,170,0,0" VerticalAlignment="Top" Width="150" Click="BtnListingSelectedFavorite_Click" Height="30" Background="#DDFFFFFF" BorderThickness="0,0,0,3"/>
+        <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="2" HorizontalAlignment="Left" Margin="298,170,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="#DDFFFFFF" Click="btnListingSelectedContact_Click" BorderThickness="0,0,0,3"/>
+        <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="2" Margin="200,122,28,483" Foreground="#DDFFFFFF"/>
+        <Grid x:Name="canvasListingsFilters" Width="200" Background="#FFE3F2FD">
+            <Button x:Name="btnProfileMyProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" Margin="10,30,10,560" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20" Height="Auto" Background="#262196F3"/>
+            <Button x:Name="btnProfileHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" Margin="10,90,10,500" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click" Background="#592196F3"/>
+            <Button x:Name="btnProfileFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" Margin="10,150,10,440" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click" Background="#262196F3"/>
+            <Button x:Name="btnProfileListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" Margin="10,210,10,380" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#262196F3"/>
             <Button x:Name="btnProfileSignout" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" Margin="10,560,10,30" Height="Auto" BorderThickness="5,0,0,0" BorderBrush="#FF7B1FA2" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF7B1FA2" VerticalContentAlignment="Top" Background="#337B1FA2"/>
+            <Button x:Name="btnProfileListings_Copy" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" Margin="10,270,10,320" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#262196F3"/>
         </Grid>
-        <ListView x:Name="listviewListings"  SelectionChanged="listviewListings_SelectionChanged" Margin="5,2,5,8" Grid.Column="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
-                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Description" Width="300" DisplayMemberBinding="{Binding Description}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <ListBox x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged" Grid.ColumnSpan="2" Margin="0,0,475,0" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding Image}" Width="150" Height="150"/>
+                        <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Name}" FontSize="15" Foreground="White" Margin="0,0,0,5" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Description}" Foreground="White"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Active: " Foreground="White"/>
+                                <TextBlock Text="{Binding Active}" Foreground="White"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="€" Foreground="White"/>
+                                <TextBlock Text="{Binding Price}" Foreground="White"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>
