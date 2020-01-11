@@ -7,5 +7,6 @@ namespace Hermes.View.listings
     {
         List<Listing> Listings { set; }
         bool Navigate { set; }
+        List<Listing> Favorites { set; }
     }
 }

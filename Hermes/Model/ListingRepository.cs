@@ -120,6 +120,8 @@ namespace Hermes.Model
                 dataReader.Close();
 
                 Singleton.GetInstance().CloseConnection();
+
+
             }
         }
 
