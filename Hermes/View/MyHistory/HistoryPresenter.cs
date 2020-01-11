@@ -14,12 +14,14 @@ namespace Hermes.View.MyHistory
         private readonly IHistoryPage _view;
         private readonly MyHistoryRepository _MHRepository;
         private readonly ListingRepository _LRepository;
+        private readonly MyFavoritesRepository _MFRepository;
 
         public HistoryPresenter(IHistoryPage view)
         {
             _view = view;
             _MHRepository = new MyHistoryRepository();
             _LRepository = new ListingRepository();
+            _MFRepository = new MyFavoritesRepository();
         }
 
         public void GetListings()
@@ -65,5 +67,20 @@ namespace Hermes.View.MyHistory
                 _LRepository.AddToHistory(listingId, user.Id);
             }
         }
+
+        public void GetFavorites()
+        {
+            List<Listing> favorites = _MFRepository.GetListings(GetCurrentUser().Id);
+            if (favorites != null)
+            {
+                _view.Favorites = favorites;
+            }
+            else
+            {
+                _view.Favorites = null;
+            }
+
+        }
+
     }
 }

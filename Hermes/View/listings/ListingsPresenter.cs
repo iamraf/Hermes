@@ -10,11 +10,13 @@ namespace Hermes.View.listings
     {
         private readonly IListingsView _view;
         private readonly ListingRepository _repository;
+        private readonly MyFavoritesRepository _MFRepository;
 
         public ListingsPresenter(IListingsView view)
         {
             _view = view;
             _repository = new ListingRepository();
+            _MFRepository = new MyFavoritesRepository();
         }
 
         public void GetListings()
@@ -57,15 +59,11 @@ namespace Hermes.View.listings
         {
             User user = GetCurrentUser();
 
-            if(user != null)
+            if (user != null)
             {
                 Favourite favourite = new Favourite(listingId, user.Id);
 
                 _repository.AddToFavourite(favourite);
-            }
-            else
-            {
-                _view.Navigate = true;
             }
         }
 
@@ -221,6 +219,23 @@ namespace Hermes.View.listings
                 return subCategories;
             }
             return null;
+        }
+
+        public void GetFavorites()
+        {
+            if (GetCurrentUser() != null)
+            {
+                List<Listing> favorites = _MFRepository.GetListings(GetCurrentUser().Id);
+                if (favorites != null)
+                {
+                    _view.Favorites = favorites;
+                }
+                else
+                {
+                    _view.Favorites = null;
+                }
+            }
+            
         }
     }
 }

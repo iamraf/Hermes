@@ -24,6 +24,7 @@ namespace Hermes.View
     public partial class HistoryPage : Page, IHistoryPage
     {
         private readonly HistoryPresenter _presenter;
+        private List<Listing> favorites;
 
         public HistoryPage()
         {
@@ -42,9 +43,18 @@ namespace Hermes.View
             }
         }
 
+        public List<Listing> Favorites
+        {
+            set
+            {
+                favorites = value;
+            }
+        }
+
         private void BtnListingSelectedFavorite_Click(object sender, RoutedEventArgs e)
         {
             _presenter.AddToFavourites(((Listing)listviewListings.SelectedItem).Id);
+            btnListingSelectedFavorite.IsEnabled = false;
         }
 
         private void btnProfileMyProfile_Click(object sender, RoutedEventArgs e)
@@ -70,6 +80,17 @@ namespace Hermes.View
         private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ButtonEnable(true);
+            if (_presenter.GetCurrentUser() != null)
+            {
+                _presenter.GetFavorites();
+                foreach (Listing lis in favorites)
+                {
+                    if ((listviewListings.SelectedItem as Listing).Id == lis.Id)
+                    {
+                        btnListingSelectedFavorite.IsEnabled = false;
+                    }
+                }
+            }
 
             Listing listing = (Listing)listviewListings.SelectedItem;
 
