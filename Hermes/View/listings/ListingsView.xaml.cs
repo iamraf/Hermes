@@ -38,6 +38,19 @@ namespace Hermes.View
             _presenter = new ListingsPresenter(this);
 
             _presenter.GetSearchResults(search);
+
+            _checkedBoxes = new List<string>();
+
+            resetPriceRanges();
+
+            resetDateRanges();
+
+            resetCategoriesCheckboxes();
+
+            radbtnListingsDatePick.IsEnabled = false;
+            radbtnListingsDatePick2.IsEnabled = false;
+            radbtnListingsPricePick.IsEnabled = false;
+            radbtnListingsPriceCustom.IsEnabled = false;
         }
 
         public ListingsView(int subCategory,int category)
@@ -50,8 +63,8 @@ namespace Hermes.View
             _checkedBoxes = new List<string>();
 
             comboxCategories.SelectedIndex=category;
-            _changeComboBox(subCategory);
 
+            _changeComboBox(subCategory);
         }
 
         public List<Listing> Listings
@@ -80,11 +93,11 @@ namespace Hermes.View
             {
                 if (labelCancelPriceRanges.IsVisible & labelCancelDateRanges.IsVisible)
                 {
-                    _presenter.DateAndPriceFilteredListings(_checkedBoxes, comboxListingsPricePick.SelectedIndex, comboxListingsDatePick.SelectedIndex, getCatId(), comboxListingsSortBy.SelectedIndex);
+                    DateAndPriceFilteredListings();
                 }
                 else if (labelCancelPriceRanges.IsVisible & !labelCancelDateRanges.IsVisible)
                 {
-                    comboxListingsPricePick_SelectionChanged(null, null);
+                    PriceFilteredListings();
                 }
                 else if (!labelCancelPriceRanges.IsVisible & labelCancelDateRanges.IsVisible)
                 {
@@ -126,11 +139,11 @@ namespace Hermes.View
             _checkedBoxes.Add(((CheckBox)sender).Uid);
             if(labelCancelPriceRanges.IsVisible & labelCancelDateRanges.IsVisible)
             {
-                _presenter.DateAndPriceFilteredListings(_checkedBoxes, comboxListingsPricePick.SelectedIndex, comboxListingsDatePick.SelectedIndex, getCatId(), comboxListingsSortBy.SelectedIndex);
+                DateAndPriceFilteredListings();
             }
             else if(labelCancelPriceRanges.IsVisible & !labelCancelDateRanges.IsVisible)
             {
-                comboxListingsPricePick_SelectionChanged(null, null);
+                PriceFilteredListings();
             }
             else if(!labelCancelPriceRanges.IsVisible & labelCancelDateRanges.IsVisible)
             {
@@ -144,15 +157,14 @@ namespace Hermes.View
 
         private void unChboxListingsCategory(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("triggers");
             _checkedBoxes.Remove(((CheckBox)sender).Uid);
             if (labelCancelPriceRanges.IsVisible & labelCancelDateRanges.IsVisible)
             {
-                _presenter.DateAndPriceFilteredListings(_checkedBoxes, comboxListingsPricePick.SelectedIndex, comboxListingsDatePick.SelectedIndex, getCatId(), comboxListingsSortBy.SelectedIndex);
+                DateAndPriceFilteredListings();
             }
             else if (labelCancelPriceRanges.IsVisible & !labelCancelDateRanges.IsVisible)
             {
-                comboxListingsPricePick_SelectionChanged(null, null);
+                PriceFilteredListings();
             }
             else if (!labelCancelPriceRanges.IsVisible & labelCancelDateRanges.IsVisible)
             {
@@ -164,13 +176,14 @@ namespace Hermes.View
             }
         }
 
+
         //Price Range Combobox
         private void comboxListingsPricePick_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int priceOption = comboxListingsPricePick.SelectedIndex;
             if(labelCancelDateRanges.IsVisible)
             {
-                _presenter.DateAndPriceFilteredListings(_checkedBoxes, priceOption, comboxListingsDatePick.SelectedIndex, getCatId(), comboxListingsSortBy.SelectedIndex);
+                _presenter.DateAndPriceFilteredListings(_checkedBoxes, priceOption, true,comboxListingsDatePick.SelectedIndex, getCatId(), comboxListingsSortBy.SelectedIndex);
             }
             else
             {
@@ -179,10 +192,17 @@ namespace Hermes.View
         }
 
         //Price Range Slider
-        private void slidListingsPriceCustom_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void btnGoSlider_Click(object sender, RoutedEventArgs e)
         {
-            float price = (float)slidListingsPriceCustom.Value;
-            _presenter.DynamicPriceFilteredListings(_checkedBoxes, price, getCatId(), comboxListingsSortBy.SelectedIndex);
+            int priceOption = (int)slidListingsPriceCustom.Value;
+            if (labelCancelDateRanges.IsVisible)
+            {
+                _presenter.DateAndPriceFilteredListings(_checkedBoxes, priceOption, false, comboxListingsDatePick.SelectedIndex, getCatId(), comboxListingsSortBy.SelectedIndex);
+            }
+            else
+            {
+                _presenter.DynamicPriceFilteredListings(_checkedBoxes, priceOption, getCatId(), comboxListingsSortBy.SelectedIndex);
+            }
         }
 
         //Price Radio Buttons Checked/Unchecked
@@ -196,6 +216,7 @@ namespace Hermes.View
         {
             slidListingsPriceCustom.IsEnabled = true;
             labelCancelPriceRanges.Visibility = Visibility.Visible;
+            btnGoSlider.IsEnabled = true;
         }
 
         private void radbtnListingsPricePick_Unchecked(object sender, RoutedEventArgs e)
@@ -207,6 +228,7 @@ namespace Hermes.View
         {
             slidListingsPriceCustom.IsEnabled = false;
             slidListingsPriceCustom.Value = 0;
+            btnGoSlider.IsEnabled = false;
         }
 
         // Price Range Cancel
@@ -233,8 +255,9 @@ namespace Hermes.View
             comboxListingsPricePick.SelectedIndex = -1;
             slidListingsPriceCustom.IsEnabled = false;
             slidListingsPriceCustom.Value = 0;
+            btnGoSlider.IsEnabled = false;
         }
-        
+
         // Reset Date Combobox
         private void resetDateRanges()
         {
@@ -250,7 +273,7 @@ namespace Hermes.View
             int dateOption = comboxListingsDatePick.SelectedIndex;
             if (labelCancelPriceRanges.IsVisible)
             {
-                _presenter.DateAndPriceFilteredListings(_checkedBoxes, comboxListingsPricePick.SelectedIndex, dateOption, getCatId(), comboxListingsSortBy.SelectedIndex);
+                DateAndPriceFilteredListings();
             }
             else
             {
@@ -265,7 +288,7 @@ namespace Hermes.View
             resetDateRanges();
             if(labelCancelPriceRanges.IsVisible)
             {
-                comboxListingsPricePick_SelectionChanged(null, null);
+                PriceFilteredListings();
             }
             else
             {
@@ -305,6 +328,10 @@ namespace Hermes.View
             resetDateRanges();
             _presenter.ChangeCategory(getCatId(), comboxListingsSortBy.SelectedIndex);
             updateCategoriesCheckboxes();
+            radbtnListingsDatePick.IsEnabled = true;
+            radbtnListingsDatePick2.IsEnabled = true;
+            radbtnListingsPricePick.IsEnabled = true;
+            radbtnListingsPriceCustom.IsEnabled = true;
         }
 
         // Get Category ID from combobox
@@ -390,6 +417,7 @@ namespace Hermes.View
 
                 lblListingSelectedTitle.Content = listing.Name;
                 tbListingSelectedDescription.Text = listing.Description;
+                imgListingsSelected.Source = listing.Image;
 
                 if (uploader != null)
                 {
@@ -405,7 +433,40 @@ namespace Hermes.View
 
         private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            comboxCategories.SelectedIndex = 0;
+            if (comboxCategories.SelectedIndex == 0)
+            {
+                comboxCategories_SelectionChanged(null, null);
+            }
+            else
+            {
+                comboxCategories.SelectedIndex = 0;
+            }
         }
+
+        private void DateAndPriceFilteredListings()
+        {
+            if ((bool)radbtnListingsPricePick.IsChecked)
+            {
+                _presenter.DateAndPriceFilteredListings(_checkedBoxes, comboxListingsPricePick.SelectedIndex, true, comboxListingsDatePick.SelectedIndex, getCatId(), comboxListingsSortBy.SelectedIndex);
+            }
+            else
+            {
+                _presenter.DateAndPriceFilteredListings(_checkedBoxes, (int)slidListingsPriceCustom.Value, false, comboxListingsDatePick.SelectedIndex, getCatId(), comboxListingsSortBy.SelectedIndex);
+            }
+        }
+
+        private void PriceFilteredListings()
+        {
+            if ((bool)radbtnListingsPricePick.IsChecked)
+            {
+                comboxListingsPricePick_SelectionChanged(null, null);
+            }
+            else
+            {
+                btnGoSlider_Click(null, null);
+            }
+        }
+
+
     }
 }

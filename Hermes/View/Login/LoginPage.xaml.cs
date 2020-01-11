@@ -49,7 +49,7 @@ namespace Hermes.View
         { 
             set
             {
-                this.NavigationService.Navigate(new ListingsView());
+                this.NavigationService.Navigate(new Uri("View/home/homeview.xaml", UriKind.RelativeOrAbsolute));
             }
         }
 
@@ -61,6 +61,22 @@ namespace Hermes.View
         private void btnRegisterPage_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new RegisterPage());
+        }
+
+        private void txtboxUsername_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                _presenter.UserLogin();
+            }
+        }
+
+        private void txtboxPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                _presenter.UserLogin();
+            }
         }
     }
 }
