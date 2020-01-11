@@ -390,6 +390,7 @@ namespace Hermes.View
 
                 lblListingSelectedTitle.Content = listing.Name;
                 tbListingSelectedDescription.Text = listing.Description;
+                imgListingsSelected.Source = listing.Image;
 
                 if (uploader != null)
                 {

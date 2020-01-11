@@ -126,14 +126,27 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <ListView x:Name="listviewListings"  SelectionChanged="listviewListings_SelectionChanged" Margin="5,10,5,0" Grid.Column="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
-                    <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Description" Width="300" DisplayMemberBinding="{Binding Description}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <ListBox x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged" Margin="5,10,5,0" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding Image}" Width="150" Height="150"/>
+                        <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Name}" FontSize="15" Foreground="White" Margin="0,0,0,5" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Description}" Foreground="White"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Active: " Foreground="White"/>
+                                <TextBlock Text="{Binding Active}" Foreground="White"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="€" Foreground="White"/>
+                                <TextBlock Text="{Binding Price}" Foreground="White"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+      
     </Grid>
 </Page>
