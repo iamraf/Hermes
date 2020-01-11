@@ -15,27 +15,17 @@
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged" Grid.ColumnSpan="2" Margin="0,0,475,0" Grid.Column="1">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="{Binding Image}" Width="150" Height="150"/>
-                        <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
-                            <TextBlock Text="{Binding Name}" FontSize="15" Foreground="White" Margin="0,0,0,5" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding Description}" Foreground="White"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Active: " Foreground="White"/>
-                                <TextBlock Text="{Binding Active}" Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="€" Foreground="White"/>
-                                <TextBlock Text="{Binding Price}" Foreground="White"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListView Grid.Column="1">
+            <ListView x:Name="listviewListings"  SelectionChanged="listviewListings_SelectionChanged" Width="586" Height="620">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Id}" />
+                        <GridViewColumn Header="Namge" Width="50" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Description" Width="150" DisplayMemberBinding="{Binding Description}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ListView>
         <TextBox x:Name="txtboxUploadTitle" Margin="55,50,61,550" TextWrapping="Wrap" Text="Title..." VerticalContentAlignment="Center" Grid.Column="2" Height="30"/>
         <TextBox x:Name="txtboxUploadPrice" Margin="55,90,296,510" TextWrapping="Wrap" Text="Price..." VerticalContentAlignment="Center" Grid.Column="2" Height="30"/>
         <TextBox x:Name="txtboxUploadLocation" Margin="115,180,61,420" TextWrapping="Wrap" Text="What is your location?" VerticalContentAlignment="Center" Grid.Column="2" Height="30"/>

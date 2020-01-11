@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
 
 namespace Hermes.Model.Models
 {
@@ -19,7 +18,6 @@ namespace Hermes.Model.Models
         public bool Premium { get; }
         public DateTime Creation { get; }
         public float Price { get; }
-        public BitmapImage Image { get; set; }
 
 
         public Listing(int id, string name, string description, bool active, int region, int views, int category, bool premium, DateTime creation, float price)

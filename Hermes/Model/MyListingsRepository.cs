@@ -7,9 +7,6 @@ using Hermes.View;
 using Hermes.Model.Models;
 using Hermes.Model;
 using MySql.Data.MySqlClient;
-using System.Windows.Media.Imaging;
-using System.IO;
-
 namespace Hermes.Model
 {
     class MyListingsRepository
@@ -18,8 +15,8 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "select * " +
-                               "from Listings left outer join Listings_Icons on Listings_Icons.listingID=Listings.listingID join Owners_Listings OL on Listings.listingID = OL.listingID " +
+                string query = "select  * "+
+                               "from Listings join Owners_Listings OL on Listings.listingID = OL.listingID "+
                                "where OL.ownerID = "+UserID;
                 if(activeListing!=-1)
                 {
@@ -33,25 +30,7 @@ namespace Hermes.Model
 
                 while (dataReader.Read())
                 {
-                    Listing tmp = new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price"));
-
-                    if (!dataReader.IsDBNull(12))
-                    {
-                        byte[] b = (byte[])dataReader.GetValue(12);
-
-                        var bitmapImage = new BitmapImage();
-                        bitmapImage.BeginInit();
-                        bitmapImage.StreamSource = new MemoryStream(b);
-                        bitmapImage.EndInit();
-
-                        tmp.Image = bitmapImage;
-                    }
-                    else
-                    {
-                        tmp.Image = new BitmapImage(new Uri("pack://application:,,,/error.jpg"));
-                    }
-
-                    listing.Add(tmp);
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
                 }
 
                 dataReader.Close();

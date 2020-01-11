@@ -2,10 +2,8 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Windows.Media.Imaging;
+using System.Runtime.Caching;
 
 namespace Hermes.Model
 {
@@ -15,41 +13,22 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT l.*, li.* FROM Listings l left outer join Listings_Icons li on li.listingID=l.listingID ";
-
+                string query = "SELECT * FROM Listings l";
+                
                 if (category != 0)
                 {
                     query += " join SubListing_Categories sc on l.subCategoryListing=sc.subcategoryID " +
                         "WHERE sc.categoryID=" + category + "";
                 }
                 query += " order by " + order + "";
-
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 List<Listing> listing = new List<Listing>();
 
-                while(dataReader.Read())
+                while (dataReader.Read())
                 {
-                    Listing tmp = new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price"));
-
-                    if(!dataReader.IsDBNull(12))
-                    {
-                        byte[] b = (byte[])dataReader.GetValue(12);
-
-                        var bitmapImage = new BitmapImage();
-                        bitmapImage.BeginInit();
-                        bitmapImage.StreamSource = new MemoryStream(b);
-                        bitmapImage.EndInit();
-
-                        tmp.Image = bitmapImage;
-                    }
-                    else
-                    {
-                        tmp.Image = new BitmapImage(new Uri("pack://application:,,,/error.jpg"));
-                    }
-
-                    listing.Add(tmp);
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
                 }
 
                 dataReader.Close();
@@ -142,38 +121,18 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-               
-                string query = "SELECT l.*, li.* FROM Listings l left outer join Listings_Icons li on li.listingID=l.listingID WHERE l.listingName like @search or l.listingDescription like @search ";
+                //string joinedQuery = String.Join<char>("%", search);
+                string joinedQuery = search;
+                string query = "SELECT * FROM Listings WHERE listingName like '%"+ joinedQuery + "%' or listingDescription like '%" + joinedQuery + "%'";
                 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
-                cmd.Prepare();
-                cmd.Parameters.AddWithValue("@search", "%"+search+"%" );
-                //cmd.Parameters.AddWithValue("@search2", "%" + search + "%");
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 List<Listing> listing = new List<Listing>();
 
                 while (dataReader.Read())
                 {
-                    Listing tmp = new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price"));
-
-                    if (!dataReader.IsDBNull(12))
-                    {
-                        byte[] b = (byte[])dataReader.GetValue(12);
-
-                        var bitmapImage = new BitmapImage();
-                        bitmapImage.BeginInit();
-                        bitmapImage.StreamSource = new MemoryStream(b);
-                        bitmapImage.EndInit();
-
-                        tmp.Image = bitmapImage;
-                    }
-                    else
-                    {
-                        tmp.Image = new BitmapImage(new Uri("pack://application:,,,/error.jpg"));
-                    }
-
-                    listing.Add(tmp);
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
                 }
 
                 dataReader.Close();
@@ -192,7 +151,7 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT l.*, li.* FROM Listings l left outer join Listings_Icons li on li.listingID=l.listingID ";
+                string query = "SELECT l.* FROM Listings l";
 
 
                 if (category != 0)
@@ -223,25 +182,7 @@ namespace Hermes.Model
 
                 while (dataReader.Read())
                 {
-                    Listing tmp = new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price"));
-
-                    if (!dataReader.IsDBNull(12))
-                    {
-                        byte[] b = (byte[])dataReader.GetValue(12);
-
-                        var bitmapImage = new BitmapImage();
-                        bitmapImage.BeginInit();
-                        bitmapImage.StreamSource = new MemoryStream(b);
-                        bitmapImage.EndInit();
-
-                        tmp.Image = bitmapImage;
-                    }
-                    else
-                    {
-                        tmp.Image = new BitmapImage(new Uri("pack://application:,,,/error.jpg"));
-                    }
-
-                    listing.Add(tmp);
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
                 }
 
                 dataReader.Close();
@@ -256,11 +197,11 @@ namespace Hermes.Model
             }
         }
 
-        public List<Listing> PriceFilteredListings(List<string> catIds, string comparisonOperator, int price, int category, string order)
+        public List<Listing> PriceFilteredListings(List<string> catIds, string comparisonOperator, float price, int category, string order)
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT l.*, li.* FROM Listings l left outer join Listings_Icons li on li.listingID=l.listingID ";
+                string query = "SELECT l.* FROM Listings l";
 
                 if (category != 0)
                 {
@@ -287,25 +228,7 @@ namespace Hermes.Model
 
                 while (dataReader.Read())
                 {
-                    Listing tmp = new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price"));
-
-                    if (!dataReader.IsDBNull(12))
-                    {
-                        byte[] b = (byte[])dataReader.GetValue(12);
-
-                        var bitmapImage = new BitmapImage();
-                        bitmapImage.BeginInit();
-                        bitmapImage.StreamSource = new MemoryStream(b);
-                        bitmapImage.EndInit();
-
-                        tmp.Image = bitmapImage;
-                    }
-                    else
-                    {
-                        tmp.Image = new BitmapImage(new Uri("pack://application:,,,/error.jpg"));
-                    }
-
-                    listing.Add(tmp);
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
                 }
 
                 dataReader.Close();
@@ -324,7 +247,7 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT l.*, li.* FROM Listings l left outer join Listings_Icons li on li.listingID=l.listingID ";
+                string query = "SELECT l.* FROM Listings l"; 
 
                 if (category != 0)
                 {
@@ -351,25 +274,7 @@ namespace Hermes.Model
 
                 while (dataReader.Read())
                 {
-                    Listing tmp = new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price"));
-
-                    if (!dataReader.IsDBNull(12))
-                    {
-                        byte[] b = (byte[])dataReader.GetValue(12);
-
-                        var bitmapImage = new BitmapImage();
-                        bitmapImage.BeginInit();
-                        bitmapImage.StreamSource = new MemoryStream(b);
-                        bitmapImage.EndInit();
-
-                        tmp.Image = bitmapImage;
-                    }
-                    else
-                    {
-                        tmp.Image = new BitmapImage(new Uri("pack://application:,,,/error.jpg"));
-                    }
-
-                    listing.Add(tmp);
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
                 }
 
                 dataReader.Close();
@@ -388,9 +293,9 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT l.*, li.* FROM Listings l left outer join Listings_Icons li on li.listingID=l.listingID ";
-
-                if (category!=0)
+                string query = "SELECT l.* FROM Listings l";
+                
+                if(category!=0)
                 {
                     query += " join SubListing_Categories sc on l.subCategoryListing=sc.subcategoryID " +
                         "WHERE sc.categoryID="+category+" and ";
@@ -414,25 +319,7 @@ namespace Hermes.Model
 
                 while (dataReader.Read())
                 {
-                    Listing tmp = new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price"));
-
-                    if (!dataReader.IsDBNull(12))
-                    {
-                        byte[] b = (byte[])dataReader.GetValue(12);
-
-                        var bitmapImage = new BitmapImage();
-                        bitmapImage.BeginInit();
-                        bitmapImage.StreamSource = new MemoryStream(b);
-                        bitmapImage.EndInit();
-
-                        tmp.Image = bitmapImage;
-                    }
-                    else
-                    {
-                        tmp.Image = new BitmapImage(new Uri("pack://application:,,,/error.jpg"));
-                    }
-
-                    listing.Add(tmp);
+                    listing.Add(new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price")));
                 }
 
                 dataReader.Close();
@@ -485,27 +372,6 @@ namespace Hermes.Model
                 Singleton.GetInstance().CloseConnection();
 
                 return subCategories;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public Byte[] GetImage(int listingId)
-        {
-            if(Singleton.GetInstance().OpenConnection() == true)
-            {
-                string query = "SELECT * FROM Listings_Icons WHERE listingID = " + listingId + " LIMIT 1";
-
-                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                dataReader.Close();
-
-                Singleton.GetInstance().CloseConnection();
-
-                return null;
             }
             else
             {
