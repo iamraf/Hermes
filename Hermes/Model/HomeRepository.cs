@@ -26,6 +26,7 @@ namespace Hermes.Model
                 {
                     count[i] = count[1];
                 }
+                
             }
             else
             {
@@ -132,6 +133,7 @@ namespace Hermes.Model
             {
                 listings = AddListings(listings, cat[i], i);
             }
+          
 
             return listings;
         }
@@ -149,7 +151,7 @@ namespace Hermes.Model
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                List<Listing> listing = new List<Listing>();
+                //TODO:DELETE this line  List<Listing> listing = new List<Listing>();
 
                 while (dataReader.Read())
                 {
@@ -171,7 +173,7 @@ namespace Hermes.Model
                         tmp.Image = new BitmapImage(new Uri("pack://application:,,,/error.jpg"));
                     }
 
-                    listing.Add(tmp);
+                    listings.Add(tmp);
                 }
 
                 dataReader.Close();
@@ -179,7 +181,7 @@ namespace Hermes.Model
                 cmd.Dispose();
 
                 Singleton.GetInstance().CloseConnection();
-
+                
                 return listings;
             }
             else
