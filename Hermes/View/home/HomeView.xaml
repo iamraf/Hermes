@@ -27,19 +27,42 @@
         <Label x:Name="lblHomePage3" Content="Recommended for you" Margin="539,362,539,230" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Segoe UI Light" Background="#19000000"/>
         <Button x:Name="btnAllCategories" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="All Categories" Margin="246,305,906,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" Background="White" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" Click="btnAllCategories_Click" Foreground="#FF06558D" FontFamily="Segoe UI Semilight" VerticalContentAlignment="Top"/>
         <Button x:Name="btnAllItems" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="View All" Margin="907,305,245,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" Background="White" Foreground="#FF06558D" FontFamily="Segoe UI Semilight" VerticalContentAlignment="Top"/>
-        <ListView Margin="730,70,84,340" Background="White">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView Margin="245,410,245,40">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <ListBox x:Name="listviewPopular" Margin="730,70,84,340">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding Image}" Width="100" Height="100"/>
+                        <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Name}" FontSize="15" Foreground="White" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="€" Foreground="White"/>
+                                <TextBlock Text="{Binding Price}" Foreground="White"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="listviewRecommended" Margin="245,410,245,40">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding Image}" Width="150" Height="150"/>
+                        <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Name}" FontSize="15" Foreground="White" Margin="0,0,0,5" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Description}" Foreground="White"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Active: " Foreground="White"/>
+                                <TextBlock Text="{Binding Active}" Foreground="White"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="€" Foreground="White"/>
+                                <TextBlock Text="{Binding Price}" Foreground="White"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>
