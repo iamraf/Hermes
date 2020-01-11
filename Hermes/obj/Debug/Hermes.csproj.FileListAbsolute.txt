@@ -58,8 +58,6 @@ C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\Login\LoginPage.baml
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\MainWindow.baml
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\View\Register\RegisterPage.baml
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes.g.resources
-C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes.Properties.Resources.resources
-C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes.csproj.GenerateResource.cache
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes.csproj.CopyComplete
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes.exe
 C:\Users\PC\Desktop\Hermes\Hermes\obj\Debug\Hermes.pdb

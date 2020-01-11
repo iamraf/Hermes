@@ -105,12 +105,13 @@ namespace Hermes.View.listings
             }
         }
 
-        public void DynamicPriceFilteredListings(List<string> catIds, float price, int category, int order)
+        public void DynamicPriceFilteredListings(List<string> catIds, int price, int category, int order)
         {
+            
             GetPriceFilteredListings(catIds, ">=", price, category, SortListing(order));
         }
 
-        private void GetPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, int category, string order)
+        private void GetPriceFilteredListings(List<string> catIds, string comparisonOperator, int price, int category, string order)
         {
             List<Listing> list = _repository.PriceFilteredListings(catIds, comparisonOperator, price, category, order);
 
@@ -125,20 +126,27 @@ namespace Hermes.View.listings
             GetDateFilteredListings(catIds, GetDateChoice(dateOption), category, SortListing(order));
         }
 
-        public void DateAndPriceFilteredListings(List<string> catIds, int priceOption, int dateOption, int category, int order)
+        public void DateAndPriceFilteredListings(List<string> catIds, int priceOption, bool comboxPrice, int dateOption, int category, int order)
         {
             string date = GetDateChoice(dateOption);
-            switch (priceOption)
+            if (comboxPrice)
             {
-                case 1:
-                    GetDateAndPriceFilteredListings(catIds, "<=", 100, date, category, SortListing(order));
-                    break;
-                case 2:
-                    GetDateAndPriceFilteredListings(catIds, ">", 100, date, category, SortListing(order));
-                    break;
-                default:
-                    GetDateAndPriceFilteredListings(catIds, "=", 0, date, category, SortListing(order));
-                    break;
+                switch (priceOption)
+                {
+                    case 1:
+                        GetDateAndPriceFilteredListings(catIds, "<=", 100, date, category, SortListing(order));
+                        break;
+                    case 2:
+                        GetDateAndPriceFilteredListings(catIds, ">", 100, date, category, SortListing(order));
+                        break;
+                    default:
+                        GetDateAndPriceFilteredListings(catIds, "=", 0, date, category, SortListing(order));
+                        break;
+                }
+            }
+            else
+            {
+                GetDateAndPriceFilteredListings(catIds, ">=", priceOption, date, category, SortListing(order));
             }
         }
 
