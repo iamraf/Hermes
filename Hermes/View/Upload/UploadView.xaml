@@ -1,4 +1,3 @@
-﻿<Page x:Class="Hermes.View.upload.UploadView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -19,8 +18,10 @@
         <ComboBox x:Name="comboxUploadCategory" materialDesign:HintAssist.Hint="Category" HorizontalAlignment="Left" Margin="456,475,0,0" VerticalAlignment="Top" Width="170" Height="30" SelectionChanged="comboxUploadCategory_SelectionChanged" Foreground="White" Background="#CC0E3F70" Padding="1,6,0,6"/>
         <ComboBox x:Name="comboxUploadSubcategory" materialDesign:HintAssist.Hint="Subcategory" HorizontalAlignment="Left" Margin="646,475,0,0" VerticalAlignment="Top" Width="170" Height="30" Foreground="White" Background="#CC0E3F70" Padding="1,6,0,6"/>
         <Image x:Name="UploadImage" Source="/Images/Background3.png" Width="150" Height="150" Margin="850,80,272,400"/>
+        <Button x:Name="btnUploadImage" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Add an image" Margin="689,146,456,454" FontSize="10" VerticalContentAlignment="Center" Height="Auto" Background="#FFFFF2E0" Foreground="Black" BorderBrush="#FFFF9800" BorderThickness="0,0,4,0" Click="btnUploadImage_Click"/>
         <RadioButton x:Name="radbtnUploadSell" Content="I want to sell something" Margin="456,55,656,534" Height="20" Width="160" Foreground="White"/>
         <RadioButton x:Name="radbtnUploadLook" Content="I am looking for something" Margin="646,55,456,534" Height="20" Foreground="White"/>
+        <Button x:Name="btnUploadUpload" materialDesign:ButtonAssist.CornerRadius="1" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Upload" Margin="561,561,561,30" Click="btnUploadUpload_Click" Height="Auto" Background="#FFFFF2E0" BorderBrush="#FFFF9800" BorderThickness="0,0,0,3" FontFamily="Segoe UI Semilight" FontSize="16"/>
         <CheckBox x:Name="checkBoxFreePrice" Content="Free" Margin="586,135,641,444" Height="30" VerticalContentAlignment="Center" Width="45" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" Foreground="White"/>
         <CheckBox x:Name="checkBoxMyHome" Content="My Home" Margin="741,235,456,365" Height="30" VerticalContentAlignment="Center" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Checked_1" Foreground="White"/>
         <ComboBox x:Name="comboxUploadLocation" materialDesign:HintAssist.Hint="Location" HorizontalAlignment="Left" Margin="456,200,0,0" VerticalAlignment="Top" Width="360" Height="30" SelectionChanged="comboxUploadLocation_SelectionChanged" Foreground="White" Background="#CC0E3F70" Padding="1,6,0,6"/>
@@ -28,4 +29,5 @@
         <Label x:Name="lbLocation" Content="or use:" Margin="691,239,534,369" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Foreground="White"/>
         <CheckBox x:Name="checkboxPremium" Content="Premium Listing" HorizontalAlignment="Left" Margin="561,519,0,0" VerticalAlignment="Top" Height="30" Width="150" FontSize="14" Padding="10,2,0,0"/>
     </Grid>
+</Page>
 </Page>
