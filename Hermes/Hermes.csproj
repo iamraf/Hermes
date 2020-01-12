@@ -91,48 +91,47 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\ListingRepository.cs" />
-    <Compile Include="Model\Models\HistoryList.cs" />
-    <Compile Include="Model\MyFavoritesRepository.cs" />
-    <Compile Include="Model\MyHistoryRepository.cs" />
-    <Compile Include="Model\MyListingsRepository.cs" />
-    <Compile Include="Model\HomeRepository.cs" />
-    <Compile Include="Model\MyProfileRepository.cs" />
-    <Compile Include="Model\PasswordHashing.cs" />
+    <Compile Include="Model\repository\ListingRepository.cs" />
+    <Compile Include="Model\models\HistoryList.cs" />
+    <Compile Include="Model\repository\FavoritesRepository.cs" />
+    <Compile Include="Model\repository\HistoryRepository.cs" />
+    <Compile Include="Model\repository\MyListingsRepository.cs" />
+    <Compile Include="Model\repository\HomeRepository.cs" />
+    <Compile Include="Model\repository\ProfileRepository.cs" />
+    <Compile Include="Util\HashingHelper.cs" />
     <Compile Include="Model\Singleton.cs" />
-    <Compile Include="Model\RegisterRepository.cs" />
-    <Compile Include="Model\LoginRepository.cs" />
-    <Compile Include="Model\Models\Category.cs" />
-    <Compile Include="Model\Models\Favourite.cs" />
-    <Compile Include="Model\Models\History.cs" />
-    <Compile Include="Model\Models\Listing.cs" />
-    <Compile Include="Model\Models\ListingIcon.cs" />
-    <Compile Include="Model\Models\Location.cs" />
-    <Compile Include="Model\Models\Owner.cs" />
-    <Compile Include="Model\Models\Preference.cs" />
-    <Compile Include="Model\Models\SubCategory.cs" />
-    <Compile Include="Model\Models\Tracking.cs" />
-    <Compile Include="Model\Models\User.cs" />
-    <Compile Include="Model\Repository.cs" />
-    <Compile Include="Model\UploadListingRepository.cs" />
-    <Compile Include="View\CategoriesPage.xaml.cs">
-      <DependentUpon>CategoriesPage.xaml</DependentUpon>
+    <Compile Include="Model\repository\RegisterRepository.cs" />
+    <Compile Include="Model\repository\LoginRepository.cs" />
+    <Compile Include="Model\models\Category.cs" />
+    <Compile Include="Model\models\Favourite.cs" />
+    <Compile Include="Model\models\History.cs" />
+    <Compile Include="Model\models\Listing.cs" />
+    <Compile Include="Model\models\ListingIcon.cs" />
+    <Compile Include="Model\models\Location.cs" />
+    <Compile Include="Model\models\Owner.cs" />
+    <Compile Include="Model\models\Preference.cs" />
+    <Compile Include="Model\models\SubCategory.cs" />
+    <Compile Include="Model\models\Tracking.cs" />
+    <Compile Include="Model\models\User.cs" />
+    <Compile Include="Model\repository\UploadRepository.cs" />
+    <Compile Include="View\categories\CategoriesView.xaml.cs">
+      <DependentUpon>CategoriesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\home\HomePresenter.cs" />
     <Compile Include="View\home\IHomeView.cs" />
-    <Compile Include="View\MyFavorites\FavoritesPage.xaml.cs">
-      <DependentUpon>FavoritesPage.xaml</DependentUpon>
+    <Compile Include="View\favourites\FavoritesView.xaml.cs">
+      <DependentUpon>FavoritesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MyFavorites\FavoritesPresenter.cs" />
-    <Compile Include="View\MyFavorites\IFavoritesPage.cs" />
-    <Compile Include="View\MyHistory\HistoryPage.xaml.cs">
-      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    <Compile Include="View\favourites\FavoritesPresenter.cs" />
+    <Compile Include="View\favourites\IFavoritesView.cs" />
+    <Compile Include="View\history\HistoryView.xaml.cs">
+      <DependentUpon>HistoryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MyHistory\HistoryPresenter.cs" />
-    <Compile Include="View\MyHistory\IHistoryPage.cs" />
-    <Compile Include="View\MyListings\MyListingsPresenter.cs" />
-    <Compile Include="View\HelpWindow.xaml.cs">
-      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    <Compile Include="View\history\HistoryPresenter.cs" />
+    <Compile Include="View\history\IHistoryView.cs" />
+    <Compile Include="View\mylistings\MyListingsPresenter.cs" />
+    <Compile Include="View\help\HelpView.xaml.cs">
+      <DependentUpon>HelpView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\home\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -142,41 +141,41 @@
     <Compile Include="View\listings\ListingsView.xaml.cs">
       <DependentUpon>ListingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
+    <Compile Include="View\login\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\ILoginPage.cs" />
-    <Compile Include="View\Login\LoginPresenter.cs" />
+    <Compile Include="View\login\ILoginView.cs" />
+    <Compile Include="View\login\LoginPresenter.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MyListings\IMyListingsPage.cs" />
-    <Compile Include="View\MyListings\MyListingsPage.xaml.cs">
-      <DependentUpon>MyListingsPage.xaml</DependentUpon>
+    <Compile Include="View\mylistings\IMyListingsView.cs" />
+    <Compile Include="View\mylistings\MyListingsView.xaml.cs">
+      <DependentUpon>MyListingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MyProfile\IProfilePage.cs" />
-    <Compile Include="View\MyProfile\ProfilePage.xaml.cs">
-      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    <Compile Include="View\profile\IProfileView.cs" />
+    <Compile Include="View\profile\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MyProfile\ProfilePresenter.cs" />
-    <Compile Include="View\Register\IRegisterPage.cs" />
-    <Compile Include="View\Register\RegisterPage.xaml.cs">
-      <DependentUpon>RegisterPage.xaml</DependentUpon>
+    <Compile Include="View\profile\ProfilePresenter.cs" />
+    <Compile Include="View\register\IRegisterView.cs" />
+    <Compile Include="View\register\RegisterView.xaml.cs">
+      <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Register\RegisterPresenter.cs" />
-    <Compile Include="View\Upload\IUploadPage.cs" />
-    <Compile Include="View\Upload\paymentCard.xaml.cs">
+    <Compile Include="View\register\RegisterPresenter.cs" />
+    <Compile Include="View\upload\IUploadview.cs" />
+    <Compile Include="View\upload\paymentCard.xaml.cs">
       <DependentUpon>paymentCard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Upload\UploadPage.xaml.cs">
-      <DependentUpon>UploadPage.xaml</DependentUpon>
+    <Compile Include="View\upload\UploadView.xaml.cs">
+      <DependentUpon>UploadView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Upload\UploadPresenter.cs" />
-    <Page Include="View\CategoriesPage.xaml">
+    <Compile Include="View\upload\UploadPresenter.cs" />
+    <Page Include="View\categories\CategoriesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\HelpWindow.xaml">
+    <Page Include="View\help\HelpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,7 +191,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Login\LoginPage.xaml">
+    <Page Include="View\login\LoginView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -200,31 +199,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MyFavorites\FavoritesPage.xaml">
+    <Page Include="View\favourites\FavoritesView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MyHistory\HistoryPage.xaml">
+    <Page Include="View\history\HistoryView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MyListings\MyListingsPage.xaml">
+    <Page Include="View\mylistings\MyListingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MyProfile\ProfilePage.xaml">
+    <Page Include="View\profile\ProfileView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Register\RegisterPage.xaml">
+    <Page Include="View\register\RegisterView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Upload\paymentCard.xaml">
+    <Page Include="View\upload\paymentCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Upload\UploadPage.xaml">
+    <Page Include="View\upload\UploadView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -293,8 +292,8 @@
     <Resource Include="error.jpg" />
     <Content Include="packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll" />
     <Content Include="packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll" />
-    <Resource Include="View\Images\Background3.png" />
-    <Resource Include="View\Images\logo.png" />
+    <Resource Include="Images\Background3.png" />
+    <Resource Include="Images\logo.png" />
     <Resource Include="packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.xml" />
     <Content Include="packages\Google.Protobuf.3.6.1\lib\netstandard1.0\Google.Protobuf.dll" />
     <Resource Include="packages\Google.Protobuf.3.6.1\lib\netstandard1.0\Google.Protobuf.xml" />

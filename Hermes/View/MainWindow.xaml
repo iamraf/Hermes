@@ -65,7 +65,7 @@
                 <Button x:Name="btnDropdownPremium" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="3,0,0,0" FontSize="18" Click="btnDropdownPremium_Click" Background="#2606558D" FontFamily="Segoe UI Light"/>
             </Grid>
         </Expander>
-        <Image HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="200" Margin="3,3,0,0" Source="/Hermes;component/View/Images/logo.png"/>
+        <Image HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="200" Margin="3,3,0,0" Source="/Hermes;component/Images/logo.png"/>
         <Button x:Name="btnTopLogo" Content="" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Width="200" RenderTransformOrigin="-1.578,-3.438" Height="74" Background="#0259A5E4" BorderBrush="{x:Null}" Click="btnTopLogo_Click"/>
     </Grid>
 </Window>

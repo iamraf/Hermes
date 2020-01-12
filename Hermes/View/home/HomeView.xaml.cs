@@ -1,7 +1,7 @@
 ﻿using Hermes.Model.Models;
+using Hermes.View.listings;
 using System;
 using System.Collections.Generic;
-using System.Runtime.Caching;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,11 +14,10 @@ namespace Hermes.View.home
         public HomeView()
         {
             InitializeComponent();
+
             _presenter = new HomePresenter(this);
 
-            ObjectCache Cache = MemoryCache.Default;
-            User user = (User)Cache["User"];
-            if (user != null)
+            if(_presenter.GetCurrentUser() != null)
             {
                 txtblockNotLoggedIn.Visibility = Visibility.Collapsed;
             }
@@ -28,10 +27,11 @@ namespace Hermes.View.home
             }
         }
 
-        //Constructor to show Help overlay after registering
         public HomeView(bool showoverlay)
         {
             InitializeComponent();
+
+            _presenter = new HomePresenter(this);
 
             if (showoverlay)
             {
@@ -39,15 +39,14 @@ namespace Hermes.View.home
                 btnCloseOverlay.Visibility = Visibility.Visible;
                 rectangleOverlay.Visibility = Visibility.Visible;
                 imgOverlay.Visibility = Visibility.Visible;
-            } else
+            } 
+            else
             {
                 btnNoAction.Visibility = Visibility.Collapsed;
                 btnCloseOverlay.Visibility = Visibility.Collapsed;
                 rectangleOverlay.Visibility = Visibility.Collapsed;
                 imgOverlay.Visibility = Visibility.Collapsed;
             }
-            
-            _presenter = new HomePresenter(this);
         }
 
         public List<Listing> PopularListings
@@ -68,7 +67,7 @@ namespace Hermes.View.home
 
         private void btnAllCategories_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("View/CategoriesPage.xaml", UriKind.RelativeOrAbsolute));
+            this.NavigationService.Navigate(new Uri("View/categories/CategoriesView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnCloseOverlay_Click(object sender, RoutedEventArgs e)
@@ -77,6 +76,20 @@ namespace Hermes.View.home
             btnCloseOverlay.Visibility = Visibility.Collapsed;
             rectangleOverlay.Visibility = Visibility.Collapsed;
             imgOverlay.Visibility = Visibility.Collapsed;
+        }
+
+        private void listviewPopular_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Listing listing = (Listing)listviewPopular.SelectedItem;
+
+            this.NavigationService.Navigate(new ListingsView(listing.Id));
+        }
+
+        private void listviewRecommended_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Listing listing = (Listing)listviewRecommended.SelectedItem;
+
+            this.NavigationService.Navigate(new ListingsView(listing.Id));
         }
     }
 }
