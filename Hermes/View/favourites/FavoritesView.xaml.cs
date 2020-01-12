@@ -96,14 +96,8 @@ namespace Hermes.View.favourites
 
         private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
         {
-            Logout();
+            _presenter.Logout();
         }
 
-        private void Logout()
-        {
-            ObjectCache Cache = MemoryCache.Default;
-            if (Cache["User"] != null)
-                Cache.Remove("User");
-        }
     }
 }

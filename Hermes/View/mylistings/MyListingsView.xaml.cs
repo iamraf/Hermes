@@ -149,13 +149,7 @@ namespace Hermes.View.mylistings
 
         private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
         {
-            Logout();
-        }
-        private void Logout()
-        {
-            ObjectCache Cache = MemoryCache.Default;
-            if (Cache["User"] != null)
-                Cache.Remove("User");
+            _presenter.Logout();
         }
     }
 }

@@ -1,7 +1,10 @@
-﻿using Hermes.Model;
+using Hermes.Model;
 using Hermes.Model.Models;
+using Hermes.Util;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Caching;
+using System.Windows;
 
 namespace Hermes.View.profile
 {
@@ -79,18 +82,58 @@ namespace Hermes.View.profile
 
         public void EditUser()
         {
-            if(_view.Username!=null && _view.Password1!=null && _view.Password2 != null)
+            if (HashingHelper.HashPassword(_view.Password1).Equals(GetCurrentUser().Password))
             {
-                if (_view.Password1.Equals(_view.Password2))
+                if (_view.Username.Length > 6)
                 {
-                    bool result = _repository.EditUser(new User(GetCurrentUser().Id, _view.Username, _view.Password1, _view.Name, _view.Surname, _view.SelectedLocationTK, _view.Email, _view.Telephone));    
+                    if (_view.SelectedLocationTK != null)
+                    {
+                        if (MessageBox.Show("You are about to change your personal data.\nYou will log out if you continue.\nAre you sure", "Change of data", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                        {
+                            User user = new User(GetCurrentUser().Id, _view.Username, GetCurrentUser().Password, _view.Name, _view.Surname, _view.SelectedLocationTK, _view.Email, _view.Telephone);
+                            bool result = _repository.EditUser(user);
+                            Logout();
+                            ReLog(user);
+                            //_view.Navigate = true;
+                        }
+                    }
+                    else
+                    {
+                        _view.WarningDialog = "Please select a location and a ZIP code";
+                    }
+                }
+                else
+                {
+                    _view.WarningDialog = "Username is too small.\nMust use atleast 6 characters.";
                 }
             }
+            else
+            {
+                _view.WarningDialog = "Password is incorect.";
+            }
+        }
+
+        public void EditPassword()
+        {
+
         }
 
         private User GetCurrentUser()
         {
             return (User)MemoryCache.Default["User"];
+        }
+
+        public void Logout()
+        {
+            ObjectCache Cache = MemoryCache.Default;
+            if (Cache["User"] != null)
+                Cache.Remove("User");
+        }
+
+        private void ReLog(User user)
+        {
+            ObjectCache Cache = MemoryCache.Default;
+            Cache.Add("User", user, DateTime.Now.AddDays(30));
         }
     }
 }

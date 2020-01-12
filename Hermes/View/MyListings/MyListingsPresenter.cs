@@ -54,6 +54,13 @@ namespace Hermes.View.mylistings
         {
             return (User)MemoryCache.Default["User"];
         }
+
+        public void Logout()
+        {
+            ObjectCache Cache = MemoryCache.Default;
+            if (Cache["User"] != null)
+                Cache.Remove("User");
+        }
     }
 }
 

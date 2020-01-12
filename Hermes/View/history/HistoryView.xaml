@@ -14,7 +14,7 @@
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/Images/Background3.png" Grid.ColumnSpan="3"/>
+        <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/Images/Background3profile.png" Grid.ColumnSpan="3"/>
         <Frame Content="Frame" Height="603" VerticalAlignment="Top" Margin="365,0,200,0" Grid.Column="2"/>
         <Image x:Name="imgListingsSelected" Grid.Column="2" HorizontalAlignment="Left" Height="120" Margin="31,30,0,0" VerticalAlignment="Top" Width="120">
             <Image.Effect>

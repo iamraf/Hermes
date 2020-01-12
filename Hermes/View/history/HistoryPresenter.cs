@@ -1,4 +1,4 @@
-﻿using Hermes.Model;
+using Hermes.Model;
 using Hermes.Model.Models;
 using System.Collections.Generic;
 using System.Runtime.Caching;
@@ -66,18 +66,48 @@ namespace Hermes.View.history
             }
         }
 
-        public void GetFavorites()
+        public List<Listing> GetFavorites()
         {
-            List<Listing> favorites = _favouritesRepository.GetFavouriteListings(GetCurrentUser().Id);
-
-            if (favorites != null)
+            if (GetCurrentUser() != null)
             {
-                _view.Favorites = favorites;
+                List<Listing> favorites = _favouritesRepository.GetFavouriteListings(GetCurrentUser().Id);
+
+                if (favorites != null)
+                {
+                    return favorites;
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
             {
-                _view.Favorites = null;
+                return null;
             }
+        }
+
+        public bool IsOnFavorites(Listing selectedListing)
+        {
+            bool result = false;
+            if (GetCurrentUser() != null)
+            {
+                foreach (Listing lis in GetFavorites())
+                {
+                    if (selectedListing != null && selectedListing.Id == lis.Id)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            return result;
+        }
+
+        public void Logout()
+        {
+            ObjectCache Cache = MemoryCache.Default;
+            if (Cache["User"] != null)
+                Cache.Remove("User");
         }
     }
 }
