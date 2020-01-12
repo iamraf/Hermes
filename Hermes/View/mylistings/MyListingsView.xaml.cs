@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Runtime.Caching;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using Hermes.Model.Models;
 
 namespace Hermes.View.mylistings
 {
     public partial class MyListingsView : Page, IMyListingsView
     {
+        private string ImagePathSrc = null;
+
         private readonly MyListingsPresenter _presenter;
 
         public MyListingsView()
@@ -36,11 +39,17 @@ namespace Hermes.View.mylistings
                 listviewListings.ItemsSource = value;
             }
         }
-
+        public string GetImagePath
+        {
+            get
+            {
+                return ImagePathSrc;
+            }
+        }
         private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //ButtonEnable(true);
 
+            
             Listing listing = (Listing)listviewListings.SelectedItem;
 
             if (listing != null)
@@ -59,6 +68,10 @@ namespace Hermes.View.mylistings
                     btnDeleteListing.IsEnabled = false;
                     btnUploadUpload.IsEnabled = false;
                 }
+                if ((listviewListings.SelectedItem as Listing).Active == true)
+                    EnableAllButtons(true);
+                else
+                    EnableAllButtons(false);
             }
         }
 
@@ -111,7 +124,7 @@ namespace Hermes.View.mylistings
             {
                 Listing listing = (Listing)listviewListings.SelectedItem;
                 
-                _presenter.UpdateListing(listing.Id ,txtboxUploadTitle.Text, float.Parse(txtboxUploadPrice.Text), txtboxUploadDescription.Text);
+                _presenter.UpdateListing(listing.Id ,txtboxUploadTitle.Text, float.Parse(txtboxUploadPrice.Text), txtboxUploadDescription.Text, GetImagePath);
             }
         }
 
@@ -150,6 +163,56 @@ namespace Hermes.View.mylistings
         private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
         {
             _presenter.Logout();
+            this.NavigationService.Navigate(new Uri("View/login/LoginView.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        public void EnableAllButtons(Boolean enable)
+        {
+            txtboxUploadTitle.IsEnabled = enable;
+            txtboxUploadPrice.IsEnabled = enable;
+            txtboxUploadLocation.IsEnabled = enable;
+            txtboxUploadDescription.IsEnabled = enable;
+            comboxUploadCategory.IsEnabled = enable;
+            comboxUploadSubcategory.IsEnabled = enable;
+            btnUploadImage.IsEnabled = enable;
+            btnUploadUpload.IsEnabled = enable;
+            comboxUploadLocation.IsEnabled = enable;
+            radbtnUploadLocationSelect.IsEnabled = enable;
+            radbtnUploadLocationType.IsEnabled = enable;
+
+        }
+        public void DisableAllButtons()
+        {
+
+        }
+
+        private void btnUploadImage_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                SetImagePath();
+                UploadImage.Source = new BitmapImage(new Uri(GetImagePath));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        private void SetImagePath()
+        {
+            Microsoft.Win32.OpenFileDialog openFileDialog1 = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "Image files | *.jpg"
+            };
+
+            if (openFileDialog1.ShowDialog() == true)
+            {
+                ImagePathSrc = openFileDialog1.FileName;
+            }
+            else
+            {
+                ImagePathSrc = null;
+            }
         }
     }
 }

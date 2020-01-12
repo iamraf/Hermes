@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net;
 using System.Net.Mail;
-using Hermes.Model;
-using Hermes.Model.Models;
 
 namespace Hermes.View.forgotpassword
 {
@@ -25,24 +23,13 @@ namespace Hermes.View.forgotpassword
     public partial class forgotpasswordview : Window, IForgotPasswordView
     {
         private readonly ForgotPasswordviewPresenter _presenter;
-        private User _user;
         public forgotpasswordview()
         {
             InitializeComponent();
             _presenter = new ForgotPasswordviewPresenter(this);
-            _user = _presenter.GetCurrentUser();
             SendPassword();
-            
-        }
 
-        public forgotpasswordview(string email)
-        {
-            InitializeComponent();
-            _presenter = new ForgotPasswordviewPresenter(this);
-            _user = _presenter.GetUserByEmail(email);
-            SendPassword();
         }
-
         private String _confirmationCode;
 
         public string randomConfirmationCode()
@@ -56,9 +43,9 @@ namespace Hermes.View.forgotpassword
         {
             _confirmationCode = randomConfirmationCode();
 
-            MailMessage mailMessage = new MailMessage("hermeslistings@gmail.com", _user.Email);
-            mailMessage.Subject = "Κωδικός Επαναφοράς Hermes Listings";
-            mailMessage.Body = string.Format("Ο κωδικός επαναφοράς είναι: "+ _confirmationCode);
+            MailMessage mailMessage = new MailMessage("hermeslistings@gmail.com", _presenter.GetCurrentUser().Email);
+            mailMessage.Subject = "Κωδικός Επαναφοράς";
+            mailMessage.Body = string.Format("Ο κωδικός επαναφοράς είναι:"+ _confirmationCode);
             mailMessage.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";

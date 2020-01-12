@@ -260,6 +260,7 @@ namespace Hermes.View.profile
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             _presenter.EditPassword();
+            this.NavigationService.Navigate(new Uri("View/login/LoginView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
