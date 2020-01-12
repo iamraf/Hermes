@@ -135,7 +135,11 @@
             <Rectangle Height="1" Margin="0,85,0,544" Stroke="#FFAAAAAA"/>
             <Button x:Name="btnGoSlider" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Ok" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Margin="162,207,0,0" Height="20" FontSize="8" FontWeight="Bold" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" IsEnabled="False" Click="btnGoSlider_Click"/>
             <Label Content="Type&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="10,548,10,52" FontSize="14" Background="#19000000" Height="30"/>
-            <ComboBox HorizontalAlignment="Left" Margin="10,583,0,0" VerticalAlignment="Top" Width="180" Height="30"/>
+            <ComboBox x:Name="comboxListingsType" HorizontalAlignment="Left" Margin="10,583,0,0" VerticalAlignment="Top" Width="180" Height="30" SelectionChanged="comboxListingsType_SelectionChanged">
+                <ComboBoxItem IsSelected="True" Content="All" HorizontalAlignment="Left" Width="178"/>
+                <ComboBoxItem Content="Selling" HorizontalAlignment="Left" Width="178"/>
+                <ComboBoxItem Content="Looking for" HorizontalAlignment="Left" Width="178"/>
+            </ComboBox>
         </Grid>
     </Canvas>
 </Page>
