@@ -24,7 +24,7 @@
         <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="2" Margin="165,32,28,563" FontSize="20" FontWeight="Bold" Background="#19000000" Foreground="#DDFFFFFF"/>
         <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="2" Margin="200,67,28,534" Foreground="#DDFFFFFF"/>
         <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="2" Margin="200,96,28,508" Foreground="#DDFFFFFF"/>
-        <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="2" Margin="30,220,29,30" TextWrapping="Wrap" Text="Description" Width="417" Foreground="#DDFFFFFF" Background="#19000000"/>
+        <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="2" Margin="30,265,29,30" TextWrapping="Wrap" Text="Description" Width="417" Foreground="#DDFFFFFF" Background="#19000000"/>
         <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="2" HorizontalAlignment="Left" Margin="31,170,0,0" VerticalAlignment="Top" Width="150" Click="BtnListingSelectedFavorite_Click" Height="30" Background="#DDFFFFFF" BorderThickness="0,0,0,3"/>
         <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="2" HorizontalAlignment="Left" Margin="298,170,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="#DDFFFFFF" Click="btnListingSelectedContact_Click" BorderThickness="0,0,0,3"/>
         <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="2" Margin="200,122,28,483" Foreground="#DDFFFFFF"/>
@@ -64,5 +64,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button x:Name="btnListingSelectedDeleteHistory" Content="Delete All History" Grid.Column="2" HorizontalAlignment="Left" Margin="32,220,0,0" VerticalAlignment="Top" Width="416" Height="30" Background="#DDFFFFFF" BorderThickness="0,0,0,3" Click="btnListingSelectedDeleteHistory_Click"/>
     </Grid>
 </Page>

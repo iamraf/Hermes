@@ -31,6 +31,22 @@ namespace Hermes.View.history
             }
         }
 
+        public Listing SelectedListing
+        {
+            get
+            {
+                return (Listing) listviewListings.SelectedItem;
+            }
+        }
+
+        public bool DeleteButtonEnable
+        {
+            set
+            {
+                btnListingSelectedDeleteHistory.IsEnabled = value;
+            }
+        }
+
         private void BtnListingSelectedFavorite_Click(object sender, RoutedEventArgs e)
         {
             _presenter.AddToFavourites(((Listing)listviewListings.SelectedItem).Id);
@@ -114,6 +130,12 @@ namespace Hermes.View.history
         private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
         {
             _presenter.Logout();
+        }
+
+        private void btnListingSelectedDeleteHistory_Click(object sender, RoutedEventArgs e)
+        {
+            _presenter.DeleteAllHistory();
+            _presenter.GetListings();
         }
     }
 }
