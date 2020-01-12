@@ -3,73 +3,48 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Hermes.View"
         mc:Ignorable="d"
         Title="HelpWindow" Height="400" Width="600" Background="#FF06558D" WindowStyle="None" BorderThickness="2" BorderBrush="#FF06558D" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid Background="#FF06558D">
+    <Grid Background="White">
+
         <TabControl x:Name="tabcontrolHelp" Background="#FFF3F3F3">
-            <TabItem x:Name="tabitemHome" Header="Home Page" BorderThickness="0" BorderBrush="#FF47A7EA">
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#0047A7EA" Offset="0"/>
-                        <GradientStop Color="#3347A7EA" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
+            <TabItem x:Name="tabitemHome" Header="Home Page" BorderThickness="0" BorderBrush="Black" Foreground="Black" Background="#FFFF9800">
                 <Grid Background="#FFF3F3F3">
-                    <TextBlock Margin="20" TextWrapping="Wrap" Text="Home page help to be added here."/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="20" TextWrapping="Wrap" Foreground="Black"><Run Text="Popular Items"/><LineBreak/><Run Text="Here you can view the most popular items from all categories. Clicking the button takes you to the Browse page with the Popularity sorting enabled."/><LineBreak/><Run/><LineBreak/><Run Text="Recommended for you"/><LineBreak/><Run Text="Here you can view premium listings by users who paid to advertise their items. Clicking the button takes you to the Browse page."/><LineBreak/><Run/><LineBreak/><Run Text="Popular Categories"/><LineBreak/><Run Text="Here you can view the most viewed categories. Clicking the button takes you to the Categories page where you can see all 10 main categories, as well as each category's 3 most popular subcategories."/><InlineUIContainer/></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabitemBrowse" Header="Browse Listings" BorderBrush="#FF47A7EA" BorderThickness="0">
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#0047A7EA" Offset="0"/>
-                        <GradientStop Color="#3347A7EA" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
+            <TabItem x:Name="tabitemBrowse" Header="Browse Listings" BorderBrush="Black" BorderThickness="0" Foreground="Black" Background="#FFFF9800">
                 <Grid Background="#FFF3F3F3">
-                    <TextBlock Margin="20" TextWrapping="Wrap" Text="Browsing help to be added here."/>
+                    <TextBlock Margin="20" TextWrapping="Wrap" Foreground="Black"><Run Text="Sidebar"/><LineBreak/><Run Text="Here you can sort and filter listings. "/><LineBreak/><Run/><LineBreak/><Run Text="Sort"/><LineBreak/><Run Text="Choose one of the three options and view the most desirable items first. &quot;Price&quot; lets you see the cheapest items first, &quot;Popularity&quot; lets you see the most viewed items first, and &quot;Date&quot; lets you see the newest items first."/><LineBreak/><Run/><LineBreak/><Run Text="Filter"/><LineBreak/><Run Text="Choose one of the three options to view only the listings you want. &quot;Categories&quot; lets you see only items which belong to the selected categories and subcategories. &quot;Date&quot; lets you see only items that have been uploaded in the timeframe selected. &quot;Price&quot; lets you see only items that are cheaper than the price range selected."/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run Text="Main Content"/><LineBreak/><Run Text="Here you can browse all listings and view a selected listing."/><LineBreak/><Run/></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabitemUpload" Header="Upload Listings" BorderBrush="#FF47A7EA" BorderThickness="0">
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#0047A7EA" Offset="0"/>
-                        <GradientStop Color="#3347A7EA" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
+            <TabItem x:Name="tabitemUpload" Header="Upload Listings" BorderBrush="Black" BorderThickness="0" Foreground="Black" Background="#FFFF9800">
                 <Grid Margin="0">
-                    <TextBlock Margin="20" TextWrapping="Wrap"><Run Text="Uploading "/><Run Text="help to be added here."/></TextBlock>
+                    <TextBlock Margin="20" TextWrapping="Wrap" Foreground="Black"><Run Text="First, choose if you want to look for something or sell something."/><LineBreak/><Run/><LineBreak/><Run Text="Second, type a title for your item. The title is important because that's the first thing that people will look at."/><LineBreak/><Run/><LineBreak/><Run Text="Next, choose a price for your item. Check the &quot;Free&quot; box if your price is zero."/><LineBreak/><Run/><LineBreak/><Run Text="After that, upload an image for your item if you have one. Images attract more views and are essential to a popular listing."/><LineBreak/><Run/><LineBreak/><Run Text="Next, choose your location and then your area code or click &quot;My home&quot; to set your profile's location."/><LineBreak/><Run/><LineBreak/><Run Text="After that, describe your item and add any info you want to."/><LineBreak/><Run/><LineBreak/><Run Text="Lastly, choose a main category and a subcategory for your item."/><LineBreak/><Run/><LineBreak/><Run Text="Clicking the Premium option lets you pay 0.99€"/><Run Text=" "/><Run Text="to make your listing appear on everyone's homepage. "/><LineBreak/><Run/><LineBreak/><Run Text="When you are done, click the &quot;Upload&quot; button to share your listing with the world. You can always edit your listing after it is uploaded by going to your Profile page and clicking the My Listings tab."/><LineBreak/><Run/></TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabitemAccount" Header="Account" BorderBrush="#FF47A7EA" BorderThickness="0">
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#0047A7EA" Offset="0"/>
-                        <GradientStop Color="#3347A7EA" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
-                <TextBlock Margin="20" TextWrapping="Wrap"><Run Text="Account creation + connection "/><Run Text="help to be added here."/></TextBlock>
+            <TabItem x:Name="tabitemAccount" Header="Account" BorderBrush="Black" BorderThickness="0" Foreground="Black" Background="#FFFF9800">
+                <TextBlock Margin="20" TextWrapping="Wrap" Foreground="Black"><Run Text="Account Creation"/><LineBreak/><Run Text="Click the Log In button, then the Register button. "/><LineBreak/><Run Text="When creating an account, all log-in credentials are mandatory, as well as the email field. All other fields are not mandatory."/><LineBreak/><Run Text=""/><LineBreak/><Run Text="When you click the &quot;Register&quot; button, a confirmation code will be sent to your email. Enter your code in the pop-up to activate your account."/></TextBlock>
             </TabItem>
-            <TabItem x:Name="tabitemProfile" Header="My Profile" BorderBrush="#FF47A7EA" BorderThickness="0">
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#0047A7EA" Offset="0"/>
-                        <GradientStop Color="#3347A7EA" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
-                <TextBlock Margin="20" TextWrapping="Wrap"><Run Text="Profile + history + favorites "/><Run Text="help to be added here."/></TextBlock>
+            <TabItem x:Name="tabitemProfile" Header="My Profile" BorderBrush="Black" BorderThickness="0" Foreground="Black" Background="#FFFF9800">
+                <TextBlock Margin="20" TextWrapping="Wrap" Foreground="Black"><Run Text="My Profile"/><LineBreak/><Run Text="Here you can view and edit your information."/><LineBreak/><LineBreak/><Run Text="History"/><LineBreak/><Run Text="Here you can view all listings you have seen."/><LineBreak/><Run/><LineBreak/><Run Text="Favorites"/><LineBreak/><Run Text="Here you can view all listings you have added to favorites."/><LineBreak/><Run/><LineBreak/><Run Text="My Listings"/><LineBreak/><Run Text="Here you can view and edit all listings that you have uploaded yourself."/><LineBreak/><Run/><LineBreak/><Run Text="Sign Out"/><LineBreak/><Run Text="Clicking &quot;Sign Out&quot; logs you out of your account."/></TextBlock>
             </TabItem>
-            <TabItem x:Name="tabitemAbout" Header="About" BorderBrush="#FF47A7EA" BorderThickness="0">
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#0047A7EA" Offset="0"/>
-                        <GradientStop Color="#3347A7EA" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
-                <TextBlock Margin="20" TextWrapping="Wrap"><Run Text="Info about Hermes"/><Run Text=" to be added here."/></TextBlock>
+            <TabItem x:Name="tabitemAbout" Header="About" BorderBrush="Black" BorderThickness="0" Foreground="Black" Background="#FFFF9800">
+                <TextBlock Margin="20" TextWrapping="Wrap" Foreground="Black"><Run Text="Info about Hermes"/><Run Text=" to be added here."/><LineBreak/><Run/><LineBreak/><Run Text="If you have any additional questions, please send an email to hermeslistings@gmail.com"/></TextBlock>
             </TabItem>
         </TabControl>
-        <Button x:Name="btnHelpClose" Content="Close" HorizontalAlignment="Left" Margin="521,0,0,0" VerticalAlignment="Top" Width="75" Foreground="#FF47A7EA" Background="{x:Null}" BorderBrush="#FF47A7EA" Click="btnHelpClose_Click" Height="23" VerticalContentAlignment="Top"/>
-
+        <Button x:Name="btnTopClose"
+            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+            ToolTip="Exit" Margin="571,0,0,371" Height="25" Width="25" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnTopClose_Click">
+            <materialDesign:PackIcon
+                Kind="Close"
+                Height="24"
+                Width="24" />
+        </Button>
     </Grid>
 </Window>
