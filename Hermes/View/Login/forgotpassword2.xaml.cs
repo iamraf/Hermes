@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Hermes.View.register
+namespace Hermes.View.login
 {
     /// <summary>
-    /// Interaction logic for confirmcode.xaml
+    /// Interaction logic for forgotpassword2.xaml
     /// </summary>
-    public partial class confirmcode : Window
+    public partial class forgotpassword2 : Window
     {
-        public confirmcode()
+        public forgotpassword2()
         {
             InitializeComponent();
         }

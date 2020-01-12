@@ -67,7 +67,7 @@ namespace Hermes.View.forgotpassword
             }
             else
             {
-                //labelConfirmationCodeFail.Text = "Enter the right confirmation code.";
+                labelConfirmationCodeFail.Content = "Enter the right confirmation code.";
             }
         }
 
@@ -82,12 +82,12 @@ namespace Hermes.View.forgotpassword
                 }
                 else
                 {
-                    //labelChangePassword.Text = "The passwords don't match.";
+                    labelChangePassword.Content = "The passwords don't match.";
                 }
             }
             else
             {
-                //labelChangePassword.Text = "Minimum password length 8 characters.";
+                labelChangePassword.Content = "Minimum password length 8 characters.";
             }
         }
     }

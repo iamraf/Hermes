@@ -18,7 +18,7 @@
         <Frame x:Name="frameMain" Content="Frame" Margin="0,0,0,10" Grid.Row="1" Source="/Hermes;component/View/home/HomeView.xaml" NavigationUIVisibility="Hidden" Navigated="frameMain_Navigated"/>
         <Button x:Name="btnTopListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Browse" Margin="215,10,945,10" BorderThickness="0,0,0,4" Foreground="White" FontSize="24" FontFamily="Segoe UI Light" Click="btnTopListings_Click" Height="Auto" Background="{x:Null}" BorderBrush="White"/>
         <Button x:Name="btnTopUpload" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Upload" Margin="345,10,815,10" BorderThickness="0,0,0,4" Foreground="White" FontFamily="Segoe UI Light" FontSize="24" Click="btnTopUpload_Click" Height="Auto" Background="{x:Null}" BorderBrush="White"/>
-        <TextBox x:Name="txtboxTopSearch" materialDesign:HintAssist.Hint="Search" TextWrapping="NoWrap" Foreground="White" FontSize="14" Margin="494,31,436,19" BorderThickness="0,0,0,2" Height="30" BorderBrush="White" PreviewKeyDown="txtboxTopSearch_PreviewKeyDown" HorizontalContentAlignment="Left" Padding="2,0,0,0">
+        <TextBox x:Name="txtboxTopSearch" materialDesign:HintAssist.Hint="Search" TextWrapping="NoWrap" Foreground="White" FontSize="14" Margin="494,31,428,19" BorderThickness="0,0,0,2" Height="30" BorderBrush="White" PreviewKeyDown="txtboxTopSearch_PreviewKeyDown" HorizontalContentAlignment="Left" Padding="2,0,0,0">
             <TextBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#6606558D" Offset="1"/>
@@ -27,7 +27,7 @@
                 </LinearGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <Button x:Name="btnTopLogin" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Log in" BorderThickness="0,0,0,4" Foreground="White" Margin="1073,10,77,10" FontFamily="Segoe UI Light" Click="btnTopLogin_Click" FontSize="24" Height="Auto" Background="{x:Null}" BorderBrush="White"/>
+        <Button x:Name="btnTopLogin" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Log in" BorderThickness="0,0,0,4" Foreground="White" Margin="1089,10,61,10" FontFamily="Segoe UI Light" Click="btnTopLogin_Click" FontSize="24" Height="Auto" Background="{x:Null}" BorderBrush="White"/>
         <Button x:Name="btnTopHelp"
               Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
               ToolTip="Help" Margin="1227,0,25,55" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="Auto" Width="Auto" Click="btnTopHelp_Click">
@@ -46,27 +46,27 @@
         </Button>
         <Button x:Name="btnTopSearch"
               Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-              ToolTip="Search" Margin="844,32,411,23" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Click="btnTopSearch_Click">
+              ToolTip="Search" Margin="852,32,403,23" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Click="btnTopSearch_Click">
             <materialDesign:PackIcon
                 Kind="Search"
                 Height="24"
                 Width="24" />
         </Button>
-        <Expander x:Name="expMyAccountDropdown" Header="My Account" Margin="1064,17,50,388" Grid.RowSpan="2" Foreground="White" Background="{x:Null}" Visibility="Visible" FontSize="18" BorderBrush="White">
-            <Grid x:Name="gridMyAccountDropdown" Height="238" Background="#FFD8EAF8" VerticalAlignment="Bottom" Margin="9,6,28,0">
+        <Expander x:Name="expMyAccountDropdown" Header="My Account" Margin="1080,17,34,388" Grid.RowSpan="2" Foreground="White" Background="{x:Null}" Visibility="Visible" FontSize="18" BorderBrush="White">
+            <Grid x:Name="gridMyAccountDropdown" Height="238" Background="#FF2A6EB2" VerticalAlignment="Bottom" Margin="9,6,28,0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button x:Name="btnDropdownHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="3,0,0,0" FontSize="18" Click="btnDropdownHistory_Click" Background="#2606558D" FontFamily="Segoe UI Light"/>
-                <Button x:Name="btnDropdownFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" HorizontalAlignment="Left" Margin="0,82,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="3,0,0,0" FontSize="18" Click="btnDropdownFavorites_Click" Background="#2606558D" FontFamily="Segoe UI Light"/>
-                <Button x:Name="btnDropdownMyListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" HorizontalAlignment="Left" Margin="0,122,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="3,0,0,0" FontSize="18" Click="btnDropdownMyListings_Click" Background="#2606558D" FontFamily="Segoe UI Light"/>
-                <Button x:Name="btnDropdownSignOut" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" HorizontalAlignment="Left" Margin="0,202,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF7B1FA2" Foreground="#FF7B1FA2" BorderThickness="3,0,0,0" FontSize="18" Click="btnDropdownSignOut_Click" Background="#337B1FA2" FontFamily="Segoe UI Light"/>
-                <Button x:Name="btnDropdownProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="3,0,0,0" FontSize="18" Click="btnDropdownProfile_Click" Background="#2606558D" FontFamily="Segoe UI Light"/>
-                <Button x:Name="btnDropdownPremium" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="3,0,0,0" FontSize="18" Click="btnDropdownPremium_Click" Background="#2606558D" FontFamily="Segoe UI Light"/>
+                <Button x:Name="btnDropdownHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="White" Foreground="#FF06558D" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownHistory_Click" Background="#BCFFFFFF" FontFamily="Segoe UI Light"/>
+                <Button x:Name="btnDropdownFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" HorizontalAlignment="Left" Margin="0,82,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="White" Foreground="#FF06558D" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownFavorites_Click" Background="#BCFFFFFF" FontFamily="Segoe UI Light"/>
+                <Button x:Name="btnDropdownMyListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" HorizontalAlignment="Left" Margin="0,122,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="White" Foreground="#FF06558D" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownMyListings_Click" Background="#BCFFFFFF" FontFamily="Segoe UI Light"/>
+                <Button x:Name="btnDropdownSignOut" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" HorizontalAlignment="Left" Margin="0,202,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF7B1FA2" Foreground="#FF7B1FA2" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownSignOut_Click" Background="#E5EFCAFF" FontFamily="Segoe UI Light"/>
+                <Button x:Name="btnDropdownProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="White" Foreground="#FF06558D" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownProfile_Click" Background="#BCFFFFFF" FontFamily="Segoe UI Light"/>
+                <Button x:Name="btnDropdownPremium" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="White" Foreground="#FF06558D" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownPremium_Click" Background="#BCFFFFFF" FontFamily="Segoe UI Light"/>
             </Grid>
         </Expander>
         <Image HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="200" Margin="3,3,0,0" Source="/Hermes;component/Images/logowhite.png"/>
         <Button x:Name="btnTopLogo" Content="" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Width="200" RenderTransformOrigin="-1.578,-3.438" Height="74" Background="#0259A5E4" BorderBrush="{x:Null}" Click="btnTopLogo_Click"/>
-        <Button x:Name="btnTopLogin_Copy" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" BorderThickness="0,0,0,4" Foreground="White" Margin="934,10,216,10" FontFamily="Segoe UI Light" Click="btnTopLogin_Click" FontSize="24" Height="Auto" Background="#8CFFAE00" BorderBrush="#FFFF9800"/>
+        <Button x:Name="btnTopLogin_Copy" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" BorderThickness="0,0,0,4" Foreground="White" Margin="948,10,202,10" FontFamily="Segoe UI Light" Click="btnTopLogin_Click" FontSize="24" Height="Auto" Background="#8CFFAE00" BorderBrush="#FFFF9800"/>
     </Grid>
 </Window>
