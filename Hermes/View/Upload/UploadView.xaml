@@ -31,4 +31,3 @@
         <CheckBox x:Name="checkboxPremium" Content="Premium Listing" HorizontalAlignment="Left" Margin="561,519,0,0" VerticalAlignment="Top" Height="30" Width="150" FontSize="14" Padding="10,2,0,0"/>
     </Grid>
 </Page>
-</Page>
