@@ -122,8 +122,7 @@ namespace Hermes.View.upload
         }
 
         private void btnUploadUpload_Click(object sender, RoutedEventArgs e)
-        {
-            //new addition
+        { //new addition
             int remaining = _presenter.GetAvailablePremiumListings();
             if (remaining != 0 && checkboxPremium.IsChecked == true)
             {
@@ -133,20 +132,20 @@ namespace Hermes.View.upload
                 if (uploadResult)
                 {
                     System.Windows.MessageBox.Show("Listing uploaded succesfully", "Upload Complete", MessageBoxButton.OK);
+                    MessageBox.Show("You now have " + _presenter.GetAvailablePremiumListings() + "  available(s) premium listings", "Confirmation", MessageBoxButton.OK);
+
                     this.NavigationService.Navigate(new Uri("View/mylistings/MyListingsView.xaml", UriKind.RelativeOrAbsolute));
                 }
                 else
                 {
                     System.Windows.MessageBox.Show("Could not upload listing.\nSQL Error.", "Error", MessageBoxButton.OK);
                 }
-                int remainingList = _presenter.GetAvailablePremiumListings();
-                //System.Windows.MessageBox.Show("You now have "+ remainingList + " \n availables premium listings", "Confirmation", MessageBoxButton.OK);
-
+              
             }
             else
             {
                 //Old working code
-                MessageBoxResult result = MessageBoxResult.No;
+                MessageBoxResult result = MessageBoxResult.Yes;
                 if (checkboxPremium.IsChecked == true)
                 {
                     //starting popupwindow
@@ -155,9 +154,11 @@ namespace Hermes.View.upload
                     win2.ShowDialog();
                     if (win2.returnOk == true)
                         result = System.Windows.MessageBox.Show("Are you sure you want to activate premium?", "Warning", MessageBoxButton.YesNo);
-
+                    else
+                        return;
                 }
-                if (result == MessageBoxResult.Yes)
+                
+                if (result == MessageBoxResult.Yes )
                 {
                     bool uploadResult = _presenter.UploadListing(GetTaggedListingName(), price, location.Id, description, subcategory.Id, GetListingType(), (bool)checkboxPremium.IsChecked);
                     if (uploadResult)
@@ -173,7 +174,7 @@ namespace Hermes.View.upload
             }
         }
 
-        private string GetTaggedListingName()
+                private string GetTaggedListingName()
         {
             if (radbtnUploadSell.IsChecked == true)
             {
