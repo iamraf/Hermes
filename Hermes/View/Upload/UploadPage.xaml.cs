@@ -198,6 +198,10 @@ namespace Hermes.View
                 ImagePathSrc = null;
         }
 
-
+        private void txtboxNumberValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
+            e.Handled = !regex.IsMatch(e.Text);
+        }
     }
 }

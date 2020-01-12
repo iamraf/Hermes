@@ -11,7 +11,7 @@
     <Grid Margin="0">
         <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/View/Images/Background3.png"/>
         <TextBox x:Name="txtboxUploadTitle" materialDesign:HintAssist.Hint="Title" Height="30" Margin="456,85,456,494" TextWrapping="Wrap" Foreground="White" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" />
-        <TextBox x:Name="txtboxUploadPrice" materialDesign:HintAssist.Hint="Price" Margin="456,135,691,444" TextWrapping="Wrap" VerticalContentAlignment="Center" Height="30" Foreground="White"/>
+        <TextBox x:Name="txtboxUploadPrice" PreviewTextInput="txtboxNumberValidation" materialDesign:HintAssist.Hint="Price" Margin="456,135,691,444" TextWrapping="Wrap" VerticalContentAlignment="Center" Height="30" Foreground="White"/>
         <Label x:Name="lblUpload1" Content="What do you want to upload?" Margin="456,30,456,554" Width="360" HorizontalContentAlignment="Center" Foreground="White"/>
         <TextBox x:Name="txtboxUploadDescription" materialDesign:HintAssist.Hint="Describe your listing (Optional)" HorizontalAlignment="Left" Height="160" Margin="456,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Foreground="White"/>
         <Label x:Name="lblUpload2" Content="Select a category" Margin="456,440,646,144" Width="170" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Foreground="White"/>
