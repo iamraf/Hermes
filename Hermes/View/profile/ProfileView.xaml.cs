@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Runtime.Caching;
+using Hermes.View.login;
 
 namespace Hermes.View.profile
 {
@@ -153,6 +154,33 @@ namespace Hermes.View.profile
             }
         }
 
+        public string ErrorDialog
+        {
+            set
+            {
+                MessageBox.Show(value, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public string WarningDialog
+        {
+            set
+            {
+                MessageBox.Show(value, "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        public bool Navigate
+        {
+            set
+            {
+                if (value)
+                {
+                    this.NavigationService.Navigate(new LoginView());
+                }
+            }
+        }
+
         private void btnProfileHistory_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("View/history/HistoryView.xaml", UriKind.RelativeOrAbsolute));
@@ -178,7 +206,6 @@ namespace Hermes.View.profile
             comboxRegisterAddressTK.IsEnabled = true;
             _presenter.GetOnlyLocationTK((string)comboxRegisterAddress.SelectedItem);
             comboxRegisterAddressTK.SelectedIndex = 0;
-            //randomtext
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -192,7 +219,7 @@ namespace Hermes.View.profile
                         if(MessageBox.Show("You are about to change your personal data.\nYou will log out if you continue.\nAre you sure","Change of data", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                         {
                             _presenter.EditUser();
-                            Logout();
+                            _presenter.Logout();
                             this.NavigationService.Navigate(new Uri("View/login/LoginView.xaml", UriKind.RelativeOrAbsolute));
                         }
                     }
@@ -211,16 +238,10 @@ namespace Hermes.View.profile
                 MessageBox.Show("Username or Password is too small.\nTry something bigger.", "Error");
             }
         }
-        private void Logout()
-        {
-            ObjectCache Cache = MemoryCache.Default;
-            if (Cache["User"] != null)
-                Cache.Remove("User");
-        }
 
         private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
         {
-            Logout();
+            _presenter.Logout();
         }
 
 

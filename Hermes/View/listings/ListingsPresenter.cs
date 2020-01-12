@@ -214,7 +214,7 @@ namespace Hermes.View.listings
             return null;
         }
 
-        public void GetFavorites()
+        public List<Listing> GetFavorites()
         {
             if (GetCurrentUser() != null)
             {
@@ -222,13 +222,33 @@ namespace Hermes.View.listings
 
                 if (favorites != null)
                 {
-                    _view.Favorites = favorites;
+                    return favorites;
                 }
                 else
                 {
-                    _view.Favorites = null;
+                    return null;
                 }
             }
+            else
+            {
+                return null;
+            }
+        }
+
+        public bool IsOnFavorites(Listing selectedListing)
+        {
+            bool result = false;
+            if (GetCurrentUser() != null)
+            {
+                foreach (Listing lis in GetFavorites())
+                {
+                    if (selectedListing != null && selectedListing.Id == lis.Id)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            return result;
         }
     }
 }

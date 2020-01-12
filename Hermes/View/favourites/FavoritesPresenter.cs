@@ -8,7 +8,6 @@ namespace Hermes.View.favourites
     class FavoritesPresenter
     {
         private readonly IFavoritesView _view;
-
         private readonly FavoritesRepository _favouritesRepository;
         private readonly ListingRepository _listingsRepository;
 
@@ -61,6 +60,13 @@ namespace Hermes.View.favourites
             {
                 _listingsRepository.AddToHistory(listingId, user.Id);
             }
+        }
+
+        public void Logout()
+        {
+            ObjectCache Cache = MemoryCache.Default;
+            if (Cache["User"] != null)
+                Cache.Remove("User");
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Hermes.View.history
     public partial class HistoryView : Page, IHistoryView
     {
         private readonly HistoryPresenter _presenter;
-        private List<Listing> favorites;
 
         public HistoryView()
         {
@@ -29,14 +28,6 @@ namespace Hermes.View.history
             {
                 listviewListings.ItemsSource = null;
                 listviewListings.ItemsSource = value;
-            }
-        }
-
-        public List<Listing> Favorites
-        {
-            set
-            {
-                favorites = value;
             }
         }
 
@@ -69,16 +60,9 @@ namespace Hermes.View.history
         private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ButtonEnable(true);
-            if (_presenter.GetCurrentUser() != null)
+            if (_presenter.IsOnFavorites((Listing)listviewListings.SelectedItem))
             {
-                _presenter.GetFavorites();
-                foreach (Listing lis in favorites)
-                {
-                    if ((listviewListings.SelectedItem as Listing).Id == lis.Id)
-                    {
-                        btnListingSelectedFavorite.IsEnabled = false;
-                    }
-                }
+                btnListingSelectedFavorite.IsEnabled = false;
             }
 
             Listing listing = (Listing)listviewListings.SelectedItem;
@@ -129,14 +113,9 @@ namespace Hermes.View.history
 
         private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
         {
-            Logout();
+            _presenter.Logout();
         }
 
-        private void Logout()
-        {
-            ObjectCache Cache = MemoryCache.Default;
-            if (Cache["User"] != null)
-                Cache.Remove("User");
-        }
+
     }
 }

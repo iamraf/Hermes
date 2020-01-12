@@ -16,5 +16,8 @@ namespace Hermes.View.profile
         List<string> LocationsTK { set; }
         string SetSelectedLocationTK { set; }
         string SelectedLocationTK { get; }
+        string ErrorDialog { set; }
+        string WarningDialog { set; }
+        bool Navigate { set; }
     }
 }
