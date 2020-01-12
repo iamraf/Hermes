@@ -6,7 +6,7 @@
 * Agorastos Vasilis (164627)
 
 ### Activities:
-* Report state
+* Report project state
 * Discussing about projects progress
 * Stating all issues
 * Resolving issues
