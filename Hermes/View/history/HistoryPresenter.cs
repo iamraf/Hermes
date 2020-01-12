@@ -1,4 +1,4 @@
-﻿using Hermes.Model;
+using Hermes.Model;
 using Hermes.Model.Models;
 using System.Collections.Generic;
 using System.Runtime.Caching;

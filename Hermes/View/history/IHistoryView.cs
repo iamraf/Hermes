@@ -1,4 +1,4 @@
-﻿using Hermes.Model.Models;
+using Hermes.Model.Models;
 using System.Collections.Generic;
 
 namespace Hermes.View.history

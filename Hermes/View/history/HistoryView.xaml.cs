@@ -1,4 +1,4 @@
-﻿using Hermes.Model.Models;
+using Hermes.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -115,7 +115,5 @@ namespace Hermes.View.history
         {
             _presenter.Logout();
         }
-
-
     }
 }

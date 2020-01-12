@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:Hermes.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" ResizeMode="CanMinimize" BorderThickness="0" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid x:Name="gridMain" Margin="0" Background="#66518EBF">
+    <Grid x:Name="gridMain" Margin="0" Background="#669ABCD8">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="640"/>
@@ -67,5 +67,6 @@
         </Expander>
         <Image HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="200" Margin="3,3,0,0" Source="/Hermes;component/Images/logoyellow.png"/>
         <Button x:Name="btnTopLogo" Content="" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Width="200" RenderTransformOrigin="-1.578,-3.438" Height="74" Background="#0259A5E4" BorderBrush="{x:Null}" Click="btnTopLogo_Click"/>
+        <Button x:Name="btnTopLogin_Copy" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" BorderThickness="0,0,0,3" Foreground="White" Margin="934,10,216,10" FontFamily="Segoe UI Light" Click="btnTopLogin_Click" FontSize="24" Height="Auto" Background="#99FFAE00" BorderBrush="#FFFF9800"/>
     </Grid>
 </Window>

@@ -1,4 +1,4 @@
-﻿using Hermes.Model;
+using Hermes.Model;
 using Hermes.Model.Models;
 using Hermes.Util;
 using System;

@@ -9,7 +9,7 @@ namespace Hermes.View.help
             InitializeComponent();
         }
 
-        private void btnHelpClose_Click(object sender, RoutedEventArgs e)
+        private void btnTopClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
