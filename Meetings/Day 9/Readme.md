@@ -1,11 +1,15 @@
-# Day 9 (5/1/2020 16:15)
+# Day 8 (4/1/2020 16:15)
 
 ### Present:
+* Monogios Rafail (164707)
 * Tanailidis Christos (164752)
+* Agorastos Vasilis (164627)
 * Tsantoulis Anastasios (164762)
-* Avlonitis Stefanos (164637)
+
 
 ### Activities:
-* Synergy problem discussion and how to solve them
-* Future of the project
-* Assignment progression update
+* Active assignment review
+* Tasks progress discussion
+* Future of the project 
+* Synergy problem discussion
+* Discussing all issues
