@@ -15,6 +15,7 @@ namespace Hermes.View.forgotpassword
     {
         private readonly IForgotPasswordView _view;
         private readonly MyProfileRepository _repository;
+        private readonly LoginRepository _loginRepository;
 
         public ForgotPasswordviewPresenter(IForgotPasswordView view)
         {
@@ -25,6 +26,11 @@ namespace Hermes.View.forgotpassword
         public User GetCurrentUser()
         {
             return (User)MemoryCache.Default["User"];
+        }
+
+        public User GetUserByEmail(String email)
+        {
+            return _loginRepository.GetUser(email);
         }
 
         public void UpdateUsersPassword(String newPass)
