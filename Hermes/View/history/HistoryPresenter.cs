@@ -33,6 +33,11 @@ namespace Hermes.View.history
             {
                 _view.Listings = list;
             }
+            else
+            {
+                _view.DeleteButtonEnable = false;
+                _view.Listings = null;
+            }
         }
 
         public User GetUploader(int id)
@@ -111,6 +116,11 @@ namespace Hermes.View.history
             ObjectCache Cache = MemoryCache.Default;
             if (Cache["User"] != null)
                 Cache.Remove("User");
+        }
+
+        public void DeleteAllHistory()
+        {
+            _listingRepository.DeleteFromHistory(GetCurrentUser().Id);
         }
     }
 }
