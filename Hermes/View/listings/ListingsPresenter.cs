@@ -3,6 +3,10 @@ using Hermes.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Caching;
+/* ListingsPresenter connect view with model classes
+ *  it gets data from the repositories 
+ *  and pass them to view
+ */
 
 namespace Hermes.View.listings
 {

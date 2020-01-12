@@ -4,7 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
+ * PremiumListingBuy repository:
+ * PremiumListingBuyRepository class is responsible for 
+ * adding premium listings to users in database
+ */
 namespace Hermes.Model.repository
 {
     class PremiumListingBuyRepository

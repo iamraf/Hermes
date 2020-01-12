@@ -4,7 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media.Imaging;
-
+/*
+ * History Repository:
+ * HistoryRepository class is responsible for 
+ * getting every listing history page needs from the database
+ */
 namespace Hermes.Model
 {
     class HistoryRepository

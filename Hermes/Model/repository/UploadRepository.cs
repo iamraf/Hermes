@@ -3,6 +3,11 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 
+/*
+ * Upload repository:
+ * UploadRepository class is responsible for 
+ * getting and uploading listing data from the sql database
+ */
 namespace Hermes.Model
 {
     class UploadRepository

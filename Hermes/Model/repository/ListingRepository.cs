@@ -5,7 +5,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Media.Imaging;
-
+/*
+ * Listingrepository:
+ * ListingRepository class is responsible for 
+ * getting listing data from the database with or without fillters
+ */
 namespace Hermes.Model
 {
     class ListingRepository

@@ -1,7 +1,11 @@
 ﻿using Hermes.Model.Models;
 using Hermes.Util;
 using MySql.Data.MySqlClient;
-
+/*
+ * Register repository:
+ * RegisterRepository class is responsible for 
+ * getting and uploading register data from the sql database
+ */
 namespace Hermes.Model
 {
     class RegisterRepository

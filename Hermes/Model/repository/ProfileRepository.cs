@@ -1,7 +1,11 @@
 ﻿using Hermes.Model.Models;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-
+/*
+ * MyProfile repository:
+ * MyProfileRepository class is responsible for 
+ * getting and uploading profile data from the sql database
+ */
 namespace Hermes.Model
 {
     class MyProfileRepository
