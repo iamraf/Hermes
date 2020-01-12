@@ -22,6 +22,9 @@
                         <Image Source="{Binding Image}" Width="150" Height="150"/>
                         <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
                             <TextBlock Text="{Binding Name}" FontSize="15" Foreground="White" Margin="0,0,0,5" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding TypeName}" Foreground="White" Background="Orange" />
+                            </StackPanel>
                             <TextBlock Text="{Binding Description}" Foreground="White"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Active: " Foreground="White"/>
@@ -30,6 +33,10 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="€" Foreground="White"/>
                                 <TextBlock Text="{Binding Price}" Foreground="White"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Views: " Foreground="White"/>
+                                <TextBlock Text="{Binding Views}" Foreground="White"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

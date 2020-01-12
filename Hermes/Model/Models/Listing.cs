@@ -20,6 +20,8 @@ namespace Hermes.Model.Models
         public DateTime Creation { get; }
         public float Price { get; }
         public BitmapImage Image { get; set; }
+        public bool Type { get; }
+        public string TypeName { get; }
 
 
         public Listing(int id, string name, string description, bool active, int region, int views, int category, bool premium, DateTime creation, float price)
@@ -34,6 +36,20 @@ namespace Hermes.Model.Models
             Premium = premium;
             Creation = creation;
             Price = price;
+        }
+
+        public Listing(int id, string name, string description, bool active, int region, int views, int category, bool premium, DateTime creation, float price, bool type):
+            this(id, name, description, active, region, views, category, premium, creation, price)
+        {
+            Type = type;
+            if (type)
+            {
+                TypeName = "Looking for";
+            }
+            else
+            {
+                TypeName = "Buying";
+            }
         }
     }
 }

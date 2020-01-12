@@ -47,10 +47,10 @@ namespace Hermes.View.listings
                     return "price";
                     break;
                 case 2:
-                    return "listViews";
+                    return "listViews DESC";
                     break;
                 default:
-                    return "creationDate";
+                    return "creationDate DESC";
                     break;
             }
         }
