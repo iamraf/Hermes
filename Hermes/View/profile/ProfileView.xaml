@@ -35,7 +35,7 @@
             <Button x:Name="btnProfileListings_Copy" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" Margin="10,270,10,320" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#262196F3"/>
         </Grid>
         <Button Content="Change Password" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="833,267,282,331" Height="Auto" Background="#FFFFF2E0" BorderThickness="0,0,0,3" Click="Button_Click_1"/>
-        <Button Content="Forgot Password" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="833,309,282,289" Height="Auto" Background="#FFFFF2E0" BorderThickness="0,0,0,3"/>
+        <Button Content="Forgot Password" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="833,309,282,289" Height="Auto" Background="#FFFFF2E0" BorderThickness="0,0,0,3" Click="Button_Click_2"/>
         <Label x:Name="lblRegisterPage1_Copy" Content="Change Password" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="789,120,235,463" Foreground="#DDFFFFFF"/>
 
     </Grid>

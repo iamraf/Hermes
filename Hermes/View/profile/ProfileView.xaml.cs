@@ -262,6 +262,12 @@ namespace Hermes.View.profile
             _presenter.EditPassword();
             this.NavigationService.Navigate(new Uri("View/login/LoginView.xaml", UriKind.RelativeOrAbsolute));
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Hermes.View.forgotpassword.forgotpasswordview win2 = new Hermes.View.forgotpassword.forgotpasswordview();
+            win2.ShowDialog();
+        }
     }
 
 }

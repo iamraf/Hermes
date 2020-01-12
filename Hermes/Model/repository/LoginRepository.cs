@@ -44,6 +44,39 @@ namespace Hermes.Model
                 return false;
             }
         }
+        public User GetUser(string email)
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "SELECT * FROM User_Data WHERE email = @email";
+
+                User user = null;
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@email", email);
+                //cmd.Prepare();
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    user = new User(dataReader.GetInt32("userID"), dataReader.GetString("username"), dataReader.GetString("password"), dataReader.GetString("name"), dataReader.GetString("surname"), dataReader.GetString("address"), dataReader.GetString("email"), dataReader.GetString("telephone"));
+                }
+
+                dataReader.Close();
+                dataReader.Dispose();
+                cmd.Dispose();
+
+                Singleton.GetInstance().CloseConnection();
+
+                return user;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public User LoginUser(string username, string password)
         {
