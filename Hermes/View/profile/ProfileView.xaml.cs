@@ -34,7 +34,7 @@ namespace Hermes.View.profile
                 return txtboxRegisterUsername2.Text;
             } 
         }
-        public string Password1
+        public string PasswordEditUser
         {
             set
             {
@@ -46,7 +46,19 @@ namespace Hermes.View.profile
                 return txtboxRegisterPassword5.Text;
             }
         }
-        public string Password2
+        public string PasswordEditPassword
+        {
+            set
+            {
+                txtboxRegisterPassword8.Text = null;
+                txtboxRegisterPassword8.Text = value;
+            }
+            get
+            {
+                return txtboxRegisterPassword8.Text;
+            }
+        }
+        public string PasswordEditPasswordNew1
         {
             set
             {
@@ -56,6 +68,18 @@ namespace Hermes.View.profile
             get
             {
                 return txtboxRegisterPassword6.Text;
+            }
+        }
+        public string PasswordEditPasswordNew2
+        {
+            set
+            {
+                txtboxRegisterPassword7.Text = null;
+                txtboxRegisterPassword7.Text = value;
+            }
+            get
+            {
+                return txtboxRegisterPassword7.Text;
             }
         }
         public string Email
@@ -113,6 +137,13 @@ namespace Hermes.View.profile
                 comboxRegisterAddress.SelectedItem = value;
             }
         }
+        public int SetSelectedLocationIndex
+        {
+            set
+            {
+                comboxRegisterAddress.SelectedIndex = value;
+            }
+        }
         public List<string> Locations
         {
             set
@@ -132,6 +163,14 @@ namespace Hermes.View.profile
         }
 
         public string SetSelectedLocationTK
+        {
+            set
+            {
+                comboxRegisterAddressTK.SelectedItem = value;
+            }
+        }
+
+        public int SetSelectedLocationTKIndex
         {
             set
             {
@@ -210,33 +249,7 @@ namespace Hermes.View.profile
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (Username.ToString().Length > 6 && Password1.ToString().Length > 6)
-            {
-                if (Password1.Equals(Password2))
-                {
-                    if (comboxRegisterAddressTK.SelectedItem != null)
-                    {
-                        if(MessageBox.Show("You are about to change your personal data.\nYou will log out if you continue.\nAre you sure","Change of data", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                        {
-                            _presenter.EditUser();
-                            _presenter.Logout();
-                            this.NavigationService.Navigate(new Uri("View/login/LoginView.xaml", UriKind.RelativeOrAbsolute));
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please select a ZIP code.", "Error");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Passwords dont match.", "Error");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Username or Password is too small.\nTry something bigger.", "Error");
-            }
+            _presenter.EditUser();
         }
 
         private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
@@ -244,7 +257,10 @@ namespace Hermes.View.profile
             _presenter.Logout();
         }
 
-
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            _presenter.EditPassword();
+        }
     }
 
 }

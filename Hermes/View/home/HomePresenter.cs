@@ -10,7 +10,6 @@ using System.Threading.Tasks;
  *  it gets data from the repositories 
  *  and pass them to view
  */
-
 namespace Hermes.View.home
 {
     class HomePresenter
