@@ -6,10 +6,6 @@ using System.Linq;
 using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
-/* HomePresenter connect view with model classes
- *  it gets data from the repositories 
- *  and pass them to view
- */
 
 namespace Hermes.View.home
 {

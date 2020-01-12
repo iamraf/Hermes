@@ -1,10 +1,6 @@
 ﻿using Hermes.Model;
 using Hermes.Model.Models;
 using System.Collections.Generic;
-/* RegisterPresenter connect view with model classes
- *  it gets data from the repositories 
- *  and pass them to view
- */
 
 namespace Hermes.View.register
 {
