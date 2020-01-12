@@ -172,6 +172,18 @@ namespace Hermes.View.upload
 
         }
 
+        public int GetAvailablePremiumListings()
+        {
+            User user = (User)Cache["User"];
+            int remaining=_repository.GetAvailableListingNumber(user.Id);
+            return remaining;
+        }
+        public void DecreasePremiumListings() 
+        {
+            User user = (User)Cache["User"];
+            _repository.DecreaseAvailableListingNumber(user.Id);
+        }
+
     }
 
 
