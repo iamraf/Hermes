@@ -1,4 +1,4 @@
-# Day 7 (28/12/2019 16:30)
+# Day 7 (26/12/2019 14:15)
 
 ### Present:
 * Monogios Rafail (164707)
@@ -8,6 +8,7 @@
 * Avlonitis Stefanos (164637)
 
 ### Activities:
+* Reporting all tasks done
 * Design brain storming
 * Prioritize tasks
 * General tasks discussion
