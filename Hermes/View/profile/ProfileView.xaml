@@ -34,7 +34,7 @@
             <Button x:Name="btnProfileSignout" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" Margin="10,560,10,30" Height="Auto" BorderThickness="5,0,0,0" BorderBrush="#FF7B1FA2" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF7B1FA2" VerticalContentAlignment="Top" Background="#337B1FA2" Click="btnProfileSignout_Click"/>
         </Grid>
         <Button Content="Change Password" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="886,315,229,283" Height="30" Background="#FFFFF2E0" BorderThickness="0,0,0,3" Click="Button_Click_1"/>
-        <Button Content="Forgot Password" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="886,357,229,241" Height="25" Background="#FFFFF2E0" BorderThickness="0,0,0,3" BorderBrush="#FF7B1FA2" VerticalContentAlignment="Top" FontSize="12"/>
+        <Button Content="Forgot Password" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="886,357,229,241" Height="25" Background="#FFFFF2E0" BorderThickness="0,0,0,3" BorderBrush="#FF7B1FA2" VerticalContentAlignment="Top" FontSize="12" Click="Button_Click_2"/>
         <Label x:Name="lblRegisterPage1_Copy" Content="Change Password" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="831,150,193,440" Foreground="#DDFFFFFF"/>
         <Rectangle HorizontalAlignment="Left" Height="400" Margin="745,100,0,0" Stroke="#FF2B2B2B" VerticalAlignment="Top" Width="1"/>
 

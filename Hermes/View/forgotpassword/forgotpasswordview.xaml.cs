@@ -23,6 +23,7 @@ namespace Hermes.View.forgotpassword
     public partial class forgotpasswordview : Window, IForgotPasswordView
     {
         private readonly ForgotPasswordviewPresenter _presenter;
+        
         public forgotpasswordview()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace Hermes.View.forgotpassword
             SendPassword();
 
         }
+
         private String _confirmationCode;
 
         public string randomConfirmationCode()
