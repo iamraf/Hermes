@@ -118,9 +118,9 @@ namespace Hermes.View.Upload
             return null;
         }
 
-        public bool UploadListing(string name, float price, int location, string description, int subcategory, bool type)
+        public bool UploadListing(string name, float price, int location, string description, int subcategory, bool type,bool premium)
         {
-            int listingId = _repository.UploadListing(name, description, location, subcategory, false, price, type);
+            int listingId = _repository.UploadListing(name, description, location, subcategory, premium, price, type);
 
             if (listingId != -1)
             {

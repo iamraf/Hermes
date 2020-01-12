@@ -165,6 +165,9 @@
     </Compile>
     <Compile Include="View\Register\RegisterPresenter.cs" />
     <Compile Include="View\Upload\IUploadPage.cs" />
+    <Compile Include="View\Upload\paymentCard.xaml.cs">
+      <DependentUpon>paymentCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Upload\UploadPage.xaml.cs">
       <DependentUpon>UploadPage.xaml</DependentUpon>
     </Compile>
@@ -216,6 +219,10 @@
     <Page Include="View\Register\RegisterPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Upload\paymentCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Upload\UploadPage.xaml">
       <Generator>MSBuild:Compile</Generator>

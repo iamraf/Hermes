@@ -22,11 +22,12 @@
         <Button x:Name="btnUploadImage" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Add an image" Margin="689,146,456,454" FontSize="10" VerticalContentAlignment="Center" Height="Auto" Background="#FF1976D2" Foreground="White" BorderBrush="#FF06558D" BorderThickness="1,1,1,3" Click="btnUploadImage_Click"/>
         <RadioButton x:Name="radbtnUploadSell" Content="I want to sell something" Margin="456,55,656,534" Height="20" Width="160" Foreground="White"/>
         <RadioButton x:Name="radbtnUploadLook" Content="I am looking for something" Margin="646,55,456,534" Height="20" Foreground="White"/>
-        <Button x:Name="btnUploadUpload" materialDesign:ButtonAssist.CornerRadius="1" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Upload" Margin="561,550,561,50" Click="btnUploadUpload_Click" Height="Auto" Background="White" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" FontFamily="Segoe UI Semilight" FontSize="16"/>
+        <Button x:Name="btnUploadUpload" materialDesign:ButtonAssist.CornerRadius="1" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Upload" Margin="561,590,561,10" Click="btnUploadUpload_Click" Height="Auto" Background="White" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" FontFamily="Segoe UI Semilight" FontSize="16"/>
         <CheckBox x:Name="checkBoxFreePrice" Content="Free" Margin="586,135,641,444" Height="30" VerticalContentAlignment="Center" Width="45" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" Foreground="White"/>
         <CheckBox x:Name="checkBoxMyHome" Content="My Home" Margin="741,235,456,365" Height="30" VerticalContentAlignment="Center" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Checked_1" Foreground="White"/>
         <ComboBox x:Name="comboxUploadLocation" materialDesign:HintAssist.Hint="Location" HorizontalAlignment="Left" Margin="456,200,0,0" VerticalAlignment="Top" Width="360" Height="30" SelectionChanged="comboxUploadLocation_SelectionChanged" Foreground="White"/>
         <ComboBox x:Name="comboxUploadLocationTK" materialDesign:HintAssist.Hint="Address Code" HorizontalAlignment="Left" Margin="456,235,0,0" VerticalAlignment="Top" Width="170" Height="25" Foreground="White"/>
         <Label x:Name="lbLocation" Content="or use:" Margin="691,239,534,369" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Foreground="White"/>
+        <CheckBox x:Name="checkboxPremium" Content="Premium Listing" HorizontalAlignment="Left" Margin="456,550,0,0" VerticalAlignment="Top" Height="30" Width="127"/>
     </Grid>
 </Page>
