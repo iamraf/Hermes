@@ -54,7 +54,7 @@ namespace Hermes.View
             User user = (User)Cache["User"];
             if (user != null)
             {
-                frameMain.Navigate(new Uri("View/ProfilePage.xaml", UriKind.RelativeOrAbsolute));
+                frameMain.Navigate(new Uri("View/MyProfile/ProfilePage.xaml", UriKind.RelativeOrAbsolute));
             }
             else
             {
