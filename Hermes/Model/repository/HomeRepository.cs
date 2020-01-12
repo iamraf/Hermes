@@ -4,6 +4,12 @@ using System.IO;
 using System.Windows.Media.Imaging;
 using Hermes.Model.Models;
 using MySql.Data.MySqlClient;
+
+/*
+ * Home Repository:
+ * HomeRepository class is responsible for 
+ * getting everything homepage needs from the database
+ */
 namespace Hermes.Model
 {
     class HomeRepository

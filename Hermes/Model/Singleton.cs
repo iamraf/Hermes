@@ -1,5 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
 
+/*
+ * Singleton Class:
+ * Singleton class is responsible for the connection 
+ * with the database
+ */
 namespace Hermes.Model
 {
     public class Singleton

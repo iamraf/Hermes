@@ -5,7 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Caching;
 using System.Windows.Forms;
-
+/* UploadPresenter connect view with model classes
+ *  it gets data from the repositories 
+ *  and pass them to view
+ */
 namespace Hermes.View.upload
 {
     class UploadPresenter

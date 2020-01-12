@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using Hermes.Model.Models;
 using Hermes.Model.repository;
+
+ /* buyPremiumPresenter connect view with model classes
+ *  it gets data from the repositories 
+ *  and pass them to view
+ */
 namespace Hermes.View.buyPremium
 {
     class buyPremiumPresenter
