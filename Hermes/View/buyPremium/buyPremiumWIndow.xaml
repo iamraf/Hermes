@@ -8,15 +8,19 @@
         
         Title="buyPremiumWIndow" Height="382.5" Width="383">
     <Grid>
-        <Label Content="Card number:" HorizontalAlignment="Left" Margin="84,130,0,0" VerticalAlignment="Top" Width="91"/>
-        <Label Content="CCV" HorizontalAlignment="Left" Margin="84,159,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.45,4.329" Width="91"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="181*"/>
+            <RowDefinition Height="170*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Card number:" HorizontalAlignment="Left" Margin="84,140,0,0" VerticalAlignment="Top" Width="91"/>
+        <Label Content="CCV" HorizontalAlignment="Left" Margin="84,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.45,4.329" Width="91" Grid.RowSpan="2"/>
 
-        <Label Content="Owner's name" HorizontalAlignment="Left" Margin="84,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.351,-1.981" Width="91"/>
-        <Label Content="Expiration date" HorizontalAlignment="Left" Margin="84,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.45,4.329" Width="91"/>
-        <TextBox HorizontalAlignment="Left" Height="23" PreviewTextInput="txtboxNumberValidation" Margin="180,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" PreviewTextInput="txtboxNumberValidation" Margin="180,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" PreviewTextInput="txtboxLetterValidation" Margin="180,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" Margin="180,217,0,0" VerticalAlignment="Top" Width="44">
+        <Label Content="Owner's name" HorizontalAlignment="Left" Margin="84,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.351,-1.981" Width="91" Grid.Row="1"/>
+        <Label Content="Expiration date" HorizontalAlignment="Left" Margin="84,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.45,4.329" Width="91" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" PreviewTextInput="txtboxNumberValidation" Margin="180,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" PreviewTextInput="txtboxNumberValidation" Margin="180,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.RowSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" PreviewTextInput="txtboxLetterValidation" Margin="180,18,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <ComboBox HorizontalAlignment="Left" Margin="180,46,0,0" VerticalAlignment="Top" Width="44" Grid.Row="1">
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="92"/>
@@ -31,7 +35,7 @@
             <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="92"/>
 
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="256,217,0,0" VerticalAlignment="Top" Width="44">
+        <ComboBox HorizontalAlignment="Left" Margin="256,46,0,0" VerticalAlignment="Top" Width="44" Grid.Row="1">
             <ComboBoxItem Content="2020" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="2021" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="2022" HorizontalAlignment="Left" Width="92"/>
@@ -39,16 +43,21 @@
             <ComboBoxItem Content="2024" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="2025" HorizontalAlignment="Left" Width="92"/>
         </ComboBox>
-        <Button Content="Pay now" HorizontalAlignment="Left" Margin="225,274,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click"/>
-        <Label HorizontalAlignment="center" Margin="10,52,0,0" VerticalAlignment="Top" Width="355">
+        <Button Content="Pay now" HorizontalAlignment="Left" Margin="225,97,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click" Grid.Row="1"/>
+        <Label HorizontalAlignment="center" Margin="15,62,5,0" VerticalAlignment="Top" Width="355">
             <Label HorizontalAlignment="center" Content="Choose how many premium listings would you like to buy" Height="25" Width="345"/>
         </Label>
-        <ComboBox x:Name="comboboxPremiumOffers" HorizontalAlignment="Left" Margin="64,90,0,0" VerticalAlignment="Top" Width="259">
+        <ComboBox x:Name="comboboxPremiumOffers" HorizontalAlignment="Left" Margin="64,100,0,0" VerticalAlignment="Top" Width="259">
             <ComboBoxItem IsSelected="True" Content="10 premium listings for  8.49€ (15% off)" HorizontalAlignment="Left" Width="259"/>
             <ComboBoxItem Content="20 premium listings for 16.49€ (20% off)" HorizontalAlignment="Left" Width="259"/>
             <ComboBoxItem Content="30 premium listings for 21.49€ (30% off)" HorizontalAlignment="Left" Width="259"/>
 
         </ComboBox>
+        <Label    Margin="15,10,10,0" VerticalAlignment="Top" Height="58" Width="350" FontWeight="Bold">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="center" TextWrapping="WrapWithOverflow"  FontSize="16" Width="340" >
+                Here you can pre-buy premium listings bundles for a great price!
+            </TextBlock>
+        </Label>
 
 
     </Grid>
