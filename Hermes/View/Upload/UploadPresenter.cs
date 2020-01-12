@@ -1,30 +1,27 @@
 ﻿using Hermes.Model;
 using Hermes.Model.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Caching;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media.Imaging;
 
-namespace Hermes.View.Upload
+namespace Hermes.View.upload
 {
     class UploadPresenter
     {
-        private readonly UploadListingRepository _repository;
-        private readonly IUploadPage _view;
+        private readonly UploadRepository _repository;
+        private readonly IUploadView _view;
+
         private List<Category> _categories;
         private List<SubCategory> _subCategories;
         private List<Location> _locations;
         private readonly ObjectCache Cache;
 
-        public UploadPresenter(IUploadPage view)
+        public UploadPresenter(IUploadView view)
         {
             _view = view;
-            _repository = new UploadListingRepository();
+            _repository = new UploadRepository();
             Cache = MemoryCache.Default;
             User user = (User)Cache["User"];
             GetCategories();
