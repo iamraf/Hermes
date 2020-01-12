@@ -23,7 +23,7 @@ namespace Hermes.View.listings
 
             _presenter = new ListingsPresenter(this);
 
-            _presenter.GetListings();
+            //_presenter.GetListings();
 
             _presenter.GetFavorites();
 
@@ -34,18 +34,39 @@ namespace Hermes.View.listings
             ButtonEnable(false);
         }
 
+        public ListingsView(bool popular)
+        {
+            InitializeComponent();
+
+            _presenter = new ListingsPresenter(this);
+
+            //_presenter.GetListings();
+
+            _presenter.GetFavorites();
+
+            _checkedBoxes = new List<string>();
+
+            comboxCategories.SelectedIndex = 0;
+
+            if (popular)
+            {
+                comboxListingsSortBy.SelectedIndex = 2;
+            }
+
+            ButtonEnable(false);
+        }
+
         public ListingsView(int selected)
         {
             InitializeComponent();
         
-
             selectedListing = selected;
 
             _presenter = new ListingsPresenter(this);
 
             comboxCategories.SelectedIndex = 0;
 
-            _presenter.GetListings();
+            //_presenter.GetListings();
 
             _presenter.GetFavorites();
 
@@ -87,7 +108,7 @@ namespace Hermes.View.listings
 
             _checkedBoxes = new List<string>();
 
-            comboxCategories.SelectedIndex=category;
+            comboxCategories.SelectedIndex = category;
 
             ChangeComboBox(subCategory);
         }
@@ -459,25 +480,7 @@ namespace Hermes.View.listings
 
         private void comboxListingsType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (_presenter != null)
-            {
-                if (labelCancelPriceRanges.IsVisible & labelCancelDateRanges.IsVisible)
-                {
-                    DateAndPriceFilteredListings();
-                }
-                else if (labelCancelPriceRanges.IsVisible & !labelCancelDateRanges.IsVisible)
-                {
-                    PriceFilteredListings();
-                }
-                else if (!labelCancelPriceRanges.IsVisible & labelCancelDateRanges.IsVisible)
-                {
-                    comboxListingsDatePick_SelectionChanged(null, null);
-                }
-                else
-                {
-                    _presenter.GetFilteredListings(_checkedBoxes, GetCatId(), comboxListingsSortBy.SelectedIndex, comboxListingsType.SelectedIndex);
-                }
-            }
+            Filtered();
         }
 
         private void Filtered()

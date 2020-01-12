@@ -91,5 +91,15 @@ namespace Hermes.View.home
 
             this.NavigationService.Navigate(new ListingsView(listing.Id));
         }
+
+        private void btnAllItems_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new ListingsView(false));
+        }
+
+        private void btnViewPopular_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new ListingsView(true));
+        }
     }
 }

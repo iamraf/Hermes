@@ -9,5 +9,7 @@ namespace Hermes.View.history
     interface IHistoryView
     {
         List<Listing> Listings { set; }
+        Listing SelectedListing { get; }
+        bool DeleteButtonEnable { set; }
     }
 }
