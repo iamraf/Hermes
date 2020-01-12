@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:Hermes.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" ResizeMode="CanMinimize" BorderThickness="0" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid x:Name="gridMain" Margin="0" Background="#7FBBDEFB">
+    <Grid x:Name="gridMain" Margin="0" Background="#66518EBF">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="640"/>
@@ -21,7 +21,7 @@
         <TextBox x:Name="txtboxTopSearch" materialDesign:HintAssist.Hint="Search" TextWrapping="NoWrap" Foreground="#FF06558D" FontSize="14" Margin="494,31,436,19" BorderThickness="0,0,0,2" Height="30" BorderBrush="#FF06558D" PreviewKeyDown="txtboxTopSearch_PreviewKeyDown" HorizontalContentAlignment="Left" Padding="2,0,0,0">
             <TextBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#4C06558D" Offset="1"/>
+                    <GradientStop Color="#3306558D" Offset="1"/>
                     <GradientStop Color="#1906558D"/>
                     <GradientStop Color="#1906558D" Offset="0.609"/>
                 </LinearGradientBrush>
@@ -65,7 +65,7 @@
                 <Button x:Name="btnDropdownPremium" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="3,0,0,0" FontSize="18" Click="btnDropdownPremium_Click" Background="#2606558D" FontFamily="Segoe UI Light"/>
             </Grid>
         </Expander>
-        <Image HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="200" Margin="3,3,0,0" Source="/Hermes;component/Images/logo.png"/>
+        <Image HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="200" Margin="3,3,0,0" Source="/Hermes;component/Images/logoyellow.png"/>
         <Button x:Name="btnTopLogo" Content="" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Width="200" RenderTransformOrigin="-1.578,-3.438" Height="74" Background="#0259A5E4" BorderBrush="{x:Null}" Click="btnTopLogo_Click"/>
     </Grid>
 </Window>
