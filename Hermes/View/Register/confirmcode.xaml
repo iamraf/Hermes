@@ -8,7 +8,7 @@
         Title="confirmcode" Height="300" Width="300">
     <Grid>
         <Label Content="Enter code" Margin="112,39,113,201"/>
-        <TextBox Height="23" Margin="86,68,86,178" TextWrapping="Wrap" Text="TextBox" Width="120"/>
+        <TextBox Height="23" Margin="86,68,86,178" TextWrapping="Wrap" Width="120"/>
         <Button Content="Confirm" HorizontalAlignment="Left" Margin="96,136,0,0" VerticalAlignment="Top" Width="108"/>
 
     </Grid>

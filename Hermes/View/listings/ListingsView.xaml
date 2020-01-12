@@ -55,61 +55,75 @@
                 <materialDesign:PackIcon
                 Kind="Person" />
             </Button>
-            <Label x:Name="lblListingSelectedUploader" Content="No name" Grid.Column="1" Margin="255,79,30,526" Height="25" Foreground="#DDFFFFFF"/>
-            <Label x:Name="lblListingSelectedContactInfoEmail" Content="No email" Grid.Column="1" Margin="255,104,30,501" Height="25" Foreground="#DDFFFFFF"/>
+            <Label x:Name="lblListingSelectedUploader" Content="No name" Grid.Column="1" Margin="255,79,30,526" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
+            <Label x:Name="lblListingSelectedContactInfoEmail" Content="No email" Grid.Column="1" Margin="255,107,30,498" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
             <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="1" Margin="30,285,30,20" TextWrapping="Wrap" Text="No description available." Width="417" Foreground="#DDFFFFFF" Background="#19000000"/>
             <Button x:Name="btnListingSelectedFavorite" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Add to Favorites" Grid.Column="1" HorizontalAlignment="Left" Margin="297,242,0,0" VerticalAlignment="Top" Width="150" Click="BtnListingSelectedFavorite_Click" Background="#FFFFF2E0" BorderThickness="0,0,0,3"/>
             <Button x:Name="btnListingSelectedContact" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Contact Uploader" Grid.Column="1" HorizontalAlignment="Left" Margin="297,197,0,0" VerticalAlignment="Top" Width="150" Click="btnListingSelectedContact_Click" Background="#FFFFF2E0" BorderThickness="0,0,0,3"/>
-            <Label x:Name="lblListingSelectedContactInfoEmail1" Content="No phone number" Grid.Column="1" Margin="255,129,30,476" Height="25" Foreground="#DDFFFFFF"/>
+            <Label x:Name="lblListingSelectedContactInfoEmail1" Content="No phone number" Grid.Column="1" Margin="255,135,30,470" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
             <Label Content="No image" Grid.Column="1" Margin="80,155,299,445" Width="98" HorizontalContentAlignment="Center" Foreground="#4CFFFFFF"/>
             <Rectangle Grid.Column="1" Fill="#19000000" HorizontalAlignment="Left" Height="195" Margin="30,79,0,0" VerticalAlignment="Top" Width="195"/>
             <Button
                 Style="{StaticResource MaterialDesignIconForegroundButton}"
-                ToolTip="MaterialDesignIconForegroundButton" Grid.Column="1" Margin="228,104,224,501" Foreground="#99FFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="25">
+                ToolTip="MaterialDesignIconForegroundButton" Grid.Column="1" Margin="228,107,224,498" Foreground="#99FFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="25">
                 <materialDesign:PackIcon
                     Kind="Email" />
             </Button>
             <Button
                 Style="{StaticResource MaterialDesignIconForegroundButton}"
-                ToolTip="MaterialDesignIconForegroundButton" Grid.Column="1" Margin="228,129,224,476" Foreground="#99FFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="25">
+                ToolTip="MaterialDesignIconForegroundButton" Grid.Column="1" Margin="228,135,224,470" Foreground="#99FFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="25">
                 <materialDesign:PackIcon
                     Kind="phone" />
             </Button>
         </Grid>
         <Frame Content="Frame" Height="603" VerticalAlignment="Top" Width="0" Canvas.Left="1226" Canvas.Top="-34"/>
-        <Grid x:Name="canvasListingsFilters" HorizontalAlignment="Center" Canvas.Top="-34" Canvas.Left="-48" Background="#FFE3F2FD" Height="630" Width="200">
-            <Label Content="Price Range&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="10,133,10,467" FontSize="14" Background="#1C000000" Height="30"/>
-            <Label x:Name="labelCancelAllFilters" Content="Cancel all &#xD;&#xA;filters" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="Label_MouseLeftButtonDown" Margin="5,93,126,493"/>
+        <Grid x:Name="canvasListingsFilters" HorizontalAlignment="Center" Canvas.Top="-34" Canvas.Left="-48" Background="White" Height="630" Width="200">
+            <Label Content="Price Range&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="0,122,0,478" FontSize="14" Background="#661F79C1" Height="30"/>
+            <Label x:Name="labelCancelAllFilters" Content="Cancel all filters" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Black" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="Label_MouseLeftButtonDown" Margin="10,599,10,1" BorderBrush="#FF7B1FA2" BorderThickness="1,1,1,3"/>
             <Label x:Name="labelCancelPriceRanges" Content="Cancel" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelPriceRanges_PreviewDragOver" Margin="5,133,140,467" Visibility="Hidden"/>
-            <RadioButton x:Name="radbtnListingsPricePick" Content="" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" GroupName="priceRangeGroup" Checked="radbtnListingsPricePick_Checked" Unchecked="radbtnListingsPricePick_Unchecked" Margin="10,168,172,444" RenderTransformOrigin="0.614,-0.056"/>
-            <RadioButton x:Name="radbtnListingsPriceCustom" Content="" RenderTransformOrigin="0.421,0.467" BorderBrush="#FF89C3EC" Background="{x:Null}" BorderThickness="2" GroupName="priceRangeGroup" Checked="radbtnListingsPriceCustom_Checked" Unchecked="radbtnListingsPriceCustom_Unchecked" Margin="10,202,168,410"/>
-            <ComboBox x:Name="comboxListingsPricePick" Width="156" HorizontalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="comboxListingsPricePick_SelectionChanged" IsEnabled="False" Margin="34,163,10,437" Height="30">
+            <RadioButton x:Name="radbtnListingsPricePick" Content="" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" GroupName="priceRangeGroup" Checked="radbtnListingsPricePick_Checked" Unchecked="radbtnListingsPricePick_Unchecked" Margin="10,158,172,454" RenderTransformOrigin="0.614,-0.056"/>
+            <RadioButton x:Name="radbtnListingsPriceCustom" Content="" RenderTransformOrigin="0.421,0.467" BorderBrush="#FF89C3EC" Background="{x:Null}" BorderThickness="2" GroupName="priceRangeGroup" Checked="radbtnListingsPriceCustom_Checked" Unchecked="radbtnListingsPriceCustom_Unchecked" Margin="10,192,168,420"/>
+            <ComboBox x:Name="comboxListingsPricePick" Width="156" HorizontalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="comboxListingsPricePick_SelectionChanged" IsEnabled="False" Margin="34,152,10,448" Height="30">
                 <ComboBoxItem Content="FREE" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Under 100 EUR" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Over 100 EUR" HorizontalAlignment="Left" Width="138"/>
             </ComboBox>
-            <CheckBox x:Uid="1" x:Name="chboxListingsCategory0" Content="Category0" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="4,437,102,175"/>
-            <CheckBox x:Uid="2" x:Name="chboxListingsCategory1" Content="Category1" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="100,437,6,175"/>
-            <CheckBox x:Uid="3" x:Name="chboxListingsCategory2" Content="Category2" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="4,459,102,153"/>
-            <CheckBox x:Uid="4" x:Name="chboxListingsCategory3" Content="Category3" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="100,459,6,153"/>
-            <CheckBox x:Uid="5" x:Name="chboxListingsCategory4" Content="Category4" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="4,481,102,131"/>
-            <CheckBox x:Uid="6" x:Name="chboxListingsCategory5" Content="Category5" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="100,481,6,131"/>
-            <CheckBox x:Uid="7" x:Name="chboxListingsCategory6" Content="Category6" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="4,503,102,109"/>
-            <CheckBox x:Uid="8" x:Name="chboxListingsCategory7" Content="Category7" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="100,503,6,109"/>
-            <CheckBox x:Uid="9" x:Name="chboxListingsCategory8" Content="Category8" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="4,525,102,87"/>
-            <CheckBox x:Uid="10" x:Name="chboxListingsCategory9" Content="Category9" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="100,525,6,87"/>
-            <Label Content="Categories&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="10,358,10,242" FontSize="14" Background="#19000000" Height="30"/>
-            <Slider x:Name="slidListingsPriceCustom" Width="123" HorizontalAlignment="Center" VerticalAlignment="Center" AutoToolTipPlacement="BottomRight" Maximum="500" SmallChange="1" LargeChange="10" TickPlacement="BottomRight" TickFrequency="50" Value="-1" Cursor="Arrow" Background="{x:Null}" IsEnabled="False" Margin="34,202,43,398" Height="30" />
-            <Label Content="Date Uploaded&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="10,249,10,351" FontSize="14" Background="#1C000000"/>
+            <CheckBox x:Uid="1" x:Name="chboxListingsCategory0" Content="Category0" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,377,17,235" FontSize="11" FontFamily="Segoe UI Semilight"/>
+            <CheckBox x:Uid="2" x:Name="chboxListingsCategory1" Content="Category1" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,461,6,151" FontSize="11" FontFamily="Segoe UI Semilight"/>
+            <CheckBox x:Uid="3" x:Name="chboxListingsCategory2" Content="Category2" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,399,17,213" FontSize="11" FontFamily="Segoe UI Semilight"/>
+            <CheckBox x:Uid="4" x:Name="chboxListingsCategory3" Content="Category3" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,482,6,130" FontSize="11" FontFamily="Segoe UI Semilight"/>
+            <CheckBox x:Uid="5" x:Name="chboxListingsCategory4" Content="Category4" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,421,17,191" FontSize="11" FontFamily="Segoe UI Semilight"/>
+            <CheckBox x:Uid="6" x:Name="chboxListingsCategory5" Content="Category5" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,502,6,110" FontSize="11" FontFamily="Segoe UI Semilight"/>
+            <CheckBox x:Uid="7" x:Name="chboxListingsCategory6" Content="Category6" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="10,441,17,171" FontSize="11" FontFamily="Segoe UI Semilight"/>
+            <CheckBox x:Uid="8" x:Name="chboxListingsCategory7" Content="Category7" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="358,447,-261,165" FontSize="11" FontFamily="Segoe UI Semilight" Visibility="Collapsed"/>
+            <CheckBox x:Uid="9" x:Name="chboxListingsCategory8" Content="Category8" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="216,441,-113,171" FontSize="11" FontFamily="Segoe UI Semilight" Visibility="Collapsed"/>
+            <CheckBox x:Uid="10" x:Name="chboxListingsCategory9" Content="Category9" Foreground="#FF06558D" Background="{x:Null}" BorderBrush="#FF89C3EC" BorderThickness="2" Checked="chboxListingsCategory" Unchecked="unChboxListingsCategory" Margin="358,469,-261,143" FontSize="11" FontFamily="Segoe UI Semilight" Visibility="Collapsed"/>
+            <Label Content="Categories&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="0,316,0,284" FontSize="14" Background="#661F79C1" Height="30"/>
+            <Slider x:Name="slidListingsPriceCustom" Width="123" HorizontalAlignment="Center" VerticalAlignment="Center" AutoToolTipPlacement="BottomRight" Maximum="500" SmallChange="1" LargeChange="10" TickPlacement="BottomRight" TickFrequency="50" Value="-1" Cursor="Arrow" Background="{x:Null}" IsEnabled="False" Margin="34,192,43,408" Height="30" />
+            <Label Content="Date Uploaded&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="0,238,0,362" FontSize="14" Background="#661F79C1"/>
             <Label x:Name="labelCancelDateRanges" Content="Cancel" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelDateRanges_MouseLeftButtonDown" Margin="5,249,140,351" Visibility="Hidden"/>
-            <ComboBox x:Name="comboxListingsDatePick" Width="180" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="#FFACACAC" SelectionChanged="comboxListingsDatePick_SelectionChanged" Margin="10,277,10,324" Height="29">
+            <ComboBox x:Name="comboxListingsDatePick" Width="180" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="#CCF1EEEE" BorderBrush="#FFACACAC" SelectionChanged="comboxListingsDatePick_SelectionChanged" Margin="10,269,10,331" Height="30" Foreground="#FF06558D">
                 <ComboBoxItem Content="Last hour" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last day" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last week" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last month" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last year" HorizontalAlignment="Left" Width="138"/>
             </ComboBox>
-            <ComboBox x:Name="comboxCategories" Width="180" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="#FFACACAC" Margin="10,397,10,203" Height="30" SelectionChanged="comboxCategories_SelectionChanged">
+            <Label Content="Sort by" Margin="50,1,50,594" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35"/>
+            <ComboBox x:Name="comboxListingsSortBy" Margin="10,36,10,569" Height="25" SelectionChanged="comboxListingsSortBy_SelectionChanged" VerticalAlignment="Stretch" Background="#CCF1EEEE" Foreground="#FF06558D" BorderBrush="#FFACACAC">
+                <ComboBoxItem IsSelected="True" Content="Date"/>
+                <ComboBoxItem Content="Price"/>
+                <ComboBoxItem Content="Popularity"/>
+            </ComboBox>
+            <Label Content="Filters" Margin="50,87,50,508" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35" MouseLeftButtonDown="Label_MouseLeftButtonDown"/>
+            <Button x:Name="btnGoSlider" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Ok" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Margin="162,196,0,0" Height="20" FontSize="8" FontWeight="Bold" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" IsEnabled="False" Click="btnGoSlider_Click"/>
+            <Label Content="Type&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="0,520,0,80" FontSize="14" Background="#661F79C1" Height="30"/>
+            <ComboBox x:Name="comboxListingsType" HorizontalAlignment="Left" Margin="10,552,0,0" VerticalAlignment="Top" Width="180" Height="30" SelectionChanged="comboxListingsType_SelectionChanged" Background="#CCF1EEEE" Foreground="#FF06558D" BorderBrush="#FFACACAC">
+                <ComboBoxItem IsSelected="True" Content="All" HorizontalAlignment="Left" Width="178"/>
+                <ComboBoxItem Content="Selling" HorizontalAlignment="Left" Width="178"/>
+                <ComboBoxItem Content="Looking for" HorizontalAlignment="Left" Width="178"/>
+            </ComboBox>
+            <ComboBox x:Name="comboxCategories" HorizontalContentAlignment="Center" Background="#CCF1EEEE" BorderBrush="#FFACACAC" SelectionChanged="comboxCategories_SelectionChanged" VerticalAlignment="Stretch" Margin="10,347,10,253" Foreground="#FF06558D">
                 <ComboBoxItem x:Uid="0" Content="ALL" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem x:Uid="1" Content="Technology" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem x:Uid="2" Content="Clothing" HorizontalAlignment="Left" Width="138"/>
@@ -121,21 +135,6 @@
                 <ComboBoxItem x:Uid="8" Content="Outdoors" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem x:Uid="9" Content="Vehicles" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem x:Uid="10" Content="Beauty" HorizontalAlignment="Left" Width="138"/>
-            </ComboBox>
-            <Label Content="Sort by" Margin="50,1,50,594" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35"/>
-            <ComboBox x:Name="comboxListingsSortBy" Margin="10,36,10,569" Height="25" SelectionChanged="comboxListingsSortBy_SelectionChanged" VerticalAlignment="Stretch" Background="#19FFFFFF">
-                <ComboBoxItem IsSelected="True" Content="Date"/>
-                <ComboBoxItem Content="Price"/>
-                <ComboBoxItem Content="Popularity"/>
-            </ComboBox>
-            <Label Content="Filters" Margin="50,91,50,504" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35" MouseLeftButtonDown="Label_MouseLeftButtonDown"/>
-            <Rectangle Height="1" Margin="0,85,0,544" Stroke="#FFAAAAAA"/>
-            <Button x:Name="btnGoSlider" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Ok" HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Margin="162,207,0,0" Height="20" FontSize="8" FontWeight="Bold" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" IsEnabled="False" Click="btnGoSlider_Click"/>
-            <Label Content="Type&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="10,548,10,52" FontSize="14" Background="#19000000" Height="30"/>
-            <ComboBox x:Name="comboxListingsType" HorizontalAlignment="Left" Margin="10,583,0,0" VerticalAlignment="Top" Width="180" Height="30" SelectionChanged="comboxListingsType_SelectionChanged">
-                <ComboBoxItem IsSelected="True" Content="All" HorizontalAlignment="Left" Width="178"/>
-                <ComboBoxItem Content="Selling" HorizontalAlignment="Left" Width="178"/>
-                <ComboBoxItem Content="Looking for" HorizontalAlignment="Left" Width="178"/>
             </ComboBox>
         </Grid>
     </Canvas>

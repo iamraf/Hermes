@@ -10,5 +10,11 @@ namespace Hermes.View.mylistings
     interface IMyListingsView
     {
         List<Listing> Listings { set; }
+        public void EnableAllButtons(bool enable);
+        public void DisableAllButtons();
+        public string GetImagePath
+        {
+            get;
+        }
     }
 }

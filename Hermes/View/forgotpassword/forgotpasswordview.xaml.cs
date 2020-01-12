@@ -1,3 +1,4 @@
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -23,7 +24,6 @@ namespace Hermes.View.forgotpassword
     public partial class forgotpasswordview : Window, IForgotPasswordView
     {
         private readonly ForgotPasswordviewPresenter _presenter;
-        
         public forgotpasswordview()
         {
             InitializeComponent();
@@ -31,7 +31,6 @@ namespace Hermes.View.forgotpassword
             SendPassword();
 
         }
-
         private String _confirmationCode;
 
         public string randomConfirmationCode()
@@ -69,7 +68,7 @@ namespace Hermes.View.forgotpassword
             }
             else
             {
-                //labelConfirmationCodeFail.Text = "Enter the right confirmation code.";
+                labelConfirmationCodeFail.Content = "Enter the right confirmation code.";
             }
         }
 
@@ -84,13 +83,14 @@ namespace Hermes.View.forgotpassword
                 }
                 else
                 {
-                    //labelChangePassword.Text = "The passwords don't match.";
+                    labelChangePassword.Content = "The passwords don't match.";
                 }
             }
             else
             {
-                //labelChangePassword.Text = "Minimum password length 8 characters.";
+                labelChangePassword.Content = "Minimum password length 8 characters.";
             }
         }
     }
+
 }

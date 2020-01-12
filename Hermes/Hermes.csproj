@@ -123,6 +123,11 @@
     <Compile Include="View\categories\CategoriesView.xaml.cs">
       <DependentUpon>CategoriesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\forgotpassword\forgotpasswordview.xaml.cs">
+      <DependentUpon>forgotpasswordview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\forgotpassword\forgotpasswordviewPresenter.cs" />
+    <Compile Include="View\forgotpassword\iforgotpasswordview.cs" />
     <Compile Include="View\home\HomePresenter.cs" />
     <Compile Include="View\home\IHomeView.cs" />
     <Compile Include="View\favourites\FavoritesView.xaml.cs">
@@ -135,6 +140,9 @@
     </Compile>
     <Compile Include="View\history\HistoryPresenter.cs" />
     <Compile Include="View\history\IHistoryView.cs" />
+    <Compile Include="View\login\forgotpassword2.xaml.cs">
+      <DependentUpon>forgotpassword2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\mylistings\MyListingsPresenter.cs" />
     <Compile Include="View\help\HelpView.xaml.cs">
       <DependentUpon>HelpView.xaml</DependentUpon>
@@ -164,6 +172,9 @@
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\profile\ProfilePresenter.cs" />
+    <Compile Include="View\register\confirmcode.xaml.cs">
+      <DependentUpon>confirmcode.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\register\IRegisterView.cs" />
     <Compile Include="View\register\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
@@ -185,6 +196,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\forgotpassword\forgotpasswordview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\help\HelpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +216,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\login\forgotpassword2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\login\LoginView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -222,6 +241,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\profile\ProfileView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\register\confirmcode.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
