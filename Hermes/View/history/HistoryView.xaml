@@ -16,25 +16,25 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/Images/Background3profile.png" Grid.ColumnSpan="3"/>
         <Frame Content="Frame" Height="603" VerticalAlignment="Top" Margin="365,0,200,0" Grid.Column="2"/>
-        <Image x:Name="imgListingsSelected" Grid.Column="2" HorizontalAlignment="Left" Height="120" Margin="31,30,0,0" VerticalAlignment="Top" Width="120">
+        <Rectangle Grid.Column="2" Fill="#19000000" HorizontalAlignment="Left" Height="195" Margin="32,80,0,0" VerticalAlignment="Top" Width="195"/>
+        <Image x:Name="imgListingsSelected" Grid.Column="2" HorizontalAlignment="Left" Height="195" Margin="32,80,0,0" VerticalAlignment="Top" Width="195">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="2" Margin="165,32,28,563" FontSize="20" FontWeight="Bold" Background="#19000000" Foreground="#DDFFFFFF"/>
-        <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="2" Margin="200,67,28,534" Foreground="#DDFFFFFF"/>
-        <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="2" Margin="200,96,28,508" Foreground="#DDFFFFFF"/>
-        <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="2" Margin="30,265,29,30" TextWrapping="Wrap" Text="Description" Width="417" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <Button x:Name="btnListingSelectedFavorite" Content="Add to Favorites" Grid.Column="2" HorizontalAlignment="Left" Margin="31,170,0,0" VerticalAlignment="Top" Width="150" Click="BtnListingSelectedFavorite_Click" Height="30" Background="#DDFFFFFF" BorderThickness="0,0,0,3"/>
-        <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" Grid.Column="2" HorizontalAlignment="Left" Margin="298,170,0,0" VerticalAlignment="Top" Width="150" Height="30" Background="#DDFFFFFF" Click="btnListingSelectedContact_Click" BorderThickness="0,0,0,3"/>
-        <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="2" Margin="200,122,28,483" Foreground="#DDFFFFFF"/>
+        <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Grid.Column="2" Margin="30,30,30,565" FontSize="20" FontWeight="Bold" Background="#26000000" Foreground="#DDFFFFFF"/>
+        <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Grid.Column="2" Margin="256,80,30,525" Foreground="#DDFFFFFF" Background="#26000000" Height="25" Width="190"/>
+        <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Grid.Column="2" Margin="256,110,30,496" Foreground="#DDFFFFFF" Background="#26000000" Height="25" Width="190"/>
+        <TextBlock x:Name="tbListingSelectedDescription" Grid.Column="2" Margin="32,285,27,65" TextWrapping="Wrap" Text="Description" Width="417" Foreground="#DDFFFFFF" Background="#26000000"/>
+        <Button x:Name="btnListingSelectedFavorite" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Add to Favorites" Grid.Column="2" Margin="256,245,30,0" VerticalAlignment="Top" Click="BtnListingSelectedFavorite_Click" Height="30" Background="#DDFFFFFF" BorderThickness="0,0,0,3"/>
+        <Button x:Name="btnListingSelectedContact" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Contact Uploader" Grid.Column="2" HorizontalAlignment="Left" Margin="256,209,0,0" VerticalAlignment="Top" Width="190" Height="30" Background="#DDFFFFFF" Click="btnListingSelectedContact_Click" BorderThickness="0,0,0,3"/>
+        <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Grid.Column="2" Margin="256,140,30,465" Foreground="#DDFFFFFF" Background="#26000000" Height="25" Width="190"/>
         <Grid x:Name="canvasListingsFilters" Width="200" Background="#FFE3F2FD">
             <Button x:Name="btnProfileMyProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" Margin="10,30,10,560" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20" Height="Auto" Background="#262196F3"/>
             <Button x:Name="btnProfileHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" Margin="10,90,10,500" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click" Background="#592196F3"/>
             <Button x:Name="btnProfileFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" Margin="10,150,10,440" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click" Background="#262196F3"/>
             <Button x:Name="btnProfileListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" Margin="10,210,10,380" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#262196F3"/>
             <Button x:Name="btnProfileSignout" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" Margin="10,560,10,30" Height="Auto" BorderThickness="5,0,0,0" BorderBrush="#FF7B1FA2" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF7B1FA2" VerticalContentAlignment="Top" Background="#337B1FA2" Click="btnProfileSignout_Click"/>
-            <Button x:Name="btnProfileListings_Copy" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" Margin="10,270,10,320" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#262196F3"/>
         </Grid>
         <ListBox x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged" Grid.ColumnSpan="2" Margin="0,0,475,0" Grid.Column="1">
             <ListBox.ItemTemplate>
@@ -64,6 +64,24 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="btnListingSelectedDeleteHistory" Content="Delete All History" Grid.Column="2" HorizontalAlignment="Left" Margin="32,220,0,0" VerticalAlignment="Top" Width="416" Height="30" Background="#DDFFFFFF" BorderThickness="0,0,0,3" Click="btnListingSelectedDeleteHistory_Click"/>
+        <Button x:Name="btnListingSelectedDeleteHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Delete All History" Grid.Column="2" Margin="257,582,27,18" Width="192" Height="30" Background="#DDFFFFFF" BorderThickness="0,0,0,3" Click="btnListingSelectedDeleteHistory_Click" BorderBrush="#FF7B1FA2"/>
+        <Button
+            Style="{StaticResource MaterialDesignIconForegroundButton}"
+            ToolTip="MaterialDesignIconForegroundButton" Grid.Column="2" Margin="231,80,220,525" Foreground="#99FFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="25">
+            <materialDesign:PackIcon
+                Kind="Person" />
+        </Button>
+        <Button
+            Style="{StaticResource MaterialDesignIconForegroundButton}"
+            ToolTip="MaterialDesignIconForegroundButton" Grid.Column="2" Margin="231,110,220,495" Foreground="#99FFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="25">
+            <materialDesign:PackIcon
+                Kind="Email" />
+        </Button>
+        <Button
+            Style="{StaticResource MaterialDesignIconForegroundButton}"
+            ToolTip="MaterialDesignIconForegroundButton" Grid.Column="2" Margin="231,140,220,465" Foreground="#99FFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="25" RenderTransformOrigin="0.78,0.5">
+            <materialDesign:PackIcon
+                Kind="phone" />
+        </Button>
     </Grid>
 </Page>

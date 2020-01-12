@@ -11,32 +11,32 @@
     <Grid Margin="0">
         <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/Images/Background3profile.png"/>
 
-        <Label x:Name="lblRegisterPage1" Content="Log in Credentials" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="418,120,606,463" Foreground="#DDFFFFFF"/>
-        <TextBox x:Name="txtboxRegisterUsername2" TextWrapping="Wrap" Text="Username..." Margin="462,160,650,445" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <TextBox x:Name="txtboxRegisterPassword5" TextWrapping="Wrap" Text="Password..." Margin="462,190,650,415" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <Label x:Name="lblRegisterPage2" Content="Personal Information" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="418,222,606,361" Foreground="#DDFFFFFF"/>
-        <TextBox x:Name="txtboxRegisterEmail" TextWrapping="Wrap" Text="Email..." Margin="462,260,650,345" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <TextBox x:Name="txtboxRegisterName" TextWrapping="Wrap" Text="Name..." Margin="462,288,650,317" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <TextBox x:Name="txtboxRegisterSurname" TextWrapping="Wrap" Text="Surname..." Margin="462,316,650,289" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <TextBox x:Name="txtboxRegisterPhone" TextWrapping="Wrap" Text="Phone number..." Margin="462,344,650,262" Width="160" Height="24" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <ComboBox x:Name="comboxRegisterAddress" HorizontalAlignment="Left" Margin="462,374,0,0" VerticalAlignment="Top" Width="158" Height="24" SelectionChanged="comboxRegisterAddress_SelectionChanged" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <ComboBox x:Name="comboxRegisterAddressTK" HorizontalAlignment="Left" Margin="462,403,0,0" VerticalAlignment="Top" Width="101" Height="24" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <Label Content="Edit your information" HorizontalAlignment="Left" Margin="632,60,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-        <Button Content="Save Changes" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="462,456,650,142" Height="Auto" Click="Button_Click" Background="#FFFFF2E0" BorderThickness="0,0,0,3"/>
-        <TextBox x:Name="txtboxRegisterPassword8" TextWrapping="Wrap" Text="Password..." Margin="830,160,282,445" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <TextBox x:Name="txtboxRegisterPassword6" TextWrapping="Wrap" Text="New Password..." Margin="830,205,282,400" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <TextBox x:Name="txtboxRegisterPassword7" TextWrapping="Wrap" Text="Re-enter new password..." Margin="830,235,282,370" Height="25" Foreground="#DDFFFFFF" Background="#19000000"/>
-        <Grid x:Name="canvasListingsFilters" Width="200" Background="#FFE3F2FD" Margin="0,0,1072,0">
-            <Button x:Name="btnProfileMyProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" Margin="10,30,10,560" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20" Height="Auto" Background="#262196F3"/>
-            <Button x:Name="btnProfileHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" Margin="10,90,10,500" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click" Background="#592196F3"/>
+        <Label x:Name="lblRegisterPage1" Content="Log in Credentials" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="441,93,583,497" Foreground="#DDFFFFFF"/>
+        <TextBox x:Name="txtboxRegisterUsername2" TextWrapping="Wrap" Text="Username..." Margin="468,133,606,472" Height="25" Foreground="#DDFFFFFF" Background="#19000000" Width="198"/>
+        <TextBox x:Name="txtboxRegisterPassword5" TextWrapping="Wrap" Text="Password..." Margin="468,163,606,442" Height="25" Foreground="#DDFFFFFF" Background="#19000000" Width="198"/>
+        <Label x:Name="lblRegisterPage2" Content="Personal Information" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="441,196,583,386" Foreground="#DDFFFFFF"/>
+        <TextBox x:Name="txtboxRegisterEmail" TextWrapping="Wrap" Text="Email..." Margin="468,233,606,372" Height="25" Foreground="#DDFFFFFF" Background="#19000000" Width="198"/>
+        <TextBox x:Name="txtboxRegisterName" TextWrapping="Wrap" Text="Name..." Margin="468,261,606,344" Height="25" Foreground="#DDFFFFFF" Background="#19000000" Width="198"/>
+        <TextBox x:Name="txtboxRegisterSurname" TextWrapping="Wrap" Text="Surname..." Margin="468,289,606,316" Height="25" Foreground="#DDFFFFFF" Background="#19000000" Width="198"/>
+        <TextBox x:Name="txtboxRegisterPhone" TextWrapping="Wrap" Text="Phone number..." Margin="468,317,606,289" Width="198" Height="24" Foreground="#DDFFFFFF" Background="#19000000"/>
+        <ComboBox x:Name="comboxRegisterAddress" HorizontalAlignment="Left" Margin="466,348,0,0" VerticalAlignment="Top" Width="200" Height="24" SelectionChanged="comboxRegisterAddress_SelectionChanged" Foreground="#DDFFFFFF" Background="#CC0E3F70"/>
+        <ComboBox x:Name="comboxRegisterAddressTK" HorizontalAlignment="Left" Margin="466,378,0,0" VerticalAlignment="Top" Width="140" Height="24" Foreground="#DDFFFFFF" Background="#CC0E3F70"/>
+        <Label Content="Edit your information" HorizontalAlignment="Left" Margin="676,38,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="14"/>
+        <Button Content="Save Changes" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="490,429,622,169" Height="30" Click="Button_Click" Background="#FFFFF2E0" BorderThickness="0,0,0,3"/>
+        <TextBox x:Name="txtboxRegisterPassword8" TextWrapping="Wrap" Text="Password..." Margin="866,197,206,408" Height="25" Foreground="#DDFFFFFF" Background="#19000000" Width="200"/>
+        <TextBox x:Name="txtboxRegisterPassword6" TextWrapping="Wrap" Text="New Password..." Margin="866,242,206,363" Height="25" Foreground="#DDFFFFFF" Background="#19000000" Width="200"/>
+        <TextBox x:Name="txtboxRegisterPassword7" TextWrapping="Wrap" Text="Re-enter new password..." Margin="866,272,206,333" Height="25" Foreground="#DDFFFFFF" Background="#19000000" Width="200"/>
+        <Grid x:Name="canvasListingsFilters" Width="200" Background="White" Margin="0,0,1072,0">
+            <Button x:Name="btnProfileMyProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" Margin="10,30,10,560" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20" Height="Auto" Background="#662196F3"/>
+            <Button x:Name="btnProfileHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" Margin="10,90,10,500" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click" Background="#262196F3"/>
             <Button x:Name="btnProfileFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" Margin="10,150,10,440" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click" Background="#262196F3"/>
             <Button x:Name="btnProfileListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" Margin="10,210,10,380" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#262196F3"/>
             <Button x:Name="btnProfileSignout" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" Margin="10,560,10,30" Height="Auto" BorderThickness="5,0,0,0" BorderBrush="#FF7B1FA2" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF7B1FA2" VerticalContentAlignment="Top" Background="#337B1FA2" Click="btnProfileSignout_Click"/>
-            <Button x:Name="btnProfileListings_Copy" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" Margin="10,270,10,320" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#262196F3"/>
         </Grid>
-        <Button Content="Change Password" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="833,267,282,331" Height="Auto" Background="#FFFFF2E0" BorderThickness="0,0,0,3" Click="Button_Click_1"/>
-        <Button Content="Forgot Password" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="833,309,282,289" Height="Auto" Background="#FFFFF2E0" BorderThickness="0,0,0,3" Click="Button_Click_2"/>
-        <Label x:Name="lblRegisterPage1_Copy" Content="Change Password" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="789,120,235,463" Foreground="#DDFFFFFF"/>
+        <Button Content="Change Password" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="886,315,229,283" Height="30" Background="#FFFFF2E0" BorderThickness="0,0,0,3" Click="Button_Click_1"/>
+        <Button Content="Forgot Password" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="886,357,229,241" Height="25" Background="#FFFFF2E0" BorderThickness="0,0,0,3" BorderBrush="#FF7B1FA2" VerticalContentAlignment="Top" FontSize="12"/>
+        <Label x:Name="lblRegisterPage1_Copy" Content="Change Password" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="831,150,193,440" Foreground="#DDFFFFFF"/>
+        <Rectangle HorizontalAlignment="Left" Height="400" Margin="745,100,0,0" Stroke="#FF2B2B2B" VerticalAlignment="Top" Width="1"/>
 
     </Grid>
 </Page>
