@@ -26,7 +26,7 @@
         <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Margin="165,78,28,506" Grid.Column="2"/>
         <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Margin="165,108,28,476" Grid.Column="2"/>
         <TextBlock x:Name="tbListingSelectedDescription" HorizontalAlignment="Left" Margin="31,180,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="188" Width="417" Grid.Column="2"/>
-        <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" HorizontalAlignment="Left" Margin="108,373,0,0" VerticalAlignment="Top" Width="259" Grid.Column="2" Height="20" Click="btnListingSelectedContact_Click"/>
+        <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" HorizontalAlignment="Left" Margin="237,374,0,0" VerticalAlignment="Top" Width="229" Grid.Column="2" Height="20" Click="btnListingSelectedContact_Click"/>
         <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Margin="165,133,28,451" Grid.Column="2"/>
         <Grid x:Name="canvasListingsFilters" Width="200">
             <Grid.Background>
@@ -154,6 +154,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-      
+        <Button x:Name="btnListingSelectedDelete" Content="Remove From Favorites" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Width="215" Grid.Column="2" Height="20" Click="btnListingSelectedContact_Copy_Click"/>
+        <Button x:Name="btnListingSelectedDeleteAll" Content="Dekete All Favorites" HorizontalAlignment="Left" Margin="56,419,0,0" VerticalAlignment="Top" Width="349" Grid.Column="2" Height="20" Click="btnListingSelectedContact_Copy1_Click"/>
+
     </Grid>
 </Page>

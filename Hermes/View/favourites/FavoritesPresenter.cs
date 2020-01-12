@@ -25,10 +25,17 @@ namespace Hermes.View.favourites
         public void GetListings()
         {
             List<Listing> list = _favouritesRepository.GetFavouriteListings(GetCurrentUser().Id);
+            
+            _view.DeleteButtonEnable = false;
 
             if (list != null && list.Count > 0)
             {
                 _view.Listings = list;
+            }
+            else
+            {
+                _view.Listings = null;
+                _view.DeleteAllButtonEnable = false;
             }
         }
 
@@ -71,6 +78,18 @@ namespace Hermes.View.favourites
             ObjectCache Cache = MemoryCache.Default;
             if (Cache["User"] != null)
                 Cache.Remove("User");
+        }
+
+        public void DeleteThisFromFavorites()
+        {
+            _listingsRepository.DeleteFromFavorite(new Favourite(_view.SelectedListing.Id, GetCurrentUser().Id));
+            GetListings();
+        }
+
+        public void DeleteAllFromFavorites()
+        {
+            _listingsRepository.DeleteAllFromFavorite(new Favourite(0, GetCurrentUser().Id));
+            GetListings();
         }
     }
 }

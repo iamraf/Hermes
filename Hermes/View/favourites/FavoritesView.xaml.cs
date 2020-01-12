@@ -31,9 +31,33 @@ namespace Hermes.View.favourites
             }
         }
 
+        public Listing SelectedListing
+        {
+            get
+            {
+                return (Listing)listviewListings.SelectedItem;
+            }
+        }
+
+        public bool DeleteButtonEnable
+        {
+            set
+            {
+                btnListingSelectedDelete.IsEnabled = value;
+            }
+        }
+
+        public bool DeleteAllButtonEnable
+        {
+            set
+            {
+                btnListingSelectedDeleteAll.IsEnabled = value;
+            }
+        }
+
         private void btnProfileMyProfile_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("View/profile/ProfilePage.xaml", UriKind.RelativeOrAbsolute));
+            this.NavigationService.Navigate(new Uri("View/profile/ProfileView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnProfileHistory_Click(object sender, RoutedEventArgs e)
@@ -58,6 +82,7 @@ namespace Hermes.View.favourites
             if (listing != null)
             {
                 User uploader = _presenter.GetUploader(listing.Id);
+                DeleteButtonEnable = true;
 
                 lblListingSelectedTitle.Content = listing.Name;
                 tbListingSelectedDescription.Text = listing.Description;
@@ -97,7 +122,17 @@ namespace Hermes.View.favourites
         private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
         {
             _presenter.Logout();
+            this.NavigationService.Navigate(new Uri("View/login/LoginView.xaml", UriKind.RelativeOrAbsolute));
         }
 
+        private void btnListingSelectedContact_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            _presenter.DeleteThisFromFavorites();
+        }
+
+        private void btnListingSelectedContact_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+            _presenter.DeleteAllFromFavorites();
+        }
     }
 }

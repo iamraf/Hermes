@@ -150,6 +150,7 @@ namespace Hermes.View.mylistings
         private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
         {
             _presenter.Logout();
+            this.NavigationService.Navigate(new Uri("View/login/LoginView.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }
