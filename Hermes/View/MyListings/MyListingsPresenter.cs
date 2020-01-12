@@ -1,7 +1,6 @@
 ﻿using Hermes.Model;
 using Hermes.Model.Models;
 using System.Collections.Generic;
-using System.IO;
 using System.Runtime.Caching;
 using System.Windows;
 /* MyListingsPresenter connect view with model classes
@@ -15,13 +14,11 @@ namespace Hermes.View.mylistings
     {
         private readonly IMyListingsView _view;
         private readonly MyListingsRepository _repository;
-        private readonly UploadRepository _uploadRepository;
 
         public MyListingsPresenter(IMyListingsView view)
         {
             _view = view;
             _repository = new MyListingsRepository();
-            _uploadRepository = new UploadRepository();
         }
 
         public void GetListings(int activeListing)
@@ -29,17 +26,18 @@ namespace Hermes.View.mylistings
             User user = GetCurrentUser();
 
             List<Listing> list = _repository.GetListings(user.Id, activeListing);
+
             if (list != null && list.Count > 0)
             {
                 _view.Listings = list;
             }
         }
 
-        public void UpdateListing(int id, string title, float price, string description,string path)
+        public void UpdateListing(int id, string title, float price, string description)
         {
             bool update = _repository.UpdateListing(id, title, price, description);
-            UploadImage(id,path);
-            if (update)
+
+            if(update)
             {
                 MessageBox.Show("Listing updated!", "Success", MessageBoxButton.OK);
             }
@@ -66,32 +64,6 @@ namespace Hermes.View.mylistings
             ObjectCache Cache = MemoryCache.Default;
             if (Cache["User"] != null)
                 Cache.Remove("User");
-        }
-
-        public void UploadImage(int listingId, string imagePath)
-        {
-            if (imagePath != null)
-            {
-                FileStream fs;
-                BinaryReader br;
-
-                string FileName = imagePath;
-                byte[] ImageData;
-                fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
-                br = new BinaryReader(fs);
-                ImageData = br.ReadBytes((int)fs.Length);
-                br.Close();
-                fs.Close();
-                if (_uploadRepository.UploadImage(listingId, ImageData) == false)
-                {
-                    MessageBox.Show("Could not upload image!", "Error");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Could not load image!", "Error");
-            }
-
         }
     }
 }

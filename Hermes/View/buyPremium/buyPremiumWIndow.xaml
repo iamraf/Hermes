@@ -3,24 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Hermes.View.buyPremium"
         mc:Ignorable="d"
         
-        Title="buyPremiumWIndow" Height="382.5" Width="383">
+        Title="Premium" Height="360" Width="380" ResizeMode="NoResize" SizeToContent="Width" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="181*"/>
-            <RowDefinition Height="170*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="Card number:" HorizontalAlignment="Left" Margin="84,140,0,0" VerticalAlignment="Top" Width="91"/>
-        <Label Content="CCV" HorizontalAlignment="Left" Margin="84,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.45,4.329" Width="91" Grid.RowSpan="2"/>
-
-        <Label Content="Owner's name" HorizontalAlignment="Left" Margin="84,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.351,-1.981" Width="91" Grid.Row="1"/>
-        <Label Content="Expiration date" HorizontalAlignment="Left" Margin="84,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.45,4.329" Width="91" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" PreviewTextInput="txtboxNumberValidation" Margin="180,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" PreviewTextInput="txtboxNumberValidation" Margin="180,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.RowSpan="2"/>
-        <TextBox HorizontalAlignment="Left" Height="23" PreviewTextInput="txtboxLetterValidation" Margin="180,18,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <ComboBox HorizontalAlignment="Left" Margin="180,46,0,0" VerticalAlignment="Top" Width="44" Grid.Row="1">
+        <TextBox materialDesign:HintAssist.Hint="Card Number" HorizontalAlignment="Left" Height="30" PreviewTextInput="txtboxNumberValidation" Margin="110,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Background="#19000000"/>
+        <TextBox materialDesign:HintAssist.Hint="CCV" HorizontalAlignment="Left" Height="30" PreviewTextInput="txtboxNumberValidation" Margin="110,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Background="#19000000"/>
+        <TextBox materialDesign:HintAssist.Hint="Owner's Name" Height="30" PreviewTextInput="txtboxLetterValidation" Margin="110,210,110,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Background="#19000000"/>
+        <ComboBox materialDesign:HintAssist.Hint="Month" HorizontalAlignment="Left" Margin="110,245,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="#FFC3C3C3">
             <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="92"/>
@@ -35,7 +30,7 @@
             <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="92"/>
 
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="256,46,0,0" VerticalAlignment="Top" Width="44" Grid.Row="1">
+        <ComboBox materialDesign:HintAssist.Hint="Year" HorizontalAlignment="Left" Margin="200,245,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="#FFC3C3C3">
             <ComboBoxItem Content="2020" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="2021" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="2022" HorizontalAlignment="Left" Width="92"/>
@@ -43,21 +38,24 @@
             <ComboBoxItem Content="2024" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="2025" HorizontalAlignment="Left" Width="92"/>
         </ComboBox>
-        <Button Content="Pay now" HorizontalAlignment="Left" Margin="225,97,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click" Grid.Row="1"/>
-        <Label HorizontalAlignment="center" Margin="15,62,5,0" VerticalAlignment="Top" Width="355">
-            <Label HorizontalAlignment="center" Content="Choose how many premium listings would you like to buy" Height="25" Width="345"/>
-        </Label>
-        <ComboBox x:Name="comboboxPremiumOffers" HorizontalAlignment="Left" Margin="64,100,0,0" VerticalAlignment="Top" Width="259">
+        <Button Content="Pay now" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="141,299,141,29" Width="98" Click="Button_Click"/>
+        <Label HorizontalAlignment="center" Margin="15,62,5,0" VerticalAlignment="Top" Width="355"/>
+        <ComboBox x:Name="comboboxPremiumOffers" Margin="60,95,61,235" VerticalAlignment="Stretch" Width="259" Height="30" Background="#FFC3C3C3">
             <ComboBoxItem IsSelected="True" Content="10 premium listings for  8.49€ (15% off)" HorizontalAlignment="Left" Width="259"/>
             <ComboBoxItem Content="20 premium listings for 16.49€ (20% off)" HorizontalAlignment="Left" Width="259"/>
             <ComboBoxItem Content="30 premium listings for 21.49€ (30% off)" HorizontalAlignment="Left" Width="259"/>
 
         </ComboBox>
-        <Label    Margin="15,10,10,0" VerticalAlignment="Top" Height="58" Width="350" FontWeight="Bold">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="center" TextWrapping="WrapWithOverflow"  FontSize="16" Width="340" >
-                Here you can pre-buy premium listings bundles for a great price!
-            </TextBlock>
-        </Label>
+        <Label Content="Choose how many premium listings you would like to buy" Margin="14,69,14,265" HorizontalContentAlignment="Center"/>
+        <TextBlock TextWrapping="WrapWithOverflow"  FontSize="16" Width="340" Margin="18,20,22,293" FontWeight="Bold" TextAlignment="Center" ><Run Text="Here you can pre-buy premium listings bundles for a great price!"/></TextBlock>
+        <Button x:Name="btnTopClose"
+            Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+            ToolTip="Exit" Margin="354,1,1,334" Height="25" Width="25" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnTopClose_Click">
+            <materialDesign:PackIcon
+                Kind="Close"
+                Height="24"
+                Width="24" />
+        </Button>
 
 
     </Grid>

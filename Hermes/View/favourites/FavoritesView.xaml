@@ -1,9 +1,10 @@
-﻿<Page x:Class="Hermes.View.favourites.FavoritesView"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Hermes.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Hermes.View.favourites.FavoritesView"
       mc:Ignorable="d"
       Title="FavoritesPage" Height="630" Width="1272" Background="#FFF3F3F3">
 
@@ -16,117 +17,21 @@
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
+        <Image x:Name="imgBackground" Width="1272" VerticalAlignment="Top" Source="/Hermes;component/Images/Background3profile.png" Height="630" HorizontalAlignment="Left" Grid.ColumnSpan="3"/>
         <Frame Content="Frame" Height="603" VerticalAlignment="Top" Margin="476,0,0,0" Grid.Column="2"/>
-        <Image x:Name="imgListingsSelected" HorizontalAlignment="Left" Height="120" Margin="31,30,0,0" VerticalAlignment="Top" Width="120" Grid.Column="2">
+        <Rectangle Grid.Column="2" Fill="#19000000" HorizontalAlignment="Left" Height="195" Margin="31,80,0,0" VerticalAlignment="Top" Width="195"/>
+        <Image x:Name="imgListingsSelected" HorizontalAlignment="Left" Height="195" Margin="31,80,0,0" VerticalAlignment="Top" Width="195" Grid.Column="2">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Margin="165,32,28,537" FontSize="20" FontWeight="Bold" Grid.Column="2"/>
-        <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Margin="165,78,28,506" Grid.Column="2"/>
-        <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Margin="165,108,28,476" Grid.Column="2"/>
-        <TextBlock x:Name="tbListingSelectedDescription" HorizontalAlignment="Left" Margin="31,180,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="188" Width="417" Grid.Column="2"/>
-        <Button x:Name="btnListingSelectedContact" Content="Contact Uploader" HorizontalAlignment="Left" Margin="237,374,0,0" VerticalAlignment="Top" Width="229" Grid.Column="2" Height="20" Click="btnListingSelectedContact_Click"/>
-        <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Margin="165,133,28,451" Grid.Column="2"/>
-        <Grid x:Name="canvasListingsFilters" Width="200">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF06558D"/>
-                    <GradientStop Color="#FF07A6D4" Offset="1"/>
-                    <GradientStop Color="#FF065C93" Offset="0.491"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Button x:Name="btnProfileMyProfile" Content="My Profile" Margin="10,30,10,549" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#0089C3EC" Offset="0.252"/>
-                        <GradientStop Color="#3389C3EC" Offset="1"/>
-                        <GradientStop Color="#0289C2EB" Offset="0.613"/>
-                        <GradientStop Color="#0C6DB2E4"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btnProfileHistory" Content="History" Margin="10,90,10,489" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#0089C3EC" Offset="0.252"/>
-                        <GradientStop Color="#3389C3EC" Offset="1"/>
-                        <GradientStop Color="#0289C2EB" Offset="0.613"/>
-                        <GradientStop Color="#0C6DB2E4"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btnProfileFavorites" Content="Favorites" Margin="10,150,10,429" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#0089C3EC" Offset="0.252"/>
-                        <GradientStop Color="#3389C3EC" Offset="1"/>
-                        <GradientStop Color="#0289C2EB" Offset="0.613"/>
-                        <GradientStop Color="#0C6DB2E4"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btnProfileListings" Content="My Listings" Margin="10,210,10,369" Height="30" BorderBrush="#FF89C3EC" Foreground="#FF89C3EC" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#0089C3EC" Offset="0.252"/>
-                        <GradientStop Color="#3389C3EC" Offset="1"/>
-                        <GradientStop Color="#0289C2EB" Offset="0.613"/>
-                        <GradientStop Color="#0C6DB2E4"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btnProfileSignout" Content="Sign Out" Margin="10,549,10,30" Height="30" BorderThickness="5,0,0,0" BorderBrush="#FF06558D" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF89C3EC" VerticalContentAlignment="Top" Click="btnProfileSignout_Click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                <RotateTransform Angle="-90" CenterY="0.5" CenterX="0.5"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#7F06558D" Offset="0"/>
-                        <GradientStop Color="#331874B6" Offset="1"/>
-                        <GradientStop Color="#351772B4" Offset="0.8"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-        </Grid>
-        <ListBox x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged" Margin="5,10,5,0" Grid.Column="1">
+        <Label x:Name="lblListingSelectedTitle" Content="Listing Title" Margin="30,30,30,560" FontSize="20" FontWeight="Bold" Grid.Column="2" Height="40" Width="416" Background="#26000000" Foreground="#DDFFFFFF"/>
+        <Label x:Name="lblListingSelectedUploader" Content="Listing Uploader" Margin="256,80,30,525" Grid.Column="2" Height="25" Background="#26000000" Foreground="#DDFFFFFF"/>
+        <Label x:Name="lblListingSelectedContactInfoEmail" Content="Listing Contact Info (email) here " Margin="256,110,30,495" Grid.Column="2" Height="25" Background="#26000000" Foreground="#DDFFFFFF"/>
+        <TextBlock x:Name="tbListingSelectedDescription" Margin="30,286,28,69" TextWrapping="Wrap" Text="Description" Height="280" Width="417" Grid.Column="2" Background="#26000000" Foreground="#DDFFFFFF"/>
+        <Button x:Name="btnListingSelectedContact" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Contact Uploader" HorizontalAlignment="Left" Margin="254,209,0,0" VerticalAlignment="Top" Width="192" Grid.Column="2" Height="30" Click="btnListingSelectedContact_Click" Background="#FFFFF2E0" BorderThickness="0,0,0,3"/>
+        <Label x:Name="lblListingSelectedContactInfoEmail1" Content="Listing Contact Info (phone) here " Margin="256,140,30,465" Grid.Column="2" Height="25" Background="#26000000" Foreground="#DDFFFFFF"/>
+        <ListBox x:Name="listviewListings" SelectionChanged="listviewListings_SelectionChanged" Margin="5,0,0,0" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -154,8 +59,35 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="btnListingSelectedDelete" Content="Remove From Favorites" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Width="215" Grid.Column="2" Height="20" Click="btnListingSelectedContact_Copy_Click"/>
-        <Button x:Name="btnListingSelectedDeleteAll" Content="Dekete All Favorites" HorizontalAlignment="Left" Margin="56,419,0,0" VerticalAlignment="Top" Width="349" Grid.Column="2" Height="20" Click="btnListingSelectedContact_Copy1_Click"/>
+
+        <Grid x:Name="canvasListingsFilters" Width="200" Background="#FFE3F2FD">
+            <Button x:Name="btnProfileMyProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" Margin="10,30,10,560" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" Click="btnProfileMyProfile_Click" FontFamily="Segoe UI Light" FontSize="20" Height="Auto" Background="#262196F3"/>
+            <Button x:Name="btnProfileHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" Margin="10,90,10,500" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontSize="20" FontFamily="Segoe UI Light" Click="btnProfileHistory_Click" Background="#592196F3"/>
+            <Button x:Name="btnProfileFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" Margin="10,150,10,440" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileFavorites_Click" Background="#262196F3"/>
+            <Button x:Name="btnProfileListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" Margin="10,210,10,380" Height="Auto" BorderBrush="#FF06558D" Foreground="#FF06558D" BorderThickness="0,0,5,0" FontFamily="Segoe UI Light" FontSize="20" Click="btnProfileListings_Click" Background="#262196F3"/>
+            <Button x:Name="btnProfileSignout" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" Margin="10,560,10,30" Height="Auto" BorderThickness="5,0,0,0" BorderBrush="#FF7B1FA2" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF7B1FA2" VerticalContentAlignment="Top" Background="#337B1FA2" Click="btnProfileSignout_Click"/>
+        </Grid>
+        <Button x:Name="btnListingSelectedDelete" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Remove From Favorites" HorizontalAlignment="Left" Margin="254,245,0,0" VerticalAlignment="Top" Width="192" Height="30" Click="btnListingSelectedContact_Copy_Click" Grid.Column="2" Background="#FFFFF2E0" BorderThickness="0,0,0,3" BorderBrush="#FF7B1FA2"/>
+        <Button x:Name="btnListingSelectedDeleteAll" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Delete All Favorites" Margin="258,582,28,18" Width="190" Height="30" Click="btnListingSelectedContact_Copy1_Click" Background="#FFFFF2E0" BorderThickness="0,0,0,3" Grid.Column="2" BorderBrush="#FF7B1FA2"/>
+        <Button
+            Style="{StaticResource MaterialDesignIconForegroundButton}"
+            ToolTip="MaterialDesignIconForegroundButton" Grid.Column="2" Margin="231,80,220,525" Foreground="#99FFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="25">
+            <materialDesign:PackIcon
+                Kind="Person" />
+        </Button>
+        <Button
+            Style="{StaticResource MaterialDesignIconForegroundButton}"
+            ToolTip="MaterialDesignIconForegroundButton" Grid.Column="2" Margin="231,110,220,495" Foreground="#99FFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="25">
+            <materialDesign:PackIcon
+                Kind="Email" />
+        </Button>
+        <Button
+            Style="{StaticResource MaterialDesignIconForegroundButton}"
+            ToolTip="MaterialDesignIconForegroundButton" Grid.Column="2" Margin="231,140,220,465" Foreground="#99FFFFFF" Background="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="25" RenderTransformOrigin="0.78,0.5">
+            <materialDesign:PackIcon
+                Kind="phone" />
+        </Button>
+
 
     </Grid>
 </Page>

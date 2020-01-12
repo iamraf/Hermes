@@ -50,5 +50,10 @@ namespace Hermes.View.buyPremium
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void btnTopClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
