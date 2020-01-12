@@ -1,4 +1,6 @@
 ﻿using Hermes.Model.Models;
+using Hermes.View.help;
+using Hermes.View.listings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,11 +42,11 @@ namespace Hermes.View
             User user = (User)Cache["User"];
             if(user != null)
             {
-                frameMain.Navigate(new Uri("View/Upload/UploadPage.xaml", UriKind.RelativeOrAbsolute));
+                frameMain.Navigate(new Uri("View/upload/UploadView.xaml", UriKind.RelativeOrAbsolute));
             }
             else
             {
-                frameMain.Navigate(new Uri("View/Login/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+                frameMain.Navigate(new Uri("View/login/LoginView.xaml", UriKind.RelativeOrAbsolute));
             }
         }
 
@@ -54,11 +56,11 @@ namespace Hermes.View
             User user = (User)Cache["User"];
             if (user != null)
             {
-                frameMain.Navigate(new Uri("View/ProfilePage.xaml", UriKind.RelativeOrAbsolute));
+                frameMain.Navigate(new Uri("View/profile/ProfileView.xaml", UriKind.RelativeOrAbsolute));
             }
             else
             {
-                frameMain.Navigate(new Uri("View/Login/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+                frameMain.Navigate(new Uri("View/login/LoginView.xaml", UriKind.RelativeOrAbsolute));
             }
             
         }
@@ -83,17 +85,17 @@ namespace Hermes.View
 
         private void btnDropdownHistory_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/MyHistory/HistoryPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/history/HistoryView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnDropdownFavorites_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/MyFavorites/FavoritesPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/favourites/FavoritesView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnDropdownMyListings_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/MyListings/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/mylistings/MyListingsView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void btnTopSearch_Click(object sender, RoutedEventArgs e)
@@ -103,7 +105,7 @@ namespace Hermes.View
 
         private void btnTopHelp_Click(object sender, RoutedEventArgs e)
         {
-            HelpWindow helpwindow = new HelpWindow();
+            HelpView helpwindow = new HelpView();
             helpwindow.Show();
         }
 
@@ -115,7 +117,7 @@ namespace Hermes.View
         private void btnDropdownSignOut_Click(object sender, RoutedEventArgs e)
         {
             Logout();
-            frameMain.Navigate(new Uri("View/Login/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/login/LoginView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void Logout()
@@ -154,7 +156,7 @@ namespace Hermes.View
 
         private void btnDropdownProfile_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(new Uri("View/MyProfile/profilepage.xaml", UriKind.RelativeOrAbsolute));
+            frameMain.Navigate(new Uri("View/profile/ProfileView.xaml", UriKind.RelativeOrAbsolute));
         }
 
     }

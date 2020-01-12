@@ -15,19 +15,23 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/View/Images/Background3.png"/>
-        <Label x:Name="lblHomePage1" Content="Popular Categories" Margin="226,28,886,566" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Segoe UI Light" Background="#19000000"/>
-        <Label x:Name="lblHomePage2" Content="Popular Items" Margin="882,28,230,566" Width="160" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="36" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Segoe UI Light" Background="#19000000"/>
-        <Image x:Name="imgHomePopular1" Height="100" Margin="85,70,1087,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomePopular2" Height="100" Margin="255,70,917,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomePopular3" Height="100" Margin="440,70,732,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomePopular4" Height="100" Margin="85,190,1087,0" VerticalAlignment="Top" Width="100"/>
-        <Image x:Name="imgHomePopular5" Height="100" Margin="255,190,917,340" Width="100"/>
-        <Image x:Name="imgHomePopular6" Height="100" Margin="440,190,732,0" VerticalAlignment="Top" Width="100"/>
-        <Label x:Name="lblHomePage3" Content="Recommended for you" Margin="539,362,539,230" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Segoe UI Light" Background="#19000000"/>
-        <Button x:Name="btnAllCategories" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="All Categories" Margin="246,305,906,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" Background="White" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" Click="btnAllCategories_Click" Foreground="#FF06558D" FontFamily="Segoe UI Semilight" VerticalContentAlignment="Top"/>
-        <Button x:Name="btnAllItems" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="View All" Margin="907,305,245,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" Height="30" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" Background="White" Foreground="#FF06558D" FontFamily="Segoe UI Semilight" VerticalContentAlignment="Top"/>
-        <ListBox x:Name="listviewPopular" Margin="730,70,84,340">
+
+        <Image HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/Images/Background3.png"/>
+        <Rectangle Fill="#0C000000" HorizontalAlignment="Left" Height="191" Margin="63,403,0,0" VerticalAlignment="Top" Width="1146"/>
+        <Rectangle Fill="#0C000000" HorizontalAlignment="Left" Height="327" Margin="63,28,0,0" VerticalAlignment="Top" Width="520"/>
+        <Rectangle Fill="#0C000000" HorizontalAlignment="Left" Height="327" Margin="689,28,0,0" VerticalAlignment="Top" Width="520"/>
+        <Label x:Name="lblHomePage1" Content="Popular Categories" Margin="536,405,536,189" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Segoe UI Light" Background="#1E000000"/>
+        <Label x:Name="lblHomePage2" Content="Popular Items" Margin="226,28,846,564" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="38" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Segoe UI Light" Background="#19000000"/>
+        <Image x:Name="imgHomePopular1" Height="100" Margin="148,452,1024,0" VerticalAlignment="Top" Width="100" Source="/Hermes;component/error.jpg"/>
+        <Image x:Name="imgHomePopular2" Height="100" Margin="318,452,854,0" VerticalAlignment="Top" Width="100" Source="/Hermes;component/error.jpg"/>
+        <Image x:Name="imgHomePopular3" Height="100" Margin="504,452,668,0" VerticalAlignment="Top" Width="100" Source="/Hermes;component/error.jpg"/>
+        <Image x:Name="imgHomePopular4" Height="100" Margin="680,452,492,0" VerticalAlignment="Top" Width="100" Source="/Hermes;component/error.jpg"/>
+        <Image x:Name="imgHomePopular5" Height="100" Margin="862,452,310,0" VerticalAlignment="Top" Width="100" Source="/Hermes;component/error.jpg"/>
+        <Image x:Name="imgHomePopular6" Height="100" Margin="1034,452,138,0" VerticalAlignment="Top" Width="100" Source="/Hermes;component/error.jpg"/>
+        <Label x:Name="lblHomePage3" Content="Recommended for you" Margin="846,27,226,565" VerticalContentAlignment="Center" FontSize="18" Foreground="#DDFFFFFF" FontFamily="Segoe UI Light" Background="#19000000" Width="200" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btnAllCategories" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="All Categories" Margin="573,566,573,34" HorizontalContentAlignment="Center" Height="30" Background="White" BorderBrush="#FF7B1FA2" BorderThickness="0,0,0,3" Click="btnAllCategories_Click" Foreground="#FF7B1FA2" FontFamily="Segoe UI Semilight" VerticalContentAlignment="Top"/>
+        <Button x:Name="btnAllItems" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="View Popular" Margin="268,325,878,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="30" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" Background="White" Foreground="#FF06558D" FontFamily="Segoe UI Semilight" VerticalContentAlignment="Top"/>
+        <ListBox x:Name="listviewPopular" Margin="63,70,689,310" Width="520" Height="250" SelectionChanged="listviewPopular_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -43,11 +47,11 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="listviewRecommended" Margin="245,410,245,40">
+        <ListBox x:Name="listviewRecommended" Margin="689,70,63,310" Height="250" Width="520" SelectionChanged="listviewRecommended_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="{Binding Image}" Width="150" Height="150"/>
+                        <Image Source="{Binding Image}" Width="100" Height="100"/>
                         <StackPanel Orientation="Vertical" Margin="10,0,0,0" VerticalAlignment="Center">
                             <TextBlock Text="{Binding Name}" FontSize="15" Foreground="White" Margin="0,0,0,5" FontWeight="Bold"/>
                             <TextBlock Text="{Binding Description}" Foreground="White"/>
@@ -64,5 +68,21 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Rectangle x:Name="rectangleOverlay" Fill="#F2020A0E" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Visibility="Collapsed"/>
+        <Image x:Name="imgOverlay" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/Images/helpoverlay1.png" Visibility="Collapsed"/>
+        <Button x:Name="btnNoAction"
+              Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+              Visibility="Collapsed"
+              materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0"
+              ToolTip="Help" Margin="1149,246,93,354" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF06558D" Height="30" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <materialDesign:PackIcon
+                Kind="HelpCircleOutline"
+                Height="30"
+                Width="30" />
+        </Button>
+        <Button x:Name="btnCloseOverlay" Content="Close"  materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="598,303,598,295" Width="76" Background="#CCFFFFFF" BorderThickness="0,0,0,3" Click="btnCloseOverlay_Click" Visibility="Collapsed"/>
+        <TextBlock x:Name="txtblockNotLoggedIn" HorizontalAlignment="Left" Margin="740,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="124" Width="411" Foreground="#B20C4670" Background="#00000000" FontSize="16" FontFamily="Segoe UI Semilight" TextAlignment="Center"><Run Text="This place is empty because you are not logged in."/><LineBreak/><Run/><LineBreak/><Run Text="Click on the Log In tab and create an account to view recommended items, save your favorite listings, upload ads and join the Hermes community"/></TextBlock>
+        <Button x:Name="btnAllItems_Copy" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="View All Listings" Margin="876,325,268,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="30" BorderBrush="#FF06558D" BorderThickness="0,0,0,3" Background="White" Foreground="#FF06558D" FontFamily="Segoe UI Semilight" VerticalContentAlignment="Top"/>
+
     </Grid>
 </Page>

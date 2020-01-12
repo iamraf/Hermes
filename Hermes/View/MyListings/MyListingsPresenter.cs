@@ -4,24 +4,23 @@ using System.Collections.Generic;
 using System.Runtime.Caching;
 using System.Windows;
 
-namespace Hermes.View
+namespace Hermes.View.mylistings
 {
     class MyListingsPresenter
     {
-        private readonly IMyListingsPage  _view;
+        private readonly IMyListingsView _view;
         private readonly MyListingsRepository _repository;
-        private readonly ObjectCache Cache;
 
-        public MyListingsPresenter(IMyListingsPage view)
+        public MyListingsPresenter(IMyListingsView view)
         {
             _view = view;
             _repository = new MyListingsRepository();
-           Cache = MemoryCache.Default;
         }
 
         public void GetListings(int activeListing)
         {
-            User user = (User)Cache["User"];
+            User user = GetCurrentUser();
+
             List<Listing> list = _repository.GetListings(user.Id, activeListing);
 
             if (list != null && list.Count > 0)
@@ -33,7 +32,8 @@ namespace Hermes.View
         public void UpdateListing(int id, string title, float price, string description)
         {
             bool update = _repository.UpdateListing(id, title, price, description);
-            if (update)
+
+            if(update)
             {
                 MessageBox.Show("Listing updated!", "Success", MessageBoxButton.OK);
             }
@@ -41,14 +41,19 @@ namespace Hermes.View
             {
                 MessageBox.Show("ERROR!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
+
             GetListings(1);
         }
 
         public void DeactivateListing(int listingID) 
         {
-             _repository.deleteListing(listingID);            
+            _repository.deleteListing(listingID);            
         }
 
+        public User GetCurrentUser()
+        {
+            return (User)MemoryCache.Default["User"];
+        }
     }
 }
 
