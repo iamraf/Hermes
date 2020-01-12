@@ -37,13 +37,16 @@ namespace Hermes.View.profile
         {
             User user = GetCurrentUser();
             _view.Username = user.Username;
-            _view.Password1 = user.Password;
             _view.Name = user.Name;
             _view.Email = user.Email;
             _view.Name = user.Name;
             _view.Surname = user.Surname;
             _view.Telephone = user.Telephone;
             _view.SetSelectedLocationTK = user.Address;
+            _view.PasswordEditUser = "";
+            _view.PasswordEditPassword = "";
+            _view.PasswordEditPasswordNew1 = "";
+            _view.PasswordEditPasswordNew2 = "";
         }
 
         private List<string> GetOnlyLocationNames()
@@ -82,19 +85,19 @@ namespace Hermes.View.profile
 
         public void EditUser()
         {
-            if (HashingHelper.HashPassword(_view.Password1).Equals(GetCurrentUser().Password))
+            if (HashingHelper.HashPassword(_view.PasswordEditUser).Equals(GetCurrentUser().Password))
             {
                 if (_view.Username.Length > 6)
                 {
                     if (_view.SelectedLocationTK != null)
                     {
-                        if (MessageBox.Show("You are about to change your personal data.\nYou will log out if you continue.\nAre you sure", "Change of data", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                        if (MessageBox.Show("You are about to change your personal data.\nAre you sure", "Change of data", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                         {
                             User user = new User(GetCurrentUser().Id, _view.Username, GetCurrentUser().Password, _view.Name, _view.Surname, _view.SelectedLocationTK, _view.Email, _view.Telephone);
                             bool result = _repository.EditUser(user);
                             Logout();
                             ReLog(user);
-                            //_view.Navigate = true;
+                            LoadFields();
                         }
                     }
                     else
@@ -115,7 +118,42 @@ namespace Hermes.View.profile
 
         public void EditPassword()
         {
-
+            if (HashingHelper.HashPassword(_view.PasswordEditPassword).Equals(GetCurrentUser().Password))
+            {
+                if (!HashingHelper.HashPassword(_view.PasswordEditPassword).Equals(HashingHelper.HashPassword(_view.PasswordEditPasswordNew1)))
+                {
+                    if (_view.PasswordEditPasswordNew1.Length > 6)
+                    {
+                        if (HashingHelper.HashPassword(_view.PasswordEditPasswordNew1).Equals(HashingHelper.HashPassword(_view.PasswordEditPasswordNew2)))
+                        {
+                            if (MessageBox.Show("You are about to change your password.\nAre you sure", "Change of data", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                            {
+                                User user = new User(GetCurrentUser().Id, GetCurrentUser().Username, HashingHelper.HashPassword(_view.PasswordEditPasswordNew1), GetCurrentUser().Name, GetCurrentUser().Surname, GetCurrentUser().Address, GetCurrentUser().Email, GetCurrentUser().Telephone);
+                                bool result = _repository.EditUser(user);
+                                Logout();
+                                ReLog(user);
+                                LoadFields();
+                            }
+                        }
+                        else
+                        {
+                            _view.WarningDialog = "Passwords dont match.";
+                        }
+                    }
+                    else
+                    {
+                        _view.WarningDialog = "Password is too small.\nMust use atleast 6 characters.";
+                    }
+                }
+                else
+                {
+                    _view.WarningDialog = "New password is same with the old.";
+                }
+            }
+            else
+            {
+                _view.WarningDialog = "Password is incorect.";
+            }
         }
 
         private User GetCurrentUser()
@@ -135,5 +173,6 @@ namespace Hermes.View.profile
             ObjectCache Cache = MemoryCache.Default;
             Cache.Add("User", user, DateTime.Now.AddDays(30));
         }
+
     }
 }
