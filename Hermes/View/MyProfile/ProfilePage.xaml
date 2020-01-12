@@ -89,7 +89,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnProfileSignout" Content="Sign Out" Margin="10,549,10,30" Height="30" BorderThickness="5,0,0,0" BorderBrush="#FF06558D" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF89C3EC" VerticalContentAlignment="Top">
+                <Button x:Name="btnProfileSignout" Content="Sign Out" Margin="10,549,10,30" Height="30" BorderThickness="5,0,0,0" BorderBrush="#FF06558D" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FF89C3EC" VerticalContentAlignment="Top" Click="btnProfileSignout_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <LinearGradientBrush.RelativeTransform>

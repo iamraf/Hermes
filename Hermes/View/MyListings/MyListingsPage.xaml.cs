@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -161,6 +162,17 @@ namespace Hermes.View
             txtboxUploadPrice.Text = "";
             txtboxUploadDescription.Text = "";
             //add more..
+        }
+
+        private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
+        {
+            Logout();
+        }
+        private void Logout()
+        {
+            ObjectCache Cache = MemoryCache.Default;
+            if (Cache["User"] != null)
+                Cache.Remove("User");
         }
     }
 }

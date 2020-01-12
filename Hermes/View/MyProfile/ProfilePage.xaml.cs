@@ -232,6 +232,12 @@ namespace Hermes.View
                 Cache.Remove("User");
         }
 
+        private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
+        {
+            Logout();
+        }
+
+
     }
 
 }
