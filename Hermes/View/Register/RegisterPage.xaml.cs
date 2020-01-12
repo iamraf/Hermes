@@ -1,4 +1,5 @@
-﻿using Hermes.View.Register;
+﻿using Hermes.View.home;
+using Hermes.View.Register;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -131,7 +132,7 @@ namespace Hermes.View
             if (_presenter.RegisterUser())
             {
                 MessageBox.Show("Registration complete","Done",MessageBoxButton.OK);
-                this.NavigationService.Navigate(new LoginPage());
+                this.NavigationService.Navigate(new HomeView(true));
             }
                 
         }
@@ -150,12 +151,14 @@ namespace Hermes.View
             comboxRegisterLocationTK.SelectedIndex = 0;
         }
 
+        //Limits textboxes to letters only
         private void txtboxLetterValidation(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^a-zA-Z]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        //Limits textboxes to numbers only
         private void txtboxNumberValidation(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");

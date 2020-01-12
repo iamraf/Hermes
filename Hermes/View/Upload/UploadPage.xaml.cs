@@ -149,22 +149,23 @@ namespace Hermes.View
                 //paymentCard.acti;
                 paymentCard win2 = new paymentCard();
                 win2.ShowDialog();
-                if(win2.returnOk==true)
+                if (win2.returnOk == true)
                     result = System.Windows.MessageBox.Show("Are you sure you want to activate premium?", "Warning", MessageBoxButton.YesNo);
 
             }
-            if (result == MessageBoxResult.Yes) { 
+            if (result == MessageBoxResult.Yes)
+            {
                 bool uploadResult = _presenter.UploadListing(GetTaggedListingName(), price, location.Id, description, subcategory.Id, GetListingType(), (bool)checkboxPremium.IsChecked);
-            if (uploadResult)
-            {
-                System.Windows.MessageBox.Show("Listing uploaded succesfully", "Upload Complete", MessageBoxButton.OK);
-                this.NavigationService.Navigate(new Uri("View/MyListings/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
+                if (uploadResult)
+                {
+                    System.Windows.MessageBox.Show("Listing uploaded succesfully", "Upload Complete", MessageBoxButton.OK);
+                    this.NavigationService.Navigate(new Uri("View/MyListings/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Could not upload listing.\nSQL Error.", "Error", MessageBoxButton.OK);
+                }
             }
-            else
-            {
-                System.Windows.MessageBox.Show("Could not upload listing.\nSQL Error.", "Error", MessageBoxButton.OK);
-            }
-        }
 
         }
 
@@ -213,10 +214,18 @@ namespace Hermes.View
                 ImagePathSrc = null;
         }
 
+        //Limits textboxes to letters only
+        private void txtboxLetterValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^a-zA-Z]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        //Limits textboxes to numbers only
         private void txtboxNumberValidation(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
-            e.Handled = !regex.IsMatch(e.Text);
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
