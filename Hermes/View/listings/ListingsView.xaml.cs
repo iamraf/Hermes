@@ -14,7 +14,6 @@ namespace Hermes.View.listings
         private readonly ListingsPresenter _presenter;
 
         private List<String> _checkedBoxes;
-        private List<Listing> _favorites;
 
         private int selectedListing = -1;
 
@@ -129,14 +128,6 @@ namespace Hermes.View.listings
                 {
                     this.NavigationService.Navigate(new LoginView());
                 }
-            }
-        }
-
-        public List<Listing> Favorites
-        {
-            set
-            {
-                _favorites = value;
             }
         }
 
@@ -463,18 +454,9 @@ namespace Hermes.View.listings
         private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ButtonEnable(true);
-
-            if (_presenter.GetCurrentUser() != null)
+            if (_presenter.IsOnFavorites((Listing)listviewListings.SelectedItem))
             {
-                _presenter.GetFavorites();
-
-                foreach (Listing lis in _favorites)
-                {
-                    if(listviewListings.SelectedItem != null && (listviewListings.SelectedItem as Listing).Id == lis.Id)
-                    {
-                        btnListingSelectedFavorite.IsEnabled = false;
-                    }
-                }
+                btnListingSelectedFavorite.IsEnabled = false;
             }
 
             Listing listing = (Listing)listviewListings.SelectedItem;
