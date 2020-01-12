@@ -9,7 +9,11 @@ using Hermes.Model;
 using MySql.Data.MySqlClient;
 using System.Windows.Media.Imaging;
 using System.IO;
-
+/*
+ * MyListings repository:
+ * MyListings class is responsible for 
+ * getting user's listings from the database
+ */
 namespace Hermes.Model
 {
     class MyListingsRepository

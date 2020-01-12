@@ -2,7 +2,10 @@ using Hermes.Model;
 using Hermes.Model.Models;
 using System.Collections.Generic;
 using System.Runtime.Caching;
-
+/* HistoryPresenter connect view with model classes
+ *  it gets data from the repositories 
+ *  and pass them to view
+ */
 namespace Hermes.View.history
 {
     class HistoryPresenter

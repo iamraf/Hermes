@@ -2,6 +2,11 @@
 using Hermes.Util;
 using MySql.Data.MySqlClient;
 
+/*
+ * Login repository:
+ * LoginRepository class is responsible for 
+ * getting user's data from the database in order to login
+ */
 namespace Hermes.Model
 {
     class LoginRepository

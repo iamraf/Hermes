@@ -5,7 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Caching;
 using System.Windows.Forms;
-
+/* UploadPresenter connect view with model classes
+ *  it gets data from the repositories 
+ *  and pass them to view
+ */
 namespace Hermes.View.upload
 {
     class UploadPresenter
@@ -170,6 +173,18 @@ namespace Hermes.View.upload
                 MessageBox.Show("Could not load image!", "Error");
             }
 
+        }
+
+        public int GetAvailablePremiumListings()
+        {
+            User user = (User)Cache["User"];
+            int remaining=_repository.GetAvailableListingNumber(user.Id);
+            return remaining;
+        }
+        public void DecreasePremiumListings() 
+        {
+            User user = (User)Cache["User"];
+            _repository.DecreaseAvailableListingNumber(user.Id);
         }
 
     }

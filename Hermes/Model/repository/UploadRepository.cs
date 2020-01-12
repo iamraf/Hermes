@@ -3,6 +3,11 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 
+/*
+ * Upload repository:
+ * UploadRepository class is responsible for 
+ * getting and uploading listing data from the sql database
+ */
 namespace Hermes.Model
 {
     class UploadRepository
@@ -42,7 +47,7 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT * FROM SubListing_Categories WHERE CategoryID="+categoryID;
+                string query = "SELECT * FROM SubListing_Categories WHERE CategoryID=" + categoryID;
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -133,7 +138,7 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "INSERT INTO Listings(listingName, listingDescription, activeListing, listingRegion, listViews, subCategoryListing, premiumListing, creationDate, price, types) VALUE ('"+ listingName + "', '"+ listingDescription + "', 1, '"+ listingRegion + "', 0, '"+ subCategoryListing + "', "+premiumListing+", now(), "+price+", "+type+");" +
+                string query = "INSERT INTO Listings(listingName, listingDescription, activeListing, listingRegion, listViews, subCategoryListing, premiumListing, creationDate, price, types) VALUE ('" + listingName + "', '" + listingDescription + "', 1, '" + listingRegion + "', 0, '" + subCategoryListing + "', " + premiumListing + ", now(), " + price + ", " + type + ");" +
                     "SELECT last_insert_id();";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
@@ -163,7 +168,7 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "INSERT INTO Owners_Listings(listingID, ownerID) VALUE ("+listingID+", "+ownerID+")";
+                string query = "INSERT INTO Owners_Listings(listingID, ownerID) VALUE (" + listingID + ", " + ownerID + ")";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -200,7 +205,7 @@ namespace Hermes.Model
                 cmd.Dispose();
 
                 Singleton.GetInstance().CloseConnection();
-                
+
                 if (rowsAffected > 0)
                 {
                     return true;
@@ -214,6 +219,41 @@ namespace Hermes.Model
             {
                 return false;
             }
+        }
+
+        public int GetAvailableListingNumber(int uid)
+        {
+            int result=0;
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = " select User_Data.premiumListingsAvailable " +
+                                " from User_Data " +
+                                " where User_Data.userID = "+uid+";";
+
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader =cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    result = dataReader.GetInt32("premiumListingsAvailable");
+                }
+                    Singleton.GetInstance().CloseConnection();
+            }
+            return result;
+        }
+        public void DecreaseAvailableListingNumber(int uid)
+        { 
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query =  " UPDATE User_Data " +
+                                " SET premiumListingsAvailable =premiumListingsAvailable-1 " +
+                                " WHERE userID = " + uid + ";";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                cmd.ExecuteReader();
+                Singleton.GetInstance().CloseConnection();
+            }
+            
         }
     }
 }

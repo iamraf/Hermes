@@ -15,7 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Hermes.View.buyPremium;
 namespace Hermes.View
 {
     public partial class MainWindow : Window
@@ -56,7 +56,9 @@ namespace Hermes.View
             User user = (User)Cache["User"];
             if (user != null)
             {
-                frameMain.Navigate(new Uri("View/profile/ProfileView.xaml", UriKind.RelativeOrAbsolute));
+                //frameMain.Navigate(new Uri("View/profile/ProfileView.xaml", UriKind.RelativeOrAbsolute));
+                buyPremiumWIndow window = new buyPremiumWIndow();
+                window.ShowDialog();
             }
             else
             {

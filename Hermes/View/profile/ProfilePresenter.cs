@@ -5,6 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Caching;
 using System.Windows;
+/* ProfilePresenter connect view with model classes
+ *  it gets data from the repositories 
+ *  and pass them to view
+ */
 
 namespace Hermes.View.profile
 {

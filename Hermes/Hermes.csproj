@@ -97,6 +97,7 @@
     <Compile Include="Model\repository\HistoryRepository.cs" />
     <Compile Include="Model\repository\MyListingsRepository.cs" />
     <Compile Include="Model\repository\HomeRepository.cs" />
+    <Compile Include="Model\repository\PremiumListingBuyRepository.cs" />
     <Compile Include="Model\repository\ProfileRepository.cs" />
     <Compile Include="Util\HashingHelper.cs" />
     <Compile Include="Model\Singleton.cs" />
@@ -114,6 +115,11 @@
     <Compile Include="Model\models\Tracking.cs" />
     <Compile Include="Model\models\User.cs" />
     <Compile Include="Model\repository\UploadRepository.cs" />
+    <Compile Include="View\buyPremium\buyPremiumPresenter.cs" />
+    <Compile Include="View\buyPremium\buyPremiumWIndow.xaml.cs">
+      <DependentUpon>buyPremiumWIndow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\buyPremium\IbuyPremiumWindow.cs" />
     <Compile Include="View\categories\CategoriesView.xaml.cs">
       <DependentUpon>CategoriesView.xaml</DependentUpon>
     </Compile>
@@ -171,6 +177,10 @@
       <DependentUpon>UploadView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\upload\UploadPresenter.cs" />
+    <Page Include="View\buyPremium\buyPremiumWIndow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\categories\CategoriesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

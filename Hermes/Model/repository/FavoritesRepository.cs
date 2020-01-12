@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media.Imaging;
 
+/*
+ * Favorites Repository:
+ * FavoritesRepository class is responsible for 
+ * getting every listing Favorites page needs from the database
+ */
 namespace Hermes.Model.Models
 {
     class FavoritesRepository

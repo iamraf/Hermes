@@ -3,6 +3,10 @@ using Hermes.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Caching;
+/* ListingsPresenter connect view with model classes
+ *  it gets data from the repositories 
+ *  and pass them to view
+ */
 
 namespace Hermes.View.listings
 {
@@ -22,7 +26,7 @@ namespace Hermes.View.listings
 
         public void GetListings()
         {
-            List<Listing> list = _listingsRepository.GetListings(0, "creationDate");
+            List<Listing> list = _listingsRepository.GetListings(0, "creationDate DESC",-1);
 
             if(list != null && list.Count > 0)
             {
@@ -50,6 +54,16 @@ namespace Hermes.View.listings
             };
         }
 
+        private int SellLooking(int option)
+        {
+            return option switch
+            {
+                1 => 0,
+                2 => 1,
+                _ => -1,
+            };
+        }
+
         public void AddToFavourites(int listingId)
         {
             User user = GetCurrentUser();
@@ -72,9 +86,9 @@ namespace Hermes.View.listings
             }
         }
 
-        public void GetFilteredListings(List<string> catIds, int category, int order)
+        public void GetFilteredListings(List<string> catIds, int category, int order, int type)
         {
-            List<Listing> list = _listingsRepository.FilteredListings(catIds, category, SortListing(order));
+            List<Listing> list = _listingsRepository.FilteredListings(catIds, category, SortListing(order), SellLooking(type));
 
             if (list != null)
             {
@@ -82,31 +96,31 @@ namespace Hermes.View.listings
             }
         }
 
-        public void PriceFilteredListings(List<string> catIds, int priceOption, int category, int order)
+        public void PriceFilteredListings(List<string> catIds, int priceOption, int category, int order, int type)
         {
             switch(priceOption)
             {
                 case 1:
-                    GetPriceFilteredListings(catIds, "<=", 100, category, SortListing(order));
+                    GetPriceFilteredListings(catIds, "<=", 100, category, SortListing(order), SellLooking(type));
                     break;
                 case 2:
-                    GetPriceFilteredListings(catIds, ">", 100, category, SortListing(order));
+                    GetPriceFilteredListings(catIds, ">", 100, category, SortListing(order), SellLooking(type));
                     break;
                 default:
-                    GetPriceFilteredListings(catIds, "=", 0, category, SortListing(order));
+                    GetPriceFilteredListings(catIds, "=", 0, category, SortListing(order), SellLooking(type));
                     break;
             }
         }
 
-        public void DynamicPriceFilteredListings(List<string> catIds, int price, int category, int order)
+        public void DynamicPriceFilteredListings(List<string> catIds, int price, int category, int order, int type)
         {
             
-            GetPriceFilteredListings(catIds, ">=", price, category, SortListing(order));
+            GetPriceFilteredListings(catIds, ">=", price, category, SortListing(order), SellLooking(type));
         }
 
-        private void GetPriceFilteredListings(List<string> catIds, string comparisonOperator, int price, int category, string order)
+        private void GetPriceFilteredListings(List<string> catIds, string comparisonOperator, int price, int category, string order, int type)
         {
-            List<Listing> list = _listingsRepository.PriceFilteredListings(catIds, comparisonOperator, price, category, order);
+            List<Listing> list = _listingsRepository.PriceFilteredListings(catIds, comparisonOperator, price, category, order, type);
 
             if (list != null)
             {
@@ -114,12 +128,12 @@ namespace Hermes.View.listings
             }
         }
 
-        public void DateFilteredListings(List<string> catIds, int dateOption, int category, int order)
+        public void DateFilteredListings(List<string> catIds, int dateOption, int category, int order, int type)
         {
-            GetDateFilteredListings(catIds, GetDateChoice(dateOption), category, SortListing(order));
+            GetDateFilteredListings(catIds, GetDateChoice(dateOption), category, SortListing(order), SellLooking(type));
         }
 
-        public void DateAndPriceFilteredListings(List<string> catIds, int priceOption, bool comboxPrice, int dateOption, int category, int order)
+        public void DateAndPriceFilteredListings(List<string> catIds, int priceOption, bool comboxPrice, int dateOption, int category, int order, int type)
         {
             string date = GetDateChoice(dateOption);
 
@@ -128,19 +142,19 @@ namespace Hermes.View.listings
                 switch (priceOption)
                 {
                     case 1:
-                        GetDateAndPriceFilteredListings(catIds, "<=", 100, date, category, SortListing(order));
+                        GetDateAndPriceFilteredListings(catIds, "<=", 100, date, category, SortListing(order), SellLooking(type));
                         break;
                     case 2:
-                        GetDateAndPriceFilteredListings(catIds, ">", 100, date, category, SortListing(order));
+                        GetDateAndPriceFilteredListings(catIds, ">", 100, date, category, SortListing(order), SellLooking(type));
                         break;
                     default:
-                        GetDateAndPriceFilteredListings(catIds, "=", 0, date, category, SortListing(order));
+                        GetDateAndPriceFilteredListings(catIds, "=", 0, date, category, SortListing(order), SellLooking(type));
                         break;
                 }
             }
             else
             {
-                GetDateAndPriceFilteredListings(catIds, ">=", priceOption, date, category, SortListing(order));
+                GetDateAndPriceFilteredListings(catIds, ">=", priceOption, date, category, SortListing(order), SellLooking(type));
             }
         }
 
@@ -157,9 +171,9 @@ namespace Hermes.View.listings
 
             return date;
         }
-        private void GetDateAndPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, string dateOption, int category, string order)
+        private void GetDateAndPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, string dateOption, int category, string order, int type)
         {
-            List<Listing> list = _listingsRepository.GetDateAndPriceFilteredListings(catIds, comparisonOperator, price, dateOption, category, order);
+            List<Listing> list = _listingsRepository.GetDateAndPriceFilteredListings(catIds, comparisonOperator, price, dateOption, category, order, type);
             
             if (list != null)
             {
@@ -167,9 +181,9 @@ namespace Hermes.View.listings
             }
         }
 
-        private void GetDateFilteredListings(List<string> catIds, string dateOption, int category, string order)
+        private void GetDateFilteredListings(List<string> catIds, string dateOption, int category, string order, int type)
         {
-            List<Listing> list = _listingsRepository.GetDateFilteredListings(catIds, dateOption, category, order);
+            List<Listing> list = _listingsRepository.GetDateFilteredListings(catIds, dateOption, category, order, type);
 
             if (list != null)
             {
@@ -192,9 +206,9 @@ namespace Hermes.View.listings
             }
         }
 
-        public void ChangeCategory(int category, int order)
+        public void ChangeCategory(int category, int order, int type)
         {
-            List<Listing> list = _listingsRepository.GetListings(category, SortListing(order));
+            List<Listing> list = _listingsRepository.GetListings(category, SortListing(order), SellLooking(type));
 
             if (list != null)
             {
