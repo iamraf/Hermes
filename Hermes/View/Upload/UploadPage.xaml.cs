@@ -1,6 +1,7 @@
 ﻿using Hermes.Model;
 using Hermes.Model.Models;
 using System;
+using Hermes.View;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -133,16 +134,30 @@ namespace Hermes.View
 
         private void btnUploadUpload_Click(object sender, RoutedEventArgs e)
         {
-            bool result = _presenter.UploadListing(GetTaggedListingName(), price, location.Id, description, subcategory.Id, GetListingType());
-            if (result)
+            MessageBoxResult result = MessageBoxResult.Yes;
+            if (checkboxPremium.IsChecked == true)
+            {
+                //starting popupwindow
+                //paymentCard.acti;
+                paymentCard win2 = new paymentCard();
+                win2.ShowDialog();
+                if(win2.returnOk==true)
+                    result = System.Windows.MessageBox.Show("Are you sure you want to activate premium?", "Warning", MessageBoxButton.YesNo);
+
+            }
+            if (result == MessageBoxResult.Yes) { 
+                bool uploadResult = _presenter.UploadListing(GetTaggedListingName(), price, location.Id, description, subcategory.Id, GetListingType(), (bool)checkboxPremium.IsChecked);
+            if (uploadResult)
             {
                 System.Windows.MessageBox.Show("Listing uploaded succesfully", "Upload Complete", MessageBoxButton.OK);
                 this.NavigationService.Navigate(new Uri("View/MyListings/MyListingsPage.xaml", UriKind.RelativeOrAbsolute));
             }
             else
             {
-                System.Windows.MessageBox.Show("Could not upload listing.\nSQL Error.","Error",MessageBoxButton.OK);
+                System.Windows.MessageBox.Show("Could not upload listing.\nSQL Error.", "Error", MessageBoxButton.OK);
             }
+        }
+
         }
 
         private string GetTaggedListingName()
