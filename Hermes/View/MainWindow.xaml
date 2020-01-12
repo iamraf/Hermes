@@ -53,7 +53,7 @@
                 Width="24" />
         </Button>
         <Expander x:Name="expMyAccountDropdown" Header="My Account" Margin="1064,17,50,388" Grid.RowSpan="2" Foreground="#FF06558D" Background="{x:Null}" Visibility="Visible" FontSize="18" BorderBrush="#FF06558D">
-            <Grid x:Name="gridMyAccountDropdown" Height="247" Background="#FFD8EAF8" VerticalAlignment="Bottom" Margin="9,6,28,0">
+            <Grid x:Name="gridMyAccountDropdown" Height="238" Background="#FFD8EAF8" VerticalAlignment="Bottom" Margin="9,6,28,0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
