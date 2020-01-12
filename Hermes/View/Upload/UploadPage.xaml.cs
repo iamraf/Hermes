@@ -22,6 +22,7 @@ using System.IO;
 using Microsoft.Win32;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace Hermes.View
 {
@@ -68,7 +69,14 @@ namespace Hermes.View
         {
             get
             {
-                return float.Parse(txtboxUploadPrice.Text, CultureInfo.InvariantCulture);
+                try
+                {
+                    return float.Parse(txtboxUploadPrice.Text, CultureInfo.InvariantCulture);
+                }
+                catch (Exception ex)
+                {
+                    return 0;
+                }
             }
         }
 

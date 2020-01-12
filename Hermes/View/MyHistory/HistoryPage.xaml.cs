@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -136,6 +137,18 @@ namespace Hermes.View
                 var url = "mailto:" + (string)uploader.Email + "?Subject=Interested on this item: " + listing.Name;
                 Process.Start(url);
             }
+        }
+
+        private void btnProfileSignout_Click(object sender, RoutedEventArgs e)
+        {
+            Logout();
+        }
+
+        private void Logout()
+        {
+            ObjectCache Cache = MemoryCache.Default;
+            if (Cache["User"] != null)
+                Cache.Remove("User");
         }
     }
 }
