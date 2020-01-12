@@ -13,20 +13,23 @@ namespace Hermes.View
     {
         private readonly ListingsPresenter _presenter;
         private List<String> _checkedBoxes;
+        private List<Listing> favorites;
 
         public ListingsView()
         {
             InitializeComponent();
 
-            ButtonEnable(false);
-
             _presenter = new ListingsPresenter(this);
 
             _presenter.GetListings();
 
+            _presenter.GetFavorites();
+
             _checkedBoxes = new List<string>();
 
             comboxCategories.SelectedIndex = 0;
+
+            ButtonEnable(false);
         }
 
         public ListingsView(string search)
@@ -87,6 +90,14 @@ namespace Hermes.View
             }
         }
 
+        public List<Listing> Favorites
+        {
+            set
+            {
+                favorites = value;
+            }
+        }
+
         private void comboxListingsSortBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(_presenter != null)
@@ -113,6 +124,7 @@ namespace Hermes.View
         private void BtnListingSelectedFavorite_Click(object sender, RoutedEventArgs e)
         {
             _presenter.AddToFavourites(((Listing) listviewListings.SelectedItem).Id);
+            btnListingSelectedFavorite.IsEnabled = false;
         }
 
         private void btnListingSelectedContact_Click(object sender, RoutedEventArgs e)
@@ -129,7 +141,14 @@ namespace Hermes.View
 
         private void ButtonEnable(bool action)
         {
-            btnListingSelectedFavorite.IsEnabled = action;
+            if (_presenter.GetCurrentUser() != null)
+            {
+                btnListingSelectedFavorite.IsEnabled = action;
+            }
+            else
+            {
+                btnListingSelectedFavorite.IsEnabled = false;
+            }
             btnListingSelectedContact.IsEnabled = action;
         }
 
@@ -408,6 +427,17 @@ namespace Hermes.View
         private void listviewListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ButtonEnable(true);
+            if (_presenter.GetCurrentUser() != null)
+            {
+                _presenter.GetFavorites();
+                foreach (Listing lis in favorites)
+                {
+                    if((listviewListings.SelectedItem as Listing).Id == lis.Id)
+                    {
+                        btnListingSelectedFavorite.IsEnabled = false;
+                    }
+                }
+            }
 
             Listing listing = (Listing)listviewListings.SelectedItem;
 
@@ -424,6 +454,13 @@ namespace Hermes.View
                     lblListingSelectedUploader.Content = uploader.Name + " " + uploader.Surname;
                     lblListingSelectedContactInfoEmail1.Content = "Telephone: " + uploader.Telephone;
                     lblListingSelectedContactInfoEmail.Content = "Email: " + uploader.Email;
+                }
+                else
+                {
+                    lblListingSelectedUploader.Content = "-";
+                    lblListingSelectedContactInfoEmail1.Content = "Telephone: - ";
+                    lblListingSelectedContactInfoEmail.Content = "Email: - ";
+                    btnListingSelectedContact.IsEnabled = false;
                 }
 
                 _presenter.IncreaseView(listing.Id);

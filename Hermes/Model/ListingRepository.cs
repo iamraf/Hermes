@@ -110,9 +110,42 @@ namespace Hermes.Model
 
         public void AddToFavourite(Favourite favourite)
         {
+            DeleteFromFavorite(favourite);
             if(Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "INSERT INTO User_Favorites (listingID, userID) VALUE ('" + favourite.ListingId + "', '" + favourite.UserId + "')";
+                string query = "INSERT INTO User_Favorites (listingID, userID, date) VALUE ('" + favourite.ListingId + "', '" + favourite.UserId + "', now())";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+
+
+            }
+        }
+
+        public void DeleteFromFavorite(Favourite favourite) //delete all repetitive rows
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "DELETE FROM User_Favorites WHERE userID=" + favourite.UserId + " AND listingID=" + favourite.ListingId;
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+            }
+        }
+
+        public void DeleteAllFromFavorite(Favourite favourite) //delete all user history
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "DELETE FROM User_Favorites WHERE userID=" + favourite.UserId;
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -449,9 +482,40 @@ namespace Hermes.Model
 
         public void AddToHistory(int listingId, int userId)
         {
+            DeleteFromHistory(listingId, userId);
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "INSERT INTO View_history (listingID, userID) VALUE ('" + listingId + "', '" + userId + "')";
+                string query = "INSERT INTO View_history (listingID, userID, date) VALUE ('" + listingId + "', '" + userId + "', now())";
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+            }
+        }
+
+        private void DeleteFromHistory(int listingId, int userId) //delete all repetitive rows
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "DELETE FROM View_history WHERE userID=" + userId + " AND listingID=" + listingId;
+
+                MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                dataReader.Close();
+
+                Singleton.GetInstance().CloseConnection();
+            }
+        }
+
+        public void DeleteFromHistory(int userId) //delete all user history
+        {
+            if (Singleton.GetInstance().OpenConnection() == true)
+            {
+                string query = "DELETE FROM View_history WHERE userID=" + userId;
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();

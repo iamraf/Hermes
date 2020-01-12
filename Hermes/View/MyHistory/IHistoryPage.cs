@@ -10,5 +10,6 @@ namespace Hermes.View.MyHistory
     interface IHistoryPage
     {
         List<Listing> Listings { set; }
+        List<Listing> Favorites { set; }
     }
 }
