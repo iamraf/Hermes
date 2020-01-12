@@ -9,19 +9,20 @@ namespace Hermes.View.listings
     class ListingsPresenter
     {
         private readonly IListingsView _view;
-        private readonly ListingRepository _repository;
-        private readonly MyFavoritesRepository _MFRepository;
+        private readonly ListingRepository _listingsRepository;
+        private readonly FavoritesRepository _favouritesRepository;
 
         public ListingsPresenter(IListingsView view)
         {
             _view = view;
-            _repository = new ListingRepository();
-            _MFRepository = new MyFavoritesRepository();
+
+            _listingsRepository = new ListingRepository();
+            _favouritesRepository = new FavoritesRepository();
         }
 
         public void GetListings()
         {
-            List<Listing> list = _repository.GetListings(0, "creationDate");
+            List<Listing> list = _listingsRepository.GetListings(0, "creationDate");
 
             if(list != null && list.Count > 0)
             {
@@ -31,7 +32,7 @@ namespace Hermes.View.listings
 
         public User GetUploader(int id)
         {
-            return _repository.GetUploader(id);
+            return _listingsRepository.GetUploader(id);
         }
 
         public User GetCurrentUser()
@@ -41,18 +42,12 @@ namespace Hermes.View.listings
 
         private String SortListing(int option)
         {
-            switch(option)
+            return option switch
             {
-                case 1:
-                    return "price";
-                    break;
-                case 2:
-                    return "listViews DESC";
-                    break;
-                default:
-                    return "creationDate DESC";
-                    break;
-            }
+                1 => "price",
+                2 => "listViews DESC",
+                _ => "creationDate DESC",
+            };
         }
 
         public void AddToFavourites(int listingId)
@@ -63,13 +58,13 @@ namespace Hermes.View.listings
             {
                 Favourite favourite = new Favourite(listingId, user.Id);
 
-                _repository.AddToFavourite(favourite);
+                _listingsRepository.AddToFavourite(favourite);
             }
         }
 
         public void GetSearchResults(string query)
         {
-            List<Listing> list = _repository.GetSearchResult(query);
+            List<Listing> list = _listingsRepository.GetSearchResult(query);
 
             if (list != null)
             {
@@ -79,7 +74,7 @@ namespace Hermes.View.listings
 
         public void GetFilteredListings(List<string> catIds, int category, int order)
         {
-            List<Listing> list = _repository.FilteredListings(catIds, category, SortListing(order));
+            List<Listing> list = _listingsRepository.FilteredListings(catIds, category, SortListing(order));
 
             if (list != null)
             {
@@ -89,7 +84,7 @@ namespace Hermes.View.listings
 
         public void PriceFilteredListings(List<string> catIds, int priceOption, int category, int order)
         {
-            switch (priceOption)
+            switch(priceOption)
             {
                 case 1:
                     GetPriceFilteredListings(catIds, "<=", 100, category, SortListing(order));
@@ -111,7 +106,7 @@ namespace Hermes.View.listings
 
         private void GetPriceFilteredListings(List<string> catIds, string comparisonOperator, int price, int category, string order)
         {
-            List<Listing> list = _repository.PriceFilteredListings(catIds, comparisonOperator, price, category, order);
+            List<Listing> list = _listingsRepository.PriceFilteredListings(catIds, comparisonOperator, price, category, order);
 
             if (list != null)
             {
@@ -127,6 +122,7 @@ namespace Hermes.View.listings
         public void DateAndPriceFilteredListings(List<string> catIds, int priceOption, bool comboxPrice, int dateOption, int category, int order)
         {
             string date = GetDateChoice(dateOption);
+
             if (comboxPrice)
             {
                 switch (priceOption)
@@ -150,32 +146,20 @@ namespace Hermes.View.listings
 
         private string GetDateChoice(int dateOption)
         {
-            string date = "";
-
-            switch (dateOption)
+            var date = dateOption switch
             {
-                case 1:
-                    date = "DAY";
-                    break;
-                case 2:
-                    date = "WEEK";
-                    break;
-                case 3:
-                    date = "MONTH";
-                    break;
-                case 4:
-                    date = "YEAR";
-                    break;
-                default:
-                    date = "HOUR";
-                    break;
-            }
+                1 => "DAY",
+                2 => "WEEK",
+                3 => "MONTH",
+                4 => "YEAR",
+                _ => "HOUR",
+            };
 
             return date;
         }
         private void GetDateAndPriceFilteredListings(List<string> catIds, string comparisonOperator, float price, string dateOption, int category, string order)
         {
-            List<Listing> list = _repository.GetDateAndPriceFilteredListings(catIds, comparisonOperator, price, dateOption, category, order);
+            List<Listing> list = _listingsRepository.GetDateAndPriceFilteredListings(catIds, comparisonOperator, price, dateOption, category, order);
             
             if (list != null)
             {
@@ -185,7 +169,7 @@ namespace Hermes.View.listings
 
         private void GetDateFilteredListings(List<string> catIds, string dateOption, int category, string order)
         {
-            List<Listing> list = _repository.GetDateFilteredListings(catIds, dateOption, category, order);
+            List<Listing> list = _listingsRepository.GetDateFilteredListings(catIds, dateOption, category, order);
 
             if (list != null)
             {
@@ -195,7 +179,7 @@ namespace Hermes.View.listings
 
         public void IncreaseView(int id)
         {
-            _repository.IncreaseView(id);
+            _listingsRepository.IncreaseView(id);
         }
 
         public void AddToHistory(int listingId)
@@ -204,13 +188,13 @@ namespace Hermes.View.listings
 
             if(user != null)
             {
-                _repository.AddToHistory(listingId, user.Id);
+                _listingsRepository.AddToHistory(listingId, user.Id);
             }
         }
 
         public void ChangeCategory(int category, int order)
         {
-            List<Listing> list = _repository.GetListings(category, SortListing(order));
+            List<Listing> list = _listingsRepository.GetListings(category, SortListing(order));
 
             if (list != null)
             {
@@ -222,10 +206,11 @@ namespace Hermes.View.listings
         {
             if (category != 0)
             {
-                List<SubCategory> subCategories = _repository.GetSubcategoriesFromSpecificCategory(category);
+                List<SubCategory> subCategories = _listingsRepository.GetSubcategoriesFromSpecificCategory(category);
 
                 return subCategories;
             }
+
             return null;
         }
 
@@ -233,7 +218,8 @@ namespace Hermes.View.listings
         {
             if (GetCurrentUser() != null)
             {
-                List<Listing> favorites = _MFRepository.GetListings(GetCurrentUser().Id);
+                List<Listing> favorites = _favouritesRepository.GetFavouriteListings(GetCurrentUser().Id);
+
                 if (favorites != null)
                 {
                     _view.Favorites = favorites;
@@ -243,7 +229,6 @@ namespace Hermes.View.listings
                     _view.Favorites = null;
                 }
             }
-            
         }
     }
 }

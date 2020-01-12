@@ -1,4 +1,4 @@
-﻿<Page x:Class="Hermes.View.ListingsView"
+﻿<Page x:Class="Hermes.View.listings.ListingsView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListingsPage" Width="1272" Height="630">
     <Canvas Margin="48,34,0,0">
-        <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/View/Images/Background3.png" Canvas.Left="-46" Canvas.Top="-34"/>
+        <Image x:Name="imgBackground" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/Images/Background3.png" Canvas.Left="-46" Canvas.Top="-34"/>
         <Grid x:Name="gridListings" Width="1074" Height="630" Canvas.Left="152" Canvas.Top="-34">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MinWidth="400" Width="5*"/>
@@ -101,9 +101,8 @@
             <Label Content="Categories&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="10,133,10,468" FontSize="14" Background="#19000000" Height="30"/>
             <Slider x:Name="slidListingsPriceCustom" Width="156" HorizontalAlignment="Center" VerticalAlignment="Center" AutoToolTipPlacement="BottomRight" Maximum="500" SmallChange="1" LargeChange="10" TickPlacement="BottomRight" TickFrequency="50" Value="-1" Cursor="Arrow" Background="{x:Null}" IsEnabled="False" Margin="34,361,10,239" Height="30" />
             <Label Content="Date Uploaded&#xA;" HorizontalContentAlignment="Center" Foreground="#FF06558D" Margin="10,411,10,189" FontSize="14" Background="#1C000000"/>
-            <RadioButton x:Name="radbtnListingsDatePick" Content="" BorderBrush="#FF89C3EC" BorderThickness="2" Background="{x:Null}" Checked="radbtnListingsDatePick_Checked" Unchecked="radbtnListingsDatePick_Unchecked" Margin="10,445,168,167"/>
             <Label x:Name="labelCancelDateRanges" Content="Cancel" HorizontalContentAlignment="Center" Foreground="#FF89C3EC" FontStyle="Italic" FontWeight="Bold" MouseLeftButtonDown="labelCancelDateRanges_MouseLeftButtonDown" Margin="0,413,145,187" Visibility="Hidden"/>
-            <ComboBox x:Name="comboxListingsDatePick" Width="156" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="#FFACACAC" SelectionChanged="comboxListingsDatePick_SelectionChanged" IsEnabled="False" Margin="34,439,10,162" Height="29">
+            <ComboBox x:Name="comboxListingsDatePick" Width="180" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" BorderBrush="#FFACACAC" SelectionChanged="comboxListingsDatePick_SelectionChanged" Margin="10,439,10,162" Height="29">
                 <ComboBoxItem Content="Last hour" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last day" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem Content="Last week" HorizontalAlignment="Left" Width="138"/>
@@ -123,8 +122,6 @@
                 <ComboBoxItem x:Uid="9" Content="Vehicles" HorizontalAlignment="Left" Width="138"/>
                 <ComboBoxItem x:Uid="10" Content="Beauty" HorizontalAlignment="Left" Width="138"/>
             </ComboBox>
-            <RadioButton x:Name="radbtnListingsDatePick2" Content="" BorderBrush="#FF89C3EC" BorderThickness="2" Background="{x:Null}" Checked="radbtnListingsDatePick2_Checked" Unchecked="radbtnListingsDatePick2_Unchecked" Margin="10,483,168,129"/>
-            <DatePicker x:Name="datePicker" IsEnabled="False" Margin="34,479,10,126"/>
             <Label Content="Sort by" Margin="50,1,50,594" Width="100" FontSize="18" HorizontalContentAlignment="Center" Height="35"/>
             <ComboBox x:Name="comboxListingsSortBy" Margin="10,36,10,569" Height="25" SelectionChanged="comboxListingsSortBy_SelectionChanged" VerticalAlignment="Stretch" Background="#19FFFFFF">
                 <ComboBoxItem IsSelected="True" Content="Date"/>

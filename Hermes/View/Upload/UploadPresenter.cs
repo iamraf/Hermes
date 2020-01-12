@@ -1,41 +1,38 @@
 ﻿using Hermes.Model;
 using Hermes.Model.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Caching;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media.Imaging;
 
-namespace Hermes.View.Upload
+namespace Hermes.View.upload
 {
     class UploadPresenter
     {
-        private readonly UploadListingRepository _repository;
-        private readonly IUploadPage _view;
+        private readonly UploadRepository _repository;
+        private readonly IUploadView _view;
+
         private List<Category> _categories;
         private List<SubCategory> _subCategories;
         private List<Location> _locations;
         private readonly ObjectCache Cache;
 
-        public UploadPresenter(IUploadPage view)
+        public UploadPresenter(IUploadView view)
         {
             _view = view;
-            _repository = new UploadListingRepository();
+            _repository = new UploadRepository();
             Cache = MemoryCache.Default;
             User user = (User)Cache["User"];
             GetCategories();
-            GetLocations();           
+            GetLocations();
 
         }
 
         public void GetCategories()
         {
             List<Category> list = _repository.GetCategories();
-            if(list!=null && list.Count > 0)
+            if (list != null && list.Count > 0)
             {
                 _categories = list;
             }
@@ -118,7 +115,7 @@ namespace Hermes.View.Upload
             return null;
         }
 
-        public bool UploadListing(string name, float price, int location, string description, int subcategory, bool type,bool premium)
+        public bool UploadListing(string name, float price, int location, string description, int subcategory, bool type, bool premium)
         {
             int listingId = _repository.UploadListing(name, description, location, subcategory, premium, price, type);
 
@@ -133,13 +130,13 @@ namespace Hermes.View.Upload
             {
                 return false;
             }
-            
+
         }
 
         public Location GetMyHomeLocation()
         {
             User user = (User)Cache["User"];
-            foreach(Location loc in _locations)
+            foreach (Location loc in _locations)
             {
                 if (loc.Tk == int.Parse(user.Address))
                 {
@@ -163,7 +160,7 @@ namespace Hermes.View.Upload
                 ImageData = br.ReadBytes((int)fs.Length);
                 br.Close();
                 fs.Close();
-                if(_repository.UploadImage(listingId, ImageData)==false)
+                if (_repository.UploadImage(listingId, ImageData) == false)
                 {
                     MessageBox.Show("Could not upload image!", "Error");
                 }
@@ -172,7 +169,7 @@ namespace Hermes.View.Upload
             {
                 MessageBox.Show("Could not load image!", "Error");
             }
-            
+
         }
 
     }
