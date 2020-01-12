@@ -17,7 +17,7 @@ namespace Hermes.Model
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT DISTINCT * FROM Listings L left outer join Listings_Icons on Listings_Icons.listingID=L.listingID JOIN View_history VH ON L.listingID = VH.ListingID WHERE VH.userID=" + userId;
+                string query = "SELECT DISTINCT * FROM View_history VH JOIN Listings L ON L.listingID = VH.ListingID left outer join Listings_Icons on Listings_Icons.listingID=L.listingID WHERE VH.userID=" + userId + " ORDER BY VH.date DESC";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -28,9 +28,9 @@ namespace Hermes.Model
                 {
                     Listing tmp = new Listing(dataReader.GetInt32("listingID"), dataReader.GetString("listingName"), dataReader.GetString("listingDescription"), Convert.ToBoolean(dataReader.GetInt32("activeListing")), dataReader.GetInt32("listingRegion"), dataReader.GetInt32("listViews"), dataReader.GetInt32("subCategoryListing"), Convert.ToBoolean(dataReader.GetInt16("premiumListing")), dataReader.GetDateTime("creationDate"), dataReader.GetInt32("price"));
 
-                    if (!dataReader.IsDBNull(12))
+                    if (!dataReader.IsDBNull(15))
                     {
-                        byte[] b = (byte[])dataReader.GetValue(12);
+                        byte[] b = (byte[])dataReader.GetValue(15);
 
                         var bitmapImage = new BitmapImage();
                         bitmapImage.BeginInit();
