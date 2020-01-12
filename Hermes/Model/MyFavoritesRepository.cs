@@ -16,7 +16,7 @@ namespace Hermes.Model.Models
         {
             if (Singleton.GetInstance().OpenConnection() == true)
             {
-                string query = "SELECT DISTINCT * FROM Listings L left outer join Listings_Icons on Listings_Icons.listingID=L.listingID JOIN User_Favorites UF ON L.listingID = UF.ListingID WHERE UF.userID=" + userId;
+                string query = "SELECT DISTINCT * FROM Listings L left outer join Listings_Icons on Listings_Icons.listingID=L.listingID JOIN User_Favorites UF ON L.listingID = UF.ListingID WHERE UF.userID=" + userId + " ORDER BY UF.date DESC";
 
                 MySqlCommand cmd = new MySqlCommand(query, Singleton.GetInstance().GetConnection());
                 MySqlDataReader dataReader = cmd.ExecuteReader();
