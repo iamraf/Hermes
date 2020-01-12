@@ -19,31 +19,32 @@ namespace Hermes.Model
             List<HistoryList> history = GetViewHistory(user);
 
             int ViewedCat = history.Count;
-            int[] count;
-
-            if (ViewedCat <= 2)
+            int[] count = new int[3]; 
+            if (ViewedCat >0)
             {
-                count = new int[3];
-                for (int i = 0; i < 2; i++)
+                if (ViewedCat <= 2)
                 {
-                    count[i] = history[i].Category;
-                }
-                for (int i = ViewedCat; i < 3; i++)
-                {
-                    count[i] = count[1];
-                }
-                
-            }
-            else
-            {
-                count = new int[3];
+                    //count = new int[3];
+                    for (int i = 0; i < 2; i++)
+                    {
+                        count[i] = history[i].Category;
+                    }
+                    for (int i = ViewedCat; i < 3; i++)
+                    {
+                        count[i] = count[1];
+                    }
 
-                for (int i = 0; i < 3; i++)
+                }
+                else
                 {
-                    count[i] = history[i].Category;
+                    count = new int[3];
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        count[i] = history[i].Category;
+                    }
                 }
             }
-
             return GetListingsByCategories(count);
         }
 

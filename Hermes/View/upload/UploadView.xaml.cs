@@ -36,6 +36,7 @@ namespace Hermes.View.upload
             //---------------------------------------
 
             radbtnUploadSell.IsChecked = true;
+            lblPremiumLeft.Content = _presenter.GetAvailablePremiumListings(); ;
         }
 
         public string name
