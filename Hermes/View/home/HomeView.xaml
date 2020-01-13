@@ -74,7 +74,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Rectangle x:Name="rectangleOverlay" Fill="#F2020A0E" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Visibility="Collapsed"/>
         <TextBlock x:Name="txtblockNotLoggedIn" HorizontalAlignment="Left" Margin="740,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="124" Width="411" Foreground="#B26990AC" Background="#00000000" FontSize="16" FontFamily="Segoe UI Semilight" TextAlignment="Center"><Run Text="This place is empty because you are not logged in."/><LineBreak/><Run/><LineBreak/><Run Text="Click on the Log In tab and create an account to view recommended items, save your favorite listings, upload ads and join the Hermes community"/></TextBlock>
         <Button x:Name="btnAllItems" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="View All" Margin="876,325,268,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Height="30" BorderBrush="#FFFF9800" BorderThickness="0,0,0,3" Background="#FFFFF2E0" Foreground="Black" VerticalContentAlignment="Top" FontWeight="Normal" Click="btnAllItems_Click"/>
         <Label Content="Technology" HorizontalAlignment="Left" Margin="148,488,0,0" VerticalAlignment="Top" Width="100" Background="#FF226BC3" Foreground="#DDFFFFFF" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Semilight"/>
@@ -83,23 +82,24 @@
         <Label Content="Auto &amp; Moto" HorizontalAlignment="Left" Margin="680,488,0,0" VerticalAlignment="Top" Width="100" Background="#FF62757F" Foreground="#DDFFFFFF" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Semilight"/>
         <Label Content="Sports" HorizontalAlignment="Left" Margin="862,488,0,0" VerticalAlignment="Top" Width="100" Background="#FFC8A415" Foreground="#DDFFFFFF" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Semilight"/>
         <Label Content="Hobby" HorizontalAlignment="Left" Margin="1034,488,0,0" VerticalAlignment="Top" Width="100" Background="#FFC77800" Foreground="#DDFFFFFF" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Semilight"/>
-        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="148,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}"/>
-        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="318,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}"/>
-        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="504,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}"/>
-        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="680,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}"/>
-        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="862,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}"/>
-        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="1034,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}"/>
-        <Image x:Name="imgOverlay" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/Images/helpoverlay1.png" Visibility="Collapsed"/>
+        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="148,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}" Click="Button_Click"/>
+        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="318,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}" Click="Button_Click_1"/>
+        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="504,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}" Click="Button_Click_2"/>
+        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="680,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}" Click="Button_Click_3"/>
+        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="862,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}" Click="Button_Click_4"/>
+        <Button Content="" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" HorizontalAlignment="Left" Margin="1034,452,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#02FFFFFF" BorderBrush="{x:Null}" Click="Button_Click_5"/>
+        <Rectangle x:Name="rectangleOverlay" Fill="#F2020A0E" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Visibility="Collapsed"/>
         <Button x:Name="btnNoAction"
               Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
               Visibility="Collapsed"
               materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0"
-              ToolTip="Help" Margin="1163,253,79,347" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF06558D" Height="30" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+              ToolTip="Help" Margin="1162,251,80,349" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF06558D" Height="30" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <materialDesign:PackIcon
                 Kind="HelpCircleOutline"
                 Height="30"
                 Width="30" />
         </Button>
         <Button x:Name="btnCloseOverlay" Content="Close"  materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="598,303,598,295" Width="76" Background="#CCFFFFFF" BorderThickness="0,0,0,3" Click="btnCloseOverlay_Click" Visibility="Collapsed"/>
+        <Image x:Name="imgOverlay" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/Images/helpoverlay1.png" Visibility="Collapsed"/>
     </Grid>
 </Page>
