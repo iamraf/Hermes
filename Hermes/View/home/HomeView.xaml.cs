@@ -101,41 +101,5 @@ namespace Hermes.View.home
         {
             this.NavigationService.Navigate(new ListingsView(true));
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-                        this.NavigationService.Navigate(new ListingsView(4,1));
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new ListingsView(4, 2));
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new ListingsView(4, 3));
-
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new ListingsView(4, 9));
-
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new ListingsView(4, 6));
-
-        }
-
-        private void Button_Click_5(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new ListingsView(4, 7));
-
-        }
     }
 }

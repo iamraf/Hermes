@@ -8,7 +8,7 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         xmlns:local="clr-namespace:Hermes.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" ResizeMode="CanMinimize" BorderThickness="0" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="MainWindow" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" ResizeMode="CanMinimize" BorderThickness="0" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="/Hermes;component/Images/logoicon.jpg">
     <Grid x:Name="gridMain" Margin="0" Background="#FF2A6EB2">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -53,16 +53,15 @@
                 Width="24" />
         </Button>
         <Expander x:Name="expMyAccountDropdown" Header="My Account" Margin="1080,17,34,388" Grid.RowSpan="2" Foreground="White" Background="{x:Null}" Visibility="Visible" FontSize="18" BorderBrush="White">
-            <Grid x:Name="gridMyAccountDropdown" Height="238" Background="#FF2A6EB2" VerticalAlignment="Bottom" Margin="9,6,28,0">
+            <Grid x:Name="gridMyAccountDropdown" Height="197" Background="#FF2A6EB2" VerticalAlignment="Bottom" Margin="9,7,28,0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Button x:Name="btnDropdownHistory" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="History" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="White" Foreground="#FF06558D" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownHistory_Click" Background="#BCFFFFFF" FontFamily="Segoe UI Light"/>
                 <Button x:Name="btnDropdownFavorites" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Favorites" HorizontalAlignment="Left" Margin="0,82,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="White" Foreground="#FF06558D" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownFavorites_Click" Background="#BCFFFFFF" FontFamily="Segoe UI Light"/>
                 <Button x:Name="btnDropdownMyListings" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Listings" HorizontalAlignment="Left" Margin="0,122,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="White" Foreground="#FF06558D" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownMyListings_Click" Background="#BCFFFFFF" FontFamily="Segoe UI Light"/>
-                <Button x:Name="btnDropdownSignOut" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" HorizontalAlignment="Left" Margin="0,202,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF7B1FA2" Foreground="#FF7B1FA2" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownSignOut_Click" Background="#E5EFCAFF" FontFamily="Segoe UI Light"/>
+                <Button x:Name="btnDropdownSignOut" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Sign Out" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="#FF7B1FA2" Foreground="#FF7B1FA2" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownSignOut_Click" Background="#E5EFCAFF" FontFamily="Segoe UI Light"/>
                 <Button x:Name="btnDropdownProfile" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="My Profile" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="White" Foreground="#FF06558D" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownProfile_Click" Background="#BCFFFFFF" FontFamily="Segoe UI Light"/>
-                <Button x:Name="btnDropdownPremium" materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Content="Premium" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="128" Height="35" BorderBrush="White" Foreground="#FF06558D" BorderThickness="4,0,0,0" FontSize="18" Click="btnDropdownPremium_Click" Background="#BCFFFFFF" FontFamily="Segoe UI Light"/>
             </Grid>
         </Expander>
         <Image HorizontalAlignment="Left" Height="74" VerticalAlignment="Top" Width="200" Margin="3,3,0,0" Source="/Hermes;component/Images/logowhite.png"/>
