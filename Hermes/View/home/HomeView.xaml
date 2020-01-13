@@ -99,7 +99,7 @@
                 Height="30"
                 Width="30" />
         </Button>
-        <Button x:Name="btnCloseOverlay" Content="Close"  materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="598,303,598,295" Width="76" Background="#CCFFFFFF" BorderThickness="0,0,0,3" Click="btnCloseOverlay_Click" Visibility="Collapsed"/>
         <Image x:Name="imgOverlay" HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="1272" Source="/Hermes;component/Images/helpoverlay1.png" Visibility="Collapsed"/>
+        <Button x:Name="btnCloseOverlay" Content="Close"  materialDesign:ButtonAssist.CornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth0" Margin="598,303,598,295" Width="76" Background="#CCFFFFFF" BorderThickness="0,0,0,3" Click="btnCloseOverlay_Click" Visibility="Collapsed"/>
     </Grid>
 </Page>
