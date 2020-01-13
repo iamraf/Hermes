@@ -104,7 +104,7 @@ namespace Hermes.View.home
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-                        this.NavigationService.Navigate(new ListingsView(4,1));
+            this.NavigationService.Navigate(new ListingsView(4, 1));
 
         }
 

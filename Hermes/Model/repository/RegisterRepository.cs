@@ -70,7 +70,7 @@ namespace Hermes.Model
             dataReader.Dispose();
             cmd.Dispose();
 
-            Singleton.GetInstance().CloseConnection();
+            
 
             return result;
         }
