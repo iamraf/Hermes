@@ -337,6 +337,7 @@
     <Resource Include="Images\sports.png" />
     <Resource Include="Images\technology.png" />
     <Resource Include="Images\whitepages.png" />
+    <Resource Include="Images\logoicon.jpg" />
     <Content Include="packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll" />
     <Content Include="packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll" />
     <Resource Include="Images\Background3.png" />
